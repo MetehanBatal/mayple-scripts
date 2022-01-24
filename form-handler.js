@@ -14,12 +14,21 @@ let formHandlerHench = {
 			forms.forEach(function(form) {
 				let lpSourceInput = document.createElement('input');
 				lpSourceInput.type = 'text';
+				lpSourceInput.className = 'hidden';
 				lpSourceInput.id = 'lp_traffic_source';
 				form.appendChild(lpSourceInput);
 
 				lpSourceInput.value = pagePath.replace('/lp/', '');
 			});
 		}
+	},
+
+	getUTMFields: function() {
+		const params = new Proxy(new URLSearchParams(window.location.search), {
+			get: (searchParams, prop) => searchParams.get(prop)
+		});
+
+		console.log( 'Params: ', params );
 	},
 
 	getFormValues: function(form) {
@@ -68,4 +77,5 @@ forms.forEach( function( form ) {
 
 document.addEventListener('DOMContentLoaded', function(e) {
 	formHandlerHench.fillLPSources();
+	formHandlerHench.getUTMFields();
 });
