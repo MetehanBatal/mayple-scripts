@@ -295,6 +295,7 @@ $('#welcome-brief-form_first').submit(function(event) {
 		.then(function(sent) {
 			if (sent) {
 				briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+				window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 			}
 		})
 		.catch(function(err) {
