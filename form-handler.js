@@ -2,7 +2,7 @@ console.log( 'Script Loaded' );
 
 let formHandlerHench = {
 	// Name of the form
-	selector: 'wf-form-webflowLeadForm',
+	selector: 'wf-form-webflowLeadFor',
 
 
 }
