@@ -15,7 +15,7 @@ forms.forEach( function( form ) {
 		submission.preventDefault();
 
 		// Store the redirect URL
-		let redirectTo = submission.target.getAttribute('data-redirect');
+		let redirectTo = submission.target.getAttribute('redirect-to');
 
 		console.log( 'Redirect to: ', redirectTo );
 	})
