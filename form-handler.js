@@ -15,7 +15,7 @@ let formHandlerHench = {
 				let lpSourceInput = document.createElement('input');
 				lpSourceInput.type = 'text';
 				lpSourceInput.className = 'hidden';
-				lpSourceInput.setAttribute('name') = 'lp_traffic_source';
+				lpSourceInput.setAttribute('name', 'lp_traffic_source');
 				form.appendChild(lpSourceInput);
 
 				lpSourceInput.value = pagePath.replace('/lp/', '');
@@ -34,7 +34,7 @@ let formHandlerHench = {
 					let utmInput = document.createElement('input');
 					utmInput.type = 'text';
 					utmInput.className = 'hidden';
-					utmInput.setAttribute('name') = param;
+					utmInput.setAttribute('name', param);
 					form.appendChild(utmInput);
 
 					utmInput.value = params[param];
