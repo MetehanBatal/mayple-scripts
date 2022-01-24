@@ -8,15 +8,15 @@ let formHandlerHench = {
 }
 
 let forms = document.getElementsByName( formHandlerHench.selector );
-console.log( 'Forms: ', forms );
 forms.forEach( function( form ) {
 	form.addEventListener('submit', function(submission) {
+		console.log( 'Submission: ', submission );
 		// Prevent the initial behaviour
 		submission.preventDefault();
 
 		// Store the redirect URL
 		let redirectTo = submission.target.getAttribute('data-redirect');
 
-		console.log( redirectTo );
+		console.log( 'Redirect to: ', redirectTo );
 	})
 })
