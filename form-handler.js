@@ -82,7 +82,6 @@ forms.forEach( function( form ) {
 		// Store the redirect URL
 		formHandlerHench.redirectTo = submission.target.getAttribute('redirect-to');
 
-		formHandlerHench.checkLPSource(form);
 		formHandlerHench.getFormValues(form);
 	})
 });
