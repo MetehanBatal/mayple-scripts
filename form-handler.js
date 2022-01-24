@@ -8,13 +8,29 @@ let formHandlerHench = {
 	redirectTo: '',
 
 	getFormValues: function(form) {
+		const self = this;
+
+		// Get all inputs
 		let inputs = form.querySelectorAll('input');
+		// Empty object to store the data
 		let formData = {};
 		inputs.forEach(function( input ) {
+			// Get the inputs name, this should match with the one on brief
 			let inputName = input.getAttribute('name');
-			formData[inputName] = input.value;
+			if (inputName) {
+				// inputName: inputValue
+				formData[inputName] = input.value;
+			}
 		});
-		console.log( 'Form Data: ', formData );
+		
+		self.writeToStorage(formData);
+	},
+
+	writeToStorage: function(data) {
+		data = JSON.stringify(data);
+
+		localStorage.setItem('formData', data);
+		console.log( 'Saved' );
 	}
 }
 
