@@ -257,14 +257,13 @@ let briefHench = {
 		}
 	},
 
-	handleFirstStep: function() {
+	handleFirstStep: function(number) {
 		const self = this;
-		console.log( self.intlTel.s );
-		setTimeout(function() {
-			console.log( self.intlTel.s.dialCode );
-		}, 6000);
+
 		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
-		console.log( 'Phone number: ', phoneNumber );
+		if (number === 'hasFullNumber') {
+			phoneNumber = $('#phone').val();
+		}
 
 		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
 		// 	console.log( 'Is valid' );
@@ -306,7 +305,7 @@ let briefHench = {
 
 	checkPredefinedStep: function() {
 		if (window.location.hash === '#steptwo') {
-			briefHench.handleFirstStep();
+			briefHench.handleFirstStep('hasFullNumber');
 		}
 	}
 };
@@ -324,7 +323,7 @@ $(document).ready(function() {
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
 	
-	briefHench.handleFirstStep();
+	briefHench.handleFirstStep('e');
 });
 
 $('#welcome-brief-form_nomatch').submit(function(event) {
