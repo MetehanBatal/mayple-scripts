@@ -258,7 +258,12 @@ let briefHench = {
 	},
 
 	handleFirstStep: function() {
-		let phoneNumber = briefHench.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
+		const self = this;
+		
+		setTimeout( function() {
+			console.log( 'intlTel: ', self.intlTel );	
+		}, 3000)
+		let phoneNumber = self.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
 
 		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
 		// 	console.log( 'Is valid' );
@@ -307,8 +312,8 @@ let briefHench = {
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
 	briefHench.getAutoPopulatedFields();
-	briefHench.initSwiper();
 	briefHench.initIntlTel();
+	briefHench.initSwiper();
 	briefHench.checkPredefinedStep();
 	briefHench.searchParams();
 	briefHench.updateBackLink();
