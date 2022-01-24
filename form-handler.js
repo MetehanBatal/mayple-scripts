@@ -7,11 +7,13 @@ let formHandlerHench = {
 	// Forms endpoint upon successful submission
 	redirectTo: '',
 
-	checkLPSource: function(form) {
+	fillLPSources: function() {
 		console.log( 'Form: ', form );
-		let field = form.querySelector('#lp_traffic_source');
-		if (field) {
-			field.value = window.location.pathname.replace('/lp/', '');
+		let fields = document.querySelectorAll('#lp_traffic_source');
+		if ( fields && fields.length > 0 ) {
+			fields.forEach(function( field ) {
+				field.value = window.location.pathname.replace('/lp/', '');
+			});
 		}
 	},
 
@@ -57,4 +59,8 @@ forms.forEach( function( form ) {
 		formHandlerHench.checkLPSource(form);
 		formHandlerHench.getFormValues(form);
 	})
-})
+});
+
+document.addEventListener('DOMContentLoaded', function(e) {
+	formHandlerHench.fillLPSources();
+});
