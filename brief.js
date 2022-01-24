@@ -259,7 +259,7 @@ let briefHench = {
 
 	handleFirstStep: function() {
 		const self = this;
-		
+		console.log( 'intlTel: ', self.intlTel );
 		setTimeout( function() {
 			console.log( 'intlTel: ', self.intlTel );	
 		}, 3000)
