@@ -274,6 +274,7 @@ $('#welcome-brief-form_first').submit(function(event) {
 	// }
 
 	let formData = {
+		lp_traffic_source: $('#lp_traffic_source').val(),
 		traffic_source: 'short_welcome_brief',
 
 		firstname: $('#firstname').val(),

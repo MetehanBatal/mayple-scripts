@@ -8,11 +8,16 @@ let formHandlerHench = {
 	redirectTo: '',
 
 	fillLPSources: function() {
-		console.log( 'Form: ', form );
-		let fields = document.querySelectorAll('#lp_traffic_source');
-		if ( fields && fields.length > 0 ) {
-			fields.forEach(function( field ) {
-				field.value = window.location.pathname.replace('/lp/', '');
+		let pagePath = window.location.pathname;
+		if ( pagePath.startsWith('/lp/') ) {
+			let forms = document.getElementsByName( formHandlerHench.selector );
+			forms.forEach(function(form) {
+				let lpSourceInput = document.createElement('input');
+				lpSourceInput.type = 'text';
+				lpSourceInput.id = 'lp_traffic_source';
+				form.appendChild(lpSourceInput);
+
+				lpSourceInput.value = pagePath.replace('/lp/', '');
 			});
 		}
 	},
