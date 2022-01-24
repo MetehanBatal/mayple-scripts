@@ -9,7 +9,7 @@ let formHandlerHench = {
 
 	checkLPSource: function(form) {
 		console.log( 'Form: ', form );
-		let field = form.getElementById('lp_traffic_source');
+		let field = form.querySelector('#lp_traffic_source');
 		if (field) {
 			field.value = window.location.pathname.replace('/lp/', '');
 		}
