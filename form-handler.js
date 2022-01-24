@@ -24,9 +24,8 @@ let formHandlerHench = {
 	},
 
 	getUTMFields: function() {
-		const params = new Proxy(new URLSearchParams(window.location.search), {
-			get: (searchParams, prop) => searchParams.get(prop)
-		});
+		const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = Object.fromEntries(urlSearchParams.entries());
 
 		console.log( 'Params: ', params );
 	},
