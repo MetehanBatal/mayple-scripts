@@ -8,7 +8,8 @@ let formHandlerHench = {
 	redirectTo: '',
 
 	checkLPSource: function(form) {
-		let field = form.getElementsByName('lp_traffic_source')[0];
+		console.log( 'Form: ', form );
+		let field = form.getElementById('lp_traffic_source');
 		if (field) {
 			field.value = window.location.pathname.replace('/lp/', '');
 		}
