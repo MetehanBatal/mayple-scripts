@@ -58,8 +58,7 @@ let formHandlerHench = {
 				formData[inputName] = input.value;
 			}
 			if (inputName === 'phone') {
-				console.log( 'intlTel: ', intlTel );
-				formData[inputName] = intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
+				formData[inputName] = '+' + document.querySelector('.iti__active').getAttribute('data-dial-code') + input.value;
 			}
 		});
 		
