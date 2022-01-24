@@ -259,7 +259,10 @@ let briefHench = {
 
 	handleFirstStep: function() {
 		const self = this;
-
+		console.log( self.intlTel );
+		setTimeout(function() {
+			console.log( self.intlTel );
+		}, 6000);
 		let phoneNumber = self.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
 
 		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
