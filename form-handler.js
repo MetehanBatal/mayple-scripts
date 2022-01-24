@@ -7,7 +7,7 @@ let formHandlerHench = {
 	// Forms endpoint upon successful submission
 	redirectTo: '',
 
-	checkLPSource: function() {
+	checkLPSource: function(form) {
 		let field = form.getElementsByName('lp_traffic_source')[0];
 		if (field) {
 			field.value = window.location.pathname.replace('/lp/', '');
@@ -35,7 +35,7 @@ let formHandlerHench = {
 
 	writeToStorage: function(data) {
 		const self = this;
-		
+
 		data = JSON.stringify(data);
 
 		localStorage.setItem('formData', data);
