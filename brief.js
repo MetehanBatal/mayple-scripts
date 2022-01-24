@@ -187,7 +187,7 @@ let briefHench = {
 			initialCountry: "auto",
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
-				$.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
 					success((resp && resp.country) ? resp.country : "us");
 				});
 			},
@@ -259,10 +259,7 @@ let briefHench = {
 
 	handleFirstStep: function() {
 		const self = this;
-		console.log( 'intlTel: ', self.intlTel );
-		setTimeout( function() {
-			console.log( 'intlTel: ', self.intlTel );	
-		}, 3000)
+
 		let phoneNumber = self.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
 
 		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
