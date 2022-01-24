@@ -248,7 +248,11 @@ let briefHench = {
 		
 		for (var field in data) {
 			if (data.hasOwnProperty(field)) {
-				document.getElementById(field).value = data[field];
+				if ( document.getElementById(field) ) {
+					document.getElementById(field).value = data[field];
+				} else {
+					console.log( 'Missing field: ', field );
+				}
 			}
 		}
 	}
