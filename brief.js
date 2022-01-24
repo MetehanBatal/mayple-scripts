@@ -245,7 +245,12 @@ let briefHench = {
 			return; }
 
 		data = JSON.parse(data);
-		console.log( 'Data: ', data );
+		
+		for (var field in data) {
+			if (data.hasOwnProperty(field)) {
+				document.getElementById(field).value = data[field];
+			}
+		}
 	}
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
