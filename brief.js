@@ -255,6 +255,53 @@ let briefHench = {
 				}
 			}
 		}
+	},
+
+	handleFirstStep: function() {
+		let phoneNumber = briefHench.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
+
+		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
+		// 	console.log( 'Is valid' );
+		// } else {
+		// 	console.log( 'Error: ',  );
+		// }
+
+		let formData = {
+			lp_traffic_source: $('#lp_traffic_source').val(),
+			traffic_source: 'short_welcome_brief',
+
+			firstname: $('#firstname').val(),
+			lastname: $('#lastname').val(),
+			phone: phoneNumber,
+			email: $('#email').val(),
+
+			how_did_you_hear_about_mayple: $('#source').val(),
+
+			utm_source: $('#utm_source').val(),
+			utm_medium: $('#utm_medium').val(),
+			utm_campaign: $('#utm_campaign').val(),
+			utm_content: $('#utm_content').val(),
+			utm_term: $('#utm_term').val()
+		};
+
+		hubspotFormSubmit('4292856', briefHench.hbID, formData)
+			.then(function(sent) {
+				if (sent) {
+					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
+				}
+			})
+			.catch(function(err) {
+				console.log( 'Error: ', err )
+			});
+
+		briefHench.toSecondStep();
+	},
+
+	checkPredefinedStep: function() {
+		if (window.location.hash === '#steptwo') {
+			briefHench.handleFirstStep();
+		}
 	}
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
@@ -262,6 +309,7 @@ $(document).ready(function() {
 	briefHench.getAutoPopulatedFields();
 	briefHench.initSwiper();
 	briefHench.initIntlTel();
+	briefHench.checkPredefinedStep();
 	briefHench.searchParams();
 	briefHench.updateBackLink();
 	briefHench.initIndustrySelection();
@@ -269,44 +317,8 @@ $(document).ready(function() {
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
-	let phoneNumber = briefHench.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
-
-	// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
-	// 	console.log( 'Is valid' );
-	// } else {
-	// 	console.log( 'Error: ',  );
-	// }
-
-	let formData = {
-		lp_traffic_source: $('#lp_traffic_source').val(),
-		traffic_source: 'short_welcome_brief',
-
-		firstname: $('#firstname').val(),
-		lastname: $('#lastname').val(),
-		phone: phoneNumber,
-		email: $('#email').val(),
-
-		how_did_you_hear_about_mayple: $('#source').val(),
-
-		utm_source: $('#utm_source').val(),
-		utm_medium: $('#utm_medium').val(),
-		utm_campaign: $('#utm_campaign').val(),
-		utm_content: $('#utm_content').val(),
-		utm_term: $('#utm_term').val()
-	};
-
-	hubspotFormSubmit('4292856', briefHench.hbID, formData)
-		.then(function(sent) {
-			if (sent) {
-				briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
-				window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
-			}
-		})
-		.catch(function(err) {
-			console.log( 'Error: ', err )
-		});
-
-	briefHench.toSecondStep();
+	
+	briefHench.handleFirstStep();
 });
 
 $('#welcome-brief-form_nomatch').submit(function(event) {
