@@ -27,7 +27,20 @@ let formHandlerHench = {
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		const params = Object.fromEntries(urlSearchParams.entries());
 
-		console.log( 'Params: ', params );
+		let forms = document.getElementsByName( formHandlerHench.selector );
+		forms.forEach(function(form) {
+			for (var param in params) {
+				if (params.hasOwnProperty(param)) {
+					let utmInput = document.createElement('input');
+					utmInput.type = 'text';
+					utmInput.className = 'hidden';
+					utmInput.id = param;
+					form.appendChild(utmInput);
+
+					utmInput.value = params[param];
+				}
+			}
+		});
 	},
 
 	getFormValues: function(form) {
