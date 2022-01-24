@@ -259,11 +259,12 @@ let briefHench = {
 
 	handleFirstStep: function() {
 		const self = this;
-		console.log( self.intlTel );
+		console.log( self.intlTel.s );
 		setTimeout(function() {
-			console.log( self.intlTel );
+			console.log( self.intlTel.s.dialCode );
 		}, 6000);
-		let phoneNumber = self.intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
+		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
+		console.log( 'Phone number: ', phoneNumber );
 
 		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
 		// 	console.log( 'Is valid' );
