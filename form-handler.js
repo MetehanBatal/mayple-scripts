@@ -8,6 +8,7 @@ let formHandlerHench = {
 }
 
 let forms = document.getElementsByName( formHandlerHench.selector );
+console.log( 'Forms: ', forms );
 forms.forEach( function( form ) {
 	form.addEventListener('submit', function(submission) {
 		// Prevent the initial behaviour
