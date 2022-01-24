@@ -25,7 +25,7 @@ let briefHench = {
 		const self = this;
 		if ( self.hasEligibleTarget && self.budgetEligible && self.hasWebsite ) {
 			self.showMeeting();
-		} else if ( self.hasEligibleTarget && self.hasWebsite && !self.budgetEligible ) {
+		} else if ( self.hasEligibleTarget && !self.budgetEligible ) {
 			self.showShortMeeting();
 		} else {
 			self.showNoMatch();

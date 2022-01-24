@@ -57,6 +57,10 @@ let formHandlerHench = {
 				// inputName: inputValue
 				formData[inputName] = input.value;
 			}
+			if (inputName === 'phone') {
+				console.log( 'intlTel: ', intlTel );
+				formData[inputName] = intlTel.getNumber(intlTelInputUtils.numberFormat.E164);
+			}
 		});
 		
 		self.writeToStorage(formData);
