@@ -7,6 +7,13 @@ let formHandlerHench = {
 	// Forms endpoint upon successful submission
 	redirectTo: '',
 
+	checkLPSource: function() {
+		let field = form.getElementsByName('lp_traffic_source')[0];
+		if (field) {
+			field.value = window.location.pathname.replace('/lp/', '');
+		}
+	},
+
 	getFormValues: function(form) {
 		const self = this;
 
@@ -27,10 +34,13 @@ let formHandlerHench = {
 	},
 
 	writeToStorage: function(data) {
+		const self = this;
+		
 		data = JSON.stringify(data);
 
 		localStorage.setItem('formData', data);
-		console.log( 'Saved' );
+
+		window.location.replace(self.redirectTo)
 	}
 }
 
@@ -43,6 +53,7 @@ forms.forEach( function( form ) {
 		// Store the redirect URL
 		formHandlerHench.redirectTo = submission.target.getAttribute('redirect-to');
 
+		formHandlerHench.checkLPSource(form);
 		formHandlerHench.getFormValues(form);
 	})
 })

@@ -237,10 +237,20 @@ let briefHench = {
 			let selectedSkill = $(this).parent().attr('skill-type');
 			self.skills.push(selectedSkill);
 		});
+	},
+
+	getAutoPopulatedFields: function() {
+		let data = localStorage.getItem('formData');
+		if (!data) {
+			return; }
+
+		data = JSON.parse(data);
+		console.log( 'Data: ', data );
 	}
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
+	briefHench.getAutoPopulatedFields();
 	briefHench.initSwiper();
 	briefHench.initIntlTel();
 	briefHench.searchParams();
