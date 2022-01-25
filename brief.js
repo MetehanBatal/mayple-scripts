@@ -204,7 +204,6 @@ let briefHench = {
 		$(".brief-slider-bg.step-one").fadeOut("slow");
 		$(".brief-slider-bg.step-two").fadeIn("slow");
 		$(".step-two-bg-image").fadeIn("slow");
-		self.initMeeting();
 	},
 
 	initMeeting: function() {
@@ -346,6 +345,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.getBudgetScore();
 	briefHench.getWebsiteScore();
 	briefHench.calculateScore();
+	briefHench.initMeeting();
 	let formData = { hs_persona: 'persona_1', email: $('#email').val(), website: $('#website').val(), company: $('#company').val(), mayple_industry: $('.business-type-selection').select2('data')[0].id, countries: briefHench.countries, skills: briefHench.skills, marketing_budget_from_basic_brief_in_usd: briefHench.budget };
 	hubspotFormSubmit('4292856', briefHench.hbID, formData).then(function(sent) { if (sent) { briefHench.reportWizardBriefStepDone('Wizard.Brief Finished'); } }).catch(function(err) {})
 });
