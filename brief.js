@@ -38,7 +38,7 @@ let briefHench = {
 		
 		self.paramsToSearch.forEach(function(param) {
 			if (utmCookie[param] && utmCookie[param].length > 0) {
-				console.log( 'From cookie: ', utmCookie[param] );
+				document.getElementById(param).value = utmCookie[param];
 			}
 		});
 	},
