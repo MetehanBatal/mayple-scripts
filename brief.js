@@ -30,7 +30,15 @@ let briefHench = {
 	},
 
 	getCookies: function() {
-		console.log( 'UTM cookie: ', Cookies.get('_mayple_utm_params') );
+		let utmCookie = Cookies.get('_mayple_utm_params');
+		
+		utmCookie = JSON.parse(utmCookie);
+		
+		paramsToSearch.forEach(function(param) {
+			if (utmCookie[param] && utmCookie[param].length > 0) {
+				console.log( 'From cookie: ', utmCookie[param] );
+			}
+		});
 	},
 
 	calculateScore: function() {
