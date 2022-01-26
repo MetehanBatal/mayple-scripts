@@ -325,6 +325,7 @@ $(document).ready(function() {
 	briefHench.searchParams();
 	briefHench.updateBackLink();
 	briefHench.initIndustrySelection();
+	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
 });
 $('#welcome-brief-form_first').submit(function(event) {
