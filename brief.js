@@ -21,6 +21,18 @@ let briefHench = {
 	
 	hbID: '9c266462-4b62-4255-bd93-7bbf92103f72',
 
+	insertJSCookie: function() {
+		var jsCookie = document.createElement('script');
+
+		jsCookie.setAttribute('src','http://example.com/site.js');
+
+		document.head.appendChild(jsCookie);
+	},
+
+	getCookies: function() {
+		console.log( 'UTM cookie: ', Cookies.get('_mayple_utm_params') );
+	},
+
 	calculateScore: function() {
 		const self = this;
 		if ( self.hasEligibleTarget && self.budgetEligible && self.hasWebsite ) {
@@ -320,6 +332,7 @@ let briefHench = {
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
+	briefHench.getCookies();
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
 	briefHench.initSwiper();
