@@ -30,11 +30,13 @@ let briefHench = {
 	},
 
 	getCookies: function() {
+		const self = this;
+
 		let utmCookie = Cookies.get('_mayple_utm_params');
 		
 		utmCookie = JSON.parse(utmCookie);
 		
-		paramsToSearch.forEach(function(param) {
+		self.paramsToSearch.forEach(function(param) {
 			if (utmCookie[param] && utmCookie[param].length > 0) {
 				console.log( 'From cookie: ', utmCookie[param] );
 			}
