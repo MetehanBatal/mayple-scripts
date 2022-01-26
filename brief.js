@@ -38,6 +38,7 @@ let briefHench = {
 		let matchingChannel = document.querySelector('[skill-type="' + channel + '"]');
 		console.log( 'matchingChannel: ', matchingChannel );
 		matchingChannel.querySelector('input').checked = true;
+		matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
 	},
 	
 	showMeeting: function() {
