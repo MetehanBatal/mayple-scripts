@@ -31,6 +31,13 @@ let briefHench = {
 			self.showNoMatch();
 		}
 	},
+
+	autofillMarketingChannel: function() {
+		const self = this;
+		let channel = localStorage.getItem('mayple_marketing_channel');
+		let matchingChannel = document.querySelector('[skill-type]=' + channel);
+		console.log( 'matchingChannel: ', matchingChannel );
+	},
 	
 	showMeeting: function() {
 		const self = this;
@@ -214,7 +221,7 @@ let briefHench = {
 		let email = $('#email').val();
 		let company = $('#company').val();
 		let template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
-		let shortMeetingTemplate = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
+		let shortMeetingTemplate = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		container.append(template);
 		shortMeetingContainer.append(shortMeetingTemplate);
 		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
