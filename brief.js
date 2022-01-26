@@ -35,7 +35,7 @@ let briefHench = {
 	autofillMarketingChannel: function() {
 		const self = this;
 		let channel = localStorage.getItem('mayple_marketing_channel');
-		let matchingChannel = document.querySelector('[skill-type]=' + channel);
+		let matchingChannel = document.querySelector('[skill-type]="' + channel + '"');
 		console.log( 'matchingChannel: ', matchingChannel );
 	},
 	
