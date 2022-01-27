@@ -61,8 +61,10 @@ let briefHench = {
 		let channel = localStorage.getItem('mayple_marketing_channel');
 		let matchingChannel = document.querySelector('[skill-type="' + channel + '"]');
 		console.log( 'matchingChannel: ', matchingChannel );
-		matchingChannel.querySelector('input').checked = true;
-		matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
+		if (matchingChannel && matchingChannel != null) {
+			matchingChannel.querySelector('input').checked = true;
+			matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
+		}
 	},
 	
 	showMeeting: function() {
