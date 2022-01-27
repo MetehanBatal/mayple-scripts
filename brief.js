@@ -34,13 +34,15 @@ let briefHench = {
 
 		let utmCookie = Cookies.get('_mayple_utm_params');
 		
-		utmCookie = JSON.parse(utmCookie);
+		if (utmCookie) {
+			utmCookie = JSON.parse(utmCookie);
 		
-		self.paramsToSearch.forEach(function(param) {
-			if (utmCookie[param] && utmCookie[param].length > 0) {
-				document.getElementById(param).value = utmCookie[param];
-			}
-		});
+			self.paramsToSearch.forEach(function(param) {
+				if (utmCookie[param] && utmCookie[param].length > 0) {
+					document.getElementById(param).value = utmCookie[param];
+				}
+			});
+		}
 	},
 
 	calculateScore: function() {
