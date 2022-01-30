@@ -161,7 +161,7 @@ let briefHench = {
 		growsumo.data.email = email;
 		growsumo.data.partnerKey = partnerKey;
 		// let partnerKey = self.getCookie('growSumoPartnerKey');
-		console.log( 'Partner Key: ', partnerKey );
+		console.log( 'Growsumo: ', growsumo );
 	},
 	
 	initIndustrySelection: function() {
@@ -357,7 +357,7 @@ let briefHench = {
 				if (sent) {
 					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
-					// briefHench.registerLeadToGrowsumo(firstname, lastname, email);
+					briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
 				}
 			})
 			.catch(function(err) {
