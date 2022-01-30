@@ -145,7 +145,8 @@ let briefHench = {
 
 	checkGrowsumoKey: function() {
 		const self = this;
-		console.log( self.getCookie('growSumoPartnerKey') );
+
+		console.log( Cookies.get('growSumoPartnerKey') );
 		// if (self)
 	},
 
