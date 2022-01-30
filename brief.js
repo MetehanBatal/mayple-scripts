@@ -146,7 +146,10 @@ let briefHench = {
 	checkGrowsumoKey: function() {
 		const self = this;
 
-		console.log( Cookies.get('growSumoPartnerKey') );
+		let growsumoKey = Cookies.get('growSumoPartnerKey');
+		if (growsumoKey && growsumoKey.length > 0) {
+			document.getElementById('partnerKey').value = growsumoKey;
+		}
 		// if (self)
 	},
 
@@ -333,6 +336,7 @@ let briefHench = {
 		let formData = {
 			lp_traffic_source: $('#lp_traffic_source').val(),
 			traffic_source: 'short_welcome_brief',
+			partnerstack_referral_key: $('#partnerKey').val(),
 
 			firstname: $('#firstname').val(),
 			lastname: $('#lastname').val(),
