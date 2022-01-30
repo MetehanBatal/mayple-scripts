@@ -156,7 +156,7 @@ let briefHench = {
 		growsumo.data.name = name;
 		growsumo.data.email = email;
 		growsumo.data.partnerKey = partnerKey;
-		let partnerKey = self.getCookie('growSumoPartnerKey');
+		// let partnerKey = self.getCookie('growSumoPartnerKey');
 		console.log( 'Partner Key: ', partnerKey );
 	},
 	
