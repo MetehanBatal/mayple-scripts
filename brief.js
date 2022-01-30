@@ -136,6 +136,29 @@ let briefHench = {
 		const [category, action] = eventName.split(' ');
 		window.mayple_analytics.track(eventName, { category, action });
 	},
+
+	getCookie( cookieName ) {
+		const value = `; ${document.cookie}`;
+  		const parts = value.split(`; ${name}=`);
+		if (parts.length === 2) return parts.pop().split(';').shift();
+	},
+
+	checkGrowsumoKey: function() {
+		const self = this;
+		console.log( self.getCookie('growSumoPartnerKey') );
+		// if (self)
+	},
+
+	registerLeadToGrowsumo(firstname, lastname, email, partnerKey) {
+		const self = this;
+
+		let name = firstname + lastname;
+		growsumo.data.name = name;
+		growsumo.data.email = email;
+		growsumo.data.partnerKey = partnerKey;
+		let partnerKey = self.getCookie('growSumoPartnerKey');
+		console.log( 'Partner Key: ', partnerKey );
+	},
 	
 	initIndustrySelection: function() {
 		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
@@ -329,6 +352,7 @@ let briefHench = {
 				if (sent) {
 					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
+					// briefHench.registerLeadToGrowsumo(firstname, lastname, email);
 				}
 			})
 			.catch(function(err) {
