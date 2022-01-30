@@ -162,6 +162,10 @@ let briefHench = {
 		growsumo.data.partnerKey = partnerKey;
 		// let partnerKey = self.getCookie('growSumoPartnerKey');
 		console.log( 'Growsumo: ', growsumo );
+
+		growsumo.createSignup(function() {
+            console.log("Create signup called successfully");
+        });
 	},
 	
 	initIndustrySelection: function() {
