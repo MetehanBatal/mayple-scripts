@@ -371,6 +371,7 @@ let briefHench = {
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
 	briefHench.getCookies();
+	briefHench.checkGrowsumoKey();
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
 	briefHench.initSwiper();
