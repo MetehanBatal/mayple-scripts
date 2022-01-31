@@ -427,8 +427,8 @@ let briefHench = {
 	},
 
 	checkWebsiteStatus: function() {
-		console.log( $('#website').val() );
 		if ($('#website').val() === 'nowebsite') {
+			$('.checkbox').addClass('w--redirected-checked');
 			$('#nowebsite').prop('checked', true);
 		}
 	},
