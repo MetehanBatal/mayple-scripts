@@ -8,12 +8,15 @@ let briefHench = {
 		'utm_term',
 	],
 
+	ipCountry: '',
 	countries: [],
 	
 	skills: [],
 
 	intlTel: '',
 	
+	score: 0,
+
 	budget: 0,
 	hasEligibleTarget: false,
 	budgetEligible: false,
@@ -47,9 +50,9 @@ let briefHench = {
 
 	calculateScore: function() {
 		const self = this;
-		if ( self.hasEligibleTarget && self.budgetEligible && self.hasWebsite ) {
+		if ( self.score > 3 ) {
 			self.showMeeting();
-		} else if ( self.hasEligibleTarget && !self.budgetEligible ) {
+		} else if ( 4 > self.score >= 0 ) {
 			self.showShortMeeting();
 		} else {
 			self.showNoMatch();
@@ -105,31 +108,72 @@ let briefHench = {
 	getCountryScore: function() {
 		const self = this;
 		const tierOne = ['US', 'CA', 'GB', 'AU'];
+		const tierTwo = ['US', 'CA', 'GB', 'IL', 'AU', 'NZ'];
 		const hasTargetCountries = self.countries.some(result => tierOne.includes(result));
+		const hasSecondTierCountries = self.countries.some(result => tierTwo.includes(result));
 
+		console.log( '------' );
+		console.log( 'Before Target Countries: ', self.score );
 		if (hasTargetCountries) {
-			self.hasEligibleTarget = true;
-		} else {
-			self.hasEligibleTarget = false;
+			//self.hasEligibleTarget = true;
+			self.score += 2
+		} else if (hasSecondTierCountries) {
+			self.score -= 7;
 		}
+		console.log( 'After Target Countries: ', self.score );
+		console.log( '------' );
+	},
+
+	getIPScore: function() {
+		const self = this;
+		const tierOne = ['US', 'CA'];
+		const tierTwo = ['GB', 'IL', 'IR', 'SP', 'FR', 'DE', 'BE', 'PT', 'IT', 'NL', 'AU', 'DK', 'SE', 'NZ', 'SW', 'NH', 'LU', 'NO', 'FI'];
+		const hasIPCountry = tierOne.includes(self.ipCountry);
+		const hasSecondTierCountry = tierTwo.includes(self.ipCountry);
+		console.log( '------' );
+		console.log( 'Before IP Country: ', self.score );
+		if (hasIPCountry) {
+			//self.hasEligibleTarget = true;
+			self.score += 2
+		} else if (hasSecondTierCountries) {
+			self.score += 0;
+		} else {
+			self.score -= 3;
+		}
+		console.log( 'After IP Country: ', self.score );
+		console.log( '------' );
 	},
 	
 	getBudgetScore: function() {
 		const self = this;
-		if (self.budget >= 3000) {
-			self.budgetEligible = true;
+		console.log( '------' );
+		console.log( 'Before Budget: ', self.score );
+		if (self.budget >= 20000) {
+			self.score += 3;
+		} else if( self.budget >= 10000 ) {
+			self.score += 2;
+		} else if ( self.budget >= 3000 ) {
+			self.score += 1;
 		} else {
-			self.budgetEligible = false;
+			self.score -= 4;
 		}
+		console.log( 'After Budget: ', self.score );
+		console.log( '------' );
 	},
 	
 	getWebsiteScore: function() {
 		const self = this;
+		console.log( '------' );
+		console.log( 'Before Website: ', self.score );
 		if ($('#website').val().length > 0) {
 			self.hasWebsite = true;
+			self.score += 3;
 		} else {
+			self.score -= 7;
 			self.hasWebsite = false;
 		}
+		console.log( 'After Website: ', self.score );
+		console.log( '------' );
 	},
 	
 	reportWizardBriefStepDone(eventName) {
@@ -254,6 +298,7 @@ let briefHench = {
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
 				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
+					self.ipCountry = resp.country;
 					success((resp && resp.country) ? resp.country : "us");
 				});
 			},
