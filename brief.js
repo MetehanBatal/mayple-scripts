@@ -440,9 +440,13 @@ let briefHench = {
 	},
 
 	checkWebsiteStatus: function() {
+		const self = this;
+
 		if ($('#website').val() === 'nowebsite') {
 			$('.checkbox').addClass('w--redirected-checked');
 			$('#nowebsite').prop('checked', true);
+			
+			self.triggerWebsiteChange();
 		}
 	},
 
