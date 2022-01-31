@@ -53,9 +53,11 @@ let briefHench = {
 		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
 			self.showMeeting();
-		} else if ( 4 > self.score >= 0 ) {
+		} else if ( 3 >= self.score >= 0 ) {
+			console.log( 'score??: ', self.score );
 			self.showShortMeeting();
-		} else {
+		} else if ( 0 > self.score ) {
+			console.log( 'Return no match' );
 			self.showNoMatch();
 		}
 	},
