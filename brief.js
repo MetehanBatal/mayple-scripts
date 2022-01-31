@@ -135,7 +135,7 @@ let briefHench = {
 		if (hasIPCountry) {
 			//self.hasEligibleTarget = true;
 			self.score += 2
-		} else if (hasSecondTierCountries) {
+		} else if (hasSecondTierCountry) {
 			self.score += 0;
 		} else {
 			self.score -= 3;
