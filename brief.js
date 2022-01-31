@@ -443,7 +443,7 @@ let briefHench = {
 		const self = this;
 
 		if ($('#website').val() === 'nowebsite') {
-			$('.checkbox').addClass('w--redirected-checked');
+			$('.website-checkbox .checkbox').addClass('w--redirected-checked');
 			$('#nowebsite').prop('checked', true);
 			
 			self.triggerWebsiteChange();
