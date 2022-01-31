@@ -453,6 +453,27 @@ let briefHench = {
 	checkPredefinedStep: function() {
 		if (window.location.hash === '#steptwo') {
 			briefHench.handleFirstStep('hasFullNumber');
+
+			briefHench.checkWebsiteStatus();
+			briefHench.restructureBudget();
+			briefHench.fillCompanyName();
+		}
+	},
+
+	fillCompanyName: function() {
+		if ($('#company').hasClass('no-autofill')) {
+			return; }
+		
+		let value = $('#website').val();
+		let valueSplit = value.split(".");
+		let companyName = '';
+		if (valueSplit[0].startsWith('http') || valueSplit[0].startsWith('www') || valueSplit[0].includes(':')) {
+			companyName = valueSplit[1];
+		} else {
+			companyName = valueSplit[0];
+		}
+		if (value.length > 3) {
+			$('#company').val(companyName)
 		}
 	}
 };
@@ -469,8 +490,6 @@ $(document).ready(function() {
 	briefHench.initIndustrySelection();
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
-	briefHench.restructureBudget();
-	briefHench.checkWebsiteStatus();
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
@@ -509,7 +528,9 @@ $('#marketingbudget').keyup(function(e) {
 
 $('#company').keyup(function(e) { $(this).addClass('no-autofill'); });
 
-$('#website').keyup(function(e) { if ($('#company').hasClass('no-autofill')) { return; } let value = $(this).val(); let valueSplit = value.split("."); let companyName = ''; if (valueSplit[0].startsWith('http') || valueSplit[0].startsWith('www') || valueSplit[0].includes(':')) { companyName = valueSplit[1]; } else { companyName = valueSplit[0]; } if (value.length > 3) { $('#company').val(companyName) } });
+$('#website').keyup(function(e) {
+	briefHench.fillCompanyName();
+});
 
 $('#nowebsite').bind('change', function() {
 	briefHench.triggerWebsiteChange();
