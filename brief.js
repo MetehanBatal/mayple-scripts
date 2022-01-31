@@ -152,6 +152,7 @@ let briefHench = {
 		const self = this;
 		console.log( '------' );
 		console.log( 'Before Budget: ', self.score );
+		console.log( 'Budget: ', self.budget );
 		if (self.budget >= 20000) {
 			self.score += 3;
 		} else if( self.budget >= 10000 ) {
@@ -419,9 +420,9 @@ let briefHench = {
 	},
 
 	restructureBudget: function() {
-		var rawValue = $(this).val().replace(/,/gi, "");
+		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
-		$(this).val(withComma);
+		$('#marketingbudget').val(withComma);
 		briefHench.budget = parseInt(rawValue);
 	},
 
