@@ -121,6 +121,8 @@ let briefHench = {
 			//self.hasEligibleTarget = true;
 			self.score += 2
 		} else if (hasSecondTierCountries) {
+			self.score += 0;
+		} else {
 			self.score -= 7;
 		}
 		console.log( 'After Target Countries: ', self.score );
