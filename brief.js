@@ -427,6 +427,7 @@ let briefHench = {
 	},
 
 	checkWebsiteStatus: function() {
+		console.log( $('#website').val() );
 		if ($('#website').val() === 'nowebsite') {
 			$('#nowebsite').prop('checked', true);
 		}
@@ -445,7 +446,6 @@ $(document).ready(function() {
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
 	briefHench.initSwiper();
-	briefHench.checkWebsiteStatus();
 	briefHench.checkPredefinedStep();
 	briefHench.searchParams();
 	briefHench.updateBackLink();
@@ -453,6 +453,7 @@ $(document).ready(function() {
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
 	briefHench.restructureBudget();
+	briefHench.checkWebsiteStatus();
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
