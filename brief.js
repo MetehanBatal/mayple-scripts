@@ -426,6 +426,12 @@ let briefHench = {
 		briefHench.budget = parseInt(rawValue);
 	},
 
+	checkWebsiteStatus: function() {
+		if ($('#website').val() === 'nowebsite') {
+			$('#nowebsite').prop('checked', true);
+		}
+	},
+
 	checkPredefinedStep: function() {
 		if (window.location.hash === '#steptwo') {
 			briefHench.handleFirstStep('hasFullNumber');
@@ -439,6 +445,7 @@ $(document).ready(function() {
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
 	briefHench.initSwiper();
+	briefHench.checkWebsiteStatus();
 	briefHench.checkPredefinedStep();
 	briefHench.searchParams();
 	briefHench.updateBackLink();
