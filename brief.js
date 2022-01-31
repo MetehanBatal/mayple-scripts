@@ -50,6 +50,7 @@ let briefHench = {
 
 	calculateScore: function() {
 		const self = this;
+		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
 			self.showMeeting();
 		} else if ( 4 > self.score >= 0 ) {
