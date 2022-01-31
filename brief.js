@@ -458,6 +458,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 	// briefHench.getSelectedBusinessModels();
 	briefHench.getSelectedSkills();
 	briefHench.getCountryScore();
+	briefHench.getIPScore();
 	briefHench.getBudgetScore();
 	briefHench.getWebsiteScore();
 	briefHench.calculateScore();
