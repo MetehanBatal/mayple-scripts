@@ -419,6 +419,19 @@ let briefHench = {
 		briefHench.toSecondStep();
 	},
 
+	triggerWebsiteChange: function() {
+		if ($('#nowebsite').is(':checked')) {
+			$('#website').prop('readonly', true);
+			$('#website').prop('required', false);
+			$('#website').addClass('not-editable');
+			$('#website').val('');
+		} else {
+			$('#website').prop('readonly', false);
+			$('#website').prop('required', true);
+			$('#website').removeClass('not-editable');
+		}
+	},
+
 	restructureBudget: function() {
 		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
@@ -495,16 +508,7 @@ $('#company').keyup(function(e) { $(this).addClass('no-autofill'); });
 $('#website').keyup(function(e) { if ($('#company').hasClass('no-autofill')) { return; } let value = $(this).val(); let valueSplit = value.split("."); let companyName = ''; if (valueSplit[0].startsWith('http') || valueSplit[0].startsWith('www') || valueSplit[0].includes(':')) { companyName = valueSplit[1]; } else { companyName = valueSplit[0]; } if (value.length > 3) { $('#company').val(companyName) } });
 
 $('#nowebsite').bind('change', function() {
-	if ($(this).is(':checked')) {
-		$('#website').prop('readonly', true);
-		$('#website').prop('required', false);
-		$('#website').addClass('not-editable');
-		$('#website').val('');
-	} else {
-		$('#website').prop('readonly', false);
-		$('#website').prop('required', true);
-		$('#website').removeClass('not-editable');
-	}
+	briefHench.triggerWebsiteChange();
 });
 
 window.addEventListener("message", function(e) {
