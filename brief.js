@@ -51,7 +51,7 @@ let briefHench = {
 		const self = this;
 		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
-			if ()
+			//if ()
 			self.showMeeting();
 		} else if ( 3 >= self.score && self.score >= 0 ) {
 			console.log( 'score??: ', self.score );
