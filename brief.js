@@ -439,7 +439,7 @@ let briefHench = {
 				if (sent) {
 					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
-					briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
+					//briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
 				}
 			})
 			.catch(function(err) {
