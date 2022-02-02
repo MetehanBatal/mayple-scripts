@@ -99,7 +99,7 @@ let briefHench = {
 		$('#meeting-step_short').removeClass('hidden');
 	},
 
-	showMeeting: function() {
+	showInstantCall: function() {
 		const self = this;
 		$(window).scrollTop(0);
 		
