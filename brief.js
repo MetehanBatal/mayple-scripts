@@ -20,6 +20,7 @@ let briefHench = {
 	budget: 0,
 	hasEligibleTarget: false,
 	budgetEligible: false,
+	instantCall: '',
 	
 	hbID: '9c266462-4b62-4255-bd93-7bbf92103f72',
 
@@ -51,13 +52,18 @@ let briefHench = {
 		const self = this;
 		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
-			//if ()
-			self.showMeeting();
+			if ( self.instantCall === 'yes' ) {
+				self.showInstantCall();
+			} else {
+				self.showMeeting();
+			}
 		} else if ( 3 >= self.score && self.score >= 0 ) {
-			console.log( 'score??: ', self.score );
-			self.showShortMeeting();
+			if ( self.instantCall === 'yes' ) {
+				self.showInstantCall();
+			} else {
+				self.showShortMeeting();
+			}
 		} else if ( 0 > self.score ) {
-			console.log( 'Return no match' );
 			self.showNoMatch();
 		}
 	},
@@ -91,6 +97,19 @@ let briefHench = {
 		$('.brief-page-box').addClass('on-step-three');
 		$('#step-2').addClass('hidden');
 		$('#meeting-step_short').removeClass('hidden');
+	},
+
+	showMeeting: function() {
+		const self = this;
+		$(window).scrollTop(0);
+		
+		$('.brief-page-box').addClass('on-step-three');
+		$('#step-2').addClass('hidden');
+		$('#instantcall-screen').removeClass('hidden');
+
+		let formData = { email: $('#email').val(), requested_an_instant_call: self.instantCall };
+		console.log( 'Form: ', formData );
+		hubspotFormSubmit('4292856', briefHench.hbID, formData).then(function(sent) { if (sent) { console.log('sent form: ', sent)} }).catch(function(err) {})
 	},
 	
 	showNoMatch: function() {
@@ -222,10 +241,12 @@ let briefHench = {
 	},
 
 	getConnectionTime: function() {
+		const self = this;
+
 		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
-			console.log( 'Requests Intant Call: ', requestsInstantCall );
+			self.instantCall = requestsInstantCall;
 		}
 	},
 	
