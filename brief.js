@@ -51,6 +51,7 @@ let briefHench = {
 		const self = this;
 		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
+			if ()
 			self.showMeeting();
 		} else if ( 3 >= self.score && self.score >= 0 ) {
 			console.log( 'score??: ', self.score );
@@ -218,6 +219,14 @@ let briefHench = {
 	initIndustrySelection: function() {
 		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
 		$('.country-selection').select2({ placeholder: "Select countries" });
+	},
+
+	getConnectionTime: function() {
+		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
+		if (selectedOption) {
+			let requestsInstantCall = selectedOption.closest('input').value;
+			console.log( 'Requests Intant Call: ', requestsInstantCall );
+		}
 	},
 	
 	initSwiper: function() {
@@ -510,6 +519,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 	let cC = $('.channel-selection');
 	if (!c > 0) { cC.addClass('error'); return; } else { cC.removeClass('error') } event.preventDefault();
 	briefHench.getSelectedCountries();
+	briefHench.getConnectionTime();
 	// briefHench.getSelectedBusinessModels();
 	briefHench.getSelectedSkills();
 	briefHench.getCountryScore();
