@@ -103,7 +103,7 @@ let briefHench = {
 		const self = this;
 		$(window).scrollTop(0);
 		
-		$('.brief-page-box').addClass('on-step-three');
+		$('.brief-page-box').addClass('on-instant-call-screen');
 		$('#step-2').addClass('hidden');
 		$('#instantcall-screen').removeClass('hidden');
 
