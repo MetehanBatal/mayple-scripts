@@ -224,7 +224,7 @@ let briefHench = {
 	getConnectionTime: function() {
 		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
 		if (selectedOption) {
-			let requestsInstantCall = selectedOption.closest('input').value;
+			let requestsInstantCall = selectedOption.nextSibling.value;
 			console.log( 'Requests Intant Call: ', requestsInstantCall );
 		}
 	},
