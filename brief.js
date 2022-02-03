@@ -49,6 +49,9 @@ let briefHench = {
 	},
 
 	checkTimeZone: function() {
+		if (!document.querySelector('.call-preference-box')) {
+			return; }
+
 		let options = {
 			hour: 'numeric',
 			hour12: false,
@@ -57,8 +60,8 @@ let briefHench = {
 
 		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
 
-		if (17 > timeInLA > 8 ) {
-			console.log('Toggle question');
+		if (17 > timeInLA > 3 ) {
+			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
 			console.log( 'Time: ', timeInLA );
 		}
