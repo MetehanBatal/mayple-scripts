@@ -20,7 +20,7 @@ let briefHench = {
 	budget: 0,
 	hasEligibleTarget: false,
 	budgetEligible: false,
-	instantCall: '',
+	instantCall: 'no',
 	
 	hbID: '9c266462-4b62-4255-bd93-7bbf92103f72',
 
