@@ -55,14 +55,14 @@ let briefHench = {
 		let options = {
 			hour: 'numeric',
 			hour12: false,
-			timeZone: 'America/Los_Angeles',
+			timeZone: 'America/New_York',
 		};
 
 		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
 
 		timeInLA = parseInt(timeInLA);
 		console.log( timeInLA, typeof(timeInLA) );
-		if (17 > timeInLA && timeInLA > 2 ) {
+		if (17 > timeInLA && timeInLA > 8 ) {
 			console.log( 'It is in the range' );
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
