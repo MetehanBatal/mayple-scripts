@@ -62,7 +62,7 @@ let briefHench = {
 
 		timeInLA = parseInt(timeInLA);
 		console.log( timeInLA, typeof(timeInLA) );
-		if (17 > timeInLA && timeInLA > 8 ) {
+		if (17 > timeInLA && timeInLA > 7 ) {
 			console.log( 'It is in the range' );
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
