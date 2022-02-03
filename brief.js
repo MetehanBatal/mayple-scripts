@@ -266,6 +266,8 @@ let briefHench = {
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
 			self.instantCall = requestsInstantCall;
+		} else {
+			self.instantCall = 'no';
 		}
 	},
 	
