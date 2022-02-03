@@ -62,7 +62,7 @@ let briefHench = {
 
 		timeInLA = parseInt(timeInLA);
 		console.log( timeInLA );
-		if (17 > timeInLA > 3 ) {
+		if (17 > timeInLA >= 3 ) {
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
 			$('.radio-button-holder input').removeAttr('required')
