@@ -48,6 +48,22 @@ let briefHench = {
 		}
 	},
 
+	checkTimeZone: function() {
+		let options = {
+			hour: 'numeric',
+			hour12: false,
+			timeZone: 'America/Los_Angeles',
+		};
+
+		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
+
+		if (17 > timeInLA > 8 ) {
+			console.log('Toggle question');
+		} else {
+			console.log( 'Time: ', timeInLA );
+		}
+	},
+
 	calculateScore: function() {
 		const self = this;
 		console.log( 'Score: ', self.score );
@@ -520,6 +536,7 @@ $(document).ready(function() {
 	briefHench.initIndustrySelection();
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
+	briefHench.checkTimeZone();
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
