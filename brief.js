@@ -61,6 +61,7 @@ let briefHench = {
 		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
 
 		timeInLA = parseInt(timeInLA);
+		console.log( timeInLA );
 		if (17 > timeInLA > 3 ) {
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
