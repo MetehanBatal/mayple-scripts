@@ -80,15 +80,16 @@ let briefHench = {
 			} else {
 				self.showMeeting();
 			}
-		} else if ( 3 >= self.score && self.score >= 0 ) {
+		} else {
 			if ( self.instantCall === 'yes' ) {
 				self.showInstantCall();
 			} else {
 				self.showShortMeeting();
 			}
-		} else if ( 0 > self.score ) {
-			self.showNoMatch();
 		}
+		// else if ( 0 > self.score ) {
+		// 	self.showNoMatch();
+		// }
 	},
 
 	autofillMarketingChannel: function() {
