@@ -31,7 +31,7 @@ let briefHench = {
 
 		let containerW = $('.step-numbers').width() - 64;
 		
-		let progressBarW = `calc(${self.currentStep}% + ${(self.stepCount - self.currentStep) * 4}px)`;
+		let progressBarW = `calc(${(self.currentStep / self.stepCount) * 100}% + ${(self.stepCount - self.currentStep) * 4}px)`;
 		console.log( 'Width: ', progressBarW );
 		$('.active-progress-bar').css("width", progressBarW);
 
