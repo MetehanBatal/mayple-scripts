@@ -15,6 +15,11 @@ let briefHench = {
 		}
 
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
+
+		let containerW = $('.step-numbers').width() - 64;
+		
+		$('.active-progress-bar').css({ width: `calc(${self.currentStep}% + (${self.stepCount - self.currentStep} * 4)px`})
+
 	},
 
 	handleNext: function() {
