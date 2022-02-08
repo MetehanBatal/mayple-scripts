@@ -99,6 +99,8 @@ let briefHench = {
 			return;
 		}
 
+		self.validateForm();
+
 		self.setSteps();
 
 		// Change URL to allow users to swipe back
@@ -138,6 +140,15 @@ let briefHench = {
 		$('.brief-step-number').removeClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	}, 
+
+	validateForm: function() {
+		let fields = $('input,textarea,select').filter('[required]:visible');
+		fields.each(function(field) {
+			if (field.val().length < 1) {
+				console.log( 'Empty Field: ', field );
+			}
+		})
+	},
 
 	listenStepChange: function() {
 		const self = this;
