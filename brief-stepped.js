@@ -1,6 +1,42 @@
 let briefHench = {
 	stepCount: 1,
 	currentStep: 0,
+	formSchema: {
+		emailAddress: '',
+		companyName: '',
+
+		country: '',
+		
+		// currency: undefined,
+		// firstName: '',
+		// genders: [],
+		// industry: [],
+		// isECommerce: false,
+		// languages: [],
+		// lastName: '',
+		// launchTimeFramePreference: undefined,
+		// mainGoal: ProjectMainGoal.IMPROVE_EXISTING_CAMPAIGNS,
+		// phoneNumber: '',
+		// preferLocalMarketers: false,
+		// preferMarketerInTargetedLocations: false,
+		// productBusinessModel: [],
+		// requestsAssistanceForRequiredSkillsChoice: false,
+		// serviceTypes: [MarketingServiceType.OTHER],
+		// state: undefined,
+		// targetKPI: KpiType.ROAS,
+		// targetKPIValue: 0,
+		
+		// locations: [Country.US, Country.CA],
+		// estimatedMediaBudget: 5000,
+		// websiteAddress: 'http://my-website.com',
+		// country: Country.US,
+		locations: [],
+		estimatedMediaBudget: 0,
+		websiteAddress: '',
+		
+
+		ages: [],
+	},
 
 	insertSDK: function() {
 		// const sdkScript = document.createElement('script');
@@ -67,7 +103,7 @@ let briefHench = {
 
 		// Change URL to allow users to swipe back
 		// 
-		window.location.hash = `step=${self.currentStep}`;
+		window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
@@ -93,7 +129,7 @@ let briefHench = {
 
 		// Change URL to allow users to swipe back
 		// 
-		window.location.hash = `step=${self.currentStep}`;
+		window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
@@ -163,6 +199,7 @@ let briefHench = {
 $( document ).ready(function(e) {
 	briefHench.insertSDK();
 	briefHench.setSteps();
+	briefHench.initIntlTel();
 	briefHench.listenStepChange();
 	briefHench.initSelections();
 });
