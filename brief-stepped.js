@@ -92,6 +92,8 @@ let briefHench = {
 				field.classList.add('empty-field');
 				$('.error-message.stepped').removeClass('hidden');
 				error = true;
+			} else {
+				$(field).classList.remove('empty-field');
 			}
 		});
 
