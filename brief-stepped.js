@@ -112,7 +112,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	// briefHench.insertSDK()
+	briefHench.insertSDK();
 	briefHench.setSteps();
 	briefHench.listenStepChange();
 	briefHench.initSelections();
