@@ -8,6 +8,7 @@ let briefHench = {
 		emailAddress: '',
 		// Missing how did you hear about us
 		// 
+		source: '',
 		
 		websiteAddress: '',
 		companyName: '',
@@ -169,8 +170,15 @@ let briefHench = {
 	},
 
 	updateFormData: function(container) {
-		console.log( 'Container: ', container );
-		console.log( 'Inputs: ', container[0].querySelectorAll('input'));
+		const self = this;
+
+		let inputs = container[0].querySelectorAll('input');
+
+		inputs.forEach(function(input) {
+			let inputName = input.getAttribute('name');
+			self.formSchema.inputName = input.value;
+			console.log( 'Schema: ', self.formSchema );
+		});
 	},
 
 	listenStepChange: function() {
