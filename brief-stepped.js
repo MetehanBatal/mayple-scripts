@@ -54,6 +54,11 @@ let briefHench = {
 
 		self.currentStep += 1;
 
+		if (self.currentStep === self.stepCount) {
+			self.submitForm();
+			return;
+		}
+
 		// Change URL to allow users to swipe back
 		// 
 		window.location.hash = `step=${self.stepCount}`;
@@ -109,6 +114,10 @@ let briefHench = {
 		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
 		$('.country-selection').select2({ placeholder: "Select countries" });
 	},
+
+	submitForm: function() {
+		console.log( 'Submit' );
+	}
 }
 
 $( document ).ready(function(e) {
