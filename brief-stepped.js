@@ -84,7 +84,7 @@ let briefHench = {
 		$('.to-previous-step').show();
 
 		let error = false;
-		let fields = $('input').filter('[required]');
+		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
 			if (field.value.length < 1) {
