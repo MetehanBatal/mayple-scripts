@@ -144,7 +144,7 @@ let briefHench = {
 	validateForm: function() {
 		let fields = $('input,textarea,select').filter('[required]:visible');
 		fields.each(function(field) {
-			console.log( field, field.value );
+			console.log( field, field.value, $(field).val() );
 			// if (field.val().length < 1) {
 			// 	console.log( 'Empty Field: ', field );
 			// }
