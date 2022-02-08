@@ -22,6 +22,8 @@ let briefHench = {
 		// 
 		$('.to-previous-step').show();
 
+		console.log( $('.brief-stepped-form.active input').filter('[required]:visible') );
+
 		self.currentStep += 1;
 
 		// Change URL to allow users to swipe back
@@ -30,6 +32,7 @@ let briefHench = {
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
+		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
 
 		$('.brief-step-number').removeClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
