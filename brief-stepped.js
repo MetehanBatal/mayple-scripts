@@ -29,7 +29,7 @@ let briefHench = {
 		window.location.hash = `step=${self.stepCount}`;
 
 		$('.brief-stepped-form').addClass('hidden');
-		$('.brief-stepped-form')[self.currentStep].removeClass('hidden');
+		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 
 		$('.brief-step-number').removeClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
@@ -49,7 +49,7 @@ let briefHench = {
 		window.location.hash = `step=${self.stepCount}`;
 
 		$('.brief-stepped-form').addClass('hidden');
-		$('.brief-stepped-form')[self.currentStep].removeClass('hidden');
+		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 
 		$('.brief-step-number').removeClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
