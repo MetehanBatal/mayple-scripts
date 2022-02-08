@@ -103,9 +103,10 @@ let briefHench = {
 		// console.log( 'Validate form: ', validateForm ); 
 
 		let fields = $('input').filter('[required]');
-		// console.log( 'Fields: ', fields );
+		console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
 			if (field.value.length < 1) {
+				console.log( 'Empty field: ', field );
 				field.classList.add('empty-field');
 				$('.error-message.stepped').removeClass('hidden');
 				return;
