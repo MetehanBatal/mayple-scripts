@@ -99,7 +99,8 @@ let briefHench = {
 			return;
 		}
 
-		self.validateForm();
+		let validateForm = self.validateForm();
+		console.log( 'Validate form: ', validateForm ); 
 
 		self.setSteps();
 
@@ -145,10 +146,9 @@ let briefHench = {
 		let fields = $('input').filter('[required]');
 		console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
-			console.log( field, field.value, $(field).val() );
-			// if (field.val().length < 1) {
-			// 	console.log( 'Empty Field: ', field );
-			// }
+			if (field.val().length < 1) {
+				return false;
+			}
 		})
 	},
 
