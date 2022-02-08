@@ -106,7 +106,7 @@ let briefHench = {
 		window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
-		console.log( window.location.hash );
+
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
 
@@ -194,10 +194,21 @@ let briefHench = {
 				});
 			},
 		});
+	},
+
+	getHash: function() {
+		const self = this;
+		let hash = window.location.hash;
+
+		if (hash && hash.length > 0) {
+			let stepNumber = parseInt( hash.substring(6) );
+			self.currentStep = stepNumber - 1;
+		}
 	}
 }
 
 $( document ).ready(function(e) {
+	briefHench.getHash();
 	briefHench.insertSDK();
 	briefHench.setSteps();
 	briefHench.initIntlTel();
