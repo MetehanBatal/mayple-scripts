@@ -6,7 +6,7 @@ let briefHench = {
 		companyName: '',
 
 		country: '',
-		
+
 		// currency: undefined,
 		// firstName: '',
 		// genders: [],
@@ -71,7 +71,7 @@ let briefHench = {
 		let containerW = $('.step-numbers').width() - 64;
 		
 		let progressBarW = `calc(${(self.currentStep / (self.stepCount - 1)) * 100}% + ${(self.stepCount - self.currentStep - 1) * 4}px)`;
-		console.log( 'Width: ', progressBarW );
+		// console.log( 'Width: ', progressBarW );
 		$('.active-progress-bar').css("width", progressBarW);
 
 	},
@@ -85,7 +85,7 @@ let briefHench = {
 
 		let requiredFields = $('.brief-stepped-form.active input').filter('[required]:visible');
 		requiredFields.each(function(field) {
-			console.log( requiredFields, field );
+			// console.log( requiredFields, field );
 			// if ( field.val() < 1 ) {
 				// $('.brief-stepped-form.active form').reportValidity();
 			// }
@@ -106,6 +106,7 @@ let briefHench = {
 		window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
+		console.log( window.location.hash );
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
 
