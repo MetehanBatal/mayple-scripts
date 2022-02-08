@@ -56,13 +56,15 @@ let briefHench = {
 			hour: 'numeric',
 			hour12: false,
 			timeZone: 'America/New_York',
+			weekday: 'long'
 		};
 
 		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
+			timeInLA = timeInLA.replace(/ /g, "");
+			timeInLA = timeInLA.split(',');
 
-		timeInLA = parseInt(timeInLA);
-		console.log( timeInLA, typeof(timeInLA) );
-		if (17 > timeInLA && timeInLA > 7 ) {
+			timeInLA[1] = parseInt(timeInLA[1]);
+		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
 			console.log( 'It is in the range' );
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
