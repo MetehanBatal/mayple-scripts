@@ -170,7 +170,7 @@ let briefHench = {
 
 	updateFormData: function(container) {
 		console.log( 'Container: ', container );
-		console.log( 'Inputs: ', container.querySelectorAll('input'));
+		console.log( 'Inputs: ', container[0].querySelectorAll('input'));
 	},
 
 	listenStepChange: function() {
