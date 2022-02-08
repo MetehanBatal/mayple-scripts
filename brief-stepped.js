@@ -93,7 +93,7 @@ let briefHench = {
 				$('.error-message.stepped').removeClass('hidden');
 				error = true;
 			} else {
-				$(field).classList.remove('empty-field');
+				$(field).removeClass('empty-field');
 			}
 		});
 
