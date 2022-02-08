@@ -2,40 +2,47 @@ let briefHench = {
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
+		firstName: '',
+		lastName: '',
+		phoneNumber: '',
 		emailAddress: '',
+		// Missing how did you hear about us
+		// 
+		
+		websiteAddress: '',
 		companyName: '',
 
-		country: '',
+		industry: [],
+
+		// Is this the audience field?
+		locations: [],
+
+		productBusinessModel: [],
+
+		estimatedMediaBudget: 0,
+
+		// country: '',
 
 		// currency: undefined,
-		// firstName: '',
+		// 
 		// genders: [],
-		// industry: [],
+		// 
 		// isECommerce: false,
 		// languages: [],
-		// lastName: '',
+		// 
 		// launchTimeFramePreference: undefined,
 		// mainGoal: ProjectMainGoal.IMPROVE_EXISTING_CAMPAIGNS,
-		// phoneNumber: '',
+		// 
 		// preferLocalMarketers: false,
 		// preferMarketerInTargetedLocations: false,
-		// productBusinessModel: [],
+		// 
 		// requestsAssistanceForRequiredSkillsChoice: false,
 		// serviceTypes: [MarketingServiceType.OTHER],
 		// state: undefined,
 		// targetKPI: KpiType.ROAS,
 		// targetKPIValue: 0,
-		
-		// locations: [Country.US, Country.CA],
-		// estimatedMediaBudget: 5000,
-		// websiteAddress: '',
-		// country: Country.US,
-
-		locations: [],
-		estimatedMediaBudget: 0,
-		websiteAddress: '',
-		
-		ages: [],
+		// 
+		// ages: [],
 	},
 
 	insertSDK: function() {
