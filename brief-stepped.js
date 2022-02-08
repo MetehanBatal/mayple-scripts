@@ -3,6 +3,13 @@ let briefHench = {
 	currentStep: 0,
 
 	insertSDK: function() {
+		const sdkScript = document.createElement('script');
+		const src = "https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js";
+
+		sdkScript.setAttribute('src', src);
+
+		document.body.appendChild(sdkScript);
+		
 		const WebsiteSDK = window.WebsiteSDK.default;
 		const websiteSDK = new WebsiteSDK();
 
@@ -97,7 +104,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	briefHench.insertSDK();
+	// briefHench.insertSDK()
 	briefHench.setSteps();
 	briefHench.listenStepChange();
 });
