@@ -31,7 +31,7 @@ let briefHench = {
 
 		let containerW = $('.step-numbers').width() - 64;
 		
-		let progressBarW = `calc(${self.currentStep}% + (${(self.stepCount - self.currentStep) * 4})px)`;
+		let progressBarW = `calc(${self.currentStep}% + ${(self.stepCount - self.currentStep) * 4}px)`;
 		console.log( 'Width: ', progressBarW );
 		$('.active-progress-bar').css("width", progressBarW);
 
@@ -60,6 +60,8 @@ let briefHench = {
 			return;
 		}
 
+		self.setSteps();
+
 		// Change URL to allow users to swipe back
 		// 
 		window.location.hash = `step=${self.stepCount}`;
@@ -83,6 +85,8 @@ let briefHench = {
 		if (self.currentStep === 0) {
 			$('.to-previous-step').hide();
 		}
+
+		self.setSteps();
 
 		// Change URL to allow users to swipe back
 		// 
