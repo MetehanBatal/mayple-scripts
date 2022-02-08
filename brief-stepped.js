@@ -83,24 +83,6 @@ let briefHench = {
 		// 
 		$('.to-previous-step').show();
 
-		let requiredFields = $('.brief-stepped-form.active input').filter('[required]:visible');
-		requiredFields.each(function(field) {
-			// console.log( requiredFields, field );
-			// if ( field.val() < 1 ) {
-				// $('.brief-stepped-form.active form').reportValidity();
-			// }
-		});
-
-		self.currentStep += 1;
-
-		if (self.currentStep === self.stepCount) {
-			$('.to-next-step').html('<p class="button-text">Continue</p>')
-			self.submitForm();
-			return;
-		}
-
-		// let validateForm = self.validateForm();
-		// console.log( 'Validate form: ', validateForm ); 
 		let error = false;
 		let fields = $('input').filter('[required]');
 		console.log( 'Fields: ', fields );
@@ -115,6 +97,18 @@ let briefHench = {
 
 		if (error) {
 			return; }
+
+		self.currentStep += 1;
+
+		if (self.currentStep === self.stepCount) {
+			$('.to-next-step').html('<p class="button-text">Continue</p>')
+			self.submitForm();
+			return;
+		}
+
+		// let validateForm = self.validateForm();
+		// console.log( 'Validate form: ', validateForm ); 
+		
 
 		self.setSteps();
 
