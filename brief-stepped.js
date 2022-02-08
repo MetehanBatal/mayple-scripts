@@ -1,4 +1,6 @@
 let briefHench = {
+	websiteSDK: '',
+
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
@@ -47,6 +49,7 @@ let briefHench = {
 	},
 
 	insertSDK: function() {
+		const self = this;
 		// const sdkScript = document.createElement('script');
 		// const src = "https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js";
 
@@ -55,9 +58,9 @@ let briefHench = {
 		// document.body.appendChild(sdkScript);
 		// <script src="https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js"></script>
 		const WebsiteSDK = window.WebsiteSDK.default;
-		const websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK();
 
-		console.log('SDK: ', websiteSDK);
+		console.log('SDK: ', self.websiteSDK);
 	}, 
 
 	setSteps: function() {
@@ -177,8 +180,6 @@ let briefHench = {
 		inputs.forEach(function(input) {
 			let inputName = input.getAttribute('name');
 			self.formSchema[inputName] = input.value;
-			console.log( inputName, input.value );
-			console.log( 'Schema: ', self.formSchema );
 		});
 	},
 
@@ -205,7 +206,9 @@ let briefHench = {
 	},
 
 	submitForm: function() {
-		console.log( 'Submit' );
+		const self = this;
+		console.log( self.websiteSDK, self.formSchema );
+		self.websiteSDK.submitHubspotForm(self.formSchema);
 	},
 
 	fillCompanyName: function() {
