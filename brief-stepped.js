@@ -9,7 +9,7 @@ let briefHench = {
 		sdkScript.setAttribute('src', src);
 
 		document.body.appendChild(sdkScript);
-		
+
 		const WebsiteSDK = window.WebsiteSDK.default;
 		const websiteSDK = new WebsiteSDK();
 
@@ -100,11 +100,17 @@ let briefHench = {
 		backButton.click(function(e) {
 			self.handleBack();
 		});
-	}
+	},
+
+	initSelections: function() {
+		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
+		$('.country-selection').select2({ placeholder: "Select countries" });
+	},
 }
 
 $( document ).ready(function(e) {
 	// briefHench.insertSDK()
 	briefHench.setSteps();
 	briefHench.listenStepChange();
+	briefHench.initSelections();
 });
