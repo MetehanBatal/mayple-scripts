@@ -31,7 +31,8 @@ let briefHench = {
 
 		let containerW = $('.step-numbers').width() - 64;
 		
-		$('.active-progress-bar').css({ width: `calc(${self.currentStep}% + (${self.stepCount - self.currentStep} * 4)px`})
+		console.log( `calc(${self.currentStep}% + (${self.stepCount - self.currentStep} * 4)px` );
+		// $('.active-progress-bar').css({ width: })
 
 	},
 
@@ -67,8 +68,8 @@ let briefHench = {
 	handleBack: function() {
 		const self = this;
 
+		$('.to-previous-step').hide();
 		if (self.currentStep === 0) {
-			$('.to-previous-step').hide();
 			return; }
 
 		self.currentStep -= 1;
