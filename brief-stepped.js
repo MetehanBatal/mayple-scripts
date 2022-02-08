@@ -101,7 +101,7 @@ let briefHench = {
 
 		// let validateForm = self.validateForm();
 		// console.log( 'Validate form: ', validateForm ); 
-
+		let error = false;
 		let fields = $('input').filter('[required]');
 		console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
@@ -109,9 +109,12 @@ let briefHench = {
 				console.log( 'Empty field: ', field );
 				field.classList.add('empty-field');
 				$('.error-message.stepped').removeClass('hidden');
-				return;
+				error = true;
 			}
-		})
+		});
+
+		if (error) {
+			return; }
 
 		self.setSteps();
 
