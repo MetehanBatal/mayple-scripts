@@ -55,6 +55,7 @@ let briefHench = {
 		self.currentStep += 1;
 
 		if (self.currentStep === self.stepCount) {
+			$('.to-next-step').html('<p class="button-text">Continue</p>')
 			self.submitForm();
 			return;
 		}
@@ -117,6 +118,23 @@ let briefHench = {
 
 	submitForm: function() {
 		console.log( 'Submit' );
+	},
+
+	fillCompanyName: function() {
+		if ($('#company').hasClass('no-autofill')) {
+			return; }
+		
+		let value = $('#website').val();
+		let valueSplit = value.split(".");
+		let companyName = '';
+		if (valueSplit[0].startsWith('http') || valueSplit[0].startsWith('www') || valueSplit[0].includes(':')) {
+			companyName = valueSplit[1];
+		} else {
+			companyName = valueSplit[0];
+		}
+		if (value.length > 3) {
+			$('#company').val(companyName)
+		}
 	}
 }
 
@@ -125,4 +143,8 @@ $( document ).ready(function(e) {
 	briefHench.setSteps();
 	briefHench.listenStepChange();
 	briefHench.initSelections();
+});
+
+$('#website').keyup(function(e) {
+	briefHench.fillCompanyName();
 });
