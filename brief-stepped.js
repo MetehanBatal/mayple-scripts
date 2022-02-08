@@ -7,34 +7,34 @@ let briefHench = {
 
 		country: '',
 
-		// currency: undefined,
-		// firstName: '',
-		// genders: [],
-		// industry: [],
-		// isECommerce: false,
-		// languages: [],
-		// lastName: '',
-		// launchTimeFramePreference: undefined,
-		// mainGoal: ProjectMainGoal.IMPROVE_EXISTING_CAMPAIGNS,
-		// phoneNumber: '',
-		// preferLocalMarketers: false,
-		// preferMarketerInTargetedLocations: false,
-		// productBusinessModel: [],
-		// requestsAssistanceForRequiredSkillsChoice: false,
-		// serviceTypes: [MarketingServiceType.OTHER],
-		// state: undefined,
-		// targetKPI: KpiType.ROAS,
-		// targetKPIValue: 0,
+		currency: undefined,
+		firstName: '',
+		genders: [],
+		industry: [],
+		isECommerce: false,
+		languages: [],
+		lastName: '',
+		launchTimeFramePreference: undefined,
+		mainGoal: ProjectMainGoal.IMPROVE_EXISTING_CAMPAIGNS,
+		phoneNumber: '',
+		preferLocalMarketers: false,
+		preferMarketerInTargetedLocations: false,
+		productBusinessModel: [],
+		requestsAssistanceForRequiredSkillsChoice: false,
+		serviceTypes: [MarketingServiceType.OTHER],
+		state: undefined,
+		targetKPI: KpiType.ROAS,
+		targetKPIValue: 0,
 		
-		// locations: [Country.US, Country.CA],
-		// estimatedMediaBudget: 5000,
-		// websiteAddress: 'http://my-website.com',
-		// country: Country.US,
+		locations: [Country.US, Country.CA],
+		estimatedMediaBudget: 5000,
+		websiteAddress: '',
+		country: Country.US,
+
 		locations: [],
 		estimatedMediaBudget: 0,
 		websiteAddress: '',
 		
-
 		ages: [],
 	},
 
@@ -99,8 +99,18 @@ let briefHench = {
 			return;
 		}
 
-		let validateForm = self.validateForm();
-		console.log( 'Validate form: ', validateForm ); 
+		// let validateForm = self.validateForm();
+		// console.log( 'Validate form: ', validateForm ); 
+
+		let fields = $('input').filter('[required]');
+		// console.log( 'Fields: ', fields );
+		fields.each(function(index, field) {
+			if (field.value.length < 1) {
+				field.classList.add('empty-field');
+				$('.error-message.stepped').removeClass('hidden');
+				return;
+			}
+		})
 
 		self.setSteps();
 
