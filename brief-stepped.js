@@ -54,6 +54,10 @@ let briefHench = {
 
 		self.currentStep -= 1;
 
+		if (self.currentStep === 0) {
+			$('.to-previous-step').hide();
+		}
+
 		// Change URL to allow users to swipe back
 		// 
 		window.location.hash = `step=${self.stepCount}`;
