@@ -33,7 +33,7 @@ let briefHench = {
 		requiredFields.each(function(field) {
 			console.log( requiredFields, field );
 			// if ( field.val() < 1 ) {
-				$('.brief-stepped-form.active form').reportValidity();
+				// $('.brief-stepped-form.active form').reportValidity();
 			// }
 		});
 
