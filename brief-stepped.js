@@ -146,7 +146,7 @@ let briefHench = {
 		let fields = $('input').filter('[required]');
 		// console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
-			if (field.val().length < 1) {
+			if (field.value.length < 1) {
 				return false;
 			}
 		})
