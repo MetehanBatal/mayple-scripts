@@ -119,10 +119,8 @@ let briefHench = {
 		$('.brief-stepped-form').addClass('hidden');
 
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
+		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
-
-		$('.brief-step-number').removeClass('active');
-		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	},
 
 	handleBack: function() {
@@ -147,6 +145,7 @@ let briefHench = {
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 
 		$('.brief-step-number').removeClass('active');
+		$('.brief-stepped-form').removeClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	}, 
 
