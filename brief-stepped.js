@@ -177,7 +177,7 @@ let briefHench = {
 		inputs.forEach(function(input) {
 			let inputName = input.getAttribute('name');
 			self.formSchema.inputName = input.value;
-			console.log( self.formSchema.inputName, input.value );
+			console.log( inputName, input.value );
 			console.log( 'Schema: ', self.formSchema );
 		});
 	},
