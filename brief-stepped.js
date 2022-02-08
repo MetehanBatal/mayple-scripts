@@ -9,7 +9,7 @@ let briefHench = {
 		sdkScript.setAttribute('src', src);
 
 		document.body.appendChild(sdkScript);
-
+		// <script src="https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js"></script>
 		const WebsiteSDK = window.WebsiteSDK.default;
 		const websiteSDK = new WebsiteSDK();
 
@@ -112,7 +112,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	briefHench.insertSDK();
+	// briefHench.insertSDK();
 	briefHench.setSteps();
 	briefHench.listenStepChange();
 	briefHench.initSelections();
