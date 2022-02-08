@@ -85,10 +85,8 @@ let briefHench = {
 
 		let error = false;
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
-		console.log( 'Fields: ', fields );
 		fields.each(function(index, field) {
 			if (field.value.length < 1) {
-				console.log( 'Empty field: ', field );
 				field.classList.add('empty-field');
 				$('.error-message.stepped').removeClass('hidden');
 				error = true;
@@ -101,6 +99,8 @@ let briefHench = {
 			return; }
 
 		self.currentStep += 1;
+
+		self.updateFormData($('.brief-stepped-form.active'));
 
 		if (self.currentStep === self.stepCount) {
 			$('.to-next-step').html('<p class="button-text">Continue</p>')
@@ -159,6 +159,11 @@ let briefHench = {
 				return false;
 			}
 		})
+	},
+
+	updateFormData: function(container) {
+		console.log( 'Container: ', container );
+		console.log( 'Inputs: ', $(container + ' input') );
 	},
 
 	listenStepChange: function() {
