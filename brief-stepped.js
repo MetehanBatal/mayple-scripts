@@ -190,6 +190,7 @@ let briefHench = {
 		let nextButton = $('.to-next-step');
 		nextButton.click(function(e) {
 			self.handleNext();
+			console.log( 'Current step: ', self.currentStep );
 		});
 
 		let backButton = $('.to-previous-step');
