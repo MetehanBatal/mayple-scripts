@@ -26,9 +26,10 @@ let briefHench = {
 
 		let requiredFields = $('.brief-stepped-form.active input').filter('[required]:visible');
 		requiredFields.each(function(field) {
-			if ( field.val() < 1 ) {
+			console.log( requiredFields, field );
+			// if ( field.val() < 1 ) {
 				$('.brief-stepped-form.active form').reportValidity();
-			}
+			// }
 		});
 
 		self.currentStep += 1;
