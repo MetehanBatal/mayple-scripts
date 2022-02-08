@@ -13,6 +13,8 @@ let briefHench = {
 		for (let index = 0; totalSteps > index; index++) {
 			$('.step-numbers').append(`<p class="brief-step-number" data-step-number=${index}></p>`);
 		}
+
+		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	},
 
 	handleNext: function() {
