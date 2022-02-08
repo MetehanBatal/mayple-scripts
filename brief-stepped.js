@@ -3,12 +3,16 @@ let briefHench = {
 	currentStep: 0,
 
 
-	getSteps: function() {
+	setSteps: function() {
 		const self = this;
 
 		let totalSteps = $('.step').length;
 
 		self.stepCount = totalSteps;
+
+		for (let index = 0; totalSteps > index; index++) {
+			$('.step-numbers').append(`<p class="brief-step-number" data-step-number=${index}></p>`);
+		}
 	},
 
 	handleNext: function() {
@@ -26,6 +30,9 @@ let briefHench = {
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form')[self.currentStep].removeClass('hidden');
+
+		$('.brief-step-number').removeClass('active');
+		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	},
 
 	handleBack: function() {
@@ -43,6 +50,9 @@ let briefHench = {
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form')[self.currentStep].removeClass('hidden');
+
+		$('.brief-step-number').removeClass('active');
+		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	}, 
 
 	listenStepChange: function() {
