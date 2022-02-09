@@ -35,13 +35,13 @@ let briefHench = {
 		languages: [],
 		
 		launchTimeFramePreference: undefined,
-		mainGoal: IMPROVE_EXISTING_CAMPAIGNS,
+		// mainGoal: IMPROVE_EXISTING_CAMPAIGNS,
 		
 		preferLocalMarketers: false,
 		preferMarketerInTargetedLocations: false,
 		
 		requestsAssistanceForRequiredSkillsChoice: false,
-		serviceTypes: [MarketingServiceType.OTHER],
+		// serviceTypes: [MarketingServiceType.OTHER],
 		state: undefined,
 		targetKPI: 'ROAS',
 		targetKPIValue: 0,
