@@ -97,6 +97,7 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active');
 		console.log( 'Form: ', form );
+
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
 		// fields.each(function(index, field) {
 		// 	if (field.value.length < 1) {
@@ -283,4 +284,17 @@ $('#website').keyup(function(e) {
 
 $('#marketingbudget').keyup(function(e) {
 	briefHench.restructureBudget();
+});
+
+$('#nowebsite').bind('change', function() {
+	if ($('#nowebsite').is(':checked')) {
+		$('#website').prop('readonly', true);
+		$('#website').prop('required', false);
+		$('#website').addClass('not-editable');
+		$('#website').val('');
+	} else {
+		$('#website').prop('readonly', false);
+		$('#website').prop('required', true);
+		$('#website').removeClass('not-editable');
+	}
 });
