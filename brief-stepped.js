@@ -95,17 +95,19 @@ let briefHench = {
 		$('.to-previous-step').show();
 
 		let error = false;
-		let fields = $('.brief-stepped-form.active input').filter('[required]');
-		fields.each(function(index, field) {
-			if (field.value.length < 1) {
-				field.classList.add('empty-field');
-				$('.error-message.stepped').removeClass('hidden');
-				error = true;
-			} else {
-				// error = false;
-				$(field).removeClass('empty-field');
-			}
-		});
+		let form = $('.brief-stepped-form.active');
+		console.log( 'Form: ', form );
+		// let fields = $('.brief-stepped-form.active input').filter('[required]');
+		// fields.each(function(index, field) {
+		// 	if (field.value.length < 1) {
+		// 		field.classList.add('empty-field');
+		// 		$('.error-message.stepped').removeClass('hidden');
+		// 		error = true;
+		// 	} else {
+		// 		// error = false;
+		// 		$(field).removeClass('empty-field');
+		// 	}
+		// });
 
 		if (error) {
 			return; }
@@ -266,6 +268,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
+	$('.brief-stepped-form:first-child').addClass('active');
 	//briefHench.getHash();
 	briefHench.insertSDK();
 	briefHench.setSteps();
