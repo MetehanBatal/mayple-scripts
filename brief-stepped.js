@@ -102,12 +102,15 @@ let briefHench = {
 				$('.error-message.stepped').removeClass('hidden');
 				error = true;
 			} else {
+				// error = false;
 				$(field).removeClass('empty-field');
 			}
 		});
 
 		if (error) {
 			return; }
+
+		$('.error-message.stepped').addClass('hidden');
 
 		self.currentStep += 1;
 
