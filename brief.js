@@ -160,8 +160,6 @@ let briefHench = {
 		const hasTargetCountries = self.countries.some(result => tierOne.includes(result));
 		const hasSecondTierCountries = self.countries.some(result => tierTwo.includes(result));
 
-		console.log( '------' );
-		console.log( 'Before Target Countries: ', self.score );
 		if (hasTargetCountries) {
 			//self.hasEligibleTarget = true;
 			self.score += 2
@@ -170,8 +168,6 @@ let briefHench = {
 		} else {
 			self.score -= 7;
 		}
-		console.log( 'After Target Countries: ', self.score );
-		console.log( '------' );
 	},
 
 	getIPScore: function() {
@@ -180,8 +176,7 @@ let briefHench = {
 		const tierTwo = ['GB', 'IL', 'IR', 'SP', 'FR', 'DE', 'BE', 'PT', 'IT', 'NL', 'AU', 'DK', 'SE', 'NZ', 'SW', 'NH', 'LU', 'NO', 'FI'];
 		const hasIPCountry = tierOne.includes(self.ipCountry);
 		const hasSecondTierCountry = tierTwo.includes(self.ipCountry);
-		console.log( '------' );
-		console.log( 'Before IP Country: ', self.score );
+
 		if (hasIPCountry) {
 			//self.hasEligibleTarget = true;
 			self.score += 2
@@ -190,15 +185,11 @@ let briefHench = {
 		} else {
 			self.score -= 3;
 		}
-		console.log( 'After IP Country: ', self.score );
-		console.log( '------' );
 	},
 	
 	getBudgetScore: function() {
 		const self = this;
-		console.log( '------' );
-		console.log( 'Before Budget: ', self.score );
-		console.log( 'Budget: ', self.budget );
+
 		if (self.budget >= 20000) {
 			self.score += 3;
 		} else if( self.budget >= 10000 ) {
@@ -208,8 +199,6 @@ let briefHench = {
 		} else {
 			self.score -= 4;
 		}
-		console.log( 'After Budget: ', self.score );
-		console.log( '------' );
 	},
 	
 	getWebsiteScore: function() {

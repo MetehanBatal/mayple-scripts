@@ -15,6 +15,7 @@ let briefHench = {
 		websiteAddress: '',
 		companyName: '',
 
+		// Why does industry is array and not a string
 		industry: [],
 
 		// Is this the audience field?
@@ -24,28 +25,28 @@ let briefHench = {
 
 		estimatedMediaBudget: 0,
 
-		// country: '',
+		country: '',
 
-		// currency: undefined,
-		// 
-		// genders: [],
-		// 
-		// isECommerce: false,
-		// languages: [],
-		// 
-		// launchTimeFramePreference: undefined,
-		// mainGoal: ProjectMainGoal.IMPROVE_EXISTING_CAMPAIGNS,
-		// 
-		// preferLocalMarketers: false,
-		// preferMarketerInTargetedLocations: false,
-		// 
-		// requestsAssistanceForRequiredSkillsChoice: false,
-		// serviceTypes: [MarketingServiceType.OTHER],
-		// state: undefined,
-		// targetKPI: KpiType.ROAS,
-		// targetKPIValue: 0,
-		// 
-		// ages: [],
+		currency: undefined,
+		
+		genders: [],
+		
+		isECommerce: false,
+		languages: [],
+		
+		launchTimeFramePreference: undefined,
+		mainGoal: IMPROVE_EXISTING_CAMPAIGNS,
+		
+		preferLocalMarketers: false,
+		preferMarketerInTargetedLocations: false,
+		
+		requestsAssistanceForRequiredSkillsChoice: false,
+		serviceTypes: [MarketingServiceType.OTHER],
+		state: undefined,
+		targetKPI: 'ROAS',
+		targetKPIValue: 0,
+		
+		ages: [],
 	},
 
 	insertSDK: function() {
