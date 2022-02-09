@@ -116,7 +116,7 @@ let briefHench = {
 
 		self.updateFormData($('.brief-stepped-form.active'));
 
-		if (self.currentStep === self.stepCount) {
+		if (self.currentStep === self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Continue</p>')
 			self.submitForm();
 			return;
