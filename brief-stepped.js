@@ -162,6 +162,7 @@ let briefHench = {
 
 		$('.brief-step-number').removeClass('active');
 		$('.brief-stepped-form').removeClass('active');
+		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
 		$(`.brief-step-number[data-step-number=${self.currentStep}]`).addClass('active');
 	}, 
 
