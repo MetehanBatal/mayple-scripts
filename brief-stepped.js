@@ -127,7 +127,7 @@ let briefHench = {
 
 		// Change URL to allow users to swipe back
 		// 
-		window.location.hash = `step=${self.currentStep + 1}`;
+		//window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
 
@@ -152,7 +152,7 @@ let briefHench = {
 
 		// Change URL to allow users to swipe back
 		// 
-		window.location.hash = `step=${self.currentStep + 1}`;
+		//window.location.hash = `step=${self.currentStep + 1}`;
 
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
@@ -255,7 +255,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	briefHench.getHash();
+	//briefHench.getHash();
 	briefHench.insertSDK();
 	briefHench.setSteps();
 	briefHench.initIntlTel();
