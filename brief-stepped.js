@@ -24,9 +24,9 @@ let briefHench = {
 
 		estimatedMediaBudget: 0,
 
-		country: '',
+		// country: '',
 
-		currency: undefined,
+		// currency: undefined,
 		
 		genders: [],
 		
