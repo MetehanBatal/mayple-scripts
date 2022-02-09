@@ -255,6 +255,13 @@ let briefHench = {
 			let stepNumber = parseInt( hash.substring(6) );
 			self.currentStep = stepNumber - 1;
 		}
+	},
+
+	restructureBudget: function() {
+		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
+		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
+		$('#marketingbudget').val(withComma);
+		briefHench.budget = parseInt(rawValue);
 	}
 }
 
@@ -269,4 +276,8 @@ $( document ).ready(function(e) {
 
 $('#website').keyup(function(e) {
 	briefHench.fillCompanyName();
+});
+
+$('#marketingbudget').keyup(function(e) {
+	briefHench.restructureBudget();
 });
