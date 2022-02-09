@@ -8,8 +8,7 @@ let briefHench = {
 		lastName: '',
 		phoneNumber: '',
 		emailAddress: '',
-		// Missing how did you hear about us
-		// 
+		howDidYouHearAboutMayple: '',
 		source: '',
 		
 		websiteAddress: '',
