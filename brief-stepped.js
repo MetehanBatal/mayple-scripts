@@ -4,10 +4,10 @@ let briefHench = {
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
-		firstName: 'Metehan',
-		lastName: 'Batal',
-		phoneNumber: '+905382236086',
-		emailAddress: 'metehanbatal@gmail.com',
+		firstName: '',
+		lastName: '',
+		phoneNumber: '',
+		emailAddress: '',
 		howDidYouHearAboutMayple: 'Facebook',
 		source: '',
 		
@@ -46,6 +46,20 @@ let briefHench = {
 		targetKPIValue: 0,
 		
 		ages: [],
+	},
+
+	getSelectedCountries: function() {
+		const self = this;
+		let countryField = $('.country-selection').select2('data');
+		countryField.forEach(function(country) { self.countries.push(country.id); });
+	},
+
+	getSelectedSkills: function() {
+		const self = this;
+		$('.channel-selection .w--redirected-checked').each(function(index, el) {
+			let selectedSkill = $(this).parent().attr('skill-type');
+			self.skills.push(selectedSkill);
+		});
 	},
 
 	insertSDK: function() {
@@ -95,11 +109,11 @@ let briefHench = {
 		// 
 		$('.to-previous-step').show();
 
-		self.submitForm();
-
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
-		form.submit();
+		form.submit(function(event) {
+			console.log( 'Event: ', event );
+		});
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
 		// fields.each(function(index, field) {
@@ -272,6 +286,29 @@ let briefHench = {
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
 		briefHench.budget = parseInt(rawValue);
+	},
+
+	checkTimeZone: function() {
+		if (!document.querySelector('.call-preference-box')) {
+			return; }
+
+		let options = {
+			hour: 'numeric',
+			hour12: false,
+			timeZone: 'America/New_York',
+			weekday: 'long'
+		};
+
+		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
+			timeInLA = timeInLA.replace(/ /g, "");
+			timeInLA = timeInLA.split(',');
+
+			timeInLA[1] = parseInt(timeInLA[1]);
+		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
+			document.querySelector('.call-preference-box').classList.remove('hidden');
+		} else {
+			$('.radio-button-holder input').removeAttr('required')
+		}
 	}
 }
 
@@ -283,6 +320,7 @@ $( document ).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.listenStepChange();
 	briefHench.initSelections();
+	briefHench.checkTimeZone();
 });
 
 $('#website').keyup(function(e) {
