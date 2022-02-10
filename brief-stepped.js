@@ -4,15 +4,15 @@ let briefHench = {
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
-		firstName: '',
-		lastName: '',
-		phoneNumber: '',
-		emailAddress: '',
-		howDidYouHearAboutMayple: '',
+		firstname: '',
+		lastname: '',
+		phone: '',
+		email: '',
+		how_did_you_hear_about_mayple: '',
 		source: '',
 		
-		websiteAddress: '',
-		companyName: '',
+		website: '',
+		company: '',
 
 		// Why does industry is array and not a string
 		industry: [],
@@ -42,7 +42,7 @@ let briefHench = {
 		requestsAssistanceForRequiredSkillsChoice: false,
 		// serviceTypes: [MarketingServiceType.OTHER],
 		state: undefined,
-		targetKPI: 'ROAS',
+		targetKPI: 'CPM',
 		targetKPIValue: 0,
 		
 		ages: [],
