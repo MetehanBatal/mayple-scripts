@@ -111,6 +111,7 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
+		form.submit();
 		form.submit(function(event) {
 			console.log( 'Event: ', event );
 			// inputs.forEach(function(input) {
