@@ -114,7 +114,7 @@ let briefHench = {
 		form.submit();
 		form.submit(function(event) {
 			if ( event.target.id === 'welcome-brief-form_first') {
-				self.formSchema['industry'] = $('.business-type-selection').select2('data')[0].id;
+				self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
 			} else if (event.target.id === 'welcome-brief-form_second') {
 				self.getSelectedCountries();
 			} else if ( event.target.id === 'welcome-brief-form_third' ) {
@@ -127,6 +127,8 @@ let briefHench = {
 				});
 			}
 		});
+
+		console.log( self.formSchema );
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
 		// fields.each(function(index, field) {
