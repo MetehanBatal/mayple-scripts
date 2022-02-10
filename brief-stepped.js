@@ -95,8 +95,8 @@ let briefHench = {
 		$('.to-previous-step').show();
 
 		let error = false;
-		let form = $('.brief-stepped-form.active');
-		console.log( 'Form: ', form );
+		let form = $('.brief-stepped-form.active form');
+		form.submit();
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
 		// fields.each(function(index, field) {
@@ -116,11 +116,13 @@ let briefHench = {
 		$('.error-message.stepped').addClass('hidden');
 
 		self.currentStep += 1;
+		// console.log( self.currentStep );
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 
 		if (self.currentStep === self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Submit</p>')
+		} else if (self.currentStep === self.stepCount) {
 			self.submitForm();
 			return;
 		}
