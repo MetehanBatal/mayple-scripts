@@ -18,9 +18,9 @@ let briefHench = {
 		industry: [],
 
 		// Is this the audience field?
-		locations: ['US'],
+		locations: [],
 
-		productBusinessModel: ['B2B'],
+		productBusinessModel: [],
 
 		estimatedMediaBudget: 0,
 
@@ -40,7 +40,7 @@ let briefHench = {
 		preferMarketerInTargetedLocations: false,
 		
 		requestsAssistanceForRequiredSkillsChoice: false,
-		// serviceTypes: [MarketingServiceType.OTHER],
+		serviceTypes: [],
 		state: undefined,
 		targetKPI: 'ROAS',
 		targetKPIValue: 0,
@@ -51,14 +51,14 @@ let briefHench = {
 	getSelectedCountries: function() {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
-		countryField.forEach(function(country) { self.countries.push(country.id); });
+		countryField.forEach(function(country) { self.formSchema['locations'].push(country.id); });
 	},
 
 	getSelectedSkills: function() {
 		const self = this;
 		$('.channel-selection .w--redirected-checked').each(function(index, el) {
 			let selectedSkill = $(this).parent().attr('skill-type');
-			self.skills.push(selectedSkill);
+			self.formSchema['serviceTypes'].push(selectedSkill);
 		});
 	},
 
@@ -113,11 +113,19 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 		form.submit();
 		form.submit(function(event) {
-			console.log( 'Event: ', event );
-			// inputs.forEach(function(input) {
-			// 	let inputName = input.getAttribute('name');
-			// 	self.formSchema[inputName] = input.value;
-			// });
+			if ( event.target.id === 'welcome-brief-form_first') {
+				self.formSchema['industry'] = $('.business-type-selection').select2('data')[0].id;
+			} else if (event.target.id === 'welcome-brief-form_second') {
+				self.getSelectedCountries();
+			} else if ( event.target.id === 'welcome-brief-form_third' ) {
+				self.getSelectedSkills();
+			} else {
+				let inputs = event.target.querySelectorAll('input');
+				inputs.forEach(function(input) {
+					let inputName = input.getAttribute('name');
+					self.formSchema[inputName] = input.value;
+				});
+			}
 		});
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
