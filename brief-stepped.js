@@ -125,6 +125,7 @@ let briefHench = {
 				let inputs = event.target.querySelectorAll('input');
 				inputs.forEach(function(input) {
 					let inputName = input.getAttribute('name');
+					console.log( 'Input name: ', inputName, input.value );
 					self.formSchema[inputName] = input.value;
 				});
 			}
