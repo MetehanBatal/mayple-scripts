@@ -114,22 +114,21 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 		form.submit();
-		form.submit(function(event) {
-			if ( event.target.id === 'welcome-brief-form_first') {
-				self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
-			} else if (event.target.id === 'welcome-brief-form_second') {
-				self.getSelectedCountries();
-			} else if ( event.target.id === 'welcome-brief-form_third' ) {
-				self.getSelectedSkills();
-			} else {
-				let inputs = event.target.querySelectorAll('input');
-				inputs.forEach(function(input) {
-					let inputName = input.getAttribute('name');
-					console.log( 'Input name: ', inputName, input.value );
-					self.formSchema[inputName] = input.value;
-				});
-			}
-		});
+		console.log( form.id, form[0].id );
+		if ( form.id === 'welcome-brief-form_first') {
+			self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
+		} else if (form.id === 'welcome-brief-form_second') {
+			self.getSelectedCountries();
+		} else if ( form.id === 'welcome-brief-form_third' ) {
+			self.getSelectedSkills();
+		} else {
+			let inputs = form.querySelectorAll('input');
+			inputs.forEach(function(input) {
+				let inputName = input.getAttribute('name');
+				console.log( 'Input name: ', inputName, input.value );
+				self.formSchema[inputName] = input.value;
+			});
+		}
 
 		console.log( self.formSchema );
 
