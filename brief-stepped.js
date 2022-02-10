@@ -4,25 +4,25 @@ let briefHench = {
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
-		firstname: '',
-		lastname: '',
-		phone: '',
-		email: '',
-		how_did_you_hear_about_mayple: '',
+		firstName: 'Metehan',
+		lastName: 'Batal',
+		phoneNumber: '+905382236086',
+		emailAddress: 'metehanbatal@gmail.com',
+		howDidYouHearAboutMayple: 'Facebook',
 		source: '',
 		
-		website: '',
-		company: '',
+		websiteAddress: 'https://metehanbatal.com',
+		companyName: 'Metehanbatal',
 
 		// Why does industry is array and not a string
 		industry: [],
 
 		// Is this the audience field?
-		locations: [],
+		locations: ['US'],
 
-		productBusinessModel: [],
+		productBusinessModel: ['B2B'],
 
-		estimatedMediaBudget: 0,
+		estimatedMediaBudget: 4000,
 
 		// country: '',
 
@@ -42,7 +42,7 @@ let briefHench = {
 		requestsAssistanceForRequiredSkillsChoice: false,
 		// serviceTypes: [MarketingServiceType.OTHER],
 		state: undefined,
-		targetKPI: 'CPM',
+		targetKPI: 'ROAS',
 		targetKPIValue: 0,
 		
 		ages: [],
@@ -94,6 +94,8 @@ let briefHench = {
 		// Reveal back button
 		// 
 		$('.to-previous-step').show();
+
+		self.submitForm();
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
