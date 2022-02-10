@@ -51,6 +51,7 @@ let briefHench = {
 	getSelectedCountries: function() {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
+		console.log( 'country field: ', countryField );
 		countryField.forEach(function(country) { self.formSchema['locations'].push(country.id); });
 	},
 
