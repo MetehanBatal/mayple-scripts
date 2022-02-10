@@ -114,15 +114,15 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 		form.submit();
-		console.log( form.id, form[0].id );
-		if ( form.id === 'welcome-brief-form_first') {
+
+		if ( form[0].id === 'welcome-brief-form_first') {
 			self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
-		} else if (form.id === 'welcome-brief-form_second') {
+		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
-		} else if ( form.id === 'welcome-brief-form_third' ) {
+		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
 		} else {
-			let inputs = form.querySelectorAll('input');
+			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
 				console.log( 'Input name: ', inputName, input.value );
