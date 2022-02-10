@@ -8,11 +8,11 @@ let briefHench = {
 		lastName: '',
 		phoneNumber: '',
 		emailAddress: '',
-		howDidYouHearAboutMayple: 'Facebook',
+		howDidYouHearAboutMayple: '',
 		source: '',
 		
-		websiteAddress: 'https://metehanbatal.com',
-		companyName: 'Metehanbatal',
+		websiteAddress: '',
+		companyName: '',
 
 		// Why does industry is array and not a string
 		industry: [],
@@ -22,7 +22,7 @@ let briefHench = {
 
 		productBusinessModel: ['B2B'],
 
-		estimatedMediaBudget: 4000,
+		estimatedMediaBudget: 0,
 
 		// country: '',
 
@@ -113,6 +113,10 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 		form.submit(function(event) {
 			console.log( 'Event: ', event );
+			// inputs.forEach(function(input) {
+			// 	let inputName = input.getAttribute('name');
+			// 	self.formSchema[inputName] = input.value;
+			// });
 		});
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
