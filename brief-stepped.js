@@ -58,7 +58,8 @@ let briefHench = {
 		// document.body.appendChild(sdkScript);
 		// <script src="https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js"></script>
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK();
+		// self.websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK({ debug: true });
 
 		console.log('SDK: ', self.websiteSDK);
 	}, 
@@ -216,7 +217,9 @@ let briefHench = {
 
 	submitForm: function() {
 		const self = this;
-		console.log( self.websiteSDK, self.formSchema );
+		console.log( self.websiteSDK );
+		console.log( '---------' );
+		console.log( self.formSchema );
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 	},
 
