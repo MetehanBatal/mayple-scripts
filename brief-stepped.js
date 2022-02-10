@@ -113,6 +113,7 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
+		console.log( 'Form: ', form );
 		form.submit();
 
 		if ( form[0].id === 'welcome-brief-form_first') {
@@ -123,14 +124,12 @@ let briefHench = {
 			self.getSelectedSkills();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
+			console.log( 'Inputs: ', inputs );
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
-				console.log( 'Input name: ', inputName, input.value );
 				self.formSchema[inputName] = input.value;
 			});
 		}
-
-		console.log( self.formSchema );
 
 		// let fields = $('.brief-stepped-form.active input').filter('[required]');
 		// fields.each(function(index, field) {
