@@ -77,7 +77,7 @@ let briefHench = {
 		// <script src="https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js"></script>
 		const WebsiteSDK = window.WebsiteSDK.default;
 		// self.websiteSDK = new WebsiteSDK();
-		self.websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
 
 		console.log('SDK: ', self.websiteSDK);
 	}, 
