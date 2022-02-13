@@ -108,7 +108,24 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 		console.log( 'Form: ', form );
-		form.submit();
+		// form.submit();
+		
+		let error = false;
+		let fields = $('.brief-stepped-form.active input').filter('[required]');
+		fields.each(function(index, field) {
+			console.log( 'Field: ', field );
+			if (!field.checkValidity()) {
+				error = true;
+				field.classList.add('empty-field');
+				field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
+			} else {
+				error = false;
+				field.classList.remove('empty-field');
+			}
+		});
+
+		if (error) {
+			return; }
 
 		if ( form[0].id === 'welcome-brief-form_first') {
 			self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
@@ -124,27 +141,6 @@ let briefHench = {
 				self.formSchema[inputName] = input.value;
 			});
 		}
-
-		let fields = $('.brief-stepped-form.active input').filter('[required]');
-		fields.each(function(index, field) {
-			console.log( 'Field: ', field );
-			if (field.checkValidity()) {
-				console.log( 'Passed validity' );
-			} else {
-				console.log( field.validationMessage );
-			}
-			// if (field.value.length < 1) {
-			// 	field.classList.add('empty-field');
-			// 	$('.error-message.stepped').removeClass('hidden');
-			// 	error = true;
-			// } else {
-			// 	// error = false;
-			// 	$(field).removeClass('empty-field');
-			// }
-		});
-
-		if (error) {
-			return; }
 
 		$('.error-message.stepped').addClass('hidden');
 
