@@ -423,6 +423,7 @@ let briefHench = {
 
 		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
 		if (number === 'hasFullNumber') {
+			console.log( 'Has phone number' );
 			phoneNumber = $('#phone').val();
 		}
 
@@ -456,6 +457,7 @@ let briefHench = {
 		hubspotFormSubmit('4292856', briefHench.hbID, formData)
 			.then(function(sent) {
 				if (sent) {
+					console.log( 'HS sent' );
 					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 					//briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
@@ -501,6 +503,7 @@ let briefHench = {
 
 	checkPredefinedStep: function() {
 		if (window.location.hash === '#steptwo') {
+			console.log( 'Step two' );
 			briefHench.handleFirstStep('hasFullNumber');
 
 			briefHench.checkWebsiteStatus();
