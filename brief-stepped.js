@@ -68,15 +68,7 @@ let briefHench = {
 
 	insertSDK: function() {
 		const self = this;
-		// const sdkScript = document.createElement('script');
-		// const src = "https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js";
-
-		// sdkScript.setAttribute('src', src);
-
-		// document.body.appendChild(sdkScript);
-		// <script src="https://static.cdn.mayple.com/website/js/website-sdk/website-sdk.js"></script>
 		const WebsiteSDK = window.WebsiteSDK.default;
-		// self.websiteSDK = new WebsiteSDK();
 		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
 
 		console.log('SDK: ', self.websiteSDK);
@@ -133,17 +125,23 @@ let briefHench = {
 			});
 		}
 
-		// let fields = $('.brief-stepped-form.active input').filter('[required]');
-		// fields.each(function(index, field) {
-		// 	if (field.value.length < 1) {
-		// 		field.classList.add('empty-field');
-		// 		$('.error-message.stepped').removeClass('hidden');
-		// 		error = true;
-		// 	} else {
-		// 		// error = false;
-		// 		$(field).removeClass('empty-field');
-		// 	}
-		// });
+		let fields = $('.brief-stepped-form.active input').filter('[required]');
+		fields.each(function(index, field) {
+			console.log( 'Field: ', field );
+			if (field.checkValidity()) {
+				console.log( 'Passed validity' );
+			} else {
+				console.log( field.validationMessage );
+			}
+			// if (field.value.length < 1) {
+			// 	field.classList.add('empty-field');
+			// 	$('.error-message.stepped').removeClass('hidden');
+			// 	error = true;
+			// } else {
+			// 	// error = false;
+			// 	$(field).removeClass('empty-field');
+			// }
+		});
 
 		if (error) {
 			return; }
