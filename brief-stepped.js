@@ -114,11 +114,11 @@ let briefHench = {
 		fields.each(function(index, field) {
 			if (!field.checkValidity()) {
 				error = true;
-				field.classList.add('empty-field');
+				$('.error-message.stepped').removeClass('hidden');
 				field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
 				error = false;
-				field.classList.remove('empty-field');
+				$('.error-message.stepped').addClass('hidden');
 			}
 		});
 
