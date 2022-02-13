@@ -109,8 +109,7 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 		console.log( 'Form: ', form );
 		// form.submit();
-		
-		let error = false;
+		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
 			console.log( 'Field: ', field );
