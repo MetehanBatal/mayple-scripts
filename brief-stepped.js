@@ -161,13 +161,13 @@ let briefHench = {
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
-		if (self.currentStep === self.stepCount - 1) {
-			$('.to-next-step').html('<p class="button-text">Submit</p>');
-			$('.to-next-step').addClass('final');
-		}
 		if ($('.to-next-step').hasClass('final')) {
 			self.submitForm();
 			return;
+		}
+		if (self.currentStep === self.stepCount - 1) {
+			$('.to-next-step').html('<p class="button-text">Submit</p>');
+			$('.to-next-step').addClass('final');
 		}
 
 		// let validateForm = self.validateForm();
