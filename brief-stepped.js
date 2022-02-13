@@ -115,7 +115,7 @@ let briefHench = {
 			if (!field.checkValidity()) {
 				error = true;
 				$('.error-message.stepped').removeClass('hidden');
-				field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
+				// field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
 				error = false;
 				$('.error-message.stepped').addClass('hidden');
