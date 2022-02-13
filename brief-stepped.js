@@ -122,9 +122,6 @@ let briefHench = {
 			}
 		});
 
-		if (error) {
-			return; }
-
 		if ( form[0].id === 'welcome-brief-form_first') {
 			self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
 			if (self.formSchema['industry'].length < 1) {
@@ -136,7 +133,13 @@ let briefHench = {
 			}
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
-			console.log( 'Locations: ', self.formSchema['locations'] );
+			if(self.formSchema['locations'].length < 1) {
+				error = true;
+				$('#welcome-brief-form_second .select2-container').addClass('empty-field');
+			} else {
+				error = false;
+				$('#welcome-brief-form_second .select2-container').removeClass('empty-field');
+			}
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
 		} else {
@@ -147,6 +150,9 @@ let briefHench = {
 				self.formSchema[inputName] = input.value;
 			});
 		}
+
+		if (error) {
+			return; }
 
 		$('.error-message.stepped').addClass('hidden');
 
