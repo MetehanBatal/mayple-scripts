@@ -126,10 +126,10 @@ let briefHench = {
 			self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
 			if (self.formSchema['industry'].length < 1) {
 				error = true;
-				$('#welcome-brief-form_first .select2-container').addClass('empty-field');
+				$('#welcome-brief-form_first .select2-selection').addClass('empty-field');
 			} else {
 				error = false;
-				$('#welcome-brief-form_first .select2-container').removeClass('empty-field');
+				$('#welcome-brief-form_first .select2-selection').removeClass('empty-field');
 			}
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
