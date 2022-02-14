@@ -334,8 +334,7 @@ let briefHench = {
 		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
-			console.log( 'Remove attr on: ', $('.radio-button-holder input') );
-			$('.radio-button-holder input').removeAttr('required')
+			$('.radio-buttons input').removeAttr('required');
 		}
 	}
 }
