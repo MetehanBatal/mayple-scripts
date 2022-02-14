@@ -53,7 +53,6 @@ let briefHench = {
 	getSelectedCountries: function() {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
-		console.log( 'country field: ', countryField );
 		countryField.forEach(function(country) { self.formSchema['locations'].push(country.id); });
 	},
 
@@ -107,7 +106,6 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
-		console.log( 'Form: ', form );
 		// form.submit();
 		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
@@ -147,7 +145,6 @@ let briefHench = {
 			self.getSelectedSkills();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
-			console.log( 'Inputs: ', inputs );
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
 				self.formSchema[inputName] = input.value;
@@ -246,7 +243,6 @@ let briefHench = {
 		let nextButton = $('.to-next-step');
 		nextButton.click(function(e) {
 			self.handleNext();
-			console.log( 'Current step: ', self.currentStep );
 		});
 
 		let backButton = $('.to-previous-step');
@@ -338,6 +334,7 @@ let briefHench = {
 		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
 			document.querySelector('.call-preference-box').classList.remove('hidden');
 		} else {
+			console.log( 'Remove attr on: ', $('.radio-button-holder input') );
 			$('.radio-button-holder input').removeAttr('required')
 		}
 	}
