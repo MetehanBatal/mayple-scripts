@@ -198,6 +198,10 @@ let briefHench = {
 		if (self.currentStep === 0) {
 			$('.to-previous-step').hide();
 		}
+		if (self.currentStep != self.stepCount - 1) {
+			$('.to-next-step').html('<p class="button-text">Continue</p>');
+			$('.to-next-step').removeClass('final');
+		}
 
 		self.setSteps();
 
@@ -261,6 +265,8 @@ let briefHench = {
 		console.log( self.websiteSDK );
 		console.log( '---------' );
 		console.log( self.formSchema );
+
+
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 	},
