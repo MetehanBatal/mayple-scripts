@@ -135,11 +135,11 @@ let briefHench = {
 			self.getSelectedCountries();
 			if(self.formSchema['locations'].length < 1) {
 				error = true;
-				$('#welcome-brief-form_second .select2-container').addClass('empty-field');
+				$('#welcome-brief-form_second .select2-selection').addClass('empty-field');
 				$('.error-message.stepped').removeClass('hidden');
 			} else {
 				error = false;
-				$('#welcome-brief-form_second .select2-container').removeClass('empty-field');
+				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
 				$('.error-message.stepped').addClass('hidden');
 			}
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
