@@ -71,7 +71,7 @@ let briefHench = {
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK({ debug: true, environment: 'storky' });
+		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
 
 		console.log('SDK: ', self.websiteSDK);
 	}, 
@@ -279,6 +279,8 @@ let briefHench = {
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
+		let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+		console.log( 'Hubspot Score: ', hsScore );
 	},
 
 	fillCompanyName: function() {
