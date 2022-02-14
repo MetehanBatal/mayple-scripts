@@ -143,6 +143,9 @@ let briefHench = {
 			}
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
+		} else if (form[0].id === 'welcome-brief-form_fourth') {
+			self.formSchema['estimatedMediaBudget'] = parseInt( $('#marketingbudget').val().split(',').join('') );
+			console.log( self.formSchema['estimatedMediaBudget'] );
 		} else {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
