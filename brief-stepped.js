@@ -276,11 +276,11 @@ let briefHench = {
 		console.log( '---------' );
 		console.log( self.formSchema );
 
+		self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+		// console.log( 'Hubspot Score: ', hsScore );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
-		let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
-		console.log( 'Hubspot Score: ', hsScore );
 	},
 
 	fillCompanyName: function() {
