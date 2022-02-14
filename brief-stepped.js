@@ -162,7 +162,7 @@ let briefHench = {
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
 		if ($('.to-next-step').hasClass('final')) {
-			self.submitForm();
+			// self.submitForm();
 			return;
 		}
 		if (self.currentStep === self.stepCount - 1) {
@@ -348,7 +348,7 @@ let briefHench = {
 $( document ).ready(function(e) {
 	$('.brief-stepped-form:first-child').addClass('active');
 	//briefHench.getHash();
-	briefHench.insertSDK();
+	// briefHench.insertSDK();
 	briefHench.setSteps();
 	briefHench.initIntlTel();
 	briefHench.listenStepChange();
