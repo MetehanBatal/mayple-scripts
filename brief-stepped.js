@@ -112,10 +112,6 @@ let briefHench = {
 	handleNext: function() {
 		const self = this;
 
-		// Reveal back button
-		// 
-		$('.to-previous-step').show();
-
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 		// form.submit();
@@ -179,6 +175,10 @@ let briefHench = {
 
 		if (error) {
 			return; }
+
+		// Reveal back button
+		// 
+		$('.to-previous-step').show();
 
 		$('.error-message.stepped').addClass('hidden');
 
