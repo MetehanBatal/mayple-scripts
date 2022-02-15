@@ -160,6 +160,7 @@ let briefHench = {
 			console.log( self.formSchema['estimatedMediaBudget'] );
 			self.getBudgetScore();
 		} else if (form[0].id === 'welcome-brief-form_fifth') {
+			self.formSchema['websiteAddress'] = document.getElementById('website').value;
 			self.getWebsiteScore();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
