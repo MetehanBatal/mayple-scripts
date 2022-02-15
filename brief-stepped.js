@@ -300,7 +300,9 @@ let briefHench = {
 	showMeeting: function(type) {
 		$('.brief-stepped-form').addClass('hidden');
 		$('#meeting-step').removeClass('hidden');
-		
+		$('.pagination-buttons').addClass('hidden');
+		$('.brief-stepped-form-box').css('paddingBottom', '12px');
+
 		let container = $('#meeting-container');
 
 		let firstname = $('#firstname').val();
