@@ -3,6 +3,10 @@ let briefHench = {
 
 	intlTel: '',
 
+	score: 0,
+
+	budget: 0,
+
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
@@ -74,7 +78,7 @@ let briefHench = {
 		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
 
 		console.log('SDK: ', self.websiteSDK);
-	}, 
+	},
 
 	setSteps: function() {
 		const self = this;
@@ -148,11 +152,15 @@ let briefHench = {
 				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
 				$('.error-message.stepped').addClass('hidden');
 			}
+			self.getTargetCountryScore();
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
-			self.formSchema['estimatedMediaBudget'] = parseInt( $('#marketingbudget').val().split(',').join('') );
+			self.formSchema['estimatedMediaBudget'] = self.budget;
 			console.log( self.formSchema['estimatedMediaBudget'] );
+			self.getBudgetScore();
+		} else if (form[0].id === 'welcome-brief-form_fifth') {
+			self.getWebsiteScore();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
@@ -354,6 +362,67 @@ let briefHench = {
 		} else {
 			$('.radio-buttons input').removeAttr('required');
 		}
+	},
+
+	getTargetCountryScore: function() {
+		const self = this;
+		const tierOne = ['US', 'CA', 'GB', 'AU'];
+		const tierTwo = ['US', 'CA', 'GB', 'IL', 'AU', 'NZ'];
+		const hasTargetCountries = self.formSchema.locations.some(result => tierOne.includes(result));
+		const hasSecondTierCountries = self.formSchema.locations.some(result => tierTwo.includes(result));
+
+		if (hasTargetCountries) {
+			//self.hasEligibleTarget = true;
+			self.score += 2
+		} else if (hasSecondTierCountries) {
+			self.score += 0;
+		} else {
+			self.score -= 7;
+		}
+	},
+
+	getIPScore: function() {
+		const self = this;
+		const tierOne = ['US', 'CA'];
+		const tierTwo = ['GB', 'IL', 'IR', 'SP', 'FR', 'DE', 'BE', 'PT', 'IT', 'NL', 'AU', 'DK', 'SE', 'NZ', 'SW', 'NH', 'LU', 'NO', 'FI'];
+		const hasIPCountry = tierOne.includes(self.websiteSDK._userCountry);
+		const hasSecondTierCountry = tierTwo.includes(self.websiteSDK._userCountry);
+
+		if (hasIPCountry) {
+			//self.hasEligibleTarget = true;
+			self.score += 2
+		} else if (hasSecondTierCountry) {
+			self.score += 0;
+		} else {
+			self.score -= 3;
+		}
+	},
+
+	getBudgetScore: function() {
+		const self = this;
+
+		if (self.budget >= 20000) {
+			self.score += 3;
+		} else if( self.budget >= 10000 ) {
+			self.score += 2;
+		} else if ( self.budget >= 3000 ) {
+			self.score += 1;
+		} else {
+			self.score -= 4;
+		}
+	},
+
+	getWebsiteScore: function() {
+		const self = this;
+		console.log( '------' );
+		console.log( 'Before Website: ', self.score );
+		if ($('#website').val().length > 0) {
+			self.score += 3;
+		} else {
+			self.score -= 7;
+		}
+		console.log( 'After Website: ', self.score );
+		console.log( '------' );
 	}
 }
 
@@ -366,6 +435,7 @@ $( document ).ready(function(e) {
 	briefHench.listenStepChange();
 	briefHench.initSelections();
 	briefHench.checkTimeZone();
+	briefHench.getIPScore();
 });
 
 $('#website').keyup(function(e) {
