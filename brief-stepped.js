@@ -284,11 +284,15 @@ let briefHench = {
 		console.log( '---------' );
 		console.log( self.formSchema );
 
-		self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+		self.getConnectionTime();
+
+		// self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 		// console.log( 'Hubspot Score: ', hsScore );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
+
+		self.getScore();
 	},
 
 	fillCompanyName: function() {
@@ -423,6 +427,38 @@ let briefHench = {
 		}
 		console.log( 'After Website: ', self.score );
 		console.log( '------' );
+	},
+
+	getConnectionTime: function() {
+		const self = this;
+
+		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
+		if (selectedOption) {
+			let requestsInstantCall = selectedOption.nextSibling.value;
+			self.instantCall = requestsInstantCall;
+		} else {
+			self.instantCall = 'no';
+		}
+	},
+
+	getScore: function() {
+		if ( self.score > 3 ) {
+			if ( self.instantCall === 'yes' ) {
+				console.log( 'Show Instant call' );
+				// self.showInstantCall();
+			} else {
+				console.log( 'Show long call!' );
+				// self.showMeeting();
+			}
+		} else {
+			if ( self.instantCall === 'yes' ) {
+				console.log( 'Show Instant call' );
+				// self.showInstantCall();
+			} else {
+				console.log( 'Show short call!' );
+				// self.showShortMeeting();
+			}
+		}
 	}
 }
 
