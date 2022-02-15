@@ -328,6 +328,12 @@ let briefHench = {
 		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
 	},
 
+	showInstantCall: function() {
+		$('.brief-stepped-form').addClass('hidden');
+		$('.pagination-buttons').addClass('hidden');
+		$('#instantcall-screen').removeClass('hidden');
+	},
+
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
@@ -480,7 +486,7 @@ let briefHench = {
 		if ( self.score > 3 ) {
 			if ( self.instantCall === 'yes' ) {
 				console.log( 'Show Instant call' );
-				// self.showInstantCall();
+				self.showInstantCall();
 			} else {
 				console.log( 'Show long call!' );
 				self.showMeeting('long');
@@ -488,7 +494,7 @@ let briefHench = {
 		} else {
 			if ( self.instantCall === 'yes' ) {
 				console.log( 'Show Instant call' );
-				// self.showInstantCall();
+				self.showInstantCall();
 			} else {
 				console.log( 'Show short call!' );
 				self.showMeeting('short');
