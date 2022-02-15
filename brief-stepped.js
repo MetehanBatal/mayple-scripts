@@ -485,9 +485,9 @@ $('#marketingbudget').keyup(function(e) {
 	briefHench.restructureBudget();
 });
 
-$('#phone').keyup(function(e) {
-	console.log( briefHench.intlTel );
-});
+// $('#phone').keyup(function(e) {
+// 	console.log( briefHench.intlTel );
+// });
 
 $('#nowebsite').bind('change', function() {
 	if ($('#nowebsite').is(':checked')) {
