@@ -286,14 +286,14 @@ let briefHench = {
 		console.log( self.formSchema );
 
 		self.getConnectionTime();
+		
+		self.getScore();
 
 		// self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 		// console.log( 'Hubspot Score: ', hsScore );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
-
-		self.getScore();
 	},
 
 	fillCompanyName: function() {
@@ -443,6 +443,7 @@ let briefHench = {
 	},
 
 	getScore: function() {
+		console.log( 'Called' );
 		if ( self.score > 3 ) {
 			if ( self.instantCall === 'yes' ) {
 				console.log( 'Show Instant call' );
