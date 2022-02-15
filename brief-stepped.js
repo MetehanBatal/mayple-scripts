@@ -527,3 +527,7 @@ $('#nowebsite').bind('change', function() {
 		$('#website').removeClass('not-editable');
 	}
 });
+
+$('.channel-selection input').bind('change', function(e) {
+	console.log( e );
+})
