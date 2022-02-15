@@ -297,6 +297,26 @@ let briefHench = {
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 	},
 
+	showMeeting: function(type) {
+		let container = $('#meeting-container');
+
+		let firstname = $('#firstname').val();
+		let lastname = $('#lastname').val();
+		let email = $('#email').val();
+		let company = $('#company').val();
+
+		let template = '';
+
+		if ( type === 'long' ) {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
+		} else {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
+		}
+		
+		container.append(template);
+		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
+	},
+
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
@@ -452,7 +472,7 @@ let briefHench = {
 				// self.showInstantCall();
 			} else {
 				console.log( 'Show long call!' );
-				// self.showMeeting();
+				self.showMeeting('long');
 			}
 		} else {
 			if ( self.instantCall === 'yes' ) {
@@ -460,7 +480,7 @@ let briefHench = {
 				// self.showInstantCall();
 			} else {
 				console.log( 'Show short call!' );
-				// self.showShortMeeting();
+				self.showMeeting('short');
 			}
 		}
 	}
