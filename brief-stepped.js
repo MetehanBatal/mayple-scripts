@@ -120,6 +120,7 @@ let briefHench = {
 			if (!field.checkValidity()) {
 				console.log( 'Empty field: ', field );
 				error = true;
+				field.classList.add('empty-field')
 				$('.error-message.stepped').removeClass('hidden');
 				// field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
