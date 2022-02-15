@@ -301,13 +301,13 @@ let briefHench = {
 		$('.brief-stepped-form').addClass('hidden');
 		$('#meeting-step').removeClass('hidden');
 		$('.pagination-buttons').addClass('hidden');
-		$('.brief-stepped-form-box').css('paddingBottom', '12px');
+		$('.brief-stepped-form-box').css({'paddingBottom': '12px', 'paddingTop': '140px'});
 
 		let container = $('#meeting-container');
 
-		let firstname = $('#firstname').val();
-		let lastname = $('#lastname').val();
-		let email = $('#email').val();
+		let firstname = $('#firstName').val();
+		let lastname = $('#lastName').val();
+		let email = $('#emailAddress').val();
 		let company = $('#company').val();
 
 		let template = '';
