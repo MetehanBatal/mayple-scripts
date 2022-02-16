@@ -58,10 +58,10 @@ let briefHench = {
 		
 		ages: [],
 
-		traffic_source: 'old_welcome_brief',
-		lp_traffic_source: '',
+		trafficSource: 'old_welcome_brief',
+		lpTrafficSource: '',
 		partnerKey: '',
-		requested_an_instant_call: 'no'
+		requestedAnInstantCall: 'no'
 	},
 
 	getSelectedCountries: function() {
