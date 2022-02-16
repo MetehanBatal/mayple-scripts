@@ -55,6 +55,11 @@ let briefHench = {
 		targetKPIValue: 0,
 		
 		ages: [],
+
+		traffic_source: 'short_welcome_brief',
+		// lp_traffic_source: '',
+		// partnerKey: '',
+		requested_an_instant_call: 'no'
 	},
 
 	getSelectedCountries: function() {
@@ -80,7 +85,7 @@ let briefHench = {
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK({ debug: true, environment: 'storky' });
+		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
 
 		console.log('SDK: ', self.websiteSDK);
 	},
@@ -474,9 +479,9 @@ let briefHench = {
 		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
-			self.instantCall = requestsInstantCall;
+			self.formSchema['requested_an_instant_call'] = requestsInstantCall;
 		} else {
-			self.instantCall = 'no';
+			self.formSchema['requested_an_instant_call'] = 'no';
 		}
 	},
 
