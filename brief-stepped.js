@@ -85,7 +85,7 @@ let briefHench = {
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK({ environment: 'storky' });
+		self.websiteSDK = new WebsiteSDK();
 
 		console.log('SDK: ', self.websiteSDK);
 	},
