@@ -56,10 +56,10 @@ let briefHench = {
 		
 		ages: [],
 
-		// traffic_source: 'short_welcome_brief',
-		// // lp_traffic_source: '',
-		// // partnerKey: '',
-		// requested_an_instant_call: 'no'
+		traffic_source: 'short_welcome_brief',
+		lp_traffic_source: '',
+		partnerKey: '',
+		requested_an_instant_call: 'no'
 	},
 
 	getSelectedCountries: function() {
@@ -523,6 +523,16 @@ let briefHench = {
 				}
 			}
 		}
+	},
+
+	checkGrowsumoKey: function() {
+		const self = this;
+
+		let growsumoKey = Cookies.get('growSumoPartnerKey');
+		if (growsumoKey && growsumoKey.length > 0) {
+			document.getElementById('partnerKey').value = growsumoKey;
+		}
+		// if (self)
 	}
 }
 
@@ -537,6 +547,7 @@ $( document ).ready(function(e) {
 	briefHench.checkTimeZone();
 	briefHench.getIPScore();
 	briefHench.getAutoPopulatedFields();
+	briefHench.checkGrowsumoKey();
 });
 
 $('#website').keyup(function(e) {
