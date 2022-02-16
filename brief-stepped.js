@@ -316,9 +316,9 @@ let briefHench = {
 
 		let container = $('#meeting-container');
 
-		let firstname = $('#firstName').val();
-		let lastname = $('#lastName').val();
-		let email = $('#emailAddress').val();
+		let firstname = $('#firstname').val();
+		let lastname = $('#lastname').val();
+		let email = $('#email').val();
 		let company = $('#company').val();
 
 		let template = '';
