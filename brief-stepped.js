@@ -56,7 +56,7 @@ let briefHench = {
 		
 		ages: [],
 
-		traffic_source: 'short_welcome_brief',
+		traffic_source: 'old_welcome_brief',
 		lp_traffic_source: '',
 		partnerKey: '',
 		requested_an_instant_call: 'no'
