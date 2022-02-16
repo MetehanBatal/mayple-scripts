@@ -60,7 +60,7 @@ let briefHench = {
 
 		trafficSource: 'old_welcome_brief',
 		lpTrafficSource: '',
-		partnerKey: '',
+		partnerStackReferralKey: '',
 		requestedAnInstantCall: 'no'
 	},
 
