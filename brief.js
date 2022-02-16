@@ -542,7 +542,10 @@ $(document).ready(function() {
 	briefHench.handleBackClick();
 	briefHench.checkTimeZone();
 
-	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+	setTimeout(function() {
+		console.log( window.mayple_analytics );
+		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+	}, 3600)
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
