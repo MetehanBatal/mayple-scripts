@@ -21,10 +21,10 @@ let briefHench = {
 		companyName: '',
 
 		// Why does industry is array and not a string
-		industry: {
+		industry: [{
 			industryCategory: '',
 			industrySubCategory: ''
-		},
+		}],
 
 		// Is this the audience field?
 		locations: [],
@@ -132,10 +132,10 @@ let briefHench = {
 
 		if ( form[0].id === 'welcome-brief-form_first') {
 			// self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
-			self.formSchema['industry'].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
-			self.formSchema['industry'].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
-			console.log( self.formSchema['industry'] );
-
+			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
+			self.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+			console.log( self.formSchema['industry'], self.formSchema['industry'][0] );
+			
 			if (self.formSchema['industry'].industrySubCategory.length < 1) {
 				error = true;
 				$('#welcome-brief-form_first .select2-selection').addClass('empty-field');
@@ -500,6 +500,24 @@ let briefHench = {
 				self.showMeeting('short');
 			}
 		}
+	},
+
+	getAutoPopulatedFields: function() {
+		let data = localStorage.getItem('formData');
+		if (!data) {
+			return; }
+
+		data = JSON.parse(data);
+		
+		for (var field in data) {
+			if (data.hasOwnProperty(field)) {
+				if ( document.getElementById(field) ) {
+					document.getElementById(field).value = data[field];
+				} else {
+					console.log( 'Missing field: ', field );
+				}
+			}
+		}
 	}
 }
 
@@ -513,6 +531,7 @@ $( document ).ready(function(e) {
 	briefHench.initSelections();
 	briefHench.checkTimeZone();
 	briefHench.getIPScore();
+	briefHench.getAutoPopulatedFields();
 });
 
 $('#website').keyup(function(e) {
