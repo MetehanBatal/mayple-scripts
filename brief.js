@@ -457,8 +457,6 @@ let briefHench = {
 		hubspotFormSubmit('4292856', briefHench.hbID, formData)
 			.then(function(sent) {
 				if (sent) {
-					console.log( 'HS sent' );
-					briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 					//briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
 				}
@@ -531,6 +529,8 @@ let briefHench = {
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
+	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+	
 	briefHench.getCookies();
 	briefHench.checkGrowsumoKey();
 	briefHench.getAutoPopulatedFields();
