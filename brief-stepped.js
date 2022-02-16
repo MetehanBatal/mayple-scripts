@@ -7,6 +7,8 @@ let briefHench = {
 
 	budget: 0,
 
+	instantCall: 'no',
+
 	stepCount: 1,
 	currentStep: 0,
 	formSchema: {
@@ -479,8 +481,10 @@ let briefHench = {
 		let selectedOption = document.querySelector('.connect-on.w--redirected-checked');
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
+			self.instantCall = requestsInstantCall;
 			self.formSchema['requested_an_instant_call'] = requestsInstantCall;
 		} else {
+			self.instantCall = 'no';
 			self.formSchema['requested_an_instant_call'] = 'no';
 		}
 	},
