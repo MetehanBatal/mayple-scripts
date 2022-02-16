@@ -529,8 +529,6 @@ let briefHench = {
 };
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
 $(document).ready(function() {
-	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
-	
 	briefHench.getCookies();
 	briefHench.checkGrowsumoKey();
 	briefHench.getAutoPopulatedFields();
@@ -543,6 +541,8 @@ $(document).ready(function() {
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
 	briefHench.checkTimeZone();
+
+	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 });
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
