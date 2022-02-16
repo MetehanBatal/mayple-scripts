@@ -135,8 +135,8 @@ let briefHench = {
 			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			self.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
 			console.log( self.formSchema['industry'], self.formSchema['industry'][0] );
-			
-			if (self.formSchema['industry'].industrySubCategory.length < 1) {
+
+			if (self.formSchema['industry'][0].industrySubCategory.length < 1) {
 				error = true;
 				$('#welcome-brief-form_first .select2-selection').addClass('empty-field');
 			} else {
