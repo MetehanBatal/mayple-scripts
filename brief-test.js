@@ -225,6 +225,7 @@ let briefHench = {
 		
 		$('.brief-page-box').addClass('on-step-three');
 		$('#step-2').addClass('hidden');
+
 		$('#meeting-step').removeClass('hidden');
 
 		let container = $('#meeting-container');
