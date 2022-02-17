@@ -286,7 +286,7 @@ let briefHench = {
 	updateFormData: function(container) {
 		const self = this;
 		// console.log( 
-		let inputs = $(container + ' input[type=text]');
+		let inputs = $(container + ' input[type=text]', container + ' input[type=email]', container + ' input[type=tel]');
 
 		inputs.each(function(index) {
 			let inputName = $(this).attr('name');
@@ -457,6 +457,9 @@ $('#welcome-brief-form_first').submit(function(event) {
 
 $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.updateFormData('#welcome-brief-form_end');
+	briefHench.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
+	briefHench.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+	
 	briefHench.getSelectedCountries();
 	briefHench.getConnectionTime();
 	briefHench.getSelectedSkills();
