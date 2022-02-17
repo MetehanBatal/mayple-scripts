@@ -65,7 +65,7 @@ let briefHench = {
 	initSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK({ debug: true, });
+		self.websiteSDK = new WebsiteSDK();
 
 		console.log('SDK: ', self.websiteSDK);
 	},
