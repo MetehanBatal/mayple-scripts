@@ -499,6 +499,5 @@ window.addEventListener("message", function(e) {
 	if (!e.origin === 'https://meetings.hubspot.com') { return; }
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
-		hubspotFormSubmit('4292856', '9c266462-4b62-4255-bd93-7bbf92103f72', { email: $('#email').val(), did_schedule_a_sales_call: true }).then(function(sent) { console.log(sent) })
 	}
 });
