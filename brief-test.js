@@ -465,7 +465,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 
 	console.log( 'Form: ', briefHench.formSchema );
 	// self.websiteSDK.createProjectLead(self.formSchema);
-	self.websiteSDK.submitHubspotForm(briefHench.formSchema);
+	briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
 });
 
 $('#marketingbudget').keyup(function(e) {
