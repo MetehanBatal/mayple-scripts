@@ -479,7 +479,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.calculateScore();
 
 	console.log( 'Form: ', briefHench.formSchema );
-	// self.websiteSDK.createProjectLead(self.formSchema);
+	briefHench.websiteSDK.createProjectLead(briefHench.formSchema);
 	briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
 });
 
