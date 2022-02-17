@@ -453,6 +453,8 @@ $('#welcome-brief-form_first').submit(function(event) {
 });
 
 $('#welcome-brief-form_end').submit(function(event) {
+	const self = this;
+	
 	briefHench.updateFormData('#welcome-brief-form_end');
 	briefHench.getSelectedCountries();
 	briefHench.getConnectionTime();
