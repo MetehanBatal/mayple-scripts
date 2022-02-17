@@ -286,12 +286,17 @@ let briefHench = {
 	updateFormData: function(container) {
 		const self = this;
 		// console.log( 
-		let inputs = $(container + ' input[type=text]', container + ' input[type=email]', container + ' input[type=tel]');
+		let inputs = $(container + ' input[type=text]');
 
 		inputs.each(function(index) {
 			let inputName = $(this).attr('name');
 			self.formSchema[inputName] = $(this).val();
 		});
+
+		if (container === '#welcome-brief-form_first') {
+			self.formSchema['phoneNumber'] = $('#phone').val();
+			self.formSchema['emailAddress'] = $('#email').val();
+		}
 	},
 
 	toSecondStep: function() {
