@@ -308,6 +308,8 @@ let briefHench = {
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
+
+		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 	},
 
 	showMeeting: function(type) {
@@ -327,6 +329,8 @@ let briefHench = {
 
 		if ( type === 'long' ) {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
+
+			window.mayple_analytics.track('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
 		} else {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		}
@@ -482,10 +486,10 @@ let briefHench = {
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
 			self.instantCall = requestsInstantCall;
-			self.formSchema['requested_an_instant_call'] = requestsInstantCall;
+			self.formSchema['requestedAnInstantCall'] = requestsInstantCall;
 		} else {
 			self.instantCall = 'no';
-			self.formSchema['requested_an_instant_call'] = 'no';
+			self.formSchema['requestedAnInstantCall'] = 'no';
 		}
 	},
 
@@ -537,6 +541,11 @@ let briefHench = {
 			document.getElementById('partnerKey').value = growsumoKey;
 		}
 		// if (self)
+	},
+
+	reportWizardBriefStepDone(eventName) {
+		const [category, action] = eventName.split(' ');
+		window.mayple_analytics.track(eventName, { category, action });
 	}
 }
 
@@ -552,6 +561,10 @@ $( document ).ready(function(e) {
 	briefHench.getIPScore();
 	briefHench.getAutoPopulatedFields();
 	briefHench.checkGrowsumoKey();
+
+	setTimeout(function() {
+		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
+	}, 3200);
 });
 
 $('#website').keyup(function(e) {
@@ -582,3 +595,10 @@ $('#nowebsite').bind('change', function() {
 $('.channel-selection input').bind('change', function(e) {
 	console.log( e );
 })
+
+window.addEventListener("message", function(e) {
+	if (!e.origin === 'https://meetings.hubspot.com') { return; }
+	if (e.data.meetingBookSucceeded) {
+		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
+	}
+});
