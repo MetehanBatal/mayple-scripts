@@ -291,6 +291,10 @@ let briefHench = {
 		inputs.each(function(index) {
 			let inputName = $(this).attr('name');
 			self.formSchema[inputName] = $(this).val();
+
+			if (inputName === 'estimatedMediaBudget') {
+				self.formSchema['estimatedMediaBudget'] = self.budget;
+			}
 		});
 
 		if (container === '#welcome-brief-form_first') {
