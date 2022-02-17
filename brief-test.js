@@ -276,14 +276,14 @@ let briefHench = {
 			phoneNumber = $('#phone').val();
 		}
 
-		self.updateFormData['#welcome-brief-form_first'];
+		self.updateFormData('#welcome-brief-form_first');
 
 		briefHench.toSecondStep();
 	},
 
 	updateFormData: function(container) {
 		const self = this;
-
+		// console.log( 
 		let inputs = $(container + ' input[type=text]');
 
 		inputs.each(function(index) {
