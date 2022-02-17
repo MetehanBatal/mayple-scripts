@@ -453,8 +453,6 @@ $('#welcome-brief-form_first').submit(function(event) {
 });
 
 $('#welcome-brief-form_end').submit(function(event) {
-	const self = this;
-	
 	briefHench.updateFormData('#welcome-brief-form_end');
 	briefHench.getSelectedCountries();
 	briefHench.getConnectionTime();
@@ -465,9 +463,9 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.getWebsiteScore();
 	briefHench.calculateScore();
 
-	console.log( 'Form: ', self.formSchema );
-	self.websiteSDK.createProjectLead(self.formSchema);
-	self.websiteSDK.submitHubspotForm(self.formSchema);
+	console.log( 'Form: ', briefHench.formSchema );
+	// self.websiteSDK.createProjectLead(self.formSchema);
+	self.websiteSDK.submitHubspotForm(briefHench.formSchema);
 });
 
 $('#marketingbudget').keyup(function(e) {
