@@ -468,10 +468,15 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.updateFormData('#welcome-brief-form_end');
 	briefHench.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 	briefHench.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+ 
+	briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 	
 	briefHench.getSelectedCountries();
 	briefHench.getConnectionTime();
 	briefHench.getSelectedSkills();
+
+	let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
+	console.log( 'Score: ', hsScore );
 	briefHench.getTargetCountryScore();
 	briefHench.getIPScore();
 	briefHench.getBudgetScore();
