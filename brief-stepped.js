@@ -304,7 +304,9 @@ let briefHench = {
 		self.getScore();
 
 		// self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
-		// console.log( 'Hubspot Score: ', hsScore );
+		console.log( self.websiteSDK.calcSalesQualificationLeadScore() );
+		console.log( self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema) );
+		console.log( 'Hubspot Score: ', hsScore );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
