@@ -475,13 +475,8 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.getConnectionTime();
 	briefHench.getSelectedSkills();
 
-	console.log( 'Schema: ', briefHench.formSchema );
-	console.log( 'SDK: ', self.websiteSDK );
-	let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
+	let hsScore = briefHench.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
 	console.log( 'Score: ', hsScore );
-	
-
-
 
 
 
