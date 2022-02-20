@@ -475,8 +475,15 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.getConnectionTime();
 	briefHench.getSelectedSkills();
 
+	console.log( 'Schema: ', briefHench.formSchema );
 	let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
 	console.log( 'Score: ', hsScore );
+	
+
+
+
+
+
 	briefHench.getTargetCountryScore();
 	briefHench.getIPScore();
 	briefHench.getBudgetScore();
