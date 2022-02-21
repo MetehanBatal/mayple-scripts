@@ -310,7 +310,9 @@ let briefHench = {
 
 		self.updateFormData('#welcome-brief-form_first');
 
-		window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
+		setTimeout(function() {
+			window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
+		}, 4800);
 
 		briefHench.toSecondStep();
 	},
