@@ -186,6 +186,7 @@ let briefHench = {
 		self.intlTel = window.intlTelInput(phoneInput, {
 			initialCountry: "auto",
 			formatOnDisplay: true,
+			hiddenInput: 'fullPhone',
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
 				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
@@ -463,6 +464,8 @@ $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
 	
 	briefHench.handleFirstStep('e');
+
+	console.log( $('#fullPhone'), $('#fullPhone').val() );
 });
 
 $('#welcome-brief-form_end').submit(function(event) {
