@@ -525,5 +525,5 @@ window.addEventListener("message", function(e) {
 	}
 });
 
-$('#phone').addEventListener('change', briefHench.validatePhone());
-$('#phone').addEventListener('keyup', briefHench.validatePhone());
+document.getElementById('phone').addEventListener('change', briefHench.validatePhone());
+document.getElementById('phone').addEventListener('keyup', briefHench.validatePhone());
