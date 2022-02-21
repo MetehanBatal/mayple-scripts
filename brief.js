@@ -292,7 +292,7 @@ let briefHench = {
 
 	handleFirstStep: function(number) {
 		const self = this;
-
+		
 		window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 
 		// let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
