@@ -298,8 +298,11 @@ let briefHench = {
 		// 	phoneNumber = $('#phone').val();
 		// }
 
-		let phone = self.validatePhone();
-		console.log( 'Phone validation: ', phone );
+		let isValid = self.validatePhone();
+		console.log( 'Phone validation: ', isValid );
+		if (!isValid) {
+			return;
+		}
 
 		self.updateFormData('#welcome-brief-form_first');
 
