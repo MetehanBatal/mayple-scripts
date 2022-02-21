@@ -292,8 +292,6 @@ let briefHench = {
 
 	handleFirstStep: function(number) {
 		const self = this;
-		
-		window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 
 		// let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
 
@@ -311,6 +309,8 @@ let briefHench = {
 		}
 
 		self.updateFormData('#welcome-brief-form_first');
+
+		window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 
 		briefHench.toSecondStep();
 	},
