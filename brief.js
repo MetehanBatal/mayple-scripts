@@ -306,6 +306,8 @@ let briefHench = {
 			if (!briefHench.fullPhone) {
 				return;
 			}
+		} else {
+			briefHench.fullPhone = $('#phone').val();
 		}
 
 		self.updateFormData('#welcome-brief-form_first');
