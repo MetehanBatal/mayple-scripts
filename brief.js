@@ -1,76 +1,75 @@
 let briefHench = {
-	// Test commit
-	paramsToSearch: [
-		'utm_source',
-		'utm_medium', 
-		'utm_campaign', 
-		'utm_content',
-		'utm_term',
-	],
-
-	ipCountry: '',
-	countries: [],
-	
-	skills: [],
+	websiteSDK: '',
 
 	intlTel: '',
-	
+
+	fullPhone: '',
+
 	score: 0,
 
 	budget: 0,
-	hasEligibleTarget: false,
-	budgetEligible: false,
+
 	instantCall: 'no',
-	
-	hbID: '9c266462-4b62-4255-bd93-7bbf92103f72',
 
-	insertJSCookie: function() {
-		var jsCookie = document.createElement('script');
+	formSchema: {
+		firstName: '',
+		lastName: '',
+		phoneNumber: '',
+		emailAddress: '',
+		howDidYouHearAboutMayple: '',
+		source: '',
+		
+		websiteAddress: '',
+		companyName: '',
 
-		jsCookie.setAttribute('src','http://example.com/site.js');
+		// Why does industry is array and not a string
+		industry: [{
+			industryCategory: '',
+			industrySubCategory: ''
+		}],
 
-		document.head.appendChild(jsCookie);
+		// Is this the audience field?
+		locations: [],
+
+		productBusinessModel: [],
+
+		estimatedMediaBudget: 0,
+
+		// country: '',
+
+		// currency: undefined,
+		
+		genders: [],
+		
+		isECommerce: false,
+		languages: [],
+		
+		launchTimeFramePreference: undefined,
+		mainGoal: 'IMPROVE_EXISTING_CAMPAIGNS',
+		
+		preferLocalMarketers: false,
+		preferMarketerInTargetedLocations: false,
+		
+		requestsAssistanceForRequiredSkillsChoice: false,
+		serviceTypes: [],
+		state: undefined,
+		targetKPI: 'ROAS',
+		targetKPIValue: 0,
+		
+		ages: [],
+
+		trafficSource: 'short_welcome_brief',
+		lpTrafficSource: '',
+		partnerStackReferralKey: '',
+		requestedAnInstantCall: 'no'
 	},
 
-	getCookies: function() {
+	initSDK: function() {
 		const self = this;
+		const WebsiteSDK = window.WebsiteSDK.default;
+		self.websiteSDK = new WebsiteSDK();
 
-		let utmCookie = Cookies.get('_mayple_utm_params');
-		
-		if (utmCookie) {
-			utmCookie = JSON.parse(utmCookie);
-		
-			self.paramsToSearch.forEach(function(param) {
-				if (utmCookie[param] && utmCookie[param].length > 0) {
-					document.getElementById(param).value = utmCookie[param];
-				}
-			});
-		}
-	},
-
-	checkTimeZone: function() {
-		if (!document.querySelector('.call-preference-box')) {
-			return; }
-
-		let options = {
-			hour: 'numeric',
-			hour12: false,
-			timeZone: 'America/New_York',
-			weekday: 'long'
-		};
-
-		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
-			timeInLA = timeInLA.replace(/ /g, "");
-			timeInLA = timeInLA.split(',');
-
-			timeInLA[1] = parseInt(timeInLA[1]);
-		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
-			console.log( 'It is in the range' );
-			document.querySelector('.call-preference-box').classList.remove('hidden');
-		} else {
-			$('.radio-button-holder input').removeAttr('required')
-			console.log( 'Time: ', timeInLA );
-		}
+		console.log('SDK: ', self.websiteSDK);
 	},
 
 	calculateScore: function() {
@@ -80,49 +79,15 @@ let briefHench = {
 			if ( self.instantCall === 'yes' ) {
 				self.showInstantCall();
 			} else {
-				self.showMeeting();
+				briefHench.initMeeting('long');
 			}
 		} else {
 			if ( self.instantCall === 'yes' ) {
 				self.showInstantCall();
 			} else {
-				self.showShortMeeting();
+				briefHench.initMeeting('short');
 			}
 		}
-		// else if ( 0 > self.score ) {
-		// 	self.showNoMatch();
-		// }
-	},
-
-	autofillMarketingChannel: function() {
-		const self = this;
-		let channel = localStorage.getItem('mayple_marketing_channel');
-		let matchingChannel = document.querySelector('[skill-type="' + channel + '"]');
-
-		if (matchingChannel && matchingChannel != null) {
-			matchingChannel.querySelector('input').checked = true;
-			matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
-		}
-	},
-	
-	showMeeting: function() {
-		const self = this;
-		$(window).scrollTop(0);
-		
-		$('.brief-page-box').addClass('on-step-three');
-		$('#step-2').addClass('hidden');
-		$('#meeting-step').removeClass('hidden');
-		
-		window.mayple_analytics.track('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
-	},
-	
-	showShortMeeting: function() {
-		const self = this;
-		$(window).scrollTop(0);
-		
-		$('.brief-page-box').addClass('on-step-three');
-		$('#step-2').addClass('hidden');
-		$('#meeting-step_short').removeClass('hidden');
 	},
 
 	showInstantCall: function() {
@@ -132,36 +97,16 @@ let briefHench = {
 		$('.brief-page-box').addClass('on-instant-call-screen');
 		$('#step-2').addClass('hidden');
 		$('#instantcall-screen').removeClass('hidden');
-
-		let formData = { email: $('#email').val(), requested_an_instant_call: self.instantCall };
-		console.log( 'Form: ', formData );
-		hubspotFormSubmit('4292856', briefHench.hbID, formData).then(function(sent) { if (sent) { console.log('sent form: ', sent)} }).catch(function(err) {})
 	},
 	
-	showNoMatch: function() {
-		const self = this;
-		self.initNoMatchSwiper();
-		
-		$(window).scrollTop(0);
-		
-		$('#step-2').addClass('hidden');
-		$('#nomatch-screen').removeClass('hidden');
-		$(".brief-slider-bg.step-two").fadeOut("slow");
-		$(".brief-slider-bg.step-three").fadeIn("slow");
-		$(".step-two-bg-image").fadeOut("slow");
-		$(".no-match-screen-blogs").fadeIn("slow");
-		$('.brief-slider-box.blogs').removeAttr('style');
-	},
-	
-	getCountryScore: function() {
+	getTargetCountryScore: function() {
 		const self = this;
 		const tierOne = ['US', 'CA', 'GB', 'AU'];
 		const tierTwo = ['US', 'CA', 'GB', 'IL', 'AU', 'NZ'];
-		const hasTargetCountries = self.countries.some(result => tierOne.includes(result));
-		const hasSecondTierCountries = self.countries.some(result => tierTwo.includes(result));
+		const hasTargetCountries = self.formSchema.locations.some(result => tierOne.includes(result));
+		const hasSecondTierCountries = self.formSchema.locations.some(result => tierTwo.includes(result));
 
 		if (hasTargetCountries) {
-			//self.hasEligibleTarget = true;
 			self.score += 2
 		} else if (hasSecondTierCountries) {
 			self.score += 0;
@@ -174,11 +119,10 @@ let briefHench = {
 		const self = this;
 		const tierOne = ['US', 'CA'];
 		const tierTwo = ['GB', 'IL', 'IR', 'SP', 'FR', 'DE', 'BE', 'PT', 'IT', 'NL', 'AU', 'DK', 'SE', 'NZ', 'SW', 'NH', 'LU', 'NO', 'FI'];
-		const hasIPCountry = tierOne.includes(self.ipCountry);
-		const hasSecondTierCountry = tierTwo.includes(self.ipCountry);
+		const hasIPCountry = tierOne.includes(self.websiteSDK._userCountry);
+		const hasSecondTierCountry = tierTwo.includes(self.websiteSDK._userCountry);
 
 		if (hasIPCountry) {
-			//self.hasEligibleTarget = true;
 			self.score += 2
 		} else if (hasSecondTierCountry) {
 			self.score += 0;
@@ -219,42 +163,11 @@ let briefHench = {
 		window.mayple_analytics.track(eventName, { category, action });
 	},
 
-	getCookie( cookieName ) {
-		const value = `; ${document.cookie}`;
-  		const parts = value.split(`; ${name}=`);
-		if (parts.length === 2) return parts.pop().split(';').shift();
-	},
-
-	checkGrowsumoKey: function() {
-		const self = this;
-
-		let growsumoKey = Cookies.get('growSumoPartnerKey');
-		if (growsumoKey && growsumoKey.length > 0) {
-			document.getElementById('partnerKey').value = growsumoKey;
-		}
-		// if (self)
-	},
-
-	registerLeadToGrowsumo(firstname, lastname, email, partnerKey) {
-		const self = this;
-
-		let name = firstname + lastname;
-		growsumo.data.name = name;
-		growsumo.data.email = email;
-		growsumo.data.partnerKey = partnerKey;
-		// let partnerKey = self.getCookie('growSumoPartnerKey');
-		console.log( 'Growsumo: ', growsumo );
-
-		growsumo.createSignup(function() {
-            console.log("Create signup called successfully");
-        });
-	},
-	
-	initIndustrySelection: function() {
+	initSelections: function() {
 		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
 		$('.country-selection').select2({ placeholder: "Select countries" });
 	},
-
+	
 	getConnectionTime: function() {
 		const self = this;
 
@@ -262,8 +175,43 @@ let briefHench = {
 		if (selectedOption) {
 			let requestsInstantCall = selectedOption.nextSibling.value;
 			self.instantCall = requestsInstantCall;
+			self.formSchema['requestedAnInstantCall'] = requestsInstantCall;
 		} else {
 			self.instantCall = 'no';
+			self.formSchema['requestedAnInstantCall'] = 'no';
+		}
+	},
+
+	initIntlTel: function() {
+		const self = this;
+		let phoneInput = document.querySelector("#phone");
+		self.intlTel = window.intlTelInput(phoneInput, {
+			initialCountry: "auto",
+			formatOnDisplay: true,
+			hiddenInput: 'fullPhone',
+			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
+			geoIpLookup: function(success, failure) {
+				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
+					success((resp && resp.country) ? resp.country : "us");
+				});
+			},
+		});
+
+		// $('#phone').keyup(function() {
+		// 	briefHench.validatePhone();
+		// });
+	},
+
+	validatePhone: function() {
+		const self = this;
+
+		let iti = self.intlTel;
+		if (iti.isValidNumber()) {
+			$('#phone').removeClass('empty-field');
+			return iti.getNumber();
+		} else {
+			$('#phone').addClass('empty-field');
+			return false;
 		}
 	},
 	
@@ -273,20 +221,6 @@ let briefHench = {
 			autoHeight: true,
 			speed: 600,
 			loop: true,
-			navigation: {
-				nextEl: ".brief-pagination-button.next",
-				prevEl: ".brief-pagination-button.prev"
-			}
-		});
-	},
-	
-	initNoMatchSwiper: function() {
-		const self = this;
-		let swiper = new Swiper(".swiper-blogs", {
-			autoHeight: true,
-			speed: 600,
-			loop: true,
-			autoplay: { delay: 4800 },
 			navigation: {
 				nextEl: ".brief-pagination-button.next",
 				prevEl: ".brief-pagination-button.prev"
@@ -307,52 +241,96 @@ let briefHench = {
 		});
 	},
 
-	getURLVariables: function() {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) { vars[key] = value; }); return vars; },
+	initMeeting: function(type) {
+		$(window).scrollTop(0);
+		
+		$('.brief-page-box').addClass('on-step-three');
+		$('#step-2').addClass('hidden');
 
-	getURLParams: function(parameter, defaultValue) {
-		const self = this;
-		var urlParameter = defaultValue;
+		$('#meeting-step').removeClass('hidden');
 
-		if (window.location.href.indexOf(parameter) > -1) {
-			urlParameter = self.getURLVariables()[parameter];
-		} 
-		return urlParameter;
+		let container = $('#meeting-container');
+		let firstname = $('#firstname').val();
+		let lastname = $('#lastname').val();
+		let email = $('#email').val();
+		let company = $('#company').val();
+
+		let template = '';
+
+		if (type === 'long') {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
+
+			window.mayple_analytics.track('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
+		} else {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
+		}
+
+		container.append(template);
+		
+		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
 	},
 
-	searchParams: function() {
+	getSelectedCountries: function() {
 		const self = this;
-		self.paramsToSearch.forEach(function(param) {
-			let utmParam = self.getURLParams(param, '');
-			if (param === 'utm_source' && utmParam.length > 0) {
-				$('#source-field').addClass('hidden');
+		let countryField = $('.country-selection').select2('data');
+		countryField.forEach(function(country) { self.formSchema['locations'].push(country.id); });
+	},
+
+	getSelectedSkills: function() {
+		const self = this;
+		$('.channel-selection .w--redirected-checked').each(function(index, el) {
+			let selectedSkill = $(this).parent().attr('skill-type');
+			if(selectedSkill === 'PAID_ADVERTISING') {
+				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
+				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
+			} else {
+				self.formSchema['serviceTypes'].push(selectedSkill);	
 			}
-			if (utmParam.length > 0) {
-				document.getElementById(param).value = utmParam;
-			}
+			console.log( 'Skill: ', selectedSkill );
 		});
 	},
-	
-	updateBackLink: function() {
-		const url = window.location.pathname;
-		const queryString = url.split("?");
-		let link = document.querySelector('.home-link');
+
+	handleFirstStep: function(number) {
+		const self = this;
+
+		// let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
+
+		// if (number === 'hasFullNumber') {
+		// 	console.log( 'Has phone number' );
+		// 	phoneNumber = $('#phone').val();
+		// }
+
+		briefHench.fullPhone = self.validatePhone();
+		console.log( 'Phone validation: ', briefHench.fullPhone );
+		if (!briefHench.fullPhone) {
+			return;
+		}
+
+		self.updateFormData('#welcome-brief-form_first');
+
+		briefHench.toSecondStep();
 	},
 
-	initIntlTel: function() {
+	updateFormData: function(container) {
 		const self = this;
-		let phoneInput = document.querySelector("#phone");
-		self.intlTel = window.intlTelInput(phoneInput, {
-			initialCountry: "auto",
-			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
-			geoIpLookup: function(success, failure) {
-				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
-					self.ipCountry = resp.country;
-					success((resp && resp.country) ? resp.country : "us");
-				});
-			},
+		// console.log( 
+		let inputs = $(container + ' input[type=text]');
+
+		inputs.each(function(index) {
+			let inputName = $(this).attr('name');
+			self.formSchema[inputName] = $(this).val();
+
+			if (inputName === 'estimatedMediaBudget') {
+				self.formSchema['estimatedMediaBudget'] = self.budget;
+			}
 		});
+
+		// self.validatePhone();
+
+		if (container === '#welcome-brief-form_first') {
+			self.formSchema['phoneNumber'] = self.fullPhone;
+			self.formSchema['emailAddress'] = $('#email').val();
+		}
 	},
 
 	toSecondStep: function() {
@@ -365,107 +343,6 @@ let briefHench = {
 		$(".brief-slider-bg.step-one").fadeOut("slow");
 		$(".brief-slider-bg.step-two").fadeIn("slow");
 		$(".step-two-bg-image").fadeIn("slow");
-	},
-
-	initMeeting: function() {
-		let container = $('#meeting-container');
-		let shortMeetingContainer = $('#meeting-container_short');
-		let firstname = $('#firstname').val();
-		let lastname = $('#lastname').val();
-		let email = $('#email').val();
-		let company = $('#company').val();
-		let template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
-		let shortMeetingTemplate = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
-		container.append(template);
-		shortMeetingContainer.append(shortMeetingTemplate);
-		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
-	},
-	getSelectedCountries: function() {
-		const self = this;
-		let countryField = $('.country-selection').select2('data');
-		countryField.forEach(function(country) { self.countries.push(country.id); });
-	},
-	// getSelectedBusinessModels: function() {
-	// 	const self = this;
-	// 	$('.business-model-selection .w--redirected-checked').each(function(index, el) {
-	// 		let selectedBusinessModel = $(this).parent().attr('business-type');
-	// 		self.businessModels.push(selectedBusinessModel);
-	// 	});
-	// },
-	getSelectedSkills: function() {
-		const self = this;
-		$('.channel-selection .w--redirected-checked').each(function(index, el) {
-			let selectedSkill = $(this).parent().attr('skill-type');
-			self.skills.push(selectedSkill);
-		});
-	},
-
-	getAutoPopulatedFields: function() {
-		let data = localStorage.getItem('formData');
-		if (!data) {
-			return; }
-
-		data = JSON.parse(data);
-		
-		for (var field in data) {
-			if (data.hasOwnProperty(field)) {
-				if ( document.getElementById(field) ) {
-					document.getElementById(field).value = data[field];
-				} else {
-					console.log( 'Missing field: ', field );
-				}
-			}
-		}
-	},
-
-	handleFirstStep: function(number) {
-		const self = this;
-
-		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
-		if (number === 'hasFullNumber') {
-			console.log( 'Has phone number' );
-			phoneNumber = $('#phone').val();
-		}
-
-		// if (!briefHench.intlTel.isValidNumber() && briefHench.intlTel.getValidationError() === 4) {
-		// 	console.log( 'Is valid' );
-		// } else {
-		// 	console.log( 'Error: ',  );
-		// }
-
-		let formData = {
-			hs_persona: 'persona_1',
-			
-			lp_traffic_source: $('#lp_traffic_source').val(),
-			traffic_source: 'short_welcome_brief',
-			partnerstack_referral_key: $('#partnerKey').val(),
-
-			firstname: $('#firstname').val(),
-			lastname: $('#lastname').val(),
-			phone: phoneNumber,
-			email: $('#email').val(),
-
-			how_did_you_hear_about_mayple: $('#source').val(),
-
-			utm_source: $('#utm_source').val(),
-			utm_medium: $('#utm_medium').val(),
-			utm_campaign: $('#utm_campaign').val(),
-			utm_content: $('#utm_content').val(),
-			utm_term: $('#utm_term').val()
-		};
-
-		hubspotFormSubmit('4292856', briefHench.hbID, formData)
-			.then(function(sent) {
-				if (sent) {
-					window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
-					//briefHench.registerLeadToGrowsumo(formData.firstname, formData.lastname, formData.email, formData.partnerstack_referral_key);
-				}
-			})
-			.catch(function(err) {
-				console.log( 'Error: ', err )
-			});
-
-		briefHench.toSecondStep();
 	},
 
 	triggerWebsiteChange: function() {
@@ -510,6 +387,31 @@ let briefHench = {
 		}
 	},
 
+	checkTimeZone: function() {
+		if (!document.querySelector('.call-preference-box')) {
+			return; }
+
+		let options = {
+			hour: 'numeric',
+			hour12: false,
+			timeZone: 'America/New_York',
+			weekday: 'long'
+		};
+
+		let timeInLA = new Intl.DateTimeFormat('en-AU', options).format(new Date());
+			timeInLA = timeInLA.replace(/ /g, "");
+			timeInLA = timeInLA.split(',');
+
+			timeInLA[1] = parseInt(timeInLA[1]);
+		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
+			console.log( 'It is in the range' );
+			document.querySelector('.call-preference-box').classList.remove('hidden');
+		} else {
+			$('.radio-button-holder input').removeAttr('required')
+			console.log( 'Time: ', timeInLA );
+		}
+	},
+
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
@@ -525,19 +427,57 @@ let briefHench = {
 		if (value.length > 3) {
 			$('#company').val(companyName)
 		}
-	}
+	},
+
+	checkGrowsumoKey: function() {
+		const self = this;
+
+		let growsumoKey = Cookies.get('growSumoPartnerKey');
+		if (growsumoKey && growsumoKey.length > 0) {
+			document.getElementById('partnerKey').value = growsumoKey;
+		}
+	},
+
+	getAutoPopulatedFields: function() {
+		let data = localStorage.getItem('formData');
+		if (!data) {
+			return; }
+
+		data = JSON.parse(data);
+		
+		for (var field in data) {
+			if (data.hasOwnProperty(field)) {
+				if ( document.getElementById(field) ) {
+					document.getElementById(field).value = data[field];
+				} else {
+					console.log( 'Missing field: ', field );
+				}
+			}
+		}
+	},
+
+	autofillMarketingChannel: function() {
+		const self = this;
+		let channel = localStorage.getItem('mayple_marketing_channel');
+		let matchingChannel = document.querySelector('[skill-type="' + channel + '"]');
+
+		if (matchingChannel && matchingChannel != null) {
+			matchingChannel.querySelector('input').checked = true;
+			matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
+		}
+	},
 };
+
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
+
 $(document).ready(function() {
-	briefHench.getCookies();
-	briefHench.checkGrowsumoKey();
+	briefHench.initSDK();
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
+	briefHench.checkGrowsumoKey();
 	briefHench.initSwiper();
 	briefHench.checkPredefinedStep();
-	briefHench.searchParams();
-	briefHench.updateBackLink();
-	briefHench.initIndustrySelection();
+	briefHench.initSelections();
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
 	briefHench.checkTimeZone();
@@ -547,43 +487,45 @@ $(document).ready(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3600)
 });
+
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
 	
 	briefHench.handleFirstStep('e');
+
+	console.log( $('#fullPhone'), $('#fullPhone').val() );
 });
 
-$('#welcome-brief-form_nomatch').submit(function(event) {
-	event.preventDefault();
-	let formData = { email: $('#email').val(), requires_help_from_partner: $('#welcome-brief-form_nomatch .w--redirected-checked').next().attr('value') };
-	console.log( 'Form: ', formData );
-	hubspotFormSubmit('4292856', briefHench.hbID, formData).then(function(sent) { if (sent) { console.log('sent form: ', sent)} }).catch(function(err) {}) });
-
 $('#welcome-brief-form_end').submit(function(event) {
-	// let b = $('.business-model-selection :checkbox:checked').length;
-	// let bC = $('.business-model-selection');
-	let c = $('.channel-selection :checkbox:checked').length;
-	let cC = $('.channel-selection');
-	if (!c > 0) { cC.addClass('error'); return; } else { cC.removeClass('error') } event.preventDefault();
+	briefHench.updateFormData('#welcome-brief-form_end');
+	briefHench.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
+	briefHench.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+ 
+	briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
+	
 	briefHench.getSelectedCountries();
 	briefHench.getConnectionTime();
-	// briefHench.getSelectedBusinessModels();
 	briefHench.getSelectedSkills();
-	briefHench.getCountryScore();
+
+	let hsScore = briefHench.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
+	console.log( 'Score: ', hsScore );
+
+
+
+	briefHench.getTargetCountryScore();
 	briefHench.getIPScore();
 	briefHench.getBudgetScore();
 	briefHench.getWebsiteScore();
 	briefHench.calculateScore();
-	briefHench.initMeeting();
-	let formData = { email: $('#email').val(), website: $('#website').val(), company: $('#company').val(), mayple_industry: $('.business-type-selection').select2('data')[0].id, countries: briefHench.countries, skills: briefHench.skills, marketing_budget_from_basic_brief_in_usd: briefHench.budget };
-	hubspotFormSubmit('4292856', briefHench.hbID, formData).then(function(sent) { if (sent) { briefHench.reportWizardBriefStepDone('Wizard.Brief Finished'); } }).catch(function(err) {})
+
+	console.log( 'Form: ', briefHench.formSchema );
+	briefHench.websiteSDK.createProjectLead(briefHench.formSchema);
+	briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
 });
 
 $('#marketingbudget').keyup(function(e) {
 	briefHench.restructureBudget();
 });
-
-$('#company').keyup(function(e) { $(this).addClass('no-autofill'); });
 
 $('#website').keyup(function(e) {
 	briefHench.fillCompanyName();
@@ -597,6 +539,9 @@ window.addEventListener("message", function(e) {
 	if (!e.origin === 'https://meetings.hubspot.com') { return; }
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
-		hubspotFormSubmit('4292856', '9c266462-4b62-4255-bd93-7bbf92103f72', { email: $('#email').val(), did_schedule_a_sales_call: true }).then(function(sent) { console.log(sent) })
 	}
 });
+
+// document.getElementById('phone').addEventListener('change', briefHench.validatePhone());
+// document.getElementById('phone').addEventListener('keyup', briefHench.validatePhone());
+// 
