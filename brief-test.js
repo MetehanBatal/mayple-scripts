@@ -301,8 +301,8 @@ let briefHench = {
 		// }
 
 		briefHench.fullPhone = self.validatePhone();
-		console.log( 'Phone validation: ', fullPhone );
-		if (!fullPhone) {
+		console.log( 'Phone validation: ', briefHench.fullPhone );
+		if (!briefHench.fullPhone) {
 			return;
 		}
 
