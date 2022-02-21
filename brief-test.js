@@ -185,6 +185,7 @@ let briefHench = {
 		let phoneInput = document.querySelector("#phone");
 		self.intlTel = window.intlTelInput(phoneInput, {
 			initialCountry: "auto",
+			formatOnDisplay: true,
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
 				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
