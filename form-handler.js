@@ -15,7 +15,7 @@ let formHandlerHench = {
 				let lpSourceInput = document.createElement('input');
 				lpSourceInput.type = 'text';
 				lpSourceInput.className = 'hidden';
-				lpSourceInput.setAttribute('name', 'lp_traffic_source');
+				lpSourceInput.setAttribute('name', 'lpTrafficSource');
 				form.appendChild(lpSourceInput);
 
 				lpSourceInput.value = pagePath.replace('/lp/', '');
