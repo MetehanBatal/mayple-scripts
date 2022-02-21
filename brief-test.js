@@ -3,6 +3,8 @@ let briefHench = {
 
 	intlTel: '',
 
+	fullPhone: '',
+
 	score: 0,
 
 	budget: 0,
@@ -298,9 +300,9 @@ let briefHench = {
 		// 	phoneNumber = $('#phone').val();
 		// }
 
-		let isValid = self.validatePhone();
-		console.log( 'Phone validation: ', isValid );
-		if (!isValid) {
+		briefHench.fullPhone = self.validatePhone();
+		console.log( 'Phone validation: ', fullPhone );
+		if (!fullPhone) {
 			return;
 		}
 
@@ -326,7 +328,7 @@ let briefHench = {
 		// self.validatePhone();
 
 		if (container === '#welcome-brief-form_first') {
-			self.formSchema['phoneNumber'] = $('#phone').val();
+			self.formSchema['phoneNumber'] = self.fullPhone;
 			self.formSchema['emailAddress'] = $('#email').val();
 		}
 	},
