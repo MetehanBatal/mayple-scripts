@@ -200,7 +200,11 @@ let briefHench = {
 		const self = this;
 
 		let iti = self.intlTel;
-		console.log( iti.isValidNumber(), iti.getNumber() );
+		console.log( self.intlTel );
+		if (iti) {
+			console.log( iti.isValidNumber(), iti.getNumber() );	
+		}
+		
 	},
 	
 	initSwiper: function() {
@@ -451,9 +455,9 @@ $('.brief-input.select').on('change', function(e) { $(this).css("color", "#24181
 
 $(document).ready(function() {
 	briefHench.initSDK();
-	briefHench.checkGrowsumoKey();
 	briefHench.getAutoPopulatedFields();
 	briefHench.initIntlTel();
+	briefHench.checkGrowsumoKey();
 	briefHench.initSwiper();
 	briefHench.checkPredefinedStep();
 	briefHench.initSelections();
