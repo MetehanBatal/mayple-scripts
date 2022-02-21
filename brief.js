@@ -297,13 +297,15 @@ let briefHench = {
 
 		// if (number === 'hasFullNumber') {
 		// 	console.log( 'Has phone number' );
-		// 	phoneNumber = $('#phone').val();
+		// 	console.log( $('#phone').val() );
 		// }
 
-		briefHench.fullPhone = self.validatePhone();
-		console.log( 'Phone validation: ', briefHench.fullPhone );
-		if (!briefHench.fullPhone) {
-			return;
+		if (number !== 'hasFullNumber') {
+			briefHench.fullPhone = self.validatePhone();
+			console.log( 'Phone validation: ', briefHench.fullPhone );
+			if (!briefHench.fullPhone) {
+				return;
+			}
 		}
 
 		self.updateFormData('#welcome-brief-form_first');
