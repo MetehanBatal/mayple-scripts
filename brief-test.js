@@ -195,6 +195,13 @@ let briefHench = {
 			},
 		});
 	},
+
+	validatePhone: function() {
+		const self = this;
+
+		let iti = self.intlTel;
+		console.log( iti.isValidNumber(), iti.getNumber() );
+	},
 	
 	initSwiper: function() {
 		const self = this;
@@ -513,3 +520,6 @@ window.addEventListener("message", function(e) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
 	}
 });
+
+$('#phone').addEventListener('change', briefHench.validatePhone());
+$('#phone').addEventListener('keyup', briefHench.validatePhone());
