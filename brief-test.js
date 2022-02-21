@@ -290,12 +290,12 @@ let briefHench = {
 	handleFirstStep: function(number) {
 		const self = this;
 
-		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
+		// let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
 
-		if (number === 'hasFullNumber') {
-			console.log( 'Has phone number' );
-			phoneNumber = $('#phone').val();
-		}
+		// if (number === 'hasFullNumber') {
+		// 	console.log( 'Has phone number' );
+		// 	phoneNumber = $('#phone').val();
+		// }
 
 		let phone = self.validatePhone();
 		console.log( 'Phone validation: ', phone );
