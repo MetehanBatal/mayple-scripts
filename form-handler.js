@@ -58,12 +58,7 @@ let formHandlerHench = {
 				formData[inputName] = input.value;
 			}
 			if (inputName === 'phone') {
-				if ( document.querySelector('.iti__active') ) {
-					formData[inputName] = '+' + document.querySelector('.iti__active').getAttribute('data-dial-code') + input.value;	
-				} else {
-					formData[inputName] = '+1' + input.value;	
-				}
-				
+				formData[inputName] = form.querySelector('.full-number').value;
 			}
 			if (inputName === 'website' && input.value.length < 1) {
 				formData[inputName] = 'nowebsite';

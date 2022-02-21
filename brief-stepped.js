@@ -161,17 +161,17 @@ let briefHench = {
 				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
 				$('.error-message.stepped').addClass('hidden');
 			}
-			self.getTargetCountryScore();
+			// self.getTargetCountryScore();
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
 			console.log( self.formSchema['estimatedMediaBudget'] );
-			self.getBudgetScore();
+			// self.getBudgetScore();
 		} else if (form[0].id === 'welcome-brief-form_fifth') {
 			self.formSchema['websiteAddress'] = document.getElementById('website').value;
 			self.formSchema['companyName'] = document.getElementById('company').value;
-			self.getWebsiteScore();
+			// self.getWebsiteScore();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
@@ -195,6 +195,7 @@ let briefHench = {
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
 		if ($('.to-next-step').hasClass('final')) {
+			$('.brief-stepped-form').removeClass('active');
 			self.submitForm();
 			return;
 		}
@@ -300,11 +301,11 @@ let briefHench = {
 		console.log( self.formSchema );
 
 		self.getConnectionTime();
-		
-		self.getScore();
 
-		let hsScore = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
-		console.log( 'Hubspot Score: ', hsScore );
+		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+
+		self.getScore();
+		console.log( 'Hubspot Score: ', self.score );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
@@ -558,7 +559,7 @@ $( document ).ready(function(e) {
 	briefHench.listenStepChange();
 	briefHench.initSelections();
 	briefHench.checkTimeZone();
-	briefHench.getIPScore();
+	// briefHench.getIPScore();
 	briefHench.getAutoPopulatedFields();
 	briefHench.checkGrowsumoKey();
 
