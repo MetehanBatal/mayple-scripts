@@ -527,3 +527,7 @@ window.addEventListener("message", function(e) {
 
 // document.getElementById('phone').addEventListener('change', briefHench.validatePhone());
 // document.getElementById('phone').addEventListener('keyup', briefHench.validatePhone());
+// 
+$('#phone').keyup(function() {
+	briefHench.validatePhone();
+});
