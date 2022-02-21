@@ -209,6 +209,7 @@ let briefHench = {
 			return iti.getNumber();
 		} else {
 			$('#phone').addClass('empty-field');
+			return false;
 		}
 	},
 	
