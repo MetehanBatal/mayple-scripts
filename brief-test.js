@@ -194,17 +194,22 @@ let briefHench = {
 				});
 			},
 		});
+
+		// $('#phone').keyup(function() {
+		// 	briefHench.validatePhone();
+		// });
 	},
 
 	validatePhone: function() {
 		const self = this;
 
 		let iti = self.intlTel;
-		console.log( self.intlTel );
-		if (iti) {
-			console.log( iti.isValidNumber(), iti.getNumber() );	
+		if (iti.isValidNumber()) {
+			$('#phone').removeClass('empty-field');
+			return iti.getNumber();
+		} else {
+			$('#phone').addClass('empty-field');
 		}
-		
 	},
 	
 	initSwiper: function() {
@@ -286,10 +291,14 @@ let briefHench = {
 		const self = this;
 
 		let phoneNumber = '+' + self.intlTel.s.dialCode + $('#phone').val();
+
 		if (number === 'hasFullNumber') {
 			console.log( 'Has phone number' );
 			phoneNumber = $('#phone').val();
 		}
+
+		let phone = self.validatePhone();
+		console.log( 'Phone validation: ', phone );
 
 		self.updateFormData('#welcome-brief-form_first');
 
@@ -309,6 +318,8 @@ let briefHench = {
 				self.formSchema['estimatedMediaBudget'] = self.budget;
 			}
 		});
+
+		// self.validatePhone();
 
 		if (container === '#welcome-brief-form_first') {
 			self.formSchema['phoneNumber'] = $('#phone').val();
@@ -528,6 +539,3 @@ window.addEventListener("message", function(e) {
 // document.getElementById('phone').addEventListener('change', briefHench.validatePhone());
 // document.getElementById('phone').addEventListener('keyup', briefHench.validatePhone());
 // 
-$('#phone').keyup(function() {
-	briefHench.validatePhone();
-});
