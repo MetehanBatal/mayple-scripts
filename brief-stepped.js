@@ -595,7 +595,21 @@ $('#nowebsite').bind('change', function() {
 
 $('.channel-selection input').bind('change', function(e) {
 	console.log( e );
-})
+});
+
+$('.not-sure').click(function() {
+	briefHench.formSchema['serviceTypes'] = ['OTHER'];
+	briefHench.formSchema['requestsAssistanceForRequiredSkillsChoice'] = true;
+
+	briefHench.currentStep += 1;
+
+	briefHench.setSteps();
+	
+	$('.brief-stepped-form').addClass('hidden');
+	$('.brief-stepped-form').eq(briefHench.currentStep).removeClass('hidden');
+	$('.brief-stepped-form').removeClass('active');
+	$('.brief-stepped-form').eq(briefHench.currentStep).addClass('active');
+});
 
 window.addEventListener("message", function(e) {
 	if (!e.origin === 'https://meetings.hubspot.com') { return; }
