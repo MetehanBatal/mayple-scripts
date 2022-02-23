@@ -629,9 +629,15 @@ $('#nowebsite').bind('change', function() {
 	}
 });
 
-// $('.channel-selection input').bind('change', function(e) {
-// 	console.log( e );
-// });
+$('.channel-selection input').bind('change', function(e) {
+	console.log( e );
+	console.log( $('.channel-selection .w--redirected-checked') );
+	if ($('.channel-selection .w--redirected-checked').length > 0) {
+		$('.to-next-step').removeClass('disabled');
+	} else {
+		$('.to-next-step').addClass('disabled');
+	}
+});
 
 $('.not-sure').click(function() {
 	briefHench.formSchema['serviceTypes'] = ['OTHER'];
@@ -667,12 +673,4 @@ $('.country-selection').on('select2:select', function (e) {
 	$('.select2-container .select2-selection--multiple').addClass('selected');
 
 	$('.to-next-step').removeClass('disabled');
-});
-
-$('.channel-selection .w-checkbox-input').change(function(){
-	if ($('.channel-selection .w--redirected-checked').length > 0) {
-		$('.to-next-step').removeClass('disabled');
-	} else {
-		$('.to-next-step').addClass('disabled');
-	}
 });
