@@ -179,6 +179,8 @@ let briefHench = {
 				};
 				console.log( 'traits: ', traits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', traits);
+
+				$('.pagination-buttons').removeClass('first-step');
 			}
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
