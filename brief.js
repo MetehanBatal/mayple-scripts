@@ -501,9 +501,10 @@ $('#welcome-brief-form_first').submit(function(event) {
 	
 	briefHench.handleFirstStep('e');
 
+	console.log( 'Form: ', briefHench.formSchema );
 	briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
 
-	console.log( $('#fullPhone'), $('#fullPhone').val() );
+	// console.log( $('#fullPhone'), $('#fullPhone').val() );
 });
 
 $('#welcome-brief-form_end').submit(function(event) {
