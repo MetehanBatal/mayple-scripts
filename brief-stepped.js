@@ -232,6 +232,7 @@ let briefHench = {
 		if (self.currentStep === self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Submit</p>');
 			$('.to-next-step').addClass('final');
+			$('.to-next-step').removeClass('disabled');
 		}
 
 		// let validateForm = self.validateForm();
@@ -610,6 +611,12 @@ $('#website').keyup(function(e) {
 
 $('#marketingbudget').keyup(function(e) {
 	briefHench.restructureBudget();
+	console.log( e );
+	if ($('#marketingbudget').val().length > 0) {
+		$('.to-next-step').removeClass('disabled');
+	} else {
+		$('.to-next-step').addClass('disabled');
+	}
 });
 
 // $('#phone').keyup(function(e) {
@@ -622,10 +629,12 @@ $('#nowebsite').bind('change', function() {
 		$('#website').prop('required', false);
 		$('#website').addClass('not-editable');
 		$('#website').val('');
+		$('.to-next-step').removeClass('disabled');
 	} else {
 		$('#website').prop('readonly', false);
 		$('#website').prop('required', true);
 		$('#website').removeClass('not-editable');
+		$('.to-next-step').addClass('disabled');
 	}
 });
 
