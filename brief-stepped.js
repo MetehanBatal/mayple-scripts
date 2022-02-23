@@ -150,7 +150,17 @@ let briefHench = {
 				error = false;
 				$('#welcome-brief-form_first .select2-selection').removeClass('empty-field');
 
-				briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone');
+				let traits = {
+					category: 'Wizard.Brief.Industry',
+					action: 'StepDone',
+					label: self.formSchema['industry'][0].industrySubCategory,
+					industrySubCategory: self.formSchema['industry'][0].industrySubCategory,
+					industryCategory: self.formSchema['industry'][0].industryCategory
+				};
+
+				console.log( traits );
+
+				briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone', traits);
 			}
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
@@ -553,9 +563,13 @@ let briefHench = {
 		// if (self)
 	},
 
-	reportWizardBriefStepDone(eventName) {
-		const [category, action] = eventName.split(' ');
-		window.mayple_analytics.track(eventName, { category, action });
+	reportWizardBriefStepDone(eventName, traits) {
+		if (traits) {
+			window.mayple_analytics.track(eventName, traits);	
+		} else {
+			const [category, action] = eventName.split(' ');
+			window.mayple_analytics.track(eventName, { category, action });
+		}
 	}
 }
 
