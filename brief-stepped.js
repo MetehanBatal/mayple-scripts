@@ -613,6 +613,6 @@ window.addEventListener("message", function(e) {
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
 		console.log( e.data );
-		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
+		// window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
 	}
 });

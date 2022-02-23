@@ -547,6 +547,7 @@ window.addEventListener("message", function(e) {
 	if (!e.origin === 'https://meetings.hubspot.com') { return; }
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
+		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
 	}
 });
 
