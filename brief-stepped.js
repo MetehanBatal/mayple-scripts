@@ -121,6 +121,9 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
+
+		$('.to-next-step').addClass('disabled');
+
 		// form.submit();
 		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
@@ -654,9 +657,13 @@ window.addEventListener("message", function(e) {
 
 $('.business-type-selection').on('select2:select', function (e) {
 	$('.select2-container .select2-selection--single').addClass('selected');
+
+	$('.to-next-step').removeClass('disabled');
 });
 
 
 $('.country-selection').on('select2:select', function (e) {
 	$('.select2-container .select2-selection--multiple').addClass('selected');
+
+	$('.to-next-step').removeClass('disabled');
 });
