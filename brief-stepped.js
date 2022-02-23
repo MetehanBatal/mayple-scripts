@@ -149,7 +149,10 @@ let briefHench = {
 			} else {
 				error = false;
 				$('#welcome-brief-form_first .select2-selection').removeClass('empty-field');
+
+				briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone');
 			}
+
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
 			if(self.formSchema['locations'].length < 1) {
@@ -160,13 +163,22 @@ let briefHench = {
 				error = false;
 				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
 				$('.error-message.stepped').addClass('hidden');
+
+				briefHench.reportWizardBriefStepDone('Wizard.Brief.Locations StepDone');
 			}
 			// self.getTargetCountryScore();
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
+
+			if (!error) {
+				briefHench.reportWizardBriefStepDone('Wizard.Brief.MarketingSkills StepDone');
+			}
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
-			console.log( self.formSchema['estimatedMediaBudget'] );
+
+			if (!error) {
+				briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
+			}
 			// self.getBudgetScore();
 		} else {
 			let inputs = form[0].querySelectorAll('input');
