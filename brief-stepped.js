@@ -164,11 +164,12 @@ let briefHench = {
 				// console.log( traits );
 
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone', traits);
-
+				let subCategory = self.formSchema['industry'][0].industrySubCategory;
+				let category = self.formSchema['industry'][0].industryCategory
 				const traits = {
-					label: self.formSchema['industry'][0].industrySubCategory,
-					industryCategory: self.formSchema['industry'][0].industryCategory,
-					industrySubCategory: self.formSchema['industry'][0].industrySubCategory
+					label: subCategory,
+					industryCategory: category,
+					industrySubCategory: subCategory
 				};
 				console.log( 'traits: ', traits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', traits);
@@ -667,3 +668,19 @@ $('.country-selection').on('select2:select', function (e) {
 
 	$('.to-next-step').removeClass('disabled');
 });
+
+$('.channel-selection .w-checkbox-input').change(function(){
+	if ($('.channel-selection .w--redirected-checked').length > 0) {
+		$('.to-next-step').removeClass('disabled');
+	} else {
+		$('.to-next-step').addClass('disabled');
+	}
+}
+
+$('input[type="checkbox"]').change(function(){ 
+
+        var itemName = $('select option:selected').text();  
+
+         //Do something.
+
+});    
