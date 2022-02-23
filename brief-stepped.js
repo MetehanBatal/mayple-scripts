@@ -179,8 +179,6 @@ let briefHench = {
 				};
 				console.log( 'traits: ', traits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', traits);
-
-				$('.pagination-buttons').removeClass('first-step');
 			}
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
@@ -210,6 +208,8 @@ let briefHench = {
 
 			if (!error) {
 				briefHench.reportWizardBriefStepDone('Wizard.Brief.MarketingSkills StepDone');
+
+				$('.pagination-buttons').removeClass('first-step');
 			}
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
