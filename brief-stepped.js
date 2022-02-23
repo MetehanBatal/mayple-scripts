@@ -150,17 +150,25 @@ let briefHench = {
 				error = false;
 				$('#welcome-brief-form_first .select2-selection').removeClass('empty-field');
 
-				let traits = {
-					category: 'Wizard.Brief.Industry',
-					action: 'StepDone',
+				// let traits = {
+				// 	category: 'Wizard.Brief.Industry',
+				// 	action: 'StepDone',
+				// 	label: self.formSchema['industry'][0].industrySubCategory,
+				// 	industrySubCategory: self.formSchema['industry'][0].industrySubCategory,
+				// 	industryCategory: self.formSchema['industry'][0].industryCategory
+				// };
+
+				// console.log( traits );
+
+				// briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone', traits);
+
+				const traits = {
 					label: self.formSchema['industry'][0].industrySubCategory,
-					industrySubCategory: self.formSchema['industry'][0].industrySubCategory,
-					industryCategory: self.formSchema['industry'][0].industryCategory
+					industryCategory: self.formSchema['industry'][0].industryCategory,
+					industrySubCategory: self.formSchema['industry'][0].industrySubCategory
 				};
-
-				console.log( traits );
-
-				briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone', traits);
+				console.log( 'traits: ', traits );
+				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', traits);
 			}
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
