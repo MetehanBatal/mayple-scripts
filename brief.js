@@ -316,6 +316,8 @@ let briefHench = {
 			window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
 		}, 4800);
 
+		briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
+
 		briefHench.toSecondStep();
 	},
 
