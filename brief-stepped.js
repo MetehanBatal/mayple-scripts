@@ -629,9 +629,9 @@ $('#nowebsite').bind('change', function() {
 	}
 });
 
-$('.channel-selection input').bind('change', function(e) {
-	console.log( e );
-});
+// $('.channel-selection input').bind('change', function(e) {
+// 	console.log( e );
+// });
 
 $('.not-sure').click(function() {
 	briefHench.formSchema['serviceTypes'] = ['OTHER'];
@@ -675,12 +675,4 @@ $('.channel-selection .w-checkbox-input').change(function(){
 	} else {
 		$('.to-next-step').addClass('disabled');
 	}
-}
-
-$('input[type="checkbox"]').change(function(){ 
-
-        var itemName = $('select option:selected').text();  
-
-         //Do something.
-
-});    
+});
