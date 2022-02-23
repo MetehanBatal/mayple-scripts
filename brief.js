@@ -314,12 +314,8 @@ let briefHench = {
 
 		setTimeout(function() {
 			window.mayple_analytics.track('Lead Created', { category: 'Lead', action: 'Created' });
-		}, 4800);
-
-		briefHench.websiteSDK.onReadyCallback(function() {
-			console.log( 'Is ready' );
 			briefHench.websiteSDK.submitHubspotForm(briefHench.formSchema);
-		});
+		}, 4800);
 
 		briefHench.toSecondStep();
 	},
