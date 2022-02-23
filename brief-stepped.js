@@ -199,7 +199,7 @@ let briefHench = {
 			self.getSelectedSkills();
 
 			console.log( self.selectedSkills );
-			if (self.selectedSkills.length === 1) {
+			if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
 				$('.selected-service').html(self.selectedSkills[0]);
 			} else {
 				$('.selected-service').addClass('hidden');
