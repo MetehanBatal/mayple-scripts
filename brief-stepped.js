@@ -1,6 +1,8 @@
 let briefHench = {
 	websiteSDK: '',
 
+	selectedSkills: [],
+
 	intlTel: '',
 
 	score: 0,
@@ -80,6 +82,8 @@ let briefHench = {
 			} else {
 				self.formSchema['serviceTypes'].push(selectedSkill);	
 			}
+			console.log( $(this).siblings('.checkbox-label').html() );
+			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
 
 			// self.
 			console.log( 'Skill: ', selectedSkill );
@@ -193,6 +197,14 @@ let briefHench = {
 			// self.getTargetCountryScore();
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
+
+			console.log( self.selectedSkills );
+			if (self.selectedSkills.length === 1) {
+				$('.selected-service').html(self.selectedSkills[0]);
+			} else {
+				$('.selected-service').addClass('hidden');
+			}
+			
 
 			if (!error) {
 				briefHench.reportWizardBriefStepDone('Wizard.Brief.MarketingSkills StepDone');
