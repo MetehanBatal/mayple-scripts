@@ -565,6 +565,7 @@ let briefHench = {
 
 	reportWizardBriefStepDone(eventName, traits) {
 		if (traits) {
+			console.log( 'Sent the event with traits' );
 			window.mayple_analytics.track(eventName, traits);	
 		} else {
 			const [category, action] = eventName.split(' ');
