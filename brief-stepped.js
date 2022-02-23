@@ -264,7 +264,7 @@ let briefHench = {
 			$('.to-previous-step').hide();
 		}
 		if (self.currentStep != self.stepCount - 1) {
-			$('.to-next-step').html('<p class="button-text">Continue</p>');
+			$('.to-next-step').html('<p class="button-text">Next</p>');
 			$('.to-next-step').removeClass('final');
 		}
 
