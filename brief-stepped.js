@@ -643,3 +643,12 @@ window.addEventListener("message", function(e) {
 		// window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
 	}
 });
+
+$('.business-type-selection').on('select2:select', function (e) {
+	$('.select2-container .select2-selection--single').addClass('selected');
+});
+
+
+$('.country-selection').on('select2:select', function (e) {
+	$('.select2-container .select2-selection--multiple').addClass('selected');
+});
