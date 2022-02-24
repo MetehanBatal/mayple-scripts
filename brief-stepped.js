@@ -215,7 +215,6 @@ let briefHench = {
 			
 
 			if (!error) {
-				briefHench.reportWizardBriefStepDone('Wizard.Brief.MarketingSkills StepDone');
 				let skills = self.selectedSkills;
 				const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
 				const skillTraits = {
