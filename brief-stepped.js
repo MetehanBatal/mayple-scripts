@@ -107,7 +107,7 @@ let briefHench = {
 
 		if (!$('.step-numbers').hasClass('steps-inserted')) {
 			for (let index = 0; totalSteps > index; index++) {
-				$('.step-numbers').append(`<p class="brief-step-number" data-step-number=${index}></p>`);
+				$('.step-numbers').append(`<div class="brief-step-number" data-step-number=${index}></div>`);
 			}
 			$('.step-numbers').addClass('steps-inserted');
 		}
