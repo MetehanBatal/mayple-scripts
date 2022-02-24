@@ -216,6 +216,14 @@ let briefHench = {
 
 			if (!error) {
 				briefHench.reportWizardBriefStepDone('Wizard.Brief.MarketingSkills StepDone');
+				let skills = self.selectedSkills;
+				const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
+				const skillTraits = {
+					label: skills ? skillsSorted : null,
+					skills: skills ? skillsSorted : '',
+				};
+				console.log( 'Skills Traits: ', skillTraits );
+				websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 
 				$('.pagination-buttons').removeClass('first-step');
 			}
@@ -403,9 +411,11 @@ let briefHench = {
 	},
 
 	showInstantCall: function() {
-		$('.brief-stepped-form').addClass('hidden');
-		$('.pagination-buttons').addClass('hidden');
-		$('#instantcall-screen').removeClass('hidden');
+		// $('.brief-stepped-form').addClass('hidden');
+		// $('.pagination-buttons').addClass('hidden');
+		// $('#instantcall-screen').removeClass('hidden');
+		
+		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'] + '&option=instant';
 	},
 
 	fillCompanyName: function() {
