@@ -223,7 +223,7 @@ let briefHench = {
 					skills: skills ? skillsSorted : '',
 				};
 				console.log( 'Skills Traits: ', skillTraits );
-				websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
+				self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 
 				$('.pagination-buttons').removeClass('first-step');
 			}
