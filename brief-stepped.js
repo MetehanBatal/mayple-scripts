@@ -193,11 +193,8 @@ let briefHench = {
 				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
 				$('.error-message.stepped').addClass('hidden');
 
-				briefHench.reportWizardBriefStepDone('Wizard.Brief.Locations StepDone');
 				let locations = self.formSchema['locations'];
-				console.log( 'locations: ', locations );
-				const locationsSorted = locations ? locations.map((location) => location.value).sort() : null;
-				console.log( 'sorted: ', locationsSorted );
+				const locationsSorted = locations ? locations.map((location) => location).sort() : null;
 				const locationTraits = {
 					label: locations ? locationsSorted.join(',') : null,
 					locations: locations ? locationsSorted.join(', ') : '',
@@ -226,7 +223,13 @@ let briefHench = {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
 
 			if (!error) {
-				briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
+				const budgetTraits = {
+					label: (self.budget || 'N/A').toString(), // Save as string
+					estimatedMediaBudget: self.budget, // Save as int
+				};
+				console.log( 'Budget: ', budgetTraits );
+				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
+				// briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
 			}
 			// self.getBudgetScore();
 		} else {
