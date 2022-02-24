@@ -172,17 +172,18 @@ let briefHench = {
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.Industry StepDone', traits);
 				let subCategory = self.formSchema['industry'][0].industrySubCategory;
 				let category = self.formSchema['industry'][0].industryCategory
-				const traits = {
+				const industryTraits = {
 					label: subCategory,
 					industryCategory: category,
 					industrySubCategory: subCategory
 				};
-				console.log( 'traits: ', traits );
-				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', traits);
+				// console.log( 'traits: ', traits );
+				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 			}
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
+			
 			if(self.formSchema['locations'].length < 1) {
 				error = true;
 				$('#welcome-brief-form_second .select2-selection').addClass('empty-field');
@@ -193,6 +194,16 @@ let briefHench = {
 				$('.error-message.stepped').addClass('hidden');
 
 				briefHench.reportWizardBriefStepDone('Wizard.Brief.Locations StepDone');
+				let locations = self.formSchema['locations'];
+				console.log( 'locations: ', locations );
+				const locationsSorted = locations ? locations.map((location) => location.value).sort() : null;
+				console.log( 'sorted: ', locationsSorted );
+				const locationTraits = {
+					label: locations ? locationsSorted.join(',') : null,
+					locations: locations ? locationsSorted.join(', ') : '',
+				};
+				console.log( 'Traits: ', locationTraits );
+				self.websiteSDK.reportEvent('Wizard.Brief.Locations StepDone', locationTraits);
 			}
 			// self.getTargetCountryScore();
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
