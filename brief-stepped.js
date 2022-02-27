@@ -128,7 +128,7 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 
 		if (!$('.to-next-step').hasClass('disabled') && self.currentStep > $('.to-next-step').attr('data-step')) {
-			$('.to-next-step').attr('data-step', self.currentStep);
+			$('.to-next-step').attr('data-step', self.currentStep + 1);
 		}
 		$('.to-next-step').addClass('disabled');
 
