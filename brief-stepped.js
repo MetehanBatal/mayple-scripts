@@ -270,7 +270,7 @@ let briefHench = {
 		// console.log( self.currentStep );
 		// 
 		if (!$('.to-next-step').hasClass('disabled') && self.currentStep > $('.to-next-step').attr('data-step')) {
-			$('.to-next-step').attr('data-step', self.currentStep);
+			$('.to-next-step').attr( 'data-step', self.currentStep );
 		}
 
 		//self.updateFormData($('.brief-stepped-form.active'));
