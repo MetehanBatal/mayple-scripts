@@ -249,8 +249,9 @@ let briefHench = {
 					briefHench.fullPhone = self.validatePhone();
 					console.log( 'Phone validation: ', briefHench.fullPhone );
 					if (!briefHench.fullPhone) {
-						return;
+						error = true;
 					} else {
+						error = false;
 						self.formSchema['phoneNumber'] = self.fullPhone;
 					}
 				}
