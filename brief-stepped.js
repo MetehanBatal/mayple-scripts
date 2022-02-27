@@ -308,6 +308,8 @@ let briefHench = {
 
 		self.currentStep -= 1;
 
+		$('.to-next-step').removeClass('disabled');
+
 		if (self.currentStep === 0) {
 			$('.to-previous-step').hide();
 		}
