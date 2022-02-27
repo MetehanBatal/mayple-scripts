@@ -364,9 +364,6 @@ let briefHench = {
 
 	submitForm: function() {
 		const self = this;
-		console.log( self.websiteSDK );
-		console.log( '---------' );
-		console.log( self.formSchema );
 
 		self.getConnectionTime();
 
@@ -379,6 +376,10 @@ let briefHench = {
 		} else {
 			self.formSchema['phoneNumber'] = self.fullPhone;
 		}
+
+		console.log( self.websiteSDK );
+		console.log( '---------' );
+		console.log( self.formSchema );
 
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
