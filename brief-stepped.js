@@ -283,8 +283,8 @@ let briefHench = {
 			$('.to-next-step').removeClass('disabled');
 		}
 
-		console.log( $('.to-next-step').hasClass('disabled'), self.currentStep, $('.to-next-step').attr('data-step') );
-		if (!$('.to-next-step').hasClass('disabled') && self.currentStep > $('.to-next-step').attr('data-step')) {
+		console.log( self.currentStep, parseInt($('.to-next-step').attr('data-step')) );
+		if ( self.currentStep > parseInt($('.to-next-step').attr('data-step')) ) {
 			console.log( 'Called' );
 			$('.to-next-step').attr( 'data-step', self.currentStep );
 		}
