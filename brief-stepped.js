@@ -177,7 +177,7 @@ let briefHench = {
 					industryCategory: category,
 					industrySubCategory: subCategory
 				};
-				// console.log( 'traits: ', traits );
+				console.log( 'traits: ', industryTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 			}
 
