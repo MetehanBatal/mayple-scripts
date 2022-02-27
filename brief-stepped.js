@@ -372,14 +372,14 @@ let briefHench = {
 
 		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 
-		self.getScore();
-		console.log( 'Hubspot Score: ', self.score );
-
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 
 		briefHench.reportWizardBriefStepDone('Lead Created');
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
+
+		self.getScore();
+		console.log( 'Hubspot Score: ', self.score );
 	},
 
 	showMeeting: function(type) {
