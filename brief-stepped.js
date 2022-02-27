@@ -244,15 +244,17 @@ let briefHench = {
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
 				self.formSchema[inputName] = input.value;
-			});
-		}
 
-		briefHench.fullPhone = self.validatePhone();
-		console.log( 'Phone validation: ', briefHench.fullPhone );
-		if (!briefHench.fullPhone) {
-			return;
-		} else {
-			self.formSchema['phoneNumber'] = self.fullPhone;
+				if (inputName === 'phoneNumber') {
+					briefHench.fullPhone = self.validatePhone();
+					console.log( 'Phone validation: ', briefHench.fullPhone );
+					if (!briefHench.fullPhone) {
+						return;
+					} else {
+						self.formSchema['phoneNumber'] = self.fullPhone;
+					}
+				}
+			});
 		}
 
 		if (error) {
