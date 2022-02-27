@@ -372,6 +372,12 @@ let briefHench = {
 
 		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 
+		briefHench.fullPhone = self.validatePhone();
+		console.log( 'Phone validation: ', briefHench.fullPhone );
+		if (!briefHench.fullPhone) {
+			return;
+		}
+
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 
@@ -448,6 +454,19 @@ let briefHench = {
 				});
 			},
 		});
+	},
+
+	validatePhone: function() {
+		const self = this;
+
+		let iti = self.intlTel;
+		if (iti.isValidNumber()) {
+			$('#phone').removeClass('empty-field');
+			return iti.getNumber();
+		} else {
+			$('#phone').addClass('empty-field');
+			return false;
+		}
 	},
 
 	getHash: function() {
