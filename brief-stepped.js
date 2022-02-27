@@ -119,7 +119,6 @@ let briefHench = {
 		let progressBarW = `calc(${(self.currentStep / (self.stepCount - 1)) * 100}% + ${(self.stepCount - self.currentStep - 1) * 4}px)`;
 		// console.log( 'Width: ', progressBarW );
 		$('.active-progress-bar').css("width", progressBarW);
-
 	},
 
 	handleNext: function() {
@@ -658,6 +657,7 @@ let briefHench = {
 
 $( document ).ready(function(e) {
 	$('.brief-stepped-form:first-child').addClass('active');
+	$('.to-next-step').attr('data-step', '0');
 	//briefHench.getHash();
 	briefHench.insertSDK();
 	briefHench.setSteps();
