@@ -269,9 +269,6 @@ let briefHench = {
 		self.currentStep += 1;
 		// console.log( self.currentStep );
 		// 
-		if (!$('.to-next-step').hasClass('disabled') && self.currentStep > $('.to-next-step').attr('data-step')) {
-			$('.to-next-step').attr( 'data-step', self.currentStep );
-		}
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
@@ -284,6 +281,10 @@ let briefHench = {
 			$('.to-next-step').html('<p class="button-text">Submit</p>');
 			$('.to-next-step').addClass('final');
 			$('.to-next-step').removeClass('disabled');
+		}
+
+		if (!$('.to-next-step').hasClass('disabled') && self.currentStep > $('.to-next-step').attr('data-step')) {
+			$('.to-next-step').attr( 'data-step', self.currentStep );
 		}
 
 		// let validateForm = self.validateForm();
