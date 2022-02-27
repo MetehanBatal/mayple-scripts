@@ -376,6 +376,8 @@ let briefHench = {
 		console.log( 'Phone validation: ', briefHench.fullPhone );
 		if (!briefHench.fullPhone) {
 			return;
+		} else {
+			self.formSchema['phoneNumber'] = self.fullPhone;
 		}
 
 		self.websiteSDK.createProjectLead(self.formSchema);
