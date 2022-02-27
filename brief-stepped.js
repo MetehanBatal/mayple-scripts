@@ -287,6 +287,8 @@ let briefHench = {
 		if ( self.currentStep > parseInt($('.to-next-step').attr('data-step')) ) {
 			console.log( 'Called' );
 			$('.to-next-step').attr( 'data-step', self.currentStep );
+		} else {
+			$('.to-next-step').removeClass('disabled');
 		}
 
 		// let validateForm = self.validateForm();
