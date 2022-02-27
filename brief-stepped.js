@@ -247,6 +247,14 @@ let briefHench = {
 			});
 		}
 
+		briefHench.fullPhone = self.validatePhone();
+		console.log( 'Phone validation: ', briefHench.fullPhone );
+		if (!briefHench.fullPhone) {
+			return;
+		} else {
+			self.formSchema['phoneNumber'] = self.fullPhone;
+		}
+
 		if (error) {
 			return; }
 
@@ -368,14 +376,6 @@ let briefHench = {
 		self.getConnectionTime();
 
 		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
-
-		briefHench.fullPhone = self.validatePhone();
-		console.log( 'Phone validation: ', briefHench.fullPhone );
-		if (!briefHench.fullPhone) {
-			return;
-		} else {
-			self.formSchema['phoneNumber'] = self.fullPhone;
-		}
 
 		console.log( self.websiteSDK );
 		console.log( '---------' );
