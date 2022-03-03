@@ -520,6 +520,8 @@ let briefHench = {
 			timeInLA[1] = parseInt(timeInLA[1]);
 		if (17 > timeInLA[1] && timeInLA[1] > 7 && timeInLA[0] != 'Sunday' && timeInLA[0] != 'Saturday') {
 			document.querySelector('.call-preference-box').classList.remove('hidden');
+			$('.phone-call').removeClass('hidden');
+			$('.step-count-box').addClass('phone-added');
 		} else {
 			$('.radio-buttons input').removeAttr('required');
 		}
