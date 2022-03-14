@@ -70,6 +70,7 @@ let briefHench = {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/brief-2')) {
 			briefHench.trafficSource = 'stepped';
+			console.log( briefHench );
 		}
 	},
 
