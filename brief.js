@@ -241,6 +241,24 @@ let briefHench = {
 		});
 	},
 
+	checkUTMParams: function() {
+		const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = Object.fromEntries(urlSearchParams.entries());
+
+		let cookie = Cookies.get('_mayple_utm_params');
+		let obj = JSON.parse(cookie);
+
+		if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
+			$('#howDidYouHearAboutMayple').removeAttr('required');
+			$('#howDidYouHearAboutMayple').addClass('hidden');
+		}
+
+		if (obj['utm_source'] && obj['utm_source'].length > 0) {
+			$('#howDidYouHearAboutMayple').removeAttr('required');
+			$('#howDidYouHearAboutMayple').addClass('hidden');
+		}
+	},
+
 	initMeeting: function(type) {
 		$(window).scrollTop(0);
 		
@@ -490,6 +508,7 @@ $(document).ready(function() {
 	briefHench.autofillMarketingChannel();
 	briefHench.handleBackClick();
 	briefHench.checkTimeZone();
+	briefHench.checkUTMParams();
 
 	setTimeout(function() {
 		console.log( window.mayple_analytics );
@@ -499,6 +518,8 @@ $(document).ready(function() {
 
 $('#welcome-brief-form_first').submit(function(event) {
 	event.preventDefault();
+
+	briefHench.getWebsiteScore();
 	
 	briefHench.handleFirstStep('e');
 
@@ -527,7 +548,6 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.getTargetCountryScore();
 	briefHench.getIPScore();
 	briefHench.getBudgetScore();
-	briefHench.getWebsiteScore();
 	briefHench.calculateScore();
 
 	console.log( 'Form: ', briefHench.formSchema );
