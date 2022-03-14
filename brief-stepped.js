@@ -66,6 +66,13 @@ let briefHench = {
 		requestedAnInstantCall: 'no'
 	},
 
+	setTrafficSource: function() {
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/brief-2')) {
+			briefHench.trafficSource = 'stepped';
+		}
+	},
+
 	getSelectedCountries: function() {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
@@ -676,6 +683,8 @@ $( document ).ready(function(e) {
 	// briefHench.getIPScore();
 	briefHench.getAutoPopulatedFields();
 	briefHench.checkGrowsumoKey();
+
+	briefHench.setTrafficSource();
 
 	setTimeout(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
