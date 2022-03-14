@@ -534,6 +534,15 @@ let briefHench = {
 		}
 	},
 
+	checkUTMParams: function() {
+		const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = Object.fromEntries(urlSearchParams.entries());
+
+		console.log( 'Params: ', params );
+		let cookie = Cookies.get('_mayple_utm_params');
+		console.log( 'Cookie: ', cookie );
+	},
+
 	getTargetCountryScore: function() {
 		const self = this;
 		const tierOne = ['US', 'CA', 'GB', 'AU'];
@@ -685,6 +694,8 @@ $( document ).ready(function(e) {
 	briefHench.checkGrowsumoKey();
 
 	briefHench.setTrafficSource();
+
+	briefHench.checkUTMParams();
 
 	setTimeout(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
