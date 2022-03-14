@@ -538,9 +538,18 @@ let briefHench = {
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		const params = Object.fromEntries(urlSearchParams.entries());
 
-		console.log( 'Params: ', params );
 		let cookie = Cookies.get('_mayple_utm_params');
-		console.log( 'Cookie: ', cookie );
+		let obj = JSON.parse(cookie);
+
+		if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
+			$('#howDidYouHearAboutMayple').removeAttr('required');
+			$('#howDidYouHearAboutMayple').addClass('hidden');
+		}
+
+		if (obj['utm_source'] && obj['utm_source'].length > 0) {
+			$('#howDidYouHearAboutMayple').removeAttr('required');
+			$('#howDidYouHearAboutMayple').addClass('hidden');
+		}
 	},
 
 	getTargetCountryScore: function() {
