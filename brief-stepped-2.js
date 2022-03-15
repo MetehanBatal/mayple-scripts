@@ -279,6 +279,10 @@ let briefHench = {
 		// console.log( self.currentStep );
 		// 
 
+		if (self.currentStep === 1) {
+			briefHench.reportWizardBriefStepDone('Lead Created');
+		}
+
 		//self.updateFormData($('.brief-stepped-form.active'));
 		
 		if ($('.to-next-step').hasClass('final')) {
