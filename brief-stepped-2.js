@@ -100,7 +100,7 @@ let briefHench = {
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK({debug: true});
 
 		console.log('SDK: ', self.websiteSDK);
 	},
@@ -411,7 +411,8 @@ let briefHench = {
 
 		briefHench.reportWizardBriefStepDone('Lead Created');
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
-		
+
+		self.getScore();
 		console.log( 'Hubspot Score: ', self.score );
 	},
 
