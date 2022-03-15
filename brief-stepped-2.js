@@ -486,7 +486,7 @@ let briefHench = {
 		const self = this;
 
 		let iti = self.intlTel;
-		if (iti.)
+		// if (iti.)
 		if (iti.isValidNumber()) {
 			$('#phone').removeClass('empty-field');
 			return iti.getNumber();
