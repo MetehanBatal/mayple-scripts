@@ -134,7 +134,9 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 
-		$('.to-next-step').addClass('disabled');
+		if (self.currentStep !== 0) {
+			$('.to-next-step').addClass('disabled');
+		}
 
 		// form.submit();
 		// 
@@ -276,7 +278,7 @@ let briefHench = {
 		$('.error-message.stepped').addClass('hidden');
 
 		self.currentStep += 1;
-		// console.log( self.currentStep );
+		console.log( self.currentStep );
 		// 
 
 		if (self.currentStep === 1) {
