@@ -100,7 +100,7 @@ let briefHench = {
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK({debug: true});
+		self.websiteSDK = new WebsiteSDK();
 
 		console.log('SDK: ', self.websiteSDK);
 	},
@@ -134,8 +134,7 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 
-		if (!self.currentStep === 0) {
-			$('.to-next-step').addClass('disabled'); }
+		$('.to-next-step').addClass('disabled');
 
 		// form.submit();
 		// 
@@ -279,14 +278,11 @@ let briefHench = {
 		// 
 
 		//self.updateFormData($('.brief-stepped-form.active'));
-		console.log( 'step no: ', self.currentStep );
-		if (self.currentStep === 1) {
-			self.submitForm();
-			return;
-		}
-
+		
 		if ($('.to-next-step').hasClass('final')) {
+			self.submitForm();
 			$('.brief-stepped-form').removeClass('active');
+			return;
 		}
 		
 		if (self.currentStep === self.stepCount - 1) {
