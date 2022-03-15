@@ -252,7 +252,9 @@ let briefHench = {
 				self.formSchema[inputName] = input.value;
 
 				if (inputName === 'phoneNumber') {
-					briefHench.fullPhone = self.validatePhone();
+					if (!briefHench.fullPhone || briefHench.fullPhone.length === 0) {
+						briefHench.fullPhone = self.validatePhone();
+					}
 					console.log( 'Phone validation: ', briefHench.fullPhone );
 					if (!briefHench.fullPhone) {
 						error = true;
@@ -662,6 +664,11 @@ let briefHench = {
 					document.getElementById(field).value = data[field];
 				} else {
 					console.log( 'Missing field: ', field );
+				}
+
+				if (field === 'phone') {
+					console.log( 'Field: ', data[field] );
+					briefHench.fullPhone = data[field];
 				}
 			}
 		}
