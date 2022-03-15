@@ -411,8 +411,7 @@ let briefHench = {
 
 		briefHench.reportWizardBriefStepDone('Lead Created');
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
-
-		self.getScore();
+		
 		console.log( 'Hubspot Score: ', self.score );
 	},
 
