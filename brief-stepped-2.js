@@ -280,12 +280,15 @@ let briefHench = {
 		// 
 
 		if (self.currentStep === 1) {
+			$('.to-next-step').addClass('final');
 			briefHench.reportWizardBriefStepDone('Lead Created');
+		} else {
+			$('.to-next-step').removeClass('final');
 		}
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 		
-		if ($('.to-next-step').hasClass('final')) {
+		if ($('.to-next-step').hasClass('submittable')) {
 			self.submitForm();
 			$('.brief-stepped-form').removeClass('active');
 			return;
@@ -293,7 +296,7 @@ let briefHench = {
 		
 		if (self.currentStep === self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Submit</p>');
-			$('.to-next-step').addClass('final');
+			$('.to-next-step').addClass('submittable');
 			$('.to-next-step').removeClass('disabled');
 		}
 
