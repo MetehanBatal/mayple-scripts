@@ -246,16 +246,18 @@ let briefHench = {
 		const params = Object.fromEntries(urlSearchParams.entries());
 
 		let cookie = Cookies.get('_mayple_utm_params');
-		let obj = JSON.parse(cookie);
+		if (cookie) {
+			let obj = JSON.parse(cookie);
 
-		if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
-			$('#howDidYouHearAboutMayple').removeAttr('required');
-			$('#source-field').addClass('hidden');
-		}
+			if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
+				$('#howDidYouHearAboutMayple').removeAttr('required');
+				$('#source-field').addClass('hidden');
+			}
 
-		if (obj['utm_source'] && obj['utm_source'].length > 0) {
-			$('#howDidYouHearAboutMayple').removeAttr('required');
-			$('#source-field').addClass('hidden');
+			if (obj['utm_source'] && obj['utm_source'].length > 0) {
+				$('#howDidYouHearAboutMayple').removeAttr('required');
+				$('#source-field').addClass('hidden');
+			}
 		}
 	},
 
