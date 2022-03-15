@@ -414,7 +414,6 @@ let briefHench = {
 		self.websiteSDK.createProjectLead(self.formSchema);
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 
-		briefHench.reportWizardBriefStepDone('Lead Created');
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 
 		self.getScore();
