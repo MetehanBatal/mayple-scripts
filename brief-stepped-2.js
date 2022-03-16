@@ -325,6 +325,8 @@ let briefHench = {
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
+
+		self.websiteSDK.submitHubspotForm(self.formSchema);
 	},
 
 	handleBack: function() {
