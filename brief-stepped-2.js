@@ -327,6 +327,10 @@ let briefHench = {
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
 
 		self.websiteSDK.submitHubspotForm(self.formSchema);
+
+		if (self.currentStep === 1) {
+			briefHench.reportWizardBriefStepDone('Lead Created');
+		}
 	},
 
 	handleBack: function() {
