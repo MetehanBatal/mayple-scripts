@@ -506,6 +506,9 @@ let briefHench = {
 
 	restructureBudget: function() {
 		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
+		if (parseInt(rawValue) > 1000000) {
+			rawValue = '1000000';
+		}
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
 		briefHench.budget = parseInt(rawValue);
