@@ -102,7 +102,7 @@ let briefHench = {
 		const WebsiteSDK = window.WebsiteSDK.default;
 		self.websiteSDK = new WebsiteSDK();
 
-		console.log('SDK: ', self.websiteSDK);
+		console.log('SDKk: ', self.websiteSDK);
 	},
 
 	setSteps: function() {
