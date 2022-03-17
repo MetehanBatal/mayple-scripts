@@ -549,12 +549,12 @@ let briefHench = {
 
 			if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
 				$('#howDidYouHearAboutMayple').removeAttr('required');
-				$('#howDidYouHearAboutMayple').addClass('hidden');
+				$('#source-field').addClass('hidden');
 			}
 
 			if (obj['utm_source'] && obj['utm_source'].length > 0) {
 				$('#howDidYouHearAboutMayple').removeAttr('required');
-				$('#howDidYouHearAboutMayple').addClass('hidden');
+				$('#source-field').addClass('hidden');
 			}
 		}
 	},
