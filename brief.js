@@ -411,11 +411,11 @@ let briefHench = {
 	checkPredefinedStep: function() {
 		if (window.location.hash === '#steptwo') {
 			console.log( 'Step two' );
+			briefHench.fillCompanyName();
 			briefHench.handleFirstStep('hasFullNumber');
 
 			briefHench.checkWebsiteStatus();
 			briefHench.restructureBudget();
-			briefHench.fillCompanyName();
 		}
 	},
 
