@@ -759,7 +759,7 @@ $('#nowebsite').bind('change', function() {
 $('.channel-selection input').bind('change', function(e) {
 	console.log( e );
 	console.log( $(this), $(this).parent() );
-	$(this).parent().addClass('selected');
+	$(this).parent().toggleClass('selected');
 	setTimeout(function() {
 		console.log( $('.channel-selection .w--redirected-checked') );
 		if ($('.channel-selection .w--redirected-checked').length > 0) {
