@@ -763,7 +763,9 @@ $('#nowebsite').bind('change', function() {
 });
 
 $('.channel-selection input').bind('change', function(e) {
-	$(this).parent().toggleClass('selected');
+	$('.channel-selection .brief-checkbox').removeClass('selected');
+	$(this).parent().addClass('selected');
+
 	setTimeout(function() {
 		console.log( $('.channel-selection .w--redirected-checked') );
 		if ($('.channel-selection .w--redirected-checked').length > 0) {
