@@ -83,6 +83,7 @@ let briefHench = {
 		const self = this;
 		$('.channel-selection .w--redirected-checked').each(function(index, el) {
 			let selectedSkill = $(this).parent().attr('skill-type');
+			$(this).parent().addClass('selected');
 			if(selectedSkill === 'PAID_ADVERTISING') {
 				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
 				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
