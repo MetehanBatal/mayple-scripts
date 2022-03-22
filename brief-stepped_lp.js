@@ -87,9 +87,11 @@ let briefHench = {
 				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
 				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
 			} else {
+				self.formSchema['serviceTypes'] = [];
 				self.formSchema['serviceTypes'].push(selectedSkill);	
 			}
 			console.log( $(this).siblings('.checkbox-label').html() );
+			self.selectedSkills = [];
 			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
 
 			// self.
@@ -135,7 +137,7 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 
 		$('.to-next-step').addClass('disabled');
-		// $('.to-next-step').addClass('hidden');
+		// 
 
 		// form.submit();
 		// 
@@ -704,6 +706,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
+	$('.to-next-step').hide();
 	$('.brief-stepped-form:first-child').addClass('active');
 	$('.to-next-step').attr('data-step', '0');
 	//briefHench.getHash();
@@ -760,7 +763,6 @@ $('#nowebsite').bind('change', function() {
 });
 
 $('.channel-selection input').bind('change', function(e) {
-	console.log( $(this).parent() );
 	$(this).parent().toggleClass('selected');
 	setTimeout(function() {
 		console.log( $('.channel-selection .w--redirected-checked') );
