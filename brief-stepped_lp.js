@@ -757,7 +757,7 @@ $('#nowebsite').bind('change', function() {
 });
 
 $('.channel-selection input').bind('change', function(e) {
-	console.log( $(this), $(this).parent() );
+	console.log( $(this).parent() );
 	$(this).parent().toggleClass('selected');
 	setTimeout(function() {
 		console.log( $('.channel-selection .w--redirected-checked') );
