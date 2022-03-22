@@ -135,6 +135,7 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 
 		$('.to-next-step').addClass('disabled');
+		// $('.to-next-step').addClass('hidden');
 
 		// form.submit();
 		// 
@@ -272,6 +273,7 @@ let briefHench = {
 		// Reveal back button
 		// 
 		$('.to-previous-step').show();
+		$('.to-next-step').show();
 
 		$('.error-message.stepped').addClass('hidden');
 
@@ -329,6 +331,7 @@ let briefHench = {
 
 		if (self.currentStep === 0) {
 			$('.to-previous-step').hide();
+			$('.to-next-step').hide();
 		}
 		if (self.currentStep != self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Next</p>');
