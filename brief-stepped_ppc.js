@@ -354,7 +354,6 @@ let briefHench = {
 		$('.brief-stepped-form').addClass('hidden');
 		$('#meeting-step').removeClass('hidden');
 		$('.pagination-buttons').addClass('hidden');
-		$('.brief-stepped-form-box').css({'paddingBottom': '12px', 'paddingTop': '140px'});
 
 		let container = $('#meeting-container');
 
@@ -609,8 +608,10 @@ let briefHench = {
 				}
 
 				if (field === 'phone') {
-					console.log( 'Field: ', data[field] );
 					briefHench.fullPhone = data[field];
+				}
+				if (field === 'website') {
+					briefHench.fillCompanyName();
 				}
 			}
 		}
