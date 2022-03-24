@@ -209,7 +209,6 @@ let briefHench = {
 		// Reveal back button
 		// 
 		$('.to-previous-step').show();
-		$('.to-next-step').show();
 
 		$('.error-message.stepped').addClass('hidden');
 
@@ -267,7 +266,6 @@ let briefHench = {
 
 		if (self.currentStep === 0) {
 			$('.to-previous-step').hide();
-			$('.to-next-step').hide();
 		}
 		if (self.currentStep != self.stepCount - 1) {
 			$('.to-next-step').html('<p class="button-text">Next</p>');
@@ -640,7 +638,6 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	$('.to-next-step').hide();
 	$('.brief-stepped-form:first-child').addClass('active');
 	$('.to-next-step').attr('data-step', '0');
 	//briefHench.getHash();
