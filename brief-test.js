@@ -142,6 +142,7 @@ let briefHench = {
 		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
+			field.classList.remove('empty-field');
 			if (!field.checkValidity()) {
 				console.log( 'Empty field: ', field );
 				error = true;
