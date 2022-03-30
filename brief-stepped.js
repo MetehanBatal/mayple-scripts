@@ -263,7 +263,7 @@ let briefHench = {
 					if (!briefHench.fullPhone) {
 						error = true;
 					} else {
-						error = false;
+						// error = false;
 						self.formSchema['phoneNumber'] = self.fullPhone;
 					}
 				}
