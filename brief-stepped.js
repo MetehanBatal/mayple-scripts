@@ -136,8 +136,6 @@ let briefHench = {
 
 		$('.to-next-step').addClass('disabled');
 
-		// form.submit();
-		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
 			if (!field.checkValidity()) {
@@ -145,6 +143,7 @@ let briefHench = {
 				error = true;
 				field.classList.add('empty-field')
 				$('.error-message.stepped').removeClass('hidden');
+				return;
 				// field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
 				error = false;
@@ -280,11 +279,7 @@ let briefHench = {
 		$('.error-message.stepped').addClass('hidden');
 
 		self.currentStep += 1;
-		// console.log( self.currentStep );
-		// 
 
-		//self.updateFormData($('.brief-stepped-form.active'));
-		console.log( 'step no: ', self.currentStep );
 		if ($('.to-next-step').hasClass('final')) {
 			$('.brief-stepped-form').removeClass('active');
 			self.submitForm();
@@ -296,9 +291,7 @@ let briefHench = {
 			$('.to-next-step').removeClass('disabled');
 		}
 
-		console.log( self.currentStep, parseInt($('.to-next-step').attr('data-step')) );
 		if ( self.currentStep > parseInt($('.to-next-step').attr('data-step')) ) {
-			console.log( 'Called' );
 			$('.to-next-step').attr( 'data-step', self.currentStep );
 		} else {
 			$('.to-next-step').removeClass('disabled');
