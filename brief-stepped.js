@@ -272,7 +272,7 @@ let briefHench = {
 
 		if (error) {
 			return; }
-
+		console.log( 'Error log is: ', error );
 		// Reveal back button
 		// 
 		$('.to-previous-step').show();
