@@ -127,6 +127,7 @@ let briefHench = {
 				error = true;
 				field.classList.add('empty-field')
 				$('.error-message.stepped').removeClass('hidden');
+				return;
 				// field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
 				error = false;
@@ -196,7 +197,7 @@ let briefHench = {
 					if (!briefHench.fullPhone) {
 						error = true;
 					} else {
-						error = false;
+						// error = false;
 						self.formSchema['phoneNumber'] = self.fullPhone;
 					}
 				}
