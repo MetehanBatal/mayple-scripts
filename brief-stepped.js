@@ -250,6 +250,10 @@ let briefHench = {
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
 				self.formSchema[inputName] = input.value;
+				if (input.hasAttribute('required') && input.length < 1) {
+					console.log( input + ' is not filled' );
+					error = true;
+				}
 
 				if (inputName === 'phoneNumber') {
 					if (!briefHench.fullPhone || briefHench.fullPhone.length === 0) {
