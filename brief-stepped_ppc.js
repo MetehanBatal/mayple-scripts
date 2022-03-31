@@ -485,7 +485,7 @@ let briefHench = {
 		if (cookie) {
 			let obj = JSON.parse(cookie);
 
-			if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
+			if (params['utm_source'] && !params['utm_source'].toLowerCase().includes('direct')) {
 				$('#howDidYouHearAboutMayple').removeAttr('required');
 				$('#source-field').addClass('hidden');
 			}
