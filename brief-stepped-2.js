@@ -564,8 +564,9 @@ let briefHench = {
 		let cookie = Cookies.get('_mayple_utm_params');
 		if (cookie) {
 			let obj = JSON.parse(cookie);
-			console.log( params, obj );
+			console.log( params['utm_source'], obj );
 			if (params['utm_source'] && params['utm_source'].toLowerCase() != 'direct') {
+				console.log( 'Passed' );
 				$('#howDidYouHearAboutMayple').removeAttr('required');
 				$('#howDidYouHearAboutMayple').addClass('hidden');
 			}
