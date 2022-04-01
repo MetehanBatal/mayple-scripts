@@ -637,7 +637,7 @@ let briefHench = {
 	getScore: function() {
 		const self = this;
 		console.log( 'Called' );
-		if ( self.score > 3 ) {
+		if ( self.score > 2 ) {
 			if ( self.instantCall === 'yes' ) {
 				console.log( 'Show Instant call' );
 				self.showInstantCall();

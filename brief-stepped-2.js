@@ -564,7 +564,7 @@ let briefHench = {
 		let cookie = Cookies.get('_mayple_utm_params');
 		if (cookie) {
 			let obj = JSON.parse(cookie);
-			
+
 			if (params['utm_source'] && !params['utm_source'].toLowerCase().includes('direct')) {
 				console.log( 'Passed' );
 				$('#howDidYouHearAboutMayple').removeAttr('required');
@@ -656,7 +656,7 @@ let briefHench = {
 	getScore: function() {
 		const self = this;
 		console.log( 'Called' );
-		if ( self.score > 3 ) {
+		if ( self.score > 2 ) {
 			if ( self.instantCall === 'yes' ) {
 				console.log( 'Show Instant call' );
 				self.showInstantCall();
