@@ -69,7 +69,7 @@ let briefHench = {
 	setTrafficSource: function() {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/brief-2')) {
-			briefHench.formSchema['trafficSource'] = 'stepped';
+			briefHench.formSchema['trafficSource'] = 'v2_stepped';
 		}
 	},
 
