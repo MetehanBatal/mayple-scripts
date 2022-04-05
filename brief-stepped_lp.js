@@ -237,6 +237,12 @@ let briefHench = {
 
 				$('.pagination-buttons').removeClass('first-step');
 			}
+
+			let pagePath = window.location.pathname;
+			if (pagePath.startsWith('/lp/digital-marketing-new')) {
+				console.log( 'hi' );
+				$('.to-next-step').removeClass('disabled');
+			}
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
 
@@ -269,12 +275,6 @@ let briefHench = {
 					}
 				}
 			});
-
-			let pagePath = window.location.pathname;
-			if (pagePath.startsWith('/lp/digital-marketing-new')) {
-				console.log( 'hi' );
-				$('.to-next-step').removeClass('disabled');
-			}
 		}
 
 
