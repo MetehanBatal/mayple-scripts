@@ -269,7 +269,15 @@ let briefHench = {
 					}
 				}
 			});
+
+			let pagePath = window.location.pathname;
+			if (pagePath.startsWith('/lp/digital-marketing-new')) {
+				console.log( 'hi' );
+				$('.to-next-step').removeClass('disabled');
+			}
 		}
+
+
 
 		if (error) {
 			return; }
