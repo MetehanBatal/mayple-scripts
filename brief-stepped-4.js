@@ -89,18 +89,14 @@ let briefHench = {
 			} else {
 				self.formSchema['serviceTypes'].push(selectedSkill);	
 			}
-			console.log( $(this).siblings('.checkbox-label').html() );
 			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
-
-			// self.
-			console.log( 'Skill: ', selectedSkill );
 		});
 	},
 
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
-		self.websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK({debug: true});
 
 		console.log('SDK: ', self.websiteSDK);
 	},
@@ -137,9 +133,6 @@ let briefHench = {
 		if (self.currentStep !== 0) {
 			$('.to-next-step').addClass('disabled');
 		}
-
-		// form.submit();
-		// 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
 			field.classList.remove('empty-field');
@@ -149,7 +142,6 @@ let briefHench = {
 				field.classList.add('empty-field')
 				$('.error-message.stepped').removeClass('hidden');
 				return;
-				// field.parentNode.innerHTML += `<div class='brief-error-message'>${field.validationMessage}</div>`
 			} else {
 				error = false;
 				$('.error-message.stepped').addClass('hidden');
@@ -157,7 +149,6 @@ let briefHench = {
 		});
 
 		if ( form[0].id === 'welcome-brief-form_second') {
-			// self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
 			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			self.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
 
@@ -175,7 +166,6 @@ let briefHench = {
 					industryCategory: category,
 					industrySubCategory: subCategory
 				};
-				console.log( 'traits: ', industryTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 			}
 
@@ -196,13 +186,11 @@ let briefHench = {
 					label: locations ? locationsSorted.join(',') : null,
 					locations: locations ? locationsSorted.join(', ') : '',
 				};
-				console.log( 'Traits: ', locationTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.Locations StepDone', locationTraits);
 			}
 
 			self.getSelectedSkills();
 
-			console.log( self.selectedSkills );
 			if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
 				$('.selected-service').html(self.selectedSkills[0]);
 			} else {
@@ -217,7 +205,6 @@ let briefHench = {
 					label: skills ? skillsSorted : null,
 					skills: skills ? skillsSorted : '',
 				};
-				console.log( 'Skills Traits: ', skillTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 
 				$('.pagination-buttons').removeClass('first-step');
@@ -230,7 +217,6 @@ let briefHench = {
 					label: (self.budget || 'N/A').toString(), // Save as string
 					estimatedMediaBudget: self.budget, // Save as int
 				};
-				console.log( 'Budget: ', budgetTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
 			}
@@ -267,7 +253,6 @@ let briefHench = {
 		$('.error-message.stepped').addClass('hidden');
 
 		self.currentStep += 1;
-		console.log( self.currentStep );
 		// 
 
 		if (self.currentStep === 1) {
@@ -291,9 +276,7 @@ let briefHench = {
 			$('.to-next-step').removeClass('disabled');
 		}
 
-		console.log( self.currentStep, parseInt($('.to-next-step').attr('data-step')) );
 		if ( self.currentStep > parseInt($('.to-next-step').attr('data-step')) ) {
-			console.log( 'Called' );
 			$('.to-next-step').attr( 'data-step', self.currentStep );
 		} else {
 			$('.to-next-step').removeClass('disabled');
