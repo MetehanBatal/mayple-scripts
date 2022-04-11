@@ -196,7 +196,10 @@ let briefHench = {
 			} else {
 				$('.selected-service').addClass('hidden');
 			}
-			
+
+			if (self.selectedSkills.length === 0) {
+				error = true;
+			}
 
 			if (!error) {
 				let skills = self.selectedSkills;
