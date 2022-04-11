@@ -76,17 +76,9 @@ let briefHench = {
 		const self = this;
 		console.log( 'Score: ', self.score );
 		if ( self.score > 3 ) {
-			if ( self.instantCall === 'yes' ) {
-				self.showInstantCall();
-			} else {
-				briefHench.initMeeting('long');
-			}
+			briefHench.initMeeting('long');
 		} else {
-			if ( self.instantCall === 'yes' ) {
-				self.showInstantCall();
-			} else {
-				briefHench.initMeeting('short');
-			}
+			briefHench.initMeeting('short');
 		}
 	},
 
@@ -542,7 +534,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 	briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 	
 	briefHench.getSelectedCountries();
-	briefHench.getConnectionTime();
+	// briefHench.getConnectionTime();
 	briefHench.getSelectedSkills();
 
 	let hsScore = briefHench.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);

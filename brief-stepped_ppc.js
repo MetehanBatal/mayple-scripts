@@ -334,7 +334,7 @@ let briefHench = {
 	submitForm: function() {
 		const self = this;
 
-		self.getConnectionTime();
+		// self.getConnectionTime();
 
 		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 
@@ -575,22 +575,10 @@ let briefHench = {
 	getScore: function() {
 		const self = this;
 		console.log( 'Called' );
-		if ( self.score > 3 ) {
-			if ( self.instantCall === 'yes' ) {
-				console.log( 'Show Instant call' );
-				self.showInstantCall();
-			} else {
-				console.log( 'Show long call!' );
-				self.showMeeting('long');
-			}
+		if ( self.score > 3 ) {	
+			self.showMeeting('long');
 		} else {
-			if ( self.instantCall === 'yes' ) {
-				console.log( 'Show Instant call' );
-				self.showInstantCall();
-			} else {
-				console.log( 'Show short call!' );
-				self.showMeeting('short');
-			}
+			self.showMeeting('short');
 		}
 	},
 
