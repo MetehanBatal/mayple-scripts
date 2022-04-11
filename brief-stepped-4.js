@@ -199,6 +199,7 @@ let briefHench = {
 
 			if (self.selectedSkills.length === 0) {
 				error = true;
+				$('.error-message.stepped').removeClass('hidden');
 			}
 
 			if (!error) {
