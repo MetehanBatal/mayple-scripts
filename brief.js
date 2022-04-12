@@ -285,7 +285,11 @@ let briefHench = {
 	getSelectedCountries: function() {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
-		countryField.forEach(function(country) { self.formSchema['locations'].push(country.id); });
+		countryField.forEach(function(country) {
+			if (!self.formSchema['locations'].includes(country)) {
+				self.formSchema['locations'].push(country.id);
+			}
+		});
 	},
 
 	getSelectedSkills: function() {
