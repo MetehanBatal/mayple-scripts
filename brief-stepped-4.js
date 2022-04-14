@@ -78,7 +78,7 @@ let briefHench = {
 		if (pagePath.startsWith('/brief-2')) {
 			briefHench.formSchema['trafficSource'] = 'stepped';
 		} else if ( pagePath.startsWith('/lp/') ) {
-			briefHench.formSchema['lpTrafficSource'] = pagePath.replace( '/lp/', '' );
+			$('#lpTrafficSource').val(pagePath.replace( '/lp/', '' ));
 		}
 	},
 
