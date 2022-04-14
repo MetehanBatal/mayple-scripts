@@ -66,10 +66,19 @@ let briefHench = {
 		requestedAnInstantCall: 'no'
 	},
 
+	setLPTrafficSource: function() {
+		if ( pagePath.startsWith('/lp/') ) {
+			let pagePath = window.location.pathname;
+			$('#lpTrafficSource').val(pagePath.replace('/lp/', ''));
+		}
+	},
+
 	setTrafficSource: function() {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/brief-2')) {
 			briefHench.formSchema['trafficSource'] = 'stepped';
+		} else if ( pagePath.startsWith('/lp/') ) {
+			briefHench.formSchema['lpTrafficSource'] = pagePath.replace( '/lp/', '' );
 		}
 	},
 
