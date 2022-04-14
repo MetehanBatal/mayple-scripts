@@ -103,7 +103,7 @@ let briefHench = {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
 		// self.websiteSDK = new WebsiteSDK({debug: true});
-		self.websiteSDK = new WebsiteSDK();
+		self.websiteSDK = new WebsiteSDK({debug: true});
 
 		console.log('SDK: ', self.websiteSDK);
 	},
