@@ -38,6 +38,7 @@ let briefHench = {
 		productBusinessModel: [],
 
 		estimatedMediaBudget: 0,
+		frontendSalesQualificationScore: 0,
 
 		// country: '',
 
@@ -338,7 +339,7 @@ let briefHench = {
 
 		// self.getConnectionTime();
 
-		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+		self.formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 
 		console.log( self.websiteSDK );
 		console.log( '---------' );
@@ -351,7 +352,7 @@ let briefHench = {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 
 		self.getScore();
-		console.log( 'Hubspot Score: ', self.score );
+		console.log( 'Hubspot Score: ', self.formSchema['frontendSalesQualificationScore'] );
 	},
 
 	showMeeting: function(type) {
@@ -508,11 +509,11 @@ let briefHench = {
 
 		if (hasTargetCountries) {
 			//self.hasEligibleTarget = true;
-			self.score += 2
+			self.formSchema['frontendSalesQualificationScore'] += 2
 		} else if (hasSecondTierCountries) {
-			self.score += 0;
+			self.formSchema['frontendSalesQualificationScore'] += 0;
 		} else {
-			self.score -= 7;
+			self.formSchema['frontendSalesQualificationScore'] -= 7;
 		}
 	},
 
@@ -525,11 +526,11 @@ let briefHench = {
 
 		if (hasIPCountry) {
 			//self.hasEligibleTarget = true;
-			self.score += 2
+			self.formSchema['frontendSalesQualificationScore'] += 2
 		} else if (hasSecondTierCountry) {
-			self.score += 0;
+			self.formSchema['frontendSalesQualificationScore'] += 0;
 		} else {
-			self.score -= 3;
+			self.formSchema['frontendSalesQualificationScore'] -= 3;
 		}
 	},
 
@@ -537,26 +538,26 @@ let briefHench = {
 		const self = this;
 
 		if (self.budget >= 20000) {
-			self.score += 3;
+			self.formSchema['frontendSalesQualificationScore'] += 3;
 		} else if( self.budget >= 10000 ) {
-			self.score += 2;
+			self.formSchema['frontendSalesQualificationScore'] += 2;
 		} else if ( self.budget >= 3000 ) {
-			self.score += 1;
+			self.formSchema['frontendSalesQualificationScore'] += 1;
 		} else {
-			self.score -= 4;
+			self.formSchema['frontendSalesQualificationScore'] -= 4;
 		}
 	},
 
 	getWebsiteScore: function() {
 		const self = this;
 		console.log( '------' );
-		console.log( 'Before Website: ', self.score );
+		console.log( 'Before Website: ', self.formSchema['frontendSalesQualificationScore'] );
 		if ($('#website').val().length > 0) {
-			self.score += 3;
+			self.formSchema['frontendSalesQualificationScore'] += 3;
 		} else {
-			self.score -= 7;
+			self.formSchema['frontendSalesQualificationScore'] -= 7;
 		}
-		console.log( 'After Website: ', self.score );
+		console.log( 'After Website: ', self.formSchema['frontendSalesQualificationScore'] );
 		console.log( '------' );
 	},
 
@@ -577,7 +578,7 @@ let briefHench = {
 	getScore: function() {
 		const self = this;
 		console.log( 'Called' );
-		if ( self.score > 3 ) {	
+		if ( self.formSchema['frontendSalesQualificationScore'] > 3 ) {	
 			self.showMeeting('long');
 		} else {
 			self.showMeeting('short');

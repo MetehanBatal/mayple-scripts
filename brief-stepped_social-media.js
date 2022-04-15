@@ -36,6 +36,7 @@ let briefHench = {
 		productBusinessModel: [],
 
 		estimatedMediaBudget: 0,
+		frontendSalesQualificationScore: 0,
 
 		// country: '',
 
@@ -396,7 +397,7 @@ let briefHench = {
 
 		// self.getConnectionTime();
 
-		self.score = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
+		self.formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(self.formSchema);
 
 		console.log( self.websiteSDK );
 		console.log( '---------' );
