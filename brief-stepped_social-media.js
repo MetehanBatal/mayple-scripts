@@ -158,7 +158,7 @@ let briefHench = {
 			}
 		});
 
-		if ( form[0].id === 'welcome-brief-form_second') {
+		if ( form[0].id === 'welcome-brief-form_first') {
 			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			self.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
 
@@ -179,54 +179,55 @@ let briefHench = {
 				self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 			}
 
-			self.getSelectedCountries();
+			// self.getSelectedCountries();
 			
-			if(self.formSchema['locations'].length < 1) {
-				error = true;
-				$('#welcome-brief-form_second .select2-selection').addClass('empty-field');
-				$('.error-message.stepped').removeClass('hidden');
-			} else {
-				error = false;
-				$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
-				$('.error-message.stepped').addClass('hidden');
+			// if(self.formSchema['locations'].length < 1) {
+			// 	error = true;
+			// 	$('#welcome-brief-form_second .select2-selection').addClass('empty-field');
+			// 	$('.error-message.stepped').removeClass('hidden');
+			// } else {
+			// 	error = false;
+			// 	$('#welcome-brief-form_second .select2-selection').removeClass('empty-field');
+			// 	$('.error-message.stepped').addClass('hidden');
 
-				let locations = self.formSchema['locations'];
-				console.log( 'Selected locations: ', locations );
-				const locationsSorted = locations ? locations.map((location) => location).sort() : null;
-				const locationTraits = {
-					label: locations ? locationsSorted.join(',') : null,
-					locations: locations ? locationsSorted.join(', ') : '',
-				};
-				self.websiteSDK.reportEvent('Wizard.Brief.Locations StepDone', locationTraits);
-			}
+			// 	let locations = self.formSchema['locations'];
+			// 	console.log( 'Selected locations: ', locations );
+			// 	const locationsSorted = locations ? locations.map((location) => location).sort() : null;
+			// 	const locationTraits = {
+			// 		label: locations ? locationsSorted.join(',') : null,
+			// 		locations: locations ? locationsSorted.join(', ') : '',
+			// 	};
+			// 	self.websiteSDK.reportEvent('Wizard.Brief.Locations StepDone', locationTraits);
+			// }
 
-			self.getSelectedSkills();
+			// self.getSelectedSkills();
 
-			if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
-				$('.selected-service').html(self.selectedSkills[0]);
-			} else {
-				$('.selected-service').addClass('hidden');
-			}
+			// if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
+			// 	$('.selected-service').html(self.selectedSkills[0]);
+			// } else {
+			// 	$('.selected-service').addClass('hidden');
+			// }
 
-			if (self.selectedSkills.length === 0) {
-				error = true;
-				$('.error-message.stepped').removeClass('hidden');
-			}
+			// if (self.selectedSkills.length === 0) {
+			// 	error = true;
+			// 	$('.error-message.stepped').removeClass('hidden');
+			// }
 
-			if (!error) {
-				let skills = self.selectedSkills;
-				const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
-				const skillTraits = {
-					label: skills ? skillsSorted : null,
-					skills: skills ? skillsSorted : '',
-				};
-				self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
+			// if (!error) {
+			// 	let skills = self.selectedSkills;
+			// 	const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
+			// 	const skillTraits = {
+			// 		label: skills ? skillsSorted : null,
+			// 		skills: skills ? skillsSorted : '',
+			// 	};
+			// 	self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 
-				$('.pagination-buttons').removeClass('first-step');
-			}
+			// 	$('.pagination-buttons').removeClass('first-step');
+			// }
 
+
+		} else if ( form[0].id === 'welcome-brief-form_fourth' ) {
 			self.formSchema['estimatedMediaBudget'] = self.budget;
-
 			if (!error) {
 				const budgetTraits = {
 					label: (self.budget || 'N/A').toString(), // Save as string
@@ -235,7 +236,6 @@ let briefHench = {
 				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
 			}
-
 		} else {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
