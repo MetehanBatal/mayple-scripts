@@ -31,7 +31,9 @@ let briefHench = {
 		}],
 
 		// Is this the audience field?
-		locations: [],
+		locations: [
+			'US'
+		],
 
 		productBusinessModel: [],
 
@@ -189,6 +191,7 @@ let briefHench = {
 				$('.error-message.stepped').addClass('hidden');
 
 				let locations = self.formSchema['locations'];
+				console.log( 'Selected locations: ', locations );
 				const locationsSorted = locations ? locations.map((location) => location).sort() : null;
 				const locationTraits = {
 					label: locations ? locationsSorted.join(',') : null,
