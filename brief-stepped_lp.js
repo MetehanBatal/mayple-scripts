@@ -820,3 +820,12 @@ $('.country-selection').on('select2:select', function (e) {
 
 	$('.to-next-step').removeClass('disabled');
 });
+
+$('.select2-search__field').on('input', function(e) {
+	console.log( 'Typed: ', e );
+	if ( $('.select2-search__field').val().length > 0 ) {
+		$('#welcome-brief-form_first .select2-results__options').css({'display': 'block'});
+	} else {
+		$('#welcome-brief-form_first .select2-results__options').css({'display': 'none'});
+	}
+});
