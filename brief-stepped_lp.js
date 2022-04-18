@@ -80,7 +80,7 @@ let briefHench = {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
 		countryField.forEach(function(country) {
-			if (!self.formSchema['locations'].includes(country)) {
+			if (!self.formSchema['locations'].includes(country.id)) {
 				self.formSchema['locations'].push(country.id);
 			}
 		});

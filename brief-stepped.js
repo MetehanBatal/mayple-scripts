@@ -80,15 +80,9 @@ let briefHench = {
 		const self = this;
 		let countryField = $('.country-selection').select2('data');
 		countryField.forEach(function(country) {
-			console.log( 'selected Country: ', country );
-			if (self.formSchema['locations'].includes(country)) {
-				console.log( 'Contains country' );
-				return;
-			} else {
+			if (!self.formSchema['locations'].includes(country.id)) {
 				self.formSchema['locations'].push(country.id);
 			}
-
-			
 		});
 	},
 
@@ -203,7 +197,7 @@ let briefHench = {
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
 
-			console.log( 'Selected locations: ', self.formSchema['locations'] );
+			console.log( 'Current locations: ', self.formSchema['locations'] );
 			
 			if(self.formSchema['locations'].length < 1) {
 				error = true;
