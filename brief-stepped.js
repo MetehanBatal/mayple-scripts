@@ -196,6 +196,8 @@ let briefHench = {
 
 		} else if (form[0].id === 'welcome-brief-form_second') {
 			self.getSelectedCountries();
+
+			console.log( 'Selected locations: ', self.formSchema['locations'] );
 			
 			if(self.formSchema['locations'].length < 1) {
 				error = true;
