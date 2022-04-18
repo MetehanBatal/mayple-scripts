@@ -824,9 +824,7 @@ $('.country-selection').on('select2:select', function (e) {
 
 $('.business-type-selection').on("select2:open", function (e) {
 	console.log( 'Typed: ', e );
-	if ( $('.select2-search__field').val().length > 0 ) {
-		$('.select2-results__options')[0].css({'display': 'block'});
-	} else {
-		$('.select2-results__options')[0].css({'display': 'none'});
-	}
+	$('.select2-search__field').on('input', function(event) {
+		console.log( 'Event: ', event );
+	});
 });
