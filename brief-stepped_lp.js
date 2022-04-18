@@ -169,6 +169,7 @@ let briefHench = {
 			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			self.formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
 			console.log( self.formSchema['industry'], self.formSchema['industry'][0] );
+			$('.select2-results__options')[0].css({'display': 'none'});
 
 			if (self.formSchema['industry'][0].industrySubCategory.length < 1) {
 				error = true;
@@ -824,8 +825,8 @@ $('.country-selection').on('select2:select', function (e) {
 $('.select2-search__field').on('input', function(e) {
 	console.log( 'Typed: ', e );
 	if ( $('.select2-search__field').val().length > 0 ) {
-		$('#welcome-brief-form_first .select2-results__options').css({'display': 'block'});
+		$('.select2-results__options')[0].css({'display': 'block'});
 	} else {
-		$('#welcome-brief-form_first .select2-results__options').css({'display': 'none'});
+		$('.select2-results__options')[0].css({'display': 'none'});
 	}
 });
