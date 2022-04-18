@@ -456,7 +456,7 @@ let briefHench = {
 
 			window.mayple_analytics.track('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
 		} else {
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		}
 		
 		container.append(template);
