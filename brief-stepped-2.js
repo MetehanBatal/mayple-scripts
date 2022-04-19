@@ -335,6 +335,10 @@ let briefHench = {
 
 		self.websiteSDK.submitHubspotForm(self.formSchema);
 
+		if ($('.business-type-selection').closest('.brief-stepped-form').hasClass('active')) {
+			$('body').addClass('on-industry-selection');
+		}
+
 		if (self.currentStep === 1) {
 			briefHench.reportWizardBriefStepDone('Lead Created');
 		}
@@ -735,7 +739,6 @@ $( document ).ready(function(e) {
 	briefHench.setTrafficSource();
 
 	briefHench.checkUTMParams();
-	$('body').addClass('on-industry-selection');
 
 	setTimeout(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');

@@ -322,6 +322,10 @@ let briefHench = {
 		$('.brief-stepped-form').eq(self.currentStep).removeClass('hidden');
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(self.currentStep).addClass('active');
+
+		if ($('.business-type-selection').closest('.brief-stepped-form').hasClass('active')) {
+			$('body').addClass('on-industry-selection');
+		}
 	},
 
 	handleBack: function() {
