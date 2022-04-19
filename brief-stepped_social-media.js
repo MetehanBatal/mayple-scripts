@@ -428,6 +428,7 @@ let briefHench = {
 		let lastname = $('#lastname').val();
 		let email = $('#email').val();
 		let company = $('#company').val();
+		let phone = $('#phone').val();
 
 		let template = '';
 
@@ -435,8 +436,10 @@ let briefHench = {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
 
 			window.mayple_analytics.track('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
+		} else if ( type === 'short' ) {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		} else {
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}"></div>`;
 		}
 		
 		container.append(template);
@@ -644,6 +647,8 @@ let briefHench = {
 		console.log( 'Called' );
 		if ( self.formSchema['frontendSalesQualificationScore'] > 3 ) {
 			self.showMeeting('long');
+		} else if ( self.formSchema['frontendSalesQualificationScore'] >= 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
+			self.showMeeting('mid');
 		} else {
 			self.showMeeting('short');
 		}
