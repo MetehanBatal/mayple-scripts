@@ -737,6 +737,7 @@ $( document ).ready(function(e) {
 	briefHench.setTrafficSource();
 
 	briefHench.checkUTMParams();
+	$('body').addClass('on-industry-selection');
 
 	// setTimeout(function() {
 	// 	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
