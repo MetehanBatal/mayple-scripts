@@ -483,9 +483,11 @@ let briefHench = {
 			return; }
 		
 		let value = $('#website').val();
-		let valueSplit = value.split(".");
 		let companyName = '';
-		if (valueSplit[0].startsWith('http') || valueSplit[0].startsWith('www') || valueSplit[0].includes(':')) {
+		let hostname = new URL(value).hostname;
+		let valueSplit = hostname.split(".");
+
+		if (valueSplit[0].startsWith('www')) {
 			companyName = valueSplit[1];
 		} else {
 			companyName = valueSplit[0];
