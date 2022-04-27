@@ -1,3 +1,9 @@
+// Pages used:
+// ppc
+// dtc
+// facebook agency
+// digital-marketing
+
 let briefHench = {
 	websiteSDK: '',
 
@@ -409,7 +415,7 @@ let briefHench = {
 		let hostname = new URL(value).hostname;
 		let valueSplit = value.split(".");
 		valueSplit[0] = valueSplit[0].slice(8);
-		
+
 		if (valueSplit[0].startsWith('www')) {
 			companyName = valueSplit[1];
 		} else {
