@@ -425,6 +425,11 @@ let briefHench = {
 		if (value.startsWith('http://')) {
 			$('#website').val(value.replace('http://', 'https://'));
 		}
+		if (value.includes('%20')) {
+			value.replace('%20', '')
+		};
+		value.toLowerCase();
+		
 		let companyName = '';
 		let hostname = new URL(value).hostname;
 		let valueSplit = value.split(".");
