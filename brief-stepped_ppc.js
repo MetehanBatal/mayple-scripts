@@ -211,6 +211,17 @@ let briefHench = {
 						self.formSchema['phoneNumber'] = self.fullPhone;
 					}
 				}
+
+				if (inputName === 'websiteAddress') {
+					let value = $('#website').val();
+					error = true;
+					let test = new URL(value);
+					if (test) {
+						error = false;
+					}
+
+					console.log( 'Error: ', error );
+				}
 			});
 		}
 
