@@ -480,15 +480,23 @@ let briefHench = {
 			return; }
 		
 		let value = $('#website').val();
+		if (value.length > 5 && !value.startsWith('http')) {
+			$('#website').val('https://' + value);
+		};
+		if (value.startsWith('http://')) {
+			$('#website').val(value.replace('http://', 'https://'));
+		}
 		let companyName = '';
 		let hostname = new URL(value).hostname;
-		let valueSplit = hostname.split(".");
+		let valueSplit = value.split(".");
+		valueSplit[0] = valueSplit[0].slice(8);
 
 		if (valueSplit[0].startsWith('www')) {
 			companyName = valueSplit[1];
 		} else {
 			companyName = valueSplit[0];
 		}
+
 		if (value.length > 3) {
 			$('#company').val(companyName)
 		}

@@ -411,6 +411,9 @@ let briefHench = {
 		if (value.length > 5 && !value.startsWith('http')) {
 			$('#website').val('https://' + value);
 		};
+		if (value.startsWith('http://')) {
+			$('#website').val(value.replace('http://', 'https://'));
+		}
 		let companyName = '';
 		let hostname = new URL(value).hostname;
 		let valueSplit = value.split(".");
