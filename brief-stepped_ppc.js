@@ -428,8 +428,14 @@ let briefHench = {
 		if (value.includes('%20')) {
 			value.replace('%20', '')
 		};
+		if (value.includes(' ')) {
+			value.replace(' ', '')
+		};
+		if (value.includes(' ')) {
+			value.replace(' ', '')
+		};
 		value.toLowerCase();
-		
+
 		let companyName = '';
 		let hostname = new URL(value).hostname;
 		let valueSplit = value.split(".");

@@ -489,6 +489,9 @@ let briefHench = {
 		if (value.includes('%20')) {
 			value.replace('%20', '')
 		};
+		if (value.includes(' ')) {
+			value.replace(' ', '')
+		};
 		value.toLowerCase();
 		
 		let companyName = '';
