@@ -135,7 +135,6 @@ let briefHench = {
 		let containerW = $('.step-numbers').width() - 64;
 		
 		let progressBarW = `calc(${(self.currentStep / (self.stepCount - 1)) * 100}% + ${(self.stepCount - self.currentStep - 1) * 4}px)`;
-		// console.log( 'Width: ', progressBarW );
 		$('.active-progress-bar').css("width", progressBarW);
 	},
 
@@ -262,6 +261,7 @@ let briefHench = {
 			// self.getTargetCountryScore();
 		}
 
+		console.log( 'Error: ', error );
 		if (error) {
 			return; }
 
@@ -421,7 +421,6 @@ let briefHench = {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Finished');
 
 		self.getScore();
-		console.log( 'Hubspot Score: ', self.formSchema['frontendSalesQualificationScore'] );
 	},
 
 	showMeeting: function(type) {
@@ -581,7 +580,6 @@ let briefHench = {
 			let obj = JSON.parse(cookie);
 
 			if (params['utm_source'] && !params['utm_source'].toLowerCase().includes('direct')) {
-				console.log( 'Passed' );
 				$('#howDidYouHearAboutMayple').removeAttr('required');
 				$('#howDidYouHearAboutMayple').addClass('hidden');
 			}
@@ -643,15 +641,11 @@ let briefHench = {
 
 	getWebsiteScore: function() {
 		const self = this;
-		console.log( '------' );
-		console.log( 'Before Website: ', self.formSchema['frontendSalesQualificationScore'] );
 		if ($('#website').val().length > 0) {
 			self.formSchema['frontendSalesQualificationScore'] += 3;
 		} else {
 			self.formSchema['frontendSalesQualificationScore'] -= 7;
 		}
-		console.log( 'After Website: ', self.formSchema['frontendSalesQualificationScore'] );
-		console.log( '------' );
 	},
 
 	getConnectionTime: function() {
@@ -670,7 +664,6 @@ let briefHench = {
 
 	getScore: function() {
 		const self = this;
-		console.log( 'Called' );
 		if ( self.formSchema['frontendSalesQualificationScore'] > 3 ) {
 			self.showMeeting('long');
 		} else if ( self.formSchema['frontendSalesQualificationScore'] >= 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
@@ -696,7 +689,6 @@ let briefHench = {
 				}
 
 				if (field === 'phone') {
-					console.log( 'Field: ', data[field] );
 					briefHench.fullPhone = data[field];
 				}
 			}
@@ -715,7 +707,6 @@ let briefHench = {
 
 	reportWizardBriefStepDone(eventName, traits) {
 		if (traits) {
-			console.log( 'Sent the event with traits' );
 			window.mayple_analytics.track(eventName, traits);	
 		} else {
 			const [category, action] = eventName.split(' ');
@@ -753,17 +744,12 @@ $('#website').keyup(function(e) {
 
 $('#marketingbudget').keyup(function(e) {
 	briefHench.restructureBudget();
-	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
 		$('.to-next-step').removeClass('disabled');
 	} else {
 		$('.to-next-step').addClass('disabled');
 	}
 });
-
-// $('#phone').keyup(function(e) {
-// 	console.log( briefHench.intlTel );
-// });
 
 $('#nowebsite').bind('change', function() {
 	if ($('#nowebsite').is(':checked')) {
@@ -781,9 +767,7 @@ $('#nowebsite').bind('change', function() {
 });
 
 $('.channel-selection input').bind('change', function(e) {
-	console.log( e );
 	setTimeout(function() {
-		console.log( $('.channel-selection .w--redirected-checked') );
 		if ($('.channel-selection .w--redirected-checked').length > 0) {
 			$('.to-next-step').removeClass('disabled');
 		} else {
@@ -808,7 +792,6 @@ $('.not-sure').click(function() {
 
 window.addEventListener("message", function(e) {
 	if (!e.origin === 'https://meetings.hubspot.com') { return; }
-	// console.log( e.data );
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
 		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
@@ -829,7 +812,6 @@ $('.country-selection').on('select2:select', function (e) {
 });
 
 $('.business-type-selection').on("select2:open", function (e) {
-	console.log( 'Typed: ', e );
 	$('.select2-search__field').on('input', function(event) {
 		if (event.target.value.length > 0) {
 			$('body').removeClass('on-industry-selection');
