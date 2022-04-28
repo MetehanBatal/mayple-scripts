@@ -235,6 +235,7 @@ let briefHench = {
 		$('.error-message.stepped').addClass('hidden');
 
 		if (self.currentStep === 0) {
+			self.websiteSDK.submitHubspotForm(self.formSchema);
 			briefHench.reportWizardBriefStepDone('Lead Created');
 		}
 
