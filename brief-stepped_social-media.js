@@ -497,6 +497,9 @@ let briefHench = {
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
 		briefHench.budget = parseInt(rawValue);
+		// if (briefHench.budget == null || briefHench.budget == undefined || typeof(briefHench.budget) == 'string') {
+		// 	briefHench.budget
+		// }
 	},
 
 	checkTimeZone: function() {
@@ -693,6 +696,8 @@ $( document ).ready(function(e) {
 	briefHench.setTrafficSource();
 
 	briefHench.checkUTMParams();
+
+	window.va.identify();
 
 	setTimeout(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');

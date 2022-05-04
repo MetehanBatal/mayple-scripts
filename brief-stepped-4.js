@@ -733,6 +733,8 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
+	window.va.identify();
+
 	setTimeout(function() {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3200);

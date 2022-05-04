@@ -701,6 +701,8 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
+	window.va.identify();
+
 	if ($('.business-type-selection').closest('.brief-stepped-form').hasClass('active')) {
 		$('body').addClass('on-industry-selection');
 	}
