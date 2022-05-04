@@ -697,15 +697,14 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
-	window.va.identify();
-
 	if ($('.business-type-selection').closest('.brief-stepped-form').hasClass('active')) {
 		$('body').addClass('on-industry-selection');
 	}
 
-	// setTimeout(function() {
+	setTimeout(function() {
+		window.va.identify();
 	// 	briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
-	// }, 3200);
+	}, 3200);
 });
 
 $('#website').keyup(function(e) {

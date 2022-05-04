@@ -744,9 +744,8 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
-	window.va.identify();
-
 	setTimeout(function() {
+		window.va.identify();
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3200);
 });

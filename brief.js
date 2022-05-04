@@ -535,10 +535,8 @@ $(document).ready(function() {
 	briefHench.checkTimeZone();
 	briefHench.checkUTMParams();
 
-	window.va.identify();
-
 	setTimeout(function() {
-		console.log( window.mayple_analytics );
+		window.va.identify();
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3600)
 });

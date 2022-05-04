@@ -758,9 +758,8 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
-	window.va.identify();
-
 	setTimeout(function() {
+		window.va.identify();
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3200);
 });
@@ -770,6 +769,9 @@ $('#website').keyup(function(e) {
 });
 
 $('#marketingbudget').keyup(function(e) {
+	if (typeof(e) === 'string' && e !== ',') {
+		$('#marketingbudget').val($('#marketingbudget').val().slice(0, -1));
+	}
 	briefHench.restructureBudget();
 	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
