@@ -102,14 +102,14 @@ let briefHench = {
 	getSelectedSkills: function() {
 		const self = this;
 		self.formSchema['serviceTypes'] = [];
-		
+
 		$('.channel-selection .w--redirected-checked').each(function(index, el) {
 			let selectedSkill = $(this).parent().attr('skill-type');
 			if(selectedSkill === 'PAID_ADVERTISING') {
 				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
 				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
 			} else {
-				self.formSchema['serviceTypes'] = selectedSkill;
+				self.formSchema['serviceTypes'].push(selectedSkill);
 			}
 			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
 		});
