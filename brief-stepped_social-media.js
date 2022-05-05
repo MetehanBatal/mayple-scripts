@@ -708,10 +708,10 @@ $('#website').keyup(function(e) {
 });
 
 $('#marketingbudget').keyup(function(e) {
-	console.log( e.originalEvent.key );
+	console.log( e.originalEvent );
 
 	const isNumber = Number(e.originalEvent.key) ? true : false;
-	if (e.originalEvent.key !== ',' || e.originalEvent.key !== 'backspace' || e.originalEvent.key !== '0') {
+	if (e.originalEvent.key != ',' || e.originalEvent.key != 'Backspace' || e.originalEvent.key != '0') {
 		if (!isNumber) {
 			let value = $('#marketingbudget').val().slice(0, -1);
 			$('#marketingbudget').val(value);
