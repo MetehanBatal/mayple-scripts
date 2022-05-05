@@ -807,6 +807,7 @@ $('.not-sure').click(function() {
 	briefHench.currentStep += 1;
 
 	briefHench.setSteps();
+	$('.to-next-step').show();
 	
 	$('.brief-stepped-form').addClass('hidden');
 	$('.brief-stepped-form').eq(briefHench.currentStep).removeClass('hidden');
