@@ -104,7 +104,7 @@ let briefHench = {
 				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
 				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
 			} else {
-				self.formSchema['serviceTypes'].push(selectedSkill);	
+				self.formSchema['serviceTypes'] = selectedSkill;
 			}
 			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
 		});
