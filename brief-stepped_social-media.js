@@ -711,7 +711,7 @@ $('#marketingbudget').keyup(function(e) {
 	console.log( e.originalEvent.key );
 
 	const isNumber = Number(e.originalEvent.key) ? true : false;
-	if (e.originalEvent.key !== ',' || e.originalEvent.key !== 'backspace') {
+	if (e.originalEvent.key !== ',' || e.originalEvent.key !== 'backspace' || e.originalEvent.key !== '0') {
 		if (!isNumber) {
 			let value = $('#marketingbudget').val().slice(0, -1);
 			$('#marketingbudget').val(value);
