@@ -140,9 +140,9 @@ let briefHench = {
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
 
-		if (self.currentStep !== 0) {
-			$('.to-next-step').addClass('disabled');
-		}
+		
+		$('.to-next-step').addClass('disabled');
+
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
 			field.classList.remove('empty-field');
@@ -188,6 +188,32 @@ let briefHench = {
 				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
 			}
+		} else if ( form[0].id === 'welcome-brief-form_third' ) {
+			self.getSelectedSkills();
+
+			if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
+				$('.selected-service').html(self.selectedSkills[0]);
+			} else {
+				$('.selected-service').addClass('hidden');
+			}
+			
+
+			if (!error) {
+				let skills = self.selectedSkills;
+				const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
+				const skillTraits = {
+					label: skills ? skillsSorted : null,
+					skills: skills ? skillsSorted : '',
+				};
+				self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
+
+				$('.pagination-buttons').removeClass('first-step');
+			}
+
+			let pagePath = window.location.pathname;
+			if (pagePath.startsWith('/lp/digital-marketing-new')) {
+				$('.to-next-step').removeClass('disabled');
+			}
 		} else {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
@@ -220,6 +246,7 @@ let briefHench = {
 		// Reveal back button
 		// 
 		$('.to-previous-step').show();
+		$('.to-next-step').show();
 
 		$('.error-message.stepped').addClass('hidden');
 

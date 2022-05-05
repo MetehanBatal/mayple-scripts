@@ -224,7 +224,6 @@ let briefHench = {
 		} else if ( form[0].id === 'welcome-brief-form_third' ) {
 			self.getSelectedSkills();
 
-			console.log( self.selectedSkills );
 			if (self.selectedSkills.length === 1 && self.selectedSkills[0] != 'Other') {
 				$('.selected-service').html(self.selectedSkills[0]);
 			} else {
@@ -239,7 +238,6 @@ let briefHench = {
 					label: skills ? skillsSorted : null,
 					skills: skills ? skillsSorted : '',
 				};
-				console.log( 'Skills Traits: ', skillTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 
 				$('.pagination-buttons').removeClass('first-step');
@@ -247,7 +245,6 @@ let briefHench = {
 
 			let pagePath = window.location.pathname;
 			if (pagePath.startsWith('/lp/digital-marketing-new')) {
-				console.log( 'hi' );
 				$('.to-next-step').removeClass('disabled');
 			}
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
@@ -777,7 +774,7 @@ $('#marketingbudget').keyup(function(e) {
 			return;
 		}
 	}
-	
+
 	briefHench.restructureBudget();
 	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
