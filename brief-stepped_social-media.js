@@ -709,13 +709,15 @@ $('#website').keyup(function(e) {
 
 $('#marketingbudget').keyup(function(e) {
 	console.log( e.originalEvent.key );
-	
-	// const isNumber = Number(e.originalEvent.key) ? true : false;
-	// if (!isNumber && e.originalEvent.key !== ',') {
-	// 	let value = $('#marketingbudget').val().slice(0, -1);
-	// 	$('#marketingbudget').val(value);
-	// 	return;
-	// }
+
+	const isNumber = Number(e.originalEvent.key) ? true : false;
+	if (e.originalEvent.key !== ',' || e.originalEvent.key !== 'backspace') {
+		if (!isNumber) {
+			let value = $('#marketingbudget').val().slice(0, -1);
+			$('#marketingbudget').val(value);
+			return;
+		}
+	}
 
 	briefHench.restructureBudget();
 	if ($('#marketingbudget').val().length > 0) {
