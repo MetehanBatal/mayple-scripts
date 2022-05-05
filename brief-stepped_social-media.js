@@ -71,7 +71,7 @@ let briefHench = {
 
 	setServices: function() {
 		let pagePath = window.location.pathname;
-		if (pagePath.startsWith('/lp/sem')) {
+		if (pagePath.startsWith('/lp/search-engine-marketing')) {
 			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 			$('.to-next-step').show();
 		} else if (pagePath.startsWith('/lp/social-media')) {
