@@ -708,14 +708,14 @@ $('#website').keyup(function(e) {
 });
 
 $('#marketingbudget').keyup(function(e) {
-	if (typeof(e) === 'string' && e !== ',') {
+	console.log( typeof(e.originalEvent.key) );
+	if (typeof(e.originalEvent.key) === 'string' && e.originalEvent.key !== ',') {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;
 	}
-	
+
 	briefHench.restructureBudget();
-	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
 		$('.to-next-step').removeClass('disabled');
 	} else {
