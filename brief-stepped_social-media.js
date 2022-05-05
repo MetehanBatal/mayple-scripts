@@ -785,11 +785,15 @@ $('#nowebsite').bind('change', function() {
 });
 
 $('.channel-selection input').bind('change', function(e) {
-	console.log( e );
+	$('.channel-selection .brief-checkbox').removeClass('selected');
+	$(this).parent().addClass('selected');
+
 	setTimeout(function() {
 		console.log( $('.channel-selection .w--redirected-checked') );
 		if ($('.channel-selection .w--redirected-checked').length > 0) {
 			$('.to-next-step').removeClass('disabled');
+			$('.to-next-step').show();
+			$('.to-next-step').click();
 		} else {
 			$('.to-next-step').addClass('disabled');
 		}
