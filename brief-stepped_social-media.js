@@ -708,6 +708,12 @@ $('#website').keyup(function(e) {
 });
 
 $('#marketingbudget').keyup(function(e) {
+	if (typeof(e) === 'string' && e !== ',') {
+		let value = $('#marketingbudget').val().slice(0, -1);
+		$('#marketingbudget').val(value);
+		return;
+	}
+	
 	briefHench.restructureBudget();
 	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
