@@ -166,7 +166,7 @@ let briefHench = {
 			}
 		});
 
-		if (error) {
+		if ($(fields).hasClass('empty-field')) {
 			return; }
 
 		if ( form[0].id === 'welcome-brief-form_first') {
@@ -251,7 +251,7 @@ let briefHench = {
 			// self.getTargetCountryScore();
 		}
 
-		if (error) {
+		if ($(fields).hasClass('empty-field')) {
 			return; }
 
 		// Reveal back button
