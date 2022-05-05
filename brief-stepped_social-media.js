@@ -69,6 +69,14 @@ let briefHench = {
 		requestedAnInstantCall: 'no'
 	},
 
+	setServices: function() {
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/lp/sem')) {
+			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
+			$('.to-next-step').show();
+		}
+	},
+
 	setTrafficSource: function() {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/brief-2')) {
@@ -707,6 +715,7 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
+	$('.to-next-step').hide();
 	$('.brief-stepped-form:first-child').addClass('active');
 	$('.to-next-step').attr('data-step', '0');
 	//briefHench.getHash();
@@ -723,6 +732,8 @@ $( document ).ready(function(e) {
 	briefHench.setTrafficSource();
 
 	briefHench.checkUTMParams();
+
+	briefHench.setServices();
 
 	setTimeout(function() {
 		window.va.identify();
