@@ -164,6 +164,9 @@ let briefHench = {
 			}
 		});
 
+		if (error) {
+			return; }
+
 		if ( form[0].id === 'welcome-brief-form_first') {
 			// self.formSchema['industry'].push( $('.business-type-selection').select2('data')[0].id );
 			self.formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
@@ -280,8 +283,6 @@ let briefHench = {
 				}
 			});
 		}
-
-
 
 		if (error) {
 			return; }
