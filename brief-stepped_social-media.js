@@ -74,6 +74,9 @@ let briefHench = {
 		if (pagePath.startsWith('/lp/sem')) {
 			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 			$('.to-next-step').show();
+		} else if (pagePath.startsWith('/lp/social-media')) {
+			briefHench.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
+			$('.to-next-step').show();
 		}
 	},
 
@@ -98,6 +101,8 @@ let briefHench = {
 
 	getSelectedSkills: function() {
 		const self = this;
+		self.formSchema['serviceTypes'] = [];
+		
 		$('.channel-selection .w--redirected-checked').each(function(index, el) {
 			let selectedSkill = $(this).parent().attr('skill-type');
 			if(selectedSkill === 'PAID_ADVERTISING') {
