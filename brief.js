@@ -581,11 +581,14 @@ $('#welcome-brief-form_end').submit(function(event) {
 });
 
 $('#marketingbudget').keyup(function(e) {
-	// if (typeof(e) === 'string' && e !== ',') {
-	// 	let value = $('#marketingbudget').val().slice(0, -1);
-	// 	$('#marketingbudget').val(value);
-	// 	return;
-	// }
+	const isNumber = Number(e.originalEvent.key) ? true : false;
+	if (e.originalEvent.keyCode != 188 && e.originalEvent.keyCode != 8 && e.originalEvent.keyCode != 48) {
+		if (!isNumber) {
+			let value = $('#marketingbudget').val().slice(0, -1);
+			$('#marketingbudget').val(value);
+			return;
+		}
+	}
 
 	briefHench.restructureBudget();
 });

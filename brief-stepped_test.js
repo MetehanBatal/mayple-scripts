@@ -742,6 +742,15 @@ $('#website').keyup(function(e) {
 });
 
 $('#marketingbudget').keyup(function(e) {
+	const isNumber = Number(e.originalEvent.key) ? true : false;
+	if (e.originalEvent.keyCode != 188 && e.originalEvent.keyCode != 8 && e.originalEvent.keyCode != 48) {
+		if (!isNumber) {
+			let value = $('#marketingbudget').val().slice(0, -1);
+			$('#marketingbudget').val(value);
+			return;
+		}
+	}
+	
 	briefHench.restructureBudget();
 	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
