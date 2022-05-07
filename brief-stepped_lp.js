@@ -734,6 +734,13 @@ let briefHench = {
 			const [category, action] = eventName.split(' ');
 			window.mayple_analytics.track(eventName, { category, action });
 		}
+	},
+
+	getLPName: function() {
+		let lpName = localStorage.getItem('lpTrafficSource');
+		if (lpName && lpName.length > 0) {
+			briefHench.formSchema['lpTrafficSource'] = lpName;
+		}
 	}
 }
 
@@ -755,6 +762,8 @@ $( document ).ready(function(e) {
 	briefHench.setTrafficSource();
 
 	briefHench.checkUTMParams();
+
+	briefHench.getLPName();
 
 	setTimeout(function() {
 		window.va.identify();

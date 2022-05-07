@@ -518,6 +518,13 @@ let briefHench = {
 			matchingChannel.querySelector('.checkbox').classList.add('w--redirected-checked');
 		}
 	},
+
+	getLPName: function() {
+		let lpName = localStorage.getItem('lpTrafficSource');
+		if (lpName && lpName.length > 0) {
+			briefHench.formSchema['lpTrafficSource'] = lpName;
+		}
+	}
 };
 
 $('.brief-input.select').on('change', function(e) { $(this).css("color", "#241815"); });
@@ -534,6 +541,7 @@ $(document).ready(function() {
 	briefHench.handleBackClick();
 	briefHench.checkTimeZone();
 	briefHench.checkUTMParams();
+	briefHench.getLPName();
 
 	setTimeout(function() {
 		window.va.identify();
@@ -567,8 +575,6 @@ $('#welcome-brief-form_end').submit(function(event) {
 
 	let hsScore = briefHench.websiteSDK.calcSalesQualificationLeadScore(briefHench.formSchema);
 	console.log( 'Score: ', hsScore );
-
-
 
 	briefHench.getTargetCountryScore();
 	briefHench.getIPScore();

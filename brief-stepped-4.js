@@ -712,6 +712,13 @@ let briefHench = {
 			const [category, action] = eventName.split(' ');
 			window.mayple_analytics.track(eventName, { category, action });
 		}
+	},
+
+	getLPName: function() {
+		let lpName = localStorage.getItem('lpTrafficSource');
+		if (lpName && lpName.length > 0) {
+			briefHench.formSchema['lpTrafficSource'] = lpName;
+		}
 	}
 }
 
@@ -733,6 +740,8 @@ $( document ).ready(function(e) {
 
 	briefHench.checkUTMParams();
 
+	briefHench.getLPName();
+
 	setTimeout(function() {
 		window.va.identify();
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
@@ -752,7 +761,7 @@ $('#marketingbudget').keyup(function(e) {
 			return;
 		}
 	}
-	
+
 	briefHench.restructureBudget();
 	if ($('#marketingbudget').val().length > 0) {
 		$('.to-next-step').removeClass('disabled');

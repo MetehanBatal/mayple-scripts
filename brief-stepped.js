@@ -723,6 +723,13 @@ let briefHench = {
 			const [category, action] = eventName.split(' ');
 			window.mayple_analytics.track(eventName, { category, action });
 		}
+	},
+
+	getLPName: function() {
+		let lpName = localStorage.getItem('lpTrafficSource');
+		if (lpName && lpName.length > 0) {
+			briefHench.formSchema['lpTrafficSource'] = lpName;
+		}
 	}
 }
 
@@ -748,6 +755,8 @@ $( document ).ready(function(e) {
 		window.va.identify();
 		briefHench.reportWizardBriefStepDone('Wizard.Brief Started');
 	}, 3200);
+
+	briefHench.getLPName();
 });
 
 $('#website').keyup(function(e) {
@@ -763,7 +772,7 @@ $('#marketingbudget').keyup(function(e) {
 			return;
 		}
 	}
-	
+
 	briefHench.restructureBudget();
 	console.log( e );
 	if ($('#marketingbudget').val().length > 0) {
