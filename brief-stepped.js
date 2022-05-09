@@ -451,7 +451,8 @@ let briefHench = {
 		} else if ( type === 'short' ) {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		} else {
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}"></div>`;
+			window.location.href = 'https://app.mayple.com/login?register=1';
+			//template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}"></div>`;
 		}
 		
 		container.append(template);
@@ -833,7 +834,8 @@ window.addEventListener("message", function(e) {
 	// console.log( e.data );
 	if (e.data.meetingBookSucceeded) {
 		briefHench.reportWizardBriefStepDone('Wizard.Brief.Call Scheduled');
-		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
+		window.location.href = 'https://app.mayple.com/login?register=1';
+		//window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'];
 	}
 });
 
