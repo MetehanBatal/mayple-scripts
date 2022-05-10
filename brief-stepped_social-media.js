@@ -77,6 +77,9 @@ let briefHench = {
 		} else if (pagePath.startsWith('/lp/social-media')) {
 			briefHench.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
 			$('.to-next-step').show();
+		} else if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
+			$('.to-next-step').show();
 		}
 	},
 
