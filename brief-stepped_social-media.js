@@ -155,12 +155,6 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
-
-		let pagePath = window.location.pathname;
-		if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
-			$('.pagination-buttons').addClass('second-step');
-		}
-
 		
 		$('.to-next-step').addClass('disabled');
 
@@ -328,6 +322,11 @@ let briefHench = {
 
 		if (self.currentStep === 1) {
 			briefHench.reportWizardBriefStepDone('Lead Created');
+		}
+
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+			$('.pagination-buttons').addClass('second-step');
 		}
 	},
 
