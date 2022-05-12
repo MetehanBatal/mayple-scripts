@@ -469,6 +469,10 @@ let briefHench = {
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
+
+		console.log( 'Hostname: ', hostname );
+		console.log( '1-------1' );
+		console.log( 'Type of: ', typeof(hostname) );
 		
 		let value = $('#website').val();
 		if (value.length > 5 && !value.startsWith('http')) {
