@@ -487,6 +487,9 @@ let briefHench = {
 		
 		let companyName = '';
 		let hostname = new URL(value).hostname;
+		console.log( 'Hostname: ', hostname );
+		console.log( '-------' );
+		console.log( 'Type of: ', typeof(hostname) );
 		let valueSplit = value.split(".");
 		valueSplit[0] = valueSplit[0].slice(8);
 
