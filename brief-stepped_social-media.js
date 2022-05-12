@@ -77,7 +77,7 @@ let briefHench = {
 		} else if (pagePath.startsWith('/lp/social-media')) {
 			briefHench.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
 			$('.to-next-step').show();
-		} else if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+		} else if (pagePath.startsWith('/lp/hire-ppc-experts')) {
 			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 			$('.to-next-step').show();
 		}
@@ -288,7 +288,7 @@ let briefHench = {
 		}
 		
 		if (self.currentStep === self.stepCount - 1) {
-			if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+			if (pagePath.startsWith('/lp/hire-ppc-experts')) {
 				$('.to-next-step').html('<p class="button-text">Next</p>');
 			} else {
 				$('.to-next-step').html('<p class="button-text">Submit</p>');
@@ -329,7 +329,7 @@ let briefHench = {
 			briefHench.reportWizardBriefStepDone('Lead Created');
 		}
 
-		if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+		if (pagePath.startsWith('/lp/hire-ppc-experts')) {
 			$('.pagination-buttons').addClass('second-step');
 		}
 	},
