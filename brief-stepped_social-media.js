@@ -470,9 +470,11 @@ let briefHench = {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
 
-		console.log( 'Hostname: ', hostname );
-		console.log( '1-------1' );
-		console.log( 'Type of: ', typeof(hostname) );
+		try {
+			hostname;
+		} catch(e) {
+			console.log('detected: variable not exists');
+		}
 		
 		let value = $('#website').val();
 		if (value.length > 5 && !value.startsWith('http')) {
