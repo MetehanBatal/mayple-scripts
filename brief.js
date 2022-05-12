@@ -159,7 +159,7 @@ let briefHench = {
 	},
 
 	initSelections: function() {
-		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc.", tags: true });
+		$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc." });
 		$('.country-selection').select2({ placeholder: "Select countries" });
 	},
 	
