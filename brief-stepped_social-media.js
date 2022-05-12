@@ -466,15 +466,21 @@ let briefHench = {
 		window.location.href = 'https://mayple.com/thank-you?name=' + briefHench.formSchema['firstName'] + '&option=instant';
 	},
 
+	isDefined: function(variable) {
+		try {
+			variable;
+			console.log( 'variable: ', variable );
+			return true;
+		} catch {
+			return false;
+		}
+	},
+
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
 			return; }
 
-		try {
-			hostname;
-		} catch(e) {
-			console.log('detected: variable not exists');
-		}
+		briefHench.isDefined(hostname);
 		
 		let value = $('#website').val();
 		if (value.length > 5 && !value.startsWith('http')) {
