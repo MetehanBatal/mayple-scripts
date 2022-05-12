@@ -155,6 +155,7 @@ let briefHench = {
 
 		let error = false;
 		let form = $('.brief-stepped-form.active form');
+		let pagePath = window.location.pathname;
 		
 		$('.to-next-step').addClass('disabled');
 
@@ -287,7 +288,11 @@ let briefHench = {
 		}
 		
 		if (self.currentStep === self.stepCount - 1) {
-			$('.to-next-step').html('<p class="button-text">Submit</p>');
+			if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
+				$('.to-next-step').html('<p class="button-text">Next</p>');
+			} else {
+				$('.to-next-step').html('<p class="button-text">Submit</p>');
+			}
 			$('.to-next-step').addClass('submittable');
 			$('.to-next-step').removeClass('disabled');
 		}
@@ -324,7 +329,6 @@ let briefHench = {
 			briefHench.reportWizardBriefStepDone('Lead Created');
 		}
 
-		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/hire-ppc-experts-copy')) {
 			$('.pagination-buttons').addClass('second-step');
 		}
