@@ -287,7 +287,7 @@ let briefHench = {
 			return;
 		}
 		
-		if (self.currentStep === self.stepCount - 1) {
+		if (self.currentStep === self.stepCount - 1 ) {
 			if (pagePath.startsWith('/lp/hire-ppc-experts')) {
 				$('.to-next-step').html('<p class="button-text">Next</p>');
 			} else {
