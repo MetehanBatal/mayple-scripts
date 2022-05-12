@@ -478,9 +478,7 @@ let briefHench = {
 
 	fillCompanyName: function() {
 		if ($('#company').hasClass('no-autofill')) {
-			return; }
-
-		briefHench.isDefined(hostname);
+			return; }		
 		
 		let value = $('#website').val();
 		if (value.length > 5 && !value.startsWith('http')) {
@@ -499,9 +497,6 @@ let briefHench = {
 		
 		let companyName = '';
 		let hostname = new URL(value).hostname;
-		console.log( 'Hostname: ', hostname );
-		console.log( '-------' );
-		console.log( 'Type of: ', typeof(hostname) );
 		let valueSplit = value.split(".");
 		valueSplit[0] = valueSplit[0].slice(8);
 
@@ -510,6 +505,8 @@ let briefHench = {
 		} else {
 			companyName = valueSplit[0];
 		}
+
+		$('.to-next-step').removeClass('disabled');
 
 		if (value.length > 3) {
 			$('#company').val(companyName)
