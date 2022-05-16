@@ -159,7 +159,9 @@ let briefHench = {
 		let form = $('.brief-stepped-form.active form');
 		let pagePath = window.location.pathname;
 		
-		$('.to-next-step').addClass('disabled');
+		if (self.currentStep !== 0){
+			$('.to-next-step').addClass('disabled');
+		} 
 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(index, field) {
