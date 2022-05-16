@@ -80,6 +80,8 @@ let briefHench = {
 		} else if (pagePath.startsWith('/lp/hire-ppc-experts')) {
 			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 			$('.to-next-step').show();
+		} else if (pagePath.startsWith('/lp/growth-marketer') || pagePath.startsWith('/lp/shopify')) {
+			$('.to-next-step').show();
 		}
 	},
 
