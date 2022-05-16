@@ -31,7 +31,7 @@ let briefHench = {
 		}],
 
 		// Is this the audience field?
-		locations: [],
+		locations: ['US'],
 
 		productBusinessModel: [],
 
