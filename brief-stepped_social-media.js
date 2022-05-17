@@ -179,6 +179,7 @@ let briefHench = {
 		});
 
 		if ($(fields).hasClass('empty-field')) {
+			console.log( 'has an emtpy field' );
 			return; }
 
 		if ( form[0].id === 'welcome-brief-form_first') {
@@ -264,6 +265,7 @@ let briefHench = {
 		}
 
 		if ($(fields).hasClass('empty-field')) {
+			console.log( 'has empty field' );
 			return; }
 
 		// Reveal back button
