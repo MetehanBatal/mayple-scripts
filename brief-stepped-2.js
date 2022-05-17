@@ -297,7 +297,7 @@ let briefHench = {
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 		
-		if ($('.to-next-step').hasClass('submittable')) {
+		if ($('.to-next-step').hasClass('submittable')  && self.formSchema.industry[0].industryCategory.length > 0) {
 			self.submitForm();
 			$('.brief-stepped-form').removeClass('active');
 			return;

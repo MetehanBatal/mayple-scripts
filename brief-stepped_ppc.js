@@ -240,7 +240,7 @@ let briefHench = {
 
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
-		if ($('.to-next-step').hasClass('final')) {
+		if ($('.to-next-step').hasClass('final') && self.formSchema.industry[0].industryCategory.length > 0) {
 			$('.brief-stepped-form').removeClass('active');
 			self.submitForm();
 			return;
