@@ -74,7 +74,10 @@ let briefHench = {
 		} else if ( pagePath.startsWith('/lp/') ) {
 			briefHench.formSchema['lpTrafficSource'] = pagePath.replace( '/lp/', '' );
 		} else if (pagePath.startsWith('/lp/digital-marketing-lp')) {
-			$('.to-next-step').show();
+			console.log( 'Digital Marketing LP' );
+			setTimeout(function() {
+				$('.to-next-step').show();
+			}, 100)
 		}
 	},
 
