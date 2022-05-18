@@ -766,13 +766,13 @@ $( document ).ready(function(e) {
 
 	briefHench.getLPName();
 
-	let pagePath = window.location.pathname;
-	if (pagePath.startsWith('/lp/digital-marketing-lp')) {
-		console.log( 'Digital Marketing LP' );
-		setTimeout(function() {
-			$('.to-next-step').show();
-		}, 100)
-	}
+	// let pagePath = window.location.pathname;
+	// if (pagePath.startsWith('/lp/digital-marketing-lp')) {
+	// 	console.log( 'Digital Marketing LP' );
+	// 	setTimeout(function() {
+	// 		$('.to-next-step').show();
+	// 	}, 100)
+	// }
 
 	setTimeout(function() {
 		window.va.identify();
