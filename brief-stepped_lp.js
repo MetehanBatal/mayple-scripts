@@ -73,6 +73,8 @@ let briefHench = {
 			briefHench.formSchema['trafficSource'] = 'stepped';
 		} else if ( pagePath.startsWith('/lp/') ) {
 			briefHench.formSchema['lpTrafficSource'] = pagePath.replace( '/lp/', '' );
+		} else if (pagePath.startsWith('/lp/digital-marketing-lp')) {
+			$('.to-next-step').show();
 		}
 	},
 
