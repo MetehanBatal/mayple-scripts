@@ -760,6 +760,7 @@ $('.channel-selection input').bind('change', function(e) {
 			$('.to-next-step').removeClass('disabled');
 			$('.to-next-step').show();
 			$('.to-next-step').click();
+			$('.pagination-buttons').removeClass('hidden');
 		} else {
 			$('.to-next-step').addClass('disabled');
 		}
