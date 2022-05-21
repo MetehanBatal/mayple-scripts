@@ -6,6 +6,8 @@ const validationRules = {
 			validate: function(val) {
 				if (val.length < 3) {
 					return false;
+				} else {
+					return true;
 				}
 			},
 			errorLog: 'Please fill the name field'
@@ -14,6 +16,8 @@ const validationRules = {
 			validate: function(val) {
 				if (val.length < 2) {
 					return false;
+				} else {
+					return true;
 				}
 			},
 			errorLog: 'Please fill the last name field'
