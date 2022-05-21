@@ -89,16 +89,18 @@ let briefHench = {
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
-		self.checkErrors(currentContainer);
-
+		let hasError = self.checkErrors(currentContainer);
+		console.log( 'Has error on: ', hasError );
 
 	},
 
 	checkErrors: function(container) {
 		$('.brief-stepped-form.active input').each(function(item) {
 			let field = $(this).attr('name');
-			let hasError = validationRules[container][field].validate($(this).val());
-			console.log( field, hasError );
+			let valid = validationRules[container][field].validate($(this).val());
+			if (!valid || valid == null) {
+				return field;
+			}
 		});
 	}
 }
