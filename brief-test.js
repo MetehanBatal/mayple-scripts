@@ -127,7 +127,7 @@ let briefHench = {
 
 	initIntlTel: function() {
 		const self = this;
-		let phoneInput = $("#phone");
+		let phoneInput = $("#phoneNumber");
 		self.intlTel = window.intlTelInput(phoneInput, {
 			initialCountry: "auto",
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
