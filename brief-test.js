@@ -117,7 +117,20 @@ let briefHench = {
 
 	validatePhone: function(val) {
 		console.log( 'Val: ', val );
-	}
+	},
+
+	initIntlTel: function() {
+		const self = this;
+		let phoneInput = $("#phone");
+		self.intlTel = window.intlTelInput(phoneInput, {
+			initialCountry: "auto",
+			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
+			hiddenInput: "full_phone",
+			geoIpLookup: function(success, failure) {
+				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) { success((resp && resp.country) ? resp.country : "us"); });
+			},
+		});
+	},
 }
 
 
