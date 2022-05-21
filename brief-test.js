@@ -99,7 +99,7 @@ let briefHench = {
 			let field = $(this).attr('name');
 			let valid = validationRules[container][field].validate($(this).val());
 			if (!valid || valid == null) {
-				return field;
+				return false;
 			}
 		});
 	}
