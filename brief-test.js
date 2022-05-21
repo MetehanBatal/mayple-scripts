@@ -117,10 +117,12 @@ let briefHench = {
 	},
 
 	validatePhone: function(val) {
-		console.log( 'Val: ', val );
-		if (val.length < 3) {
-			return false; }
-		else { return true; }
+		const self = this;
+
+		let iti = self.intlTel;
+		if (iti.isValidNumber()) {
+			return iti.getNumber(); }
+		else { return false; }
 	},
 
 	initIntlTel: function() {
@@ -140,6 +142,7 @@ let briefHench = {
 
 $(document).ready(function(e) {
 	briefHench.handleStepChange();
+	briefHench.initIntlTel();
 });
 
 
