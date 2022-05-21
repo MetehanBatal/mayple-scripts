@@ -100,7 +100,7 @@ let briefHench = {
 		console.log( $('.brief-stepped-form.active input') );
 		console.log( '----------' );
 		$('.brief-stepped-form.active input').each(function(item) {
-			let field = $(this);
+			let field = $(this).attr('name');
 			let hasError = validationRules[container].field.validate();
 			console.log( field, hasError );
 		});
