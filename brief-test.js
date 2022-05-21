@@ -103,6 +103,7 @@ let briefHench = {
 			let valid = validationRules[container][field].validate($(this).val());
 
 			if (!valid || valid == null) {
+				$(this).addClass('empty-field');
 				$('.error-message div').text(validationRules[container][field].errorLog);
 				$('.error-message').removeClass('hidden');
 				return false;
