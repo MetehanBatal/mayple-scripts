@@ -97,6 +97,8 @@ let briefHench = {
 	checkErrors: function(container) {
 		console.log( validationRules[container] );
 		console.log( '----------' );
+		console.log( $(container + ' input') );
+		console.log( '----------' );
 		$(container + ' input').each(function(item) {
 			let field = $(this);
 			let hasError = validationRules[container].field.validate();
