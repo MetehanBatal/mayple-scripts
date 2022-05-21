@@ -95,13 +95,13 @@ let briefHench = {
 	},
 
 	checkErrors: function(container) {
+		console.log( validationRules[container] );
+		console.log( '----------' );
 		$(container + ' input').each(function(item) {
 			let field = $(this);
-			let hasError = validationRules.container.field.validate();
+			let hasError = validationRules[container].field.validate();
 			console.log( field, hasError );
 		});
-		console.log( '----------' );
-		console.log( validationRules.container );
 	}
 }
 
