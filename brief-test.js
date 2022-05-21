@@ -7,14 +7,16 @@ const validationRules = {
 				if (val.length < 3) {
 					return false;
 				}
-			}
+			},
+			errorLog: 'Please fill the name field'
 		},
 		lastName: {
 			validate: function(val) {
 				if (val.length < 2) {
 					return false;
 				}
-			}
+			},
+			errorLog: 'Please fill the last name field'
 		},
 		emailAddress: {
 			validate: function(val) {
@@ -23,7 +25,8 @@ const validationRules = {
 					.match(
 						/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 					);
-			}
+			},
+			errorLog: 'Please fill the email address'
 		},
 		phoneNumber: {
 			validate: function(val) {
@@ -90,7 +93,7 @@ let briefHench = {
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
 		let hasError = self.checkErrors(currentContainer);
-		console.log( 'Has error on: ', hasError );
+		
 
 	},
 
@@ -98,7 +101,10 @@ let briefHench = {
 		$('.brief-stepped-form.active input').each(function(item) {
 			let field = $(this).attr('name');
 			let valid = validationRules[container][field].validate($(this).val());
+
 			if (!valid || valid == null) {
+				$('.error-message div').text(validationRules[container][field].errorLog);
+				$('.error-message').removeClass('hidden');
 				return false;
 			}
 		});
