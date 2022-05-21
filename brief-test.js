@@ -97,8 +97,10 @@ let briefHench = {
 
 	checkErrors: function(container) {
 		$('.brief-stepped-form.active input').each(function(item) {
+			$(this).removeClass('empty-field');
 			let field = $(this).attr('name');
 			let valid = validationRules[container][field].validate($(this).val());
+			console.log( field, ' is:', valid );
 
 			if (!valid || valid == null) {
 				$(this).addClass('empty-field');
