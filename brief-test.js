@@ -87,7 +87,7 @@ let briefHench = {
 	toNextStep: function() {
 		const self = this;
 
-		let currentContainer = $('.brief-stepped-form.active').attr('name');
+		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
 		self.checkErrors(currentContainer);
 
