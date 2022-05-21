@@ -92,9 +92,7 @@ let briefHench = {
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
-		let hasError = self.checkErrors(currentContainer);
-		
-
+		self.checkErrors(currentContainer);
 	},
 
 	checkErrors: function(container) {
