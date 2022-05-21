@@ -96,11 +96,15 @@ let briefHench = {
 	},
 
 	checkErrors: function(container) {
+		// Remove previous error states
+		// 
+		$('.error-message').addClass('hidden');
+		
 		$('.brief-stepped-form.active input').each(function(item) {
 			$(this).removeClass('empty-field');
+
 			let field = $(this).attr('name');
 			let valid = validationRules[container][field].validate($(this).val());
-			console.log( field, ' is:', valid );
 
 			if (!valid || valid == null) {
 				$(this).addClass('empty-field');
@@ -109,6 +113,10 @@ let briefHench = {
 				return false;
 			}
 		});
+	},
+
+	validatePhone: function(val) {
+		console.log( 'Val: ', val );
 	}
 }
 
