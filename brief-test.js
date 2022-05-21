@@ -30,7 +30,7 @@ const validationRules = {
 		},
 		phoneNumber: {
 			validate: function(val) {
-				briefHench.validatePhone(val);
+				return briefHench.validatePhone(val);
 			}
 		},
 		websiteAddress: {
@@ -117,6 +117,9 @@ let briefHench = {
 
 	validatePhone: function(val) {
 		console.log( 'Val: ', val );
+		if (val.length < 3) {
+			return false; }
+		else { return true; }
 	},
 
 	initIntlTel: function() {
