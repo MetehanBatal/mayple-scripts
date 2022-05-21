@@ -31,7 +31,8 @@ const validationRules = {
 		phoneNumber: {
 			validate: function(val) {
 				return briefHench.validatePhone(val);
-			}
+			},
+			errorLog: 'Please fill the phone number field'
 		},
 		websiteAddress: {
 			validate: function(val) {
