@@ -101,9 +101,8 @@ let briefHench = {
 		console.log( '----------' );
 		$('.brief-stepped-form.active input').each(function(item) {
 			let field = $(this).attr('name');
-			console.log( field, validationRules[container].field, validationRules[container][field] );
-			let hasError = validationRules[container].field.validate();
-			
+			let hasError = validationRules[container][field].validate();
+			console.log( field, hasError );
 		});
 	}
 }
