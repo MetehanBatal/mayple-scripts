@@ -154,6 +154,7 @@ let briefHench = {
 
 			let field = $(this).attr('name');
 			let valid = validationRules[container][field].validate($(this).val());
+			console.log( 'Validation: ', valid );
 
 			if (!valid || valid == null) {
 				$(this).addClass('empty-field');
