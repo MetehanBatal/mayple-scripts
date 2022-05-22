@@ -145,7 +145,10 @@ let briefHench = {
 		let isValid = self.checkErrors(currentContainer);
 		if(!isValid) {
 			console.log( 'There is an issue' );
+			return;
 		}
+
+		console.log( 'You may pass to next step' );
 	},
 
 	checkErrors: function(container) {
