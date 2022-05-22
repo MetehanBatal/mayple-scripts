@@ -202,15 +202,22 @@ let briefHench = {
 
 	fillCompanyName: function() {
 		let value = $('#website').val();
-		let companyName = '';
-		let hostname = new URL(value).hostname;
-		if (hostname.startsWith('www.')) {
-			hostname = hostname.replace('www.', '');
+		if (value.length > 5 && !value.startsWith('http')) {
+			$('#website').val('https://' + value);
+		} else if (value.startsWith('http://')) {
+			$('#website').val(value.replace('http://', 'https://'));
 		}
+		if (value.length > 5) {
+			let companyName = '';
+			let hostname = new URL(value).hostname;
+			if (hostname.startsWith('www.')) {
+				hostname = hostname.replace('www.', '');
+			}
 
-		let valueSplit = hostname.split(".");
-		companyName = valueSplit[0];
-		$('#company').val(companyName);
+			let valueSplit = hostname.split(".");
+			companyName = valueSplit[0];
+			$('#company').val(companyName);
+		}
 	}
 }
 
@@ -236,5 +243,7 @@ $('#marketingbudget').keyup(function(e) {
 });
 
 $('#website').keyup(function(e) {
+	if (e.originalEvent.keyCode == 32) {
+		$(this).val( $(this).val().slice(0, -1) ) }
 	briefHench.fillCompanyName();
 });
