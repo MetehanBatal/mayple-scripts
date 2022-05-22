@@ -1,3 +1,51 @@
+let formSchema = {
+	firstName: '',
+	lastName: '',
+	phoneNumber: '',
+	emailAddress: '',
+	howDidYouHearAboutMayple: '',
+	source: '',
+	
+	websiteAddress: '',
+	companyName: '',
+
+	industry: [{
+		industryCategory: '',
+		industrySubCategory: ''
+	}],
+
+	locations: [],
+
+	productBusinessModel: [],
+
+	estimatedMediaBudget: 0,
+	frontendSalesQualificationScore: 0,
+	
+	genders: [],
+	
+	isECommerce: false,
+	languages: [],
+	
+	launchTimeFramePreference: undefined,
+	mainGoal: 'IMPROVE_EXISTING_CAMPAIGNS',
+	
+	preferLocalMarketers: false,
+	preferMarketerInTargetedLocations: false,
+	
+	requestsAssistanceForRequiredSkillsChoice: false,
+	serviceTypes: [],
+	state: undefined,
+	targetKPI: 'ROAS',
+	targetKPIValue: 0,
+	
+	ages: [],
+
+	trafficSource: '',
+	lpTrafficSource: '',
+	partnerStackReferralKey: '',
+	requestedAnInstantCall: 'no'
+}
+
 const validationRules = {
 	// Inner Object Names (e.g. firstName) Must Match with the Input's "name" Attribute
 	// 
@@ -128,7 +176,6 @@ let briefHench = {
 	initIntlTel: function() {
 		const self = this;
 		let phoneInput = document.getElementById("phoneNumber");
-		console.log( 'Phone: ', phoneInput );
 		self.intlTel = window.intlTelInput(phoneInput, {
 			initialCountry: "auto",
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
@@ -136,6 +183,16 @@ let briefHench = {
 				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) { success((resp && resp.country) ? resp.country : "us"); });
 			},
 		});
+	},
+
+	restructureBudget: function() {
+		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
+		if (parseInt(rawValue) > 1000000) {
+			rawValue = '1000000';
+		}
+		formSchema.estimatedMediaBudget = rawValue;
+		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
+		$('#marketingbudget').val(withComma);
 	},
 }
 
@@ -147,3 +204,15 @@ $(document).ready(function(e) {
 
 
 
+$('#marketingbudget').keyup(function(e) {
+	const isNumber = Number(e.originalEvent.key) ? true : false;
+	if (e.originalEvent.keyCode != 188 && e.originalEvent.keyCode != 8 && e.originalEvent.keyCode != 48 && e.originalEvent.keyCode != 13) {
+		if (!isNumber) {
+			let value = $('#marketingbudget').val().slice(0, -1);
+			$('#marketingbudget').val(value);
+			return;
+		}
+	}
+
+	briefHench.restructureBudget();
+});
