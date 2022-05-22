@@ -142,7 +142,10 @@ let briefHench = {
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
-		self.checkErrors(currentContainer);
+		let isValid = self.checkErrors(currentContainer);
+		if(!isValid) {
+			console.log( 'There is an issue' );
+		}
 	},
 
 	checkErrors: function(container) {
@@ -162,8 +165,6 @@ let briefHench = {
 				$('.error-message div').text(validationRules[container][field].errorLog);
 				$('.error-message').removeClass('hidden');
 				return false;
-			} else {
-				console.log( 'Value: ', $(this).val() );
 			}
 		});
 	},
