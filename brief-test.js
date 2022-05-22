@@ -93,7 +93,8 @@ const validationRules = {
 				}
 
 				return url.protocol === "http:" || url.protocol === "https:";
-			}
+			},
+			errorLog: "Hmm, this doesn't look a valid website address."
 		},
 		estimatedMediaBudget: {
 			validate: function(val) {
