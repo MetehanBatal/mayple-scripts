@@ -202,19 +202,25 @@ let briefHench = {
 
 	fillCompanyName: function() {
 		let value = $('#website').val();
+		// If user didn't write down the protocal name...
 		if (value.length > 5 && !value.startsWith('http')) {
+			// add it programatically as the URL object is not validating the string without the https:// prefix
 			$('#website').val('https://' + value);
 		} else if (value.startsWith('http://')) {
+			// turn http to https
 			$('#website').val(value.replace('http://', 'https://'));
 		}
 		if (value.length > 5) {
 			let companyName = '';
+			// construct the value as a URL
 			let hostname = new URL(value).hostname;
+			// if we have the www. at the start; trim it e.g. www.website-name.com.au => website-name.com.au
 			if (hostname.startsWith('www.')) {
 				hostname = hostname.replace('www.', '');
 			}
-
+			// turn the value into an array splitted by dots e.g. website-name.com.au => [website-name], [com], [au]
 			let valueSplit = hostname.split(".");
+			// Get the first of the array which is [website-name]
 			companyName = valueSplit[0];
 			$('#company').val(companyName);
 		}
