@@ -153,10 +153,10 @@ let briefHench = {
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
-			let valid = validationRules[container][field].validate($(this).val());
-			console.log( 'Validation: ', valid );
+			let isValid = validationRules[container][field].validate($(this).val());
+			console.log( 'Validation: ', isValid );
 
-			if (!valid || valid == null) {
+			if (!isValid || isValid == null) {
 				$(this).addClass('empty-field');
 				$('.error-message div').text(validationRules[container][field].errorLog);
 				$('.error-message').removeClass('hidden');
@@ -197,6 +197,19 @@ let briefHench = {
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
 	},
+
+	fillCompanyName: function() {
+		let value = $('#website').val();
+		let companyName = '';
+		let hostname = new URL(value).hostname;
+		if (hostname.startsWith('www.')) {
+			hostname = hostname.replace('www.', '');
+		}
+
+		let valueSplit = hostname.split(".");
+		companyName = valueSplit[0];
+		$('#company').val(companyName);
+	}
 }
 
 
@@ -218,4 +231,8 @@ $('#marketingbudget').keyup(function(e) {
 	}
 
 	briefHench.restructureBudget();
+});
+
+$('#website').keyup(function(e) {
+	briefHench.fillCompanyName();
 });
