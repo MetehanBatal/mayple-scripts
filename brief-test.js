@@ -153,12 +153,12 @@ let briefHench = {
 		// 
 		$('.error-message').addClass('hidden');
 		
-		$('.brief-stepped-form.active input').each(function(item) {
+		let fields = $('.brief-stepped-form.active input').filter('[required]');
+		fields.each(function(item) {
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
 			let isValid = validationRules[container][field].validate($(this).val());
-			console.log( 'Validation: ', isValid );
 
 			if (!isValid || isValid == null) {
 				$(this).addClass('empty-field');
@@ -224,6 +224,11 @@ let briefHench = {
 			companyName = valueSplit[0];
 			$('#company').val(companyName);
 		}
+	},
+
+	fillLPSource: function() {
+		let pagePath = window.location.pathname;
+		formSchema['lpTrafficSource'] = pagePath;
 	}
 }
 
