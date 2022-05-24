@@ -199,10 +199,12 @@ let briefHench = {
 		if (parseInt(rawValue) > 1000000) {
 			rawValue = '1000000';
 		}
-		formSchema.estimatedMediaBudget = rawValue;
-		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
+
+		rawValue = parseInt(rawValue);
+		formSchema.estimatedMediaBudget = rawValue;
+		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
 	},
 
 	fillCompanyName: function() {
