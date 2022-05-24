@@ -248,6 +248,8 @@ $('#marketingbudget').keyup(function(e) {
 	console.log( lastChar );
 	
 	if (isNaN(lastChar)) {
+		let value = $('#marketingbudget').val().slice(0, -1);
+		$('#marketingbudget').val(value);
 		return;
 	}
 
