@@ -261,6 +261,8 @@ let briefHench = {
 			let inputs = form[0].querySelectorAll('input');
 			inputs.forEach(function(input) {
 				let inputName = input.getAttribute('name');
+				if (inputName === 'estimatedMediaBudget') {
+					return false; }
 				self.formSchema[inputName] = input.value;
 				if (input.hasAttribute('required') && input.length < 1) {
 					console.log( input + ' is not filled' );

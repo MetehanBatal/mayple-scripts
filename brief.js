@@ -350,6 +350,8 @@ let briefHench = {
 
 		inputs.each(function(index) {
 			let inputName = $(this).attr('name');
+			if (inputName === 'estimatedMediaBudget') {
+					return false; }
 			self.formSchema[inputName] = $(this).val();
 
 			if (inputName === 'estimatedMediaBudget') {
@@ -593,7 +595,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
 	
-	if (isNaN(lastChar) || e.) {
+	if (isNaN(lastChar) || parseInt(e.originalEvent.keyCode) === 32) {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;
