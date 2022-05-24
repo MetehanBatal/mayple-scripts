@@ -194,6 +194,7 @@ let briefHench = {
 	},
 
 	restructureBudget: function() {
+		console.log( 'Called' );
 		var rawValue = $('#marketingbudget').val().replace(",", "");
 		if (parseInt(rawValue) > 1000000) {
 			rawValue = '1000000';
@@ -264,6 +265,7 @@ $('#marketingbudget').keyup(function(e) {
 	// 	}
 	// }
 
+	console.log( briefHench );
 	briefHench.restructureBudget();
 });
 
