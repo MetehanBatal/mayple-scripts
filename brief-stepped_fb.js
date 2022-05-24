@@ -505,8 +505,7 @@ let briefHench = {
 		$('#marketingbudget').val(withComma);
 
 		rawValue = parseInt(rawValue);
-		formSchema.estimatedMediaBudget = rawValue;
-		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
+		briefHench.formSchema[estimatedMediaBudget] = rawValue;
 	},
 
 	checkTimeZone: function() {
