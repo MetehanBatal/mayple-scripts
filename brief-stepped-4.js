@@ -228,7 +228,7 @@ let briefHench = {
 				$('.pagination-buttons').removeClass('first-step');
 			}
 
-			self.formSchema['estimatedMediaBudget'] = self.budget;
+			// self.formSchema['estimatedMediaBudget'] = self.budget;
 
 			if (!error) {
 				const budgetTraits = {
@@ -538,13 +538,16 @@ let briefHench = {
 	},
 
 	restructureBudget: function() {
-		var rawValue = $('#marketingbudget').val().replace(/,/gi, "");
+		var rawValue = $('#marketingbudget').val().replace(",", "");
 		if (parseInt(rawValue) > 1000000) {
 			rawValue = '1000000';
 		}
 		var withComma = rawValue.split(/(?=(?:\d{3})+$)/).join(",");
 		$('#marketingbudget').val(withComma);
-		briefHench.budget = parseInt(rawValue);
+
+		rawValue = parseInt(rawValue);
+		formSchema.estimatedMediaBudget = rawValue;
+		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
 	},
 
 	checkTimeZone: function() {
