@@ -399,8 +399,8 @@ let briefHench = {
 		$('#marketingbudget').val(withComma);
 
 		rawValue = parseInt(rawValue);
-		formSchema.estimatedMediaBudget = rawValue;
-		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
+		briefHench.formSchema['estimatedMediaBudget'] = rawValue;
+		console.log( briefHench.formSchema['estimatedMediaBudget'], typeof(briefHench.formSchema['estimatedMediaBudget']) );
 	},
 
 	checkWebsiteStatus: function() {
@@ -593,7 +593,7 @@ $('#welcome-brief-form_end').submit(function(event) {
 $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
 	
-	if (isNaN(lastChar)) {
+	if (isNaN(lastChar) || e.) {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;

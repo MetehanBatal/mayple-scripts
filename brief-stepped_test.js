@@ -240,12 +240,12 @@ let briefHench = {
 				$('.pagination-buttons').removeClass('first-step');
 			}
 		} else if (form[0].id === 'welcome-brief-form_fourth') {
-			self.formSchema['estimatedMediaBudget'] = self.budget;
+			// self.formSchema['estimatedMediaBudget'] = self.budget;
 
 			if (!error) {
 				const budgetTraits = {
 					label: (self.budget || 'N/A').toString(), // Save as string
-					estimatedMediaBudget: self.budget, // Save as int
+					estimatedMediaBudget: sself.formSchema['estimatedMediaBudget'], // Save as int
 				};
 				console.log( 'Budget: ', budgetTraits );
 				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);

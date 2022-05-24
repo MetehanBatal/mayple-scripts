@@ -233,7 +233,7 @@ let briefHench = {
 			if (!error) {
 				const budgetTraits = {
 					label: (self.budget || 'N/A').toString(), // Save as string
-					estimatedMediaBudget: self.budget, // Save as int
+					estimatedMediaBudget: self.formSchema['estimatedMediaBudget'], // Save as int
 				};
 				self.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
 				// briefHench.reportWizardBriefStepDone('Wizard.Brief.MonthlyMediaBudget StepDone');
@@ -758,7 +758,7 @@ $('#website').keyup(function(e) {
 $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
 	
-	if (isNaN(lastChar)) {
+	if (isNaN(lastChar) || parseInt(e.originalEvent.keyCode) === 32) {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;

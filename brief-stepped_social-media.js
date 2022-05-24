@@ -256,7 +256,7 @@ let briefHench = {
 				}
 
 				if (inputName === 'estimatedMediaBudget') {
-					self.formSchema['estimatedMediaBudget'] = self.budget;
+					// self.formSchema['estimatedMediaBudget'] = self.budget;
 				}
 			});
 			// self.getTargetCountryScore();
@@ -783,7 +783,7 @@ $('#website').keyup(function(e) {
 $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
 	
-	if (isNaN(lastChar)) {
+	if (isNaN(lastChar) || parseInt(e.originalEvent.keyCode) === 32) {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;

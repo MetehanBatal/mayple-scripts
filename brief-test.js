@@ -251,7 +251,7 @@ $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
 	console.log( lastChar );
 	
-	if (isNaN(lastChar)) {
+	if (isNaN(lastChar) || parseInt(e.originalEvent.keyCode) === 32) {
 		let value = $('#marketingbudget').val().slice(0, -1);
 		$('#marketingbudget').val(value);
 		return;
