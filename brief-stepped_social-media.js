@@ -785,6 +785,7 @@ $('#marketingbudget').keyup(function(e) {
 	console.log( e.originalEvent );
 
 	const isNumber = Number(e.originalEvent.key) ? true : false;
+	console.log( e.originalEvent.keyCode );
 	if (e.originalEvent.keyCode != 188 && e.originalEvent.keyCode != 8 && e.originalEvent.keyCode != 48) {
 		if (!isNumber) {
 			let value = $('#marketingbudget').val().slice(0, -1);
