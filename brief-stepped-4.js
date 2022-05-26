@@ -834,14 +834,3 @@ $('.country-selection').on('select2:select', function (e) {
 
 	$('.to-next-step').removeClass('disabled');
 });
-
-$('.business-type-selection').on("select2:open", function (e) {
-	$('.select2-search__field').on('input', function(event) {
-		if (event.target.value.length > 0) {
-			$('body').removeClass('on-industry-selection');
-		} else {
-			$('body').addClass('on-industry-selection');
-		}
-	});
-	
-});
