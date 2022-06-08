@@ -303,11 +303,11 @@ let briefHench = {
 
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/e-commerce-agency') && self.currentStep === 1) {
-			$('.pagination-buttons').addClass('first-step');
+			$('.pagination-buttons').addClass('hidden');
 		} else if (pagePath.startsWith('/lp/digital-marketing-lp') && self.currentStep === 1) {
-			$('.pagination-buttons').addClass('first-step');
+			$('.pagination-buttons').addClass('hidden');
 		} else {
-			$('.pagination-buttons').removeClass('first-step');
+			$('.pagination-buttons').removeClass('hidden');
 		}
 
 		//self.updateFormData($('.brief-stepped-form.active'));
