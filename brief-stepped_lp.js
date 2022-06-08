@@ -363,7 +363,7 @@ let briefHench = {
 		$('.to-next-step').removeClass('disabled');
 		$('.to-next-step').removeClass('final');
 
-		if (self.currentStep === 0) {
+		if (self.currentStep === 1) {
 			$('.to-previous-step').hide();
 			$('.to-next-step').hide();
 		}
@@ -760,7 +760,6 @@ let briefHench = {
 }
 
 $( document ).ready(function(e) {
-	$('.to-next-step').hide();
 	$('.brief-stepped-form:first-child').addClass('active');
 	$('.to-next-step').attr('data-step', '0');
 	//briefHench.getHash();
