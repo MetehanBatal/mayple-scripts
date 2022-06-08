@@ -300,6 +300,16 @@ let briefHench = {
 		// console.log( self.currentStep );
 		// 
 
+
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/lp/e-commerce-agency') && self.currentStep === 1) {
+			$('.pagination-buttons').addClass('first-step');
+		} else if (pagePath.startsWith('/lp/digital-marketing-lp') && self.currentStep === 1) {
+			$('.pagination-buttons').addClass('first-step');
+		} else {
+			$('.pagination-buttons').removeClass('first-step');
+		}
+
 		//self.updateFormData($('.brief-stepped-form.active'));
 		console.log( 'step no: ', self.currentStep );
 		if ($('.to-next-step').hasClass('final') && self.formSchema.industry[0].industryCategory.length > 0) {
