@@ -184,6 +184,8 @@ let briefHench = {
 		$('.back-button').removeClass('hidden');
 
 		let currentStep = $('.brief-stepped-form.active').index();
+		$('.brief-stepped-form').removeClass('active');
+		$('.brief-stepped-form').eq(currentStep++).addClass('active');
 	},
 
 	checkErrors: function(container) {
