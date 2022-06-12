@@ -193,7 +193,12 @@ let briefHench = {
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
-		let dependencies = validationRules[nextContainer]['dependencies'];
+
+		self.setDependencies(nextContainer);
+	},
+
+	setDependencies: function(container) {
+		let dependencies = validationRules[container]['dependencies'];
 
 		dependencies.forEach(function(dependency) {
 			jQuery.ajax({
@@ -202,6 +207,11 @@ let briefHench = {
 			}).done(function() {
 				console.log(dependency, " loaded!");
 			});
+		});
+
+		let inputs = validationRules[container]['inputs'];
+		inputs.forEach(function(input) {
+			console.log( 'Input: ', input );
 		});
 	},
 
