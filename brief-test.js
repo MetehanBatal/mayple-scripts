@@ -50,10 +50,10 @@ const validationRules = {
 	// Inner Object Names (e.g. firstName) Must Match with the Input's "name" Attribute
 	// 
 	leadForm: {
-		dependencies: {
+		dependencies: [
 			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js',
 			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.css'
-		},
+		],
 		inputs: {
 			firstName: {
 				validate: function(val) {
@@ -112,9 +112,9 @@ const validationRules = {
 	},
 
 	industrySelection: {
-		dependencies: {
+		dependencies: [
 			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
-		},
+		],
 		inputs: {
 			industry: {
 				set: function() {
