@@ -181,15 +181,21 @@ let briefHench = {
 
 		console.log( 'You may pass to next step' );
 
+		// If the validation passes;
+		// reveal the back button
 		$('.back-button').removeClass('hidden');
 
+		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
+		console.log( 'Previous: ', currentStep );
 			currentStep++;
+		console.log( 'Current: ', currentStep );
+
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
-
+		console.log( 'Next Container: ', nextContainer );
 		let dependencies = validationRules[nextContainer]['dependencies'];
 
 		dependencies.each(function(index, dependency) {
