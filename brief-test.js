@@ -201,7 +201,7 @@ let briefHench = {
 			// }
 			// 
 			
-			if ($(this.attr('type') === 'checkbox')) {
+			if ($(this).attr('type') === 'checkbox') {
 				console.log( 'Checkbox' );
 			} else {
 				$(this).removeClass('empty-field');
