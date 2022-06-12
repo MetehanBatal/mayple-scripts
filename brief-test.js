@@ -180,6 +180,10 @@ let briefHench = {
 		}
 
 		console.log( 'You may pass to next step' );
+
+		$('.back-button').removeClass('hidden');
+
+		let currentStep = $('.brief-stepped-form.active').index();
 	},
 
 	checkErrors: function(container) {
@@ -219,17 +223,11 @@ let briefHench = {
 					isClean = false;
 
 					return false;
-				} else {
-					isClean = true;
-
-					return true;
 				}
 			}
 		});
-		console.log( 'Is clean: ', isClean );
-		return isClean;
 
-		// return true;
+		return isClean;
 	},
 
 	validatePhone: function(val) {
