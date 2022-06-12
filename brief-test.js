@@ -201,20 +201,23 @@ let briefHench = {
 			// }
 			// 
 			
-
-			$(this).removeClass('empty-field');
-
-			let field = $(this).attr('name');
-			let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
-
-			if (!isValid || isValid == null) {
-				console.log( 'Not valid: ', field );
-				$(this).addClass('empty-field');
-				$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
-				$('.error-message').removeClass('hidden');
-				return false;
+			if ($(this.attr('type') === 'checkbox')) {
+				console.log( 'Checkbox' );
 			} else {
-				return true;
+				$(this).removeClass('empty-field');
+
+				let field = $(this).attr('name');
+				let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
+
+				if (!isValid || isValid == null) {
+					console.log( 'Not valid: ', field );
+					$(this).addClass('empty-field');
+					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
+					$('.error-message').removeClass('hidden');
+					return false;
+				} else {
+					return true;
+				}
 			}
 		});
 
