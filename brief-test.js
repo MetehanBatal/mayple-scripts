@@ -202,10 +202,10 @@ let briefHench = {
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
-			console.log( 'Field: ', field );
 			let isValid = validationRules[container]['inputs'][field].validate($(this).val());
 
 			if (!isValid || isValid == null) {
+				console.log( 'Not valid: ', field );
 				$(this).addClass('empty-field');
 				$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
 				$('.error-message').removeClass('hidden');
