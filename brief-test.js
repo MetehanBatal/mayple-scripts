@@ -189,29 +189,34 @@ let briefHench = {
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
-			if ($(this).attr('type') === 'checkbox') {
-				if ( !$(this).is(':checked') ) {
-					$(this).addClass('empty-field');
-					$('.error-message div').text('You must agree the Terms of Use in order to continue');
-					$('.error-message').removeClass('hidden');
+			// if ($(this).attr('type') === 'checkbox') {
+			// 	if ( !$(this).is(':checked') ) {
+			// 		$(this).addClass('empty-field');
+			// 		$('.error-message div').text('You must agree the Terms of Use in order to continue');
+			// 		$('.error-message').removeClass('hidden');
 
-					return false;
-				}  
-				return true;
-			}
+			// 		return false;
+			// 	}  
+			// 	return true;
+			// }
+			// 
+			
+
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
-			let isValid = validationRules[container]['inputs'][field].validate($(this).val());
+			if ( !$(this).attr('type') === 'checkbox' ) {
+				let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
 
-			if (!isValid || isValid == null) {
-				console.log( 'Not valid: ', field );
-				$(this).addClass('empty-field');
-				$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
-				$('.error-message').removeClass('hidden');
-				return false;
-			} else {
-				return true;
+				if (!isValid || isValid == null) {
+					console.log( 'Not valid: ', field );
+					$(this).addClass('empty-field');
+					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
+					$('.error-message').removeClass('hidden');
+					return false;
+				} else {
+					return true;
+				}
 			}
 		});
 	},
