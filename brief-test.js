@@ -189,10 +189,15 @@ let briefHench = {
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
-			console.log( $(this).attr('type') );
 			if ($(this).attr('type') === 'checkbox') {
-				console.log( $(this).is(':checked') );
-				return;
+				if ( !$(this).is(':checked') ) {
+					$(this).addClass('empty-field');
+					$('.error-message div').text('You must agree the Terms of Use in order to continue');
+					$('.error-message').removeClass('hidden');
+
+					return false;
+				}  
+				return true;
 			}
 			$(this).removeClass('empty-field');
 
