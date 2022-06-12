@@ -189,7 +189,7 @@ let briefHench = {
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
-			console.log( $(this), item );
+			console.log( $(this).attr('type'), item );
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
