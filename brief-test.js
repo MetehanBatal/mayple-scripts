@@ -210,6 +210,8 @@ let briefHench = {
 				$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
 				$('.error-message').removeClass('hidden');
 				return false;
+			} else {
+				return true;
 			}
 		});
 	},
