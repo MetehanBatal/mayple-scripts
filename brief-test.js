@@ -101,6 +101,13 @@ const validationRules = {
 				},
 				errorLog: "Hmm, this doesn't look a valid website address."
 			},
+			companyName: {
+				validate: function(val) {
+					if (val.length < 2) {
+						return false; }
+					else { return true; }
+				}
+			},
 			estimatedMediaBudget: {
 				validate: function(val) {
 
