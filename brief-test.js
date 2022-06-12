@@ -103,6 +103,8 @@ const validationRules = {
 			},
 			estimatedMediaBudget: {
 				validate: function(val) {
+
+					console.log( 'Value: ', val);
 					if (typeof(val) !== 'number' || val.length < 2) {
 						return false;
 					}
