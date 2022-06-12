@@ -187,15 +187,12 @@ let briefHench = {
 
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
-		console.log( 'Previous: ', currentStep );
 			currentStep++;
-		console.log( 'Current: ', currentStep );
 
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
-		console.log( 'Next Container: ', nextContainer );
 		let dependencies = validationRules[nextContainer]['dependencies'];
 
 		dependencies.forEach(function(dependency) {
@@ -203,7 +200,6 @@ let briefHench = {
 				url: dependency,
 				cache: true
 			}).done(function() {
-				install_swiper();
 				console.log(dependency, " loaded!");
 			});
 		});
