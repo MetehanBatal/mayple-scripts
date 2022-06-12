@@ -155,8 +155,8 @@ let briefHench = {
 	handleStepChange: function() {
 		const self = this;
 
-		const nextButton = $('.to-next-step');
-		const backButton = $('.to-previous-step');
+		const nextButton = $('.next-button');
+		const backButton = $('.back-button');
 
 		nextButton.click(function(e) {
 			self.toNextStep();
