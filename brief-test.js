@@ -210,9 +210,10 @@ let briefHench = {
 		});
 
 		let inputs = validationRules[container]['inputs'];
-		inputs.forEach(function(input) {
-			console.log( 'Input: ', input );
-		});
+		console.log( 'Inputs: ', inputs );
+		// inputs.forEach(function(input) {
+		// 	console.log( 'Input: ', input );
+		// });
 	},
 
 	checkErrors: function(container) {
