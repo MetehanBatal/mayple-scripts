@@ -186,6 +186,10 @@ let briefHench = {
 		let currentStep = $('.brief-stepped-form.active').index();
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep++).addClass('active');
+
+		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
+
+		console.log( validationRules[nextContainer]['dependencies'] );
 	},
 
 	checkErrors: function(container) {
