@@ -111,6 +111,8 @@ const validationRules = {
 			estimatedMediaBudget: {
 				validate: function() {
 					const val = formSchema.estimatedMediaBudget;
+					console.log( 'Value: ', val );
+					console.log( 'Type: ', typeof(val) );
 					if (typeof(val) !== 'number' || val.length < 2) {
 						return false;
 					}
