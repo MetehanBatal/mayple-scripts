@@ -205,22 +205,20 @@ let briefHench = {
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
-			if ( !$(this).attr('type') === 'checkbox' ) {
-				let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
+			let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
 
-				if (!isValid || isValid == null) {
-					console.log( 'Not valid: ', field );
-					$(this).addClass('empty-field');
-					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
-					$('.error-message').removeClass('hidden');
-					return false;
-				} else {
-					return true;
-				}
+			if (!isValid || isValid == null) {
+				console.log( 'Not valid: ', field );
+				$(this).addClass('empty-field');
+				$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
+				$('.error-message').removeClass('hidden');
+				return false;
+			} else {
+				return true;
 			}
 		});
 
-		return true;
+		// return true;
 	},
 
 	validatePhone: function(val) {
