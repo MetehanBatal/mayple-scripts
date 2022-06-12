@@ -114,7 +114,8 @@ const validationRules = {
 					if (typeof(val) !== 'number' || val.length < 2) {
 						return false;
 					}
-				}
+				},
+				errorLog: 'Your budget cannot be less than $0'
 			}
 		}
 	},
