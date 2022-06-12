@@ -109,9 +109,8 @@ const validationRules = {
 				}
 			},
 			estimatedMediaBudget: {
-				validate: function(val) {
-
-					console.log( 'Value: ', val);
+				validate: function() {
+					const val = formSchema.estimatedMediaBudget;
 					if (typeof(val) !== 'number' || val.length < 2) {
 						return false;
 					}
