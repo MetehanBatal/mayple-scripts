@@ -212,6 +212,7 @@ let briefHench = {
 		let inputs = validationRules[container]['inputs'];
 		for (input in inputs) {
 			console.log( 'Input: ', inputs[input] );
+			inputs[input].set();
 		}
 		// inputs.forEach(function(input) {
 		// 	console.log( 'Input: ', input );
