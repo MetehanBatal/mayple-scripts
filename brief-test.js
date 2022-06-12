@@ -189,7 +189,17 @@ let briefHench = {
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
 
-		console.log( validationRules[nextContainer]['dependencies'] );
+		let dependencies = validationRules[nextContainer]['dependencies'];
+
+		dependencies.each(function(index, dependency) {
+			jQuery.ajax({
+				url: dependency,
+				cache: true
+			}).done(function() {
+				install_swiper();
+				console.log(dependency, " loaded!");
+			});
+		});
 	},
 
 	checkErrors: function(container) {
