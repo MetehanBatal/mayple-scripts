@@ -186,6 +186,8 @@ let briefHench = {
 		// Remove previous error states
 		// 
 		$('.error-message').addClass('hidden');
+
+		let isClean = true;
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
@@ -214,12 +216,18 @@ let briefHench = {
 					$(this).addClass('empty-field');
 					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
 					$('.error-message').removeClass('hidden');
+					isClean = false;
+
 					return false;
 				} else {
+					isClean = true;
+
 					return true;
 				}
 			}
 		});
+		console.log( 'Is clean: ', isClean );
+		return isClean;
 
 		// return true;
 	},
