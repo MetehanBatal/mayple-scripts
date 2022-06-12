@@ -50,63 +50,83 @@ const validationRules = {
 	// Inner Object Names (e.g. firstName) Must Match with the Input's "name" Attribute
 	// 
 	leadForm: {
-		firstName: {
-			validate: function(val) {
-				if (val.length < 3) {
-					return false; }
-				else { return true; }
-			},
-			errorLog: 'Please fill the name field'
+		dependencies: {
+			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.css'
 		},
-		lastName: {
-			validate: function(val) {
-				if (val.length < 2) {
-					return false; }
-				else { return true; }
+		inputs: {
+			firstName: {
+				validate: function(val) {
+					if (val.length < 3) {
+						return false; }
+					else { return true; }
+				},
+				errorLog: 'Please fill the name field'
 			},
-			errorLog: 'Please fill the last name field'
-		},
-		emailAddress: {
-			validate: function(val) {
-				return String(val)
-					.toLowerCase()
-					.match(
-						/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-					);
+			lastName: {
+				validate: function(val) {
+					if (val.length < 2) {
+						return false; }
+					else { return true; }
+				},
+				errorLog: 'Please fill the last name field'
 			},
-			errorLog: 'Please fill the email address'
-		},
-		phoneNumber: {
-			validate: function(val) {
-				return briefHench.validatePhone(val);
+			emailAddress: {
+				validate: function(val) {
+					return String(val)
+						.toLowerCase()
+						.match(
+							/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+						);
+				},
+				errorLog: 'Please fill the email address'
 			},
-			errorLog: 'Please fill the phone number field'
-		},
-		websiteAddress: {
-			validate: function(val) {
-				let url;
+			phoneNumber: {
+				validate: function(val) {
+					return briefHench.validatePhone(val);
+				},
+				errorLog: 'Please fill the phone number field'
+			},
+			websiteAddress: {
+				validate: function(val) {
+					let url;
 
-				try {
-					url = new URL(val);
-				} catch (_) {
-					return false;  
-				}
+					try {
+						url = new URL(val);
+					} catch (_) {
+						return false;  
+					}
 
-				return url.protocol === "http:" || url.protocol === "https:";
+					return url.protocol === "http:" || url.protocol === "https:";
+				},
+				errorLog: "Hmm, this doesn't look a valid website address."
 			},
-			errorLog: "Hmm, this doesn't look a valid website address."
-		},
-		estimatedMediaBudget: {
-			validate: function(val) {
-				if (typeof(val) !== 'number' || val.length < 2) {
-					return false;
+			estimatedMediaBudget: {
+				validate: function(val) {
+					if (typeof(val) !== 'number' || val.length < 2) {
+						return false;
+					}
 				}
 			}
 		}
 	},
 
 	industrySelection: {
-		
+		dependencies: {
+			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
+		},
+		inputs: {
+			industry: {
+				set: function() {
+					$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc." });
+				},
+				validate: function(val) {
+					if (val.length < 1) {
+						return false; }
+					else { return true; }
+				}
+			}
+		}
 	},
 
 
@@ -161,11 +181,11 @@ let briefHench = {
 			$(this).removeClass('empty-field');
 
 			let field = $(this).attr('name');
-			let isValid = validationRules[container][field].validate($(this).val());
+			let isValid = validationRules[container][inputs][field].validate($(this).val());
 
 			if (!isValid || isValid == null) {
 				$(this).addClass('empty-field');
-				$('.error-message div').text(validationRules[container][field].errorLog);
+				$('.error-message div').text(validationRules[container][inputs][field].errorLog);
 				$('.error-message').removeClass('hidden');
 				return false;
 			}
