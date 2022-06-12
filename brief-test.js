@@ -198,7 +198,7 @@ let briefHench = {
 		console.log( 'Next Container: ', nextContainer );
 		let dependencies = validationRules[nextContainer]['dependencies'];
 
-		dependencies.each(function(index, dependency) {
+		dependencies.forEach(function(dependency) {
 			jQuery.ajax({
 				url: dependency,
 				cache: true
