@@ -219,6 +219,8 @@ let briefHench = {
 				}
 			}
 		});
+
+		return true;
 	},
 
 	validatePhone: function(val) {
