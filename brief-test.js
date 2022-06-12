@@ -115,7 +115,7 @@ const validationRules = {
 					console.log( 'Type: ', typeof(val) );
 					if (typeof(val) !== 'number' || val.length < 2) {
 						return false;
-					}
+					} else { return true; }
 				},
 				errorLog: 'Your budget cannot be less than $0'
 			}
