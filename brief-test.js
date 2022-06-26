@@ -208,7 +208,8 @@ let briefHench = {
 				cache: true
 			}).done(function() {
 				console.log(dependency, " loaded!");
-				if (index === list.length) {
+				console.log( index, list.length );
+				if (index === list.length - 1) {
 					self.revealNextContainer(container);
 				}
 			});
