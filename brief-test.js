@@ -191,7 +191,6 @@ let briefHench = {
 			self.submitForm();
 			return;
 		}
-
 		currentStep++;
 		
 
@@ -360,6 +359,7 @@ let briefHench = {
 
 
 $(document).ready(function(e) {
+	briefHench.insertSDK();
 	briefHench.handleStepChange();
 	briefHench.initIntlTel();
 });
