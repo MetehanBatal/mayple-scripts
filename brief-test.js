@@ -216,20 +216,20 @@ let briefHench = {
 
 		let dependencies = validationRules[container]['dependencies'];
 
-		dependencies.forEach(function(dependency, index, list) {
-			jQuery.ajax({
-				url: dependency,
-				cache: true
-			}).done(function() {
-				console.log(dependency, " loaded!");
-				console.log( index, list.length );
-				if (index === list.length - 1) {
-					self.revealNextContainer();
-				}
-			});
-		});
-
 		if (dependencies.length > 0) {
+			dependencies.forEach(function(dependency, index, list) {
+				jQuery.ajax({
+					url: dependency,
+					cache: true
+				}).done(function() {
+					console.log(dependency, " loaded!");
+					console.log( index, list.length );
+					if (index === list.length - 1) {
+						self.revealNextContainer();
+					}
+				});
+			});
+		
 			let inputs = validationRules[container]['inputs'];
 			for (input in inputs) {
 				console.log( 'Input: ', inputs[input] );
