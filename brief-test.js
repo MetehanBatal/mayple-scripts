@@ -187,7 +187,7 @@ let briefHench = {
 
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
-		if (currentStep ===  $('.brief-stepped-form').length) {
+		if (currentStep ===  $('.brief-stepped-form').length - 1) {
 			self.submitForm();
 			return;
 		}
