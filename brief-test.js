@@ -210,7 +210,7 @@ let briefHench = {
 				console.log(dependency, " loaded!");
 				console.log( index, list.length );
 				if (index === list.length - 1) {
-					self.revealNextContainer(container);
+					self.revealNextContainer();
 				}
 			});
 		});
@@ -225,10 +225,9 @@ let briefHench = {
 		// });
 	},
 
-	revealNextContainer: function(container) {
-		console.log('Reveal this container: ', $(container));
+	revealNextContainer: function() {
 		$('.brief-stepped-form').addClass('hidden');
-		$(container).removeClass('hidden');
+		$('.brief-stepped-form.active').removeClass('hidden');
 	},
 
 	checkErrors: function(container) {
