@@ -154,6 +154,8 @@ const validationRules = {
 let briefHench = {
 	currentStep: 0,
 
+	selectedSkills: [],
+
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
@@ -276,12 +278,12 @@ let briefHench = {
 				let checked = $(`input[name="${field}"]:checked`);
 				let selectedSkill = $(checked).parent().attr('skill-type');
 				if(selectedSkill === 'PAID_ADVERTISING') {
-					self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
-					self.formSchema['serviceTypes'].push('GOOGLE_ADS');
+					formSchema['serviceTypes'].push('FACEBOOK_ADS');
+					formSchema['serviceTypes'].push('GOOGLE_ADS');
 				} else {
-					self.formSchema['serviceTypes'].push(selectedSkill);
+					formSchema['serviceTypes'].push(selectedSkill);
 				}
-				self.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
+				briefHench.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
 			} else {
 				$(this).removeClass('empty-field');
 
@@ -376,22 +378,6 @@ let briefHench = {
 	fillLPSource: function() {
 		let pagePath = window.location.pathname;
 		formSchema['lpTrafficSource'] = pagePath;
-	},
-
-	getSelectedSkills: function() {
-		const self = this;
-		self.formSchema['serviceTypes'] = [];
-
-		$('.channel-selection .w--redirected-checked').each(function(index, el) {
-			let selectedSkill = $(this).parent().attr('skill-type');
-			if(selectedSkill === 'PAID_ADVERTISING') {
-				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
-				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
-			} else {
-				self.formSchema['serviceTypes'].push(selectedSkill);
-			}
-			briefHench.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
-		});
 	},
 
 	checkBriefType: function() {
