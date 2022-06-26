@@ -184,6 +184,7 @@ let briefHench = {
 		$('.pagination-buttons').removeClass('hidden');
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
+		console.log( 'current container: ', currentContainer );
 
 		let isValid = self.checkErrors(currentContainer);
 		if(!isValid) {
