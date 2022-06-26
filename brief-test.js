@@ -263,6 +263,7 @@ let briefHench = {
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
+				console.log( 'Field: ', field );
 				let checked = $(`input[name="${field}"]:checked`);
 				console.log( 'Checked: ', checked );
 				let selectedSkill = $(checked).parent().attr('skill-type');
