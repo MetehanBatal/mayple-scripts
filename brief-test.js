@@ -14,7 +14,9 @@ let formSchema = {
 		industrySubCategory: ''
 	}],
 
-	locations: [],
+	locations: [
+		'US'
+	],
 
 	productBusinessModel: [],
 
@@ -135,10 +137,20 @@ const validationRules = {
 					else { return true; }
 				}
 			}
-		}
+		},
 	},
 
-
+	skillsSelection: {
+		inputs: {
+			skill: {
+				validate: function(val) {
+					if (val.length < 1) {
+						return false; }
+					else { return true; }
+				}
+			}
+		}
+	}
 }
 
 let briefHench = {
@@ -255,7 +267,8 @@ let briefHench = {
 			// 
 			
 			if ($(this).attr('type') === 'checkbox') {
-				console.log( 'Checkbox' );
+				let field = $(this).attr('name');
+				console.log( 'Checkbox: ', field );
 			} else {
 				$(this).removeClass('empty-field');
 
@@ -350,6 +363,29 @@ let briefHench = {
 	fillLPSource: function() {
 		let pagePath = window.location.pathname;
 		formSchema['lpTrafficSource'] = pagePath;
+	},
+
+	getSelectedSkills: function() {
+		const self = this;
+		self.formSchema['serviceTypes'] = [];
+
+		$('.channel-selection .w--redirected-checked').each(function(index, el) {
+			let selectedSkill = $(this).parent().attr('skill-type');
+			if(selectedSkill === 'PAID_ADVERTISING') {
+				self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
+				self.formSchema['serviceTypes'].push('GOOGLE_ADS');
+			} else {
+				self.formSchema['serviceTypes'].push(selectedSkill);
+			}
+			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
+		});
+	},
+
+	setServices: function() {
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/lp/lp-test-for-new-brief')) {
+			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
+		}
 	}
 }
 
@@ -358,6 +394,7 @@ $(document).ready(function(e) {
 	briefHench.insertSDK();
 	briefHench.handleStepChange();
 	briefHench.initIntlTel();
+	briefHench.setServices();
 });
 
 
