@@ -381,6 +381,20 @@ let briefHench = {
 		});
 	},
 
+	checkBriefType: function() {
+		const self = this;
+
+		let initialContainer = $('.brief-stepped-form.active form').attr('data-name');
+
+		if (initialContainer === 'skillsSelection') {
+			// Hide the next/back buttons
+			$('.pagination-buttons').addClass('hidden');
+			$('.brief-checkbox').click(function(e) {
+				self.toNextStep();
+			});
+		}
+	},
+
 	setServices: function() {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/lp-test-for-new-brief')) {
