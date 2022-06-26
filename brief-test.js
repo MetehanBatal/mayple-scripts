@@ -187,7 +187,13 @@ let briefHench = {
 
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
-			currentStep++;
+		if (currentStep ===  $('.brief-stepped-form').length) {
+			self.submitForm();
+			return;
+		}
+
+		currentStep++;
+		
 
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
@@ -272,6 +278,17 @@ let briefHench = {
 		});
 
 		return isClean;
+	},
+
+	submitForm: function() {
+		const self = this;
+
+		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
+
+		self.websiteSDK.createProjectLead(formSchema);
+		self.websiteSDK.submitHubspotForm(formSchema);
+
+		// self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 	},
 
 	validatePhone: function(val) {
