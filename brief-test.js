@@ -261,26 +261,16 @@ let briefHench = {
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
-			// if ($(this).attr('type') === 'checkbox') {
-			// 	if ( !$(this).is(':checked') ) {
-			// 		$(this).addClass('empty-field');
-			// 		$('.error-message div').text('You must agree the Terms of Use in order to continue');
-			// 		$('.error-message').removeClass('hidden');
-
-			// 		return false;
-			// 	}  
-			// 	return true;
-			// }
-			// 
-			
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
 				let checked = $(`input[name="${field}"]:checked`);
+				console.log( 'Checked: ', checked );
 				let selectedSkill = $(checked).parent().attr('skill-type');
 				if(selectedSkill === 'PAID_ADVERTISING') {
 					formSchema['serviceTypes'].push('FACEBOOK_ADS');
 					formSchema['serviceTypes'].push('GOOGLE_ADS');
 				} else {
+
 					formSchema['serviceTypes'].push(selectedSkill);
 				}
 				briefHench.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
