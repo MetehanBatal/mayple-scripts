@@ -393,7 +393,7 @@ let briefHench = {
 			// Hide the next/back buttons
 			$('.pagination-buttons').addClass('hidden');
 			$('.brief-checkbox').click(function(e) {
-				self.toNextStep();
+				//self.toNextStep();
 			});
 		}
 	},
