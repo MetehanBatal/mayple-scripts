@@ -198,14 +198,19 @@ let briefHench = {
 	},
 
 	setDependencies: function(container) {
+		const self = this;
+
 		let dependencies = validationRules[container]['dependencies'];
 
-		dependencies.forEach(function(dependency) {
+		dependencies.forEach(function(dependency, index, list) {
 			jQuery.ajax({
 				url: dependency,
 				cache: true
 			}).done(function() {
 				console.log(dependency, " loaded!");
+				if (index === list.length) {
+					self.revealNextContainer(container);
+				}
 			});
 		});
 
@@ -217,6 +222,12 @@ let briefHench = {
 		// inputs.forEach(function(input) {
 		// 	console.log( 'Input: ', input );
 		// });
+	},
+
+	revealNextContainer: function(container) {
+		console.log('Reveal this container: ', $(container));
+		$('.brief-stepped-form').addClass('hidden');
+		$(container).removeClass('hidden');
 	},
 
 	checkErrors: function(container) {
