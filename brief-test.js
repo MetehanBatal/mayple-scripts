@@ -390,7 +390,7 @@ let briefHench = {
 		if (initialContainer === 'skillsSelection') {
 			// Hide the next/back buttons
 			$('.pagination-buttons').addClass('hidden');
-			$('.brief-checkbox').click(function(e) {
+			$('.brief-checkbox').one('click', function(e) {
 				self.toNextStep();
 			});
 		}
