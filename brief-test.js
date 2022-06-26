@@ -181,6 +181,8 @@ let briefHench = {
 	toNextStep: function() {
 		const self = this;
 
+		$('.pagination-buttons').removeClass('hidden');
+
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 
 		let isValid = self.checkErrors(currentContainer);
@@ -208,7 +210,7 @@ let briefHench = {
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
-
+		console.log( 'Next container: ', nextContainer );
 		self.setDependencies(nextContainer);
 	},
 
