@@ -273,7 +273,15 @@ let briefHench = {
 			
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
-				console.log( 'Checkbox: ', field );
+				let checked = $(`input[name="${field}"]:checked`);
+				let selectedSkill = $(checked).parent().attr('skill-type');
+				if(selectedSkill === 'PAID_ADVERTISING') {
+					self.formSchema['serviceTypes'].push('FACEBOOK_ADS');
+					self.formSchema['serviceTypes'].push('GOOGLE_ADS');
+				} else {
+					self.formSchema['serviceTypes'].push(selectedSkill);
+				}
+				self.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
 			} else {
 				$(this).removeClass('empty-field');
 
@@ -382,7 +390,7 @@ let briefHench = {
 			} else {
 				self.formSchema['serviceTypes'].push(selectedSkill);
 			}
-			self.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
+			briefHench.selectedSkills.push( $(this).siblings('.checkbox-label').html() );
 		});
 	},
 
