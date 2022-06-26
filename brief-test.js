@@ -111,8 +111,6 @@ const validationRules = {
 			estimatedMediaBudget: {
 				validate: function() {
 					const val = formSchema.estimatedMediaBudget;
-					console.log( 'Value: ', val );
-					console.log( 'Type: ', typeof(val) );
 					if (typeof(val) !== 'number' || val.length < 2 || val < 1) {
 						return false;
 					} else { return true; }
@@ -312,7 +310,6 @@ let briefHench = {
 	},
 
 	restructureBudget: function() {
-		console.log( 'Called' );
 		var rawValue = $('#marketingbudget').val().replace(",", "");
 		if (parseInt(rawValue) > 1000000) {
 			rawValue = '1000000';
@@ -322,7 +319,6 @@ let briefHench = {
 
 		rawValue = parseInt(rawValue);
 		formSchema.estimatedMediaBudget = rawValue;
-		console.log( formSchema.estimatedMediaBudget, typeof(formSchema.estimatedMediaBudget) );
 	},
 
 	fillCompanyName: function() {
@@ -368,7 +364,6 @@ $(document).ready(function(e) {
 
 $('#marketingbudget').keyup(function(e) {
 	let lastChar = $('#marketingbudget').val().slice(-1);
-	console.log( lastChar );
 	
 	if (isNaN(lastChar) || parseInt(e.originalEvent.keyCode) === 32) {
 		let value = $('#marketingbudget').val().slice(0, -1);
@@ -386,7 +381,6 @@ $('#marketingbudget').keyup(function(e) {
 	// 	}
 	// }
 
-	console.log( briefHench );
 	briefHench.restructureBudget();
 });
 
