@@ -113,7 +113,7 @@ const validationRules = {
 					const val = formSchema.estimatedMediaBudget;
 					console.log( 'Value: ', val );
 					console.log( 'Type: ', typeof(val) );
-					if (typeof(val) !== 'number' || val.length < 2) {
+					if (typeof(val) !== 'number' || val.length < 2 || val < 1) {
 						return false;
 					} else { return true; }
 				},

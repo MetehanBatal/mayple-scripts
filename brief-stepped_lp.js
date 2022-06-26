@@ -303,9 +303,9 @@ let briefHench = {
 
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/e-commerce-agency') && self.currentStep === 1) {
-			$('.pagination-buttons').addClass('hidden');
+			$('.pagination-buttons').removeClass('hidden');
 		} else if (pagePath.startsWith('/lp/digital-marketing-lp') && self.currentStep === 1) {
-			$('.pagination-buttons').addClass('hidden');
+			$('.pagination-buttons').removeClass('hidden');
 		} else {
 			$('.pagination-buttons').removeClass('hidden');
 		}
