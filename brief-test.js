@@ -408,6 +408,7 @@ $(document).ready(function(e) {
 	briefHench.insertSDK();
 	briefHench.handleStepChange();
 	briefHench.initIntlTel();
+	briefHench.checkBriefType();
 	//briefHench.setServices();
 });
 
