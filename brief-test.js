@@ -52,10 +52,6 @@ const validationRules = {
 	// Inner Object Names (e.g. firstName) Must Match with the Input's "name" Attribute
 	// 
 	leadForm: {
-		dependencies: [
-			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.css'
-		],
 		inputs: {
 			firstName: {
 				validate: function(val) {
@@ -233,10 +229,12 @@ let briefHench = {
 			});
 		});
 
-		let inputs = validationRules[container]['inputs'];
-		for (input in inputs) {
-			console.log( 'Input: ', inputs[input] );
-			inputs[input].set();
+		if (dependencies.length > 0) {
+			let inputs = validationRules[container]['inputs'];
+			for (input in inputs) {
+				console.log( 'Input: ', inputs[input] );
+				inputs[input].set();
+			}
 		}
 		// inputs.forEach(function(input) {
 		// 	console.log( 'Input: ', input );
@@ -393,7 +391,7 @@ let briefHench = {
 			// Hide the next/back buttons
 			$('.pagination-buttons').addClass('hidden');
 			$('.brief-checkbox').click(function(e) {
-				//self.toNextStep();
+				self.toNextStep();
 			});
 		}
 	},
