@@ -52,6 +52,7 @@ const validationRules = {
 	// Inner Object Names (e.g. firstName) Must Match with the Input's "name" Attribute
 	// 
 	leadForm: {
+		dependencies: [],
 		inputs: {
 			firstName: {
 				validate: function(val) {
@@ -137,6 +138,7 @@ const validationRules = {
 	},
 
 	skillsSelection: {
+		dependencies: [],
 		inputs: {
 			skill: {
 				validate: function(val) {
