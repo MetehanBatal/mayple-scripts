@@ -384,7 +384,7 @@ let briefHench = {
 	setServices: function() {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/lp-test-for-new-brief')) {
-			briefHench.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
+			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
 	}
 }
