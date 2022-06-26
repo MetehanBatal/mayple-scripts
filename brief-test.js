@@ -237,6 +237,8 @@ let briefHench = {
 				console.log( 'Input: ', inputs[input] );
 				inputs[input].set();
 			}
+		} else {
+			self.revealNextContainer();
 		}
 		// inputs.forEach(function(input) {
 		// 	console.log( 'Input: ', input );
