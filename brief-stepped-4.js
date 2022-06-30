@@ -724,6 +724,24 @@ let briefHench = {
 		if (lpName && lpName.length > 0) {
 			briefHench.formSchema['lpTrafficSource'] = lpName;
 		}
+	},
+
+	getPredefinedSkills: function() {
+		const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = Object.fromEntries(urlSearchParams.entries());
+
+		if (params['skills']) {
+			let predefinedSkills = params['skills'].split(',');
+			let checkboxes = document.querySelectorAll('.brief-checkbox');
+
+			checkboxes.forEach(function(checkbox) {
+				let checkboxName = checkbox.getAttribute('skill-type');
+				let matchingSkill = predefinedSkills.filter(skill => skill === checkboxName);
+				if (matchingSkill.length > 0) {
+					checkbox.click();
+				}
+			});
+		}
 	}
 }
 
@@ -739,6 +757,7 @@ $( document ).ready(function(e) {
 	briefHench.checkTimeZone();
 	// briefHench.getIPScore();
 	briefHench.getAutoPopulatedFields();
+	briefHench.getPredefinedSkills();
 	briefHench.checkGrowsumoKey();
 
 	briefHench.setTrafficSource();
