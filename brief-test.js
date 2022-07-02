@@ -328,6 +328,10 @@ let briefHench = {
 					return false;
 				} else {
 					formSchema[field] = $(this).val();
+
+					if (field === 'phoneNumber') {
+						console.log( 'Phone vvalid: ', isValid );
+					}
 				}
 			}
 		});
