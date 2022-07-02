@@ -116,6 +116,14 @@ const validationRules = {
 				},
 				errorLog: 'Your budget cannot be less than $0'
 			}
+		},
+		eventReporting: function() {
+			const budgetTraits = {
+				label: (formSchema.budget || 'N/A').toString(), // Save as string
+				estimatedMediaBudget: formSchema.budget, // Save as int
+			};
+			
+			briefHench.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
 		}
 	},
 
@@ -135,6 +143,17 @@ const validationRules = {
 				}
 			}
 		},
+		eventReporting: function() {
+			let subCategory = formSchema['industry'][0].industrySubCategory;
+			let category = formSchema['industry'][0].industryCategory;
+			const industryTraits = {
+				label: subCategory,
+				industryCategory: category,
+				industrySubCategory: subCategory
+			};
+
+			briefHench.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
+		}
 	},
 
 	skillsSelection: {
@@ -147,6 +166,15 @@ const validationRules = {
 					else { return true; }
 				}
 			}
+		},
+		eventReporting: function() {
+			let skills = briefHench.selectedSkills;
+			const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
+			const skillTraits = {
+				label: skills ? skillsSorted : null,
+				skills: skills ? skillsSorted : '',
+			};
+			briefHench.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
 		}
 	}
 }
@@ -262,7 +290,7 @@ let briefHench = {
 		const self = this;
 
 		$('.button-text').html('NEXT');
-		
+
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
 		// If it's the first step,
@@ -354,6 +382,9 @@ let briefHench = {
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
 
+		self.websiteSDK.reportEvent('Lead Created', { 'Lead', 'Created' });
+		self.websiteSDK.reportEvent('Wizard.Brief Finished', { 'Wizard.Brief', 'Finished' });
+
 		// self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 	},
 
@@ -433,6 +464,8 @@ let briefHench = {
 				self.toNextStep();
 			});
 		}
+
+		self.websiteSDK.reportEvent('Wizard.Brief Started', { 'Wizard.Brief', 'Started' });
 	},
 
 	setServices: function() {
