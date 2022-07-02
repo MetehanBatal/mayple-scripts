@@ -256,6 +256,8 @@ let briefHench = {
 	},
 
 	toPreviousStep: function() {
+		const self = this;
+
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
 		// If it's the first step,
@@ -268,6 +270,8 @@ let briefHench = {
 
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
+
+		self.revealNextContainer();
 	},
 
 	revealNextContainer: function() {
