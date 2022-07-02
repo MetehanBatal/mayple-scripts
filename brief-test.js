@@ -226,6 +226,10 @@ let briefHench = {
 
 		console.log( 'You may pass to next step' );
 
+		// Send reporting for the current/finished step
+		// 
+		validationRules[currentContainer].eventReporting();
+
 		// If the validation passes;
 		// reveal the back button
 		$('.back-button').removeClass('hidden');
@@ -382,8 +386,8 @@ let briefHench = {
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
 
-		self.websiteSDK.reportEvent('Lead Created', { 'Lead', 'Created' });
-		self.websiteSDK.reportEvent('Wizard.Brief Finished', { 'Wizard.Brief', 'Finished' });
+		self.websiteSDK.reportEvent('Lead Created', { category: 'Lead', action: 'Created' });
+		self.websiteSDK.reportEvent('Wizard.Brief Finished', { category: 'Wizard.Brief', action: 'Finished' });
 
 		// self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
 	},
@@ -465,7 +469,7 @@ let briefHench = {
 			});
 		}
 
-		self.websiteSDK.reportEvent('Wizard.Brief Started', { 'Wizard.Brief', 'Started' });
+		self.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
 	},
 
 	setServices: function() {
