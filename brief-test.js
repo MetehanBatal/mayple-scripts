@@ -287,6 +287,7 @@ let briefHench = {
 		let isClean = true;
 		
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
+		console.log( 'Fields: ', fields );
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
