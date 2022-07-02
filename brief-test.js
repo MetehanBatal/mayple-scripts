@@ -405,7 +405,7 @@ let briefHench = {
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form#meeting-step').removeClass('hidden');
 		$('.pagination-buttons').addClass('hidden');
-		
+
 		let container = $('#meeting-container');
 
 		let template = '';
@@ -524,8 +524,6 @@ $(document).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
 	//briefHench.setServices();
-	//
-	//
 	
 	setTimeout(function() {
 		window.va.identify();
