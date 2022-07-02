@@ -119,8 +119,8 @@ const validationRules = {
 		},
 		eventReporting: function() {
 			const budgetTraits = {
-				label: (formSchema.budget || 'N/A').toString(), // Save as string
-				estimatedMediaBudget: formSchema.budget, // Save as int
+				label: (formSchema['estimatedMediaBudget'] || 'N/A').toString(), // Save as string
+				estimatedMediaBudget: formSchema['estimatedMediaBudget'], // Save as int
 			};
 			
 			briefHench.websiteSDK.reportEvent('Wizard.Brief.MonthlyMediaBudget StepDone', budgetTraits);
@@ -226,10 +226,6 @@ let briefHench = {
 
 		console.log( 'You may pass to next step' );
 
-		// Send reporting for the current/finished step
-		// 
-		validationRules[currentContainer].eventReporting();
-
 		// If the validation passes;
 		// reveal the back button
 		$('.back-button').removeClass('hidden');
@@ -256,6 +252,10 @@ let briefHench = {
 		// Get scripts/external libraries for the next step
 		// 
 		self.setDependencies(nextContainer);
+
+		// Send reporting for the current/finished step
+		// 
+		validationRules[currentContainer].eventReporting();
 	},
 
 	setDependencies: function(container) {
