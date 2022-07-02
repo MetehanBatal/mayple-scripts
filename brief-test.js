@@ -276,6 +276,8 @@ let briefHench = {
 					let checked = $(`input[name="${field}"]:checked`);
 					console.log( 'Checked: ', checked );
 					let selectedSkill = $(checked).parent().attr('skill-type');
+					formSchema['serviceTypes'] = [];
+					briefHench['selectedSkills'] = [];
 					if(selectedSkill === 'PAID_ADVERTISING') {
 						formSchema['serviceTypes'].push('FACEBOOK_ADS');
 						formSchema['serviceTypes'].push('GOOGLE_ADS');
