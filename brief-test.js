@@ -261,6 +261,8 @@ let briefHench = {
 	toPreviousStep: function() {
 		const self = this;
 
+		$('.button-text').html('NEXT');
+		
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
 		// If it's the first step,
