@@ -403,7 +403,7 @@ let briefHench = {
 
 	toggleMeetingForm: function() {
 		$('.brief-stepped-form').addClass('hidden');
-		$('.brief-stepped-form#meeting-step').removeClass('hidden');
+		$('.meeting-step').removeClass('hidden');
 		$('.pagination-buttons').addClass('hidden');
 
 		let container = $('#meeting-container');
