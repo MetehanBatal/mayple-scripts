@@ -286,8 +286,14 @@ let briefHench = {
 
 		let isClean = true;
 		
+		if (container === 'industrySelection') {
+			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
+			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+
+			return isClean;
+		};
+
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
-		console.log( 'Fields: ', fields );
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
