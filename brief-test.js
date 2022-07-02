@@ -181,11 +181,15 @@ let briefHench = {
 	toNextStep: function() {
 		const self = this;
 
+		// Reveal back/next buttons, if they are not already visible
+		// 
 		$('.pagination-buttons').removeClass('hidden');
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
 		console.log( 'current container: ', currentContainer );
 
+		// Run validations for each of the fields inside the current container
+		// 
 		let isValid = self.checkErrors(currentContainer);
 		if(!isValid) {
 			console.log( 'There is an issue' );
@@ -200,18 +204,22 @@ let briefHench = {
 
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
+		// If it's the last step,
+		// submit the form to Hubspot
 		if (currentStep ===  $('.brief-stepped-form').length - 1) {
 			self.submitForm();
 			return;
 		}
 		currentStep++;
 		
-
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
 		console.log( 'Next container: ', nextContainer );
+		
+		// Get scripts/external libraries for the next step
+		// 
 		self.setDependencies(nextContainer);
 	},
 
@@ -264,17 +272,18 @@ let briefHench = {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
 				console.log( 'Field: ', field );
-				let checked = $(`input[name="${field}"]:checked`);
-				console.log( 'Checked: ', checked );
-				let selectedSkill = $(checked).parent().attr('skill-type');
-				if(selectedSkill === 'PAID_ADVERTISING') {
-					formSchema['serviceTypes'].push('FACEBOOK_ADS');
-					formSchema['serviceTypes'].push('GOOGLE_ADS');
-				} else {
-
-					formSchema['serviceTypes'].push(selectedSkill);
-				}
-				briefHench.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
+				setTimeout(function() {
+					let checked = $(`input[name="${field}"]:checked`);
+					console.log( 'Checked: ', checked );
+					let selectedSkill = $(checked).parent().attr('skill-type');
+					if(selectedSkill === 'PAID_ADVERTISING') {
+						formSchema['serviceTypes'].push('FACEBOOK_ADS');
+						formSchema['serviceTypes'].push('GOOGLE_ADS');
+					} else {
+						formSchema['serviceTypes'].push(selectedSkill);
+					}
+					briefHench.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
+				}, 200);
 			} else {
 				$(this).removeClass('empty-field');
 
