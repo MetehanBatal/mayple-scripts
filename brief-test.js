@@ -300,6 +300,8 @@ let briefHench = {
 					isClean = false;
 
 					return false;
+				} else {
+					formSchema[field] = $(this).val();
 				}
 			}
 		});
