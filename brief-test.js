@@ -327,6 +327,13 @@ let briefHench = {
 			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
 
+			if (formSchema['industry'][0].industrySubCategory.length < 1 || formSchema['industry'][0].industryCategory == 'undefined' || !formSchema['industry'][0].industryCategory) {
+				isClean = false;
+				return false;
+			} else {
+				isClean = true;
+			}
+
 			return isClean;
 		};
 
