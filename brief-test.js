@@ -396,7 +396,39 @@ let briefHench = {
 		self.websiteSDK.reportEvent('Lead Created', { category: 'Lead', action: 'Created' });
 		self.websiteSDK.reportEvent('Wizard.Brief Finished', { category: 'Wizard.Brief', action: 'Finished' });
 
+		self.toggleMeetingForm();
+
 		// self.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
+	},
+
+	toggleMeetingForm: function() {
+		$('.brief-stepped-form').addClass('hidden');
+		$('.brief-stepped-form#meeting-step').removeClass('hidden');
+		$('.pagination-buttons').addClass('hidden');
+		
+		let container = $('#meeting-container');
+
+		let template = '';
+
+		if (formSchema['frontendSalesQualificationScore'] > 3) {
+			// Implement long-duration meeting aka SQL form
+			// 
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${formSchema['firstname']}&lastname=${formSchema['lastname']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
+
+			briefHench.websiteSDK.reportEvent('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
+		} else if ( formSchema['frontendSalesQualificationScore'] < 0 ) {
+			// Redirect users to app
+			// 
+			window.location.href = 'https://app.mayple.com/login?register=1';
+		} else {
+			// Implement short-duration meeting aka MQL form
+			// 
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${formSchema['firstname']}&lastname=${formSchema['lastname']}&email=${formSchema['emailAddress']}&phone=${formSchema['phoneNumber']}"></div>`;
+		}
+		
+		container.append(template);
+
+		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
 	},
 
 	validatePhone: function(val) {
