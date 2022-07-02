@@ -468,8 +468,6 @@ let briefHench = {
 				self.toNextStep();
 			});
 		}
-
-		self.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
 	},
 
 	setServices: function() {
@@ -487,6 +485,14 @@ $(document).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
 	//briefHench.setServices();
+	//
+	//
+	
+	setTimeout(function() {
+		window.va.identify();
+
+		briefHench.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
+	}, 1200)
 });
 
 
@@ -499,16 +505,6 @@ $('#marketingbudget').keyup(function(e) {
 		$('#marketingbudget').val(value);
 		return;
 	}
-
-
-	// const isNumber = Number(e.originalEvent.key) ? true : false;
-	// if (e.originalEvent.keyCode != 188 && e.originalEvent.keyCode != 8 && e.originalEvent.keyCode != 48 && e.originalEvent.keyCode != 13 && e.originalEvent.keyCode != 37 && e.originalEvent.keyCode != 39) {
-	// 	if (!isNumber) {
-	// 		let value = $('#marketingbudget').val().slice(0, -1);
-	// 		$('#marketingbudget').val(value);
-	// 		return;
-	// 	}
-	// }
 
 	briefHench.restructureBudget();
 });
