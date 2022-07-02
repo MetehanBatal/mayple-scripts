@@ -255,6 +255,21 @@ let briefHench = {
 		// });
 	},
 
+	toPreviousStep: function() {
+		// get current step index
+		let currentStep = $('.brief-stepped-form.active').index();
+		// If it's the first step,
+		// there shouldn't be any back buttons
+		if (currentStep ===  1) {
+			$('.back-button').addClass('hidden'); }
+		if (currentStep === 0) {
+			return; }
+		currentStep--;
+
+		$('.brief-stepped-form').removeClass('active');
+		$('.brief-stepped-form').eq(currentStep).addClass('active');
+	},
+
 	revealNextContainer: function() {
 		$('.brief-stepped-form').addClass('hidden');
 		$('.brief-stepped-form.active').removeClass('hidden');
