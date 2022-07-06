@@ -106,6 +106,17 @@ let briefHench = {
 		});
 	},
 
+	setServices: function() {
+		const self = this;
+
+		let pagePath = window.location.pathname;
+		if (pagePath.startsWith('/lp/social-2')) {
+			self.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
+		} else if (pagePath.startsWith('/lp/ecommerce-agency-test')) {
+			self.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS']
+		}
+	},
+
 	insertSDK: function() {
 		const self = this;
 		const WebsiteSDK = window.WebsiteSDK.default;
@@ -308,6 +319,14 @@ let briefHench = {
 			$('.pagination-buttons').removeClass('hidden');
 		} else {
 			$('.pagination-buttons').removeClass('hidden');
+		}
+
+		if (pagePath.startsWith('/lp/ecommerce-agency-test') || pagePath.startsWith('/lp/social-2')) {
+			if (self.currentStep === 1) {
+				$('.pagination-buttons').addClass('hidden');
+			} else {
+				$('.pagination-buttons').removeClass('hidden');
+			}
 		}
 
 		//self.updateFormData($('.brief-stepped-form.active'));

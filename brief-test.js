@@ -56,7 +56,7 @@ const validationRules = {
 		inputs: {
 			firstName: {
 				validate: function(val) {
-					if (val.length < 3) {
+					if (val.length < 2) {
 						return false; }
 					else { return true; }
 				},
