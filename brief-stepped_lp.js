@@ -112,8 +112,6 @@ let briefHench = {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/social-2')) {
 			self.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
-		} else if (pagePath.startsWith('/lp/e-commerce-agency')) {
-			self.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS']
 		}
 	},
 
@@ -321,7 +319,7 @@ let briefHench = {
 			$('.pagination-buttons').removeClass('hidden');
 		}
 
-		if (pagePath.startsWith('/lp/e-commerce-agency') || pagePath.startsWith('/lp/social-2')) {
+		if (pagePath.startsWith('/lp/e-commerce-agency')) {
 			if (self.currentStep === 1) {
 				$('.pagination-buttons').addClass('hidden');
 			} else {
@@ -797,6 +795,8 @@ $( document ).ready(function(e) {
 	briefHench.checkUTMParams();
 
 	briefHench.getLPName();
+
+	briefHench.setServices();
 
 	// let pagePath = window.location.pathname;
 	// if (pagePath.startsWith('/lp/digital-marketing-lp')) {
