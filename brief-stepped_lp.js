@@ -112,7 +112,7 @@ let briefHench = {
 		let pagePath = window.location.pathname;
 		if (pagePath.startsWith('/lp/social-2')) {
 			self.formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
-		} else if (pagePath.startsWith('/lp/ecommerce-agency-test')) {
+		} else if (pagePath.startsWith('/lp/e-commerce-agency')) {
 			self.formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS']
 		}
 	},
@@ -321,7 +321,7 @@ let briefHench = {
 			$('.pagination-buttons').removeClass('hidden');
 		}
 
-		if (pagePath.startsWith('/lp/ecommerce-agency-test') || pagePath.startsWith('/lp/social-2')) {
+		if (pagePath.startsWith('/lp/e-commerce-agency') || pagePath.startsWith('/lp/social-2')) {
 			if (self.currentStep === 1) {
 				$('.pagination-buttons').addClass('hidden');
 			} else {
