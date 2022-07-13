@@ -273,6 +273,9 @@ let briefHench = {
 
 		let template = '';
 
+		jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
+		jumbleberry("track", "Purchase", { transaction_id: `${email}`, order_value: 30 });
+
 		if ( type === 'long' ) {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&company=${company}"></div>`;
 
