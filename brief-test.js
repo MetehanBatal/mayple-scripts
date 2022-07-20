@@ -303,6 +303,8 @@ let briefHench = {
 			$('.back-button').addClass('hidden'); }
 		if (currentStep === 0) {
 			return; }
+		if (currentStep === 1 && $('.brief-stepped-form.active form').attr('data-name') === 'leadForm') {
+			$('.next-button').addClass('hidden') };
 		currentStep--;
 
 		$('.brief-stepped-form').removeClass('active');
