@@ -529,7 +529,7 @@ $(document).ready(function(e) {
 		window.va.identify();
 
 		briefHench.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
-	}, 1200)
+	}, 2400)
 });
 
 
