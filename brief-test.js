@@ -239,6 +239,7 @@ let briefHench = {
 			return;
 		}
 		currentStep++;
+		self.currentStep = currentStep;
 
 		if (currentStep ===  $('.brief-stepped-form').length - 1) {
 			$('.button-text').html('SUBMIT'); }
@@ -306,6 +307,7 @@ let briefHench = {
 		if (currentStep === 1 && $('.brief-stepped-form.active form').attr('data-name') === 'leadForm') {
 			$('.next-button').addClass('hidden') };
 		currentStep--;
+		self.currentStep = currentStep;
 
 		$('.brief-stepped-form').removeClass('active');
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
