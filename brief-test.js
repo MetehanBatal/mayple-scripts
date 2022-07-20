@@ -227,8 +227,9 @@ let briefHench = {
 		console.log( 'You may pass to next step' );
 
 		// If the validation passes;
-		// reveal the back button
+		// reveal buttons
 		$('.back-button').removeClass('hidden');
+		$('.next-button').removeClass('hidden')
 
 		// get current step index
 		let currentStep = $('.brief-stepped-form.active').index();
