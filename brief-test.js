@@ -519,7 +519,7 @@ let briefHench = {
 		if (pagePath.startsWith('/lp/lp-test-for-new-brief')) {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
-	}
+	},
 }
 
 
@@ -529,12 +529,6 @@ $(document).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
 	//briefHench.setServices();
-	
-	setTimeout(function() {
-		window.va.identify();
-
-		briefHench.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
-	}, 2400)
 });
 
 
@@ -556,3 +550,9 @@ $('#website').keyup(function(e) {
 		$(this).val( $(this).val().slice(0, -1) ) }
 	briefHench.fillCompanyName();
 });
+
+function vaRegisterEvents() {
+	window.va.identify();
+
+	briefHench.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
+}
