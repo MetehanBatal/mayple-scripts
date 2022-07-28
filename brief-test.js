@@ -595,12 +595,12 @@ let briefHench = {
 			});
 		}
 
-		if (pagePath.startsWith('/welcome-v4')) {
-			$('.brief-checkbox').click(function() {
-				let selectedSkill = $(this).attr('skill-type');
-				if 
-			})
-		}
+		// if (pagePath.startsWith('/welcome-v4')) {
+		// 	$('.brief-checkbox').click(function() {
+		// 		let selectedSkill = $(this).attr('skill-type');
+		// 		if 
+		// 	})
+		// }
 	},
 
 	setServices: function() {
