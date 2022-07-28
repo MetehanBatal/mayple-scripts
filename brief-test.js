@@ -127,6 +127,64 @@ const validationRules = {
 		}
 	},
 
+	// For welcome-v4 page only
+	// 
+	combinedForm: {
+		dependencies: [
+			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
+		],
+		inputs: {
+			skill: {
+				set: function() {
+					$('.country-selection').select2({ placeholder: "Select countries" });
+				},
+				validate: function(val) {
+					if (val.length < 1) {
+						return false; }
+					else { return true; }
+				}
+			},
+			industry: {
+				set: function() {
+					$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc." });
+				},
+				validate: function(val) {
+					if (val.length < 1) {
+						return false; }
+					else { return true; }
+				}
+			},
+			estimatedMediaBudget: {
+				validate: function() {
+					const val = formSchema.estimatedMediaBudget;
+					if (typeof(val) !== 'number' || val.length < 2 || val < 1) {
+						return false;
+					} else { return true; }
+				},
+				errorLog: 'Your budget cannot be less than $0'
+			}
+		},
+		eventReporting: function() {
+			let subCategory = formSchema['industry'][0].industrySubCategory;
+			let category = formSchema['industry'][0].industryCategory;
+			const industryTraits = {
+				label: subCategory,
+				industryCategory: category,
+				industrySubCategory: subCategory
+			};
+
+			briefHench.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
+
+			let skills = briefHench.selectedSkills;
+			const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
+			const skillTraits = {
+				label: skills ? skillsSorted : null,
+				skills: skills ? skillsSorted : '',
+			};
+			briefHench.websiteSDK.reportEvent('Wizard.Brief.MarketingSkills StepDone', skillTraits);
+		}
+	},
+
 	industrySelection: {
 		dependencies: [
 			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
@@ -497,9 +555,15 @@ let briefHench = {
 		}
 	},
 
-	fillLPSource: function() {
+	fillTrafficSource: function() {
 		let pagePath = window.location.pathname;
-		formSchema['lpTrafficSource'] = pagePath;
+
+		if (pagePath.startsWith('/lp')) {
+			formSchema['lpTrafficSource'] = pagePath;
+		}
+		if (pagePath.startsWith('/welcome-v4')) {
+			formSchema['trafficSource'] = 'v4_stepped';
+		}
 	},
 
 	checkBriefType: function() {
@@ -530,6 +594,7 @@ $(document).ready(function(e) {
 	briefHench.handleStepChange();
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
+	briefHench.fillTrafficSource();
 	//briefHench.setServices();
 });
 
