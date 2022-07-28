@@ -445,6 +445,7 @@ let briefHench = {
 
 					return false;
 				} else {
+					console.log( $(this).val(), formSchema[field] );
 					if (field !== 'estimatedMediaBudget') {
 						formSchema[field] = $(this).val();
 					}
