@@ -263,6 +263,10 @@ let briefHench = {
 			// self.getTargetCountryScore();
 		}
 
+		if (!document.getElementById('website').checkValidity()) {
+			error = true;
+		}
+
 		console.log( 'Error: ', error );
 		if (error) {
 			return; }
