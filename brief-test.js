@@ -422,7 +422,7 @@ let briefHench = {
 					formSchema['serviceTypes'] = [];
 					briefHench['selectedSkills'] = [];
 
-					checked.forEach(function(index, selectedCheckbox) {
+					checked.each(function(index, selectedCheckbox) {
 						let selectedSkill = $(selectedCheckbox).parent().attr('skill-type');
 					
 						if(selectedSkill === 'PAID_ADVERTISING') {
