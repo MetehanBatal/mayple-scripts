@@ -395,6 +395,8 @@ let briefHench = {
 
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
 
+		console.log( formSchema );
+
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
 
