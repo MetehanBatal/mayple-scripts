@@ -419,16 +419,20 @@ let briefHench = {
 				setTimeout(function() {
 					let checked = $(`input[name="${field}"]:checked`);
 					console.log( 'Checked: ', checked );
-					let selectedSkill = $(checked).parent().attr('skill-type');
 					formSchema['serviceTypes'] = [];
 					briefHench['selectedSkills'] = [];
-					if(selectedSkill === 'PAID_ADVERTISING') {
-						formSchema['serviceTypes'].push('FACEBOOK_ADS');
-						formSchema['serviceTypes'].push('GOOGLE_ADS');
-					} else {
-						formSchema['serviceTypes'].push(selectedSkill);
-					}
-					briefHench.selectedSkills.push( $(checked).siblings('.checkbox-label').html() );
+
+					checked.forEach(function(index, selectedCheckbox) {
+						let selectedSkill = $(selectedCheckbox).parent().attr('skill-type');
+					
+						if(selectedSkill === 'PAID_ADVERTISING') {
+							formSchema['serviceTypes'].push('FACEBOOK_ADS');
+							formSchema['serviceTypes'].push('GOOGLE_ADS');
+						} else {
+							formSchema['serviceTypes'].push(selectedSkill);
+						}
+						briefHench.selectedSkills.push( $(selectedCheckbox).siblings('.checkbox-label').html() );
+					});
 				}, 200);
 			} else {
 				$(this).removeClass('empty-field');
@@ -589,6 +593,13 @@ let briefHench = {
 			$('.brief-checkbox').one('click', function(e) {
 				self.toNextStep();
 			});
+		}
+
+		if (pagePath.startsWith('/welcome-v4')) {
+			$('.brief-checkbox').click(function() {
+				let selectedSkill = $(this).attr('skill-type');
+				if 
+			})
 		}
 	},
 
