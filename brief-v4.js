@@ -230,7 +230,6 @@ let briefHench = {
 		$('.pagination-buttons').removeClass('hidden');
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
-		console.log( 'current container: ', currentContainer );
 
 		// Run validations for each of the fields inside the current container
 		// 
@@ -287,8 +286,6 @@ let briefHench = {
 					url: dependency,
 					cache: true
 				}).done(function() {
-					console.log(dependency, " loaded!");
-					console.log( index, list.length );
 					if (index === list.length - 1) {
 						self.revealNextContainer();
 					}
@@ -297,7 +294,6 @@ let briefHench = {
 		
 			let inputs = validationRules[container]['inputs'];
 			for (input in inputs) {
-				console.log( 'Input: ', inputs[input] );
 				inputs[input].set();
 			}
 		} else {
@@ -348,10 +344,8 @@ let briefHench = {
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
-				console.log( 'Field: ', field );
 				setTimeout(function() {
 					let checked = $(`input[name="${field}"]:checked`);
-					console.log( 'Checked: ', checked );
 					formSchema['serviceTypes'] = [];
 					briefHench['selectedSkills'] = [];
 
@@ -374,7 +368,7 @@ let briefHench = {
 				let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
 
 				if (!isValid || isValid == null) {
-					console.log( 'Not valid: ', field );
+					console.warn( 'Not valid: ', field );
 					$(this).addClass('empty-field');
 					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
 					$('.error-message').removeClass('hidden');
@@ -382,7 +376,6 @@ let briefHench = {
 
 					return false;
 				} else {
-					console.log( $(this).val(), formSchema[field] );
 					if (field !== 'estimatedMediaBudget') {
 						formSchema[field] = $(this).val();
 					}
@@ -397,11 +390,21 @@ let briefHench = {
 		if (container === 'combinedForm') {
 			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+			let countries = $('.country-selection').select2('data');
+			countries.forEach(function(country) {
+				if (!formSchema['locations'].includes(country.id)) {
+					formSchema['locations'].push(country.id);
+				}
+			});
 
 			if (formSchema['industry'][0].industrySubCategory.length < 1 || formSchema['industry'][0].industryCategory == 'undefined' || !formSchema['industry'][0].industryCategory) {
 				isClean = false;
 			} else {
 				isClean = true;
+			}
+
+			if (formSchema['locations'].length < 1) {
+				isClean = false;
 			}
 		}
 
@@ -413,7 +416,7 @@ let briefHench = {
 
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
 
-		console.log( formSchema );
+		console.log( 'Form Schema: ', formSchema );
 
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
