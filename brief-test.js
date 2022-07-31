@@ -339,12 +339,22 @@ let briefHench = {
 		if (container === 'industrySelection') {
 			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
 			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+			let countries = $('.country-selection').select2('data');
+			countries.forEach(function(country) {
+				if (!formSchema['locations'].includes(country.id)) {
+					formSchema['locations'].push(country.id);
+				}
+			});
 
 			if (formSchema['industry'][0].industrySubCategory.length < 1 || formSchema['industry'][0].industryCategory == 'undefined' || !formSchema['industry'][0].industryCategory) {
 				isClean = false;
 				return false;
 			} else {
 				isClean = true;
+			}
+
+			if (formSchema['locations'].length < 1) {
+				isClean = false;
 			}
 
 			return isClean;

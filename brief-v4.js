@@ -343,20 +343,6 @@ let briefHench = {
 		$('.error-message').addClass('hidden');
 
 		let isClean = true;
-		
-		if (container === 'industrySelection') {
-			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
-			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
-
-			if (formSchema['industry'][0].industrySubCategory.length < 1 || formSchema['industry'][0].industryCategory == 'undefined' || !formSchema['industry'][0].industryCategory) {
-				isClean = false;
-				return false;
-			} else {
-				isClean = true;
-			}
-
-			return isClean;
-		};
 
 		let fields = $('.brief-stepped-form.active input').filter('[required]');
 		fields.each(function(item) {
@@ -407,6 +393,17 @@ let briefHench = {
 				}
 			}
 		});
+
+		if (container === 'combinedForm') {
+			formSchema['industry'][0].industrySubCategory = $('.business-type-selection').select2('data')[0].id;
+			formSchema['industry'][0].industryCategory = $('.business-type-selection').find(':selected').closest('optgroup').attr('data-category');
+
+			if (formSchema['industry'][0].industrySubCategory.length < 1 || formSchema['industry'][0].industryCategory == 'undefined' || !formSchema['industry'][0].industryCategory) {
+				isClean = false;
+			} else {
+				isClean = true;
+			}
+		}
 
 		return isClean;
 	},
