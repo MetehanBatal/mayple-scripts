@@ -445,9 +445,11 @@ let briefHench = {
 
 			briefHench.websiteSDK.reportEvent('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
 		} else if ( formSchema['frontendSalesQualificationScore'] < 0 ) {
+			console.log( 'NOT QUALIFIED' );
+			return;
 			// Redirect users to app
 			// 
-			window.location.href = 'https://app.mayple.com/login?register=1';
+			// window.location.href = 'https://app.mayple.com/login?register=1';
 		} else {
 			// Implement short-duration meeting aka MQL form
 			// 
