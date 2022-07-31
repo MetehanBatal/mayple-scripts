@@ -593,5 +593,7 @@ $('#website').keyup(function(e) {
 function vaRegisterEvents() {
 	window.va.identify();
 
+	console.log( 'Vanilla Analytics: ', window.va );
+
 	briefHench.websiteSDK.reportEvent('Wizard.Brief Started', { category: 'Wizard.Brief', action: 'Started' });
 }
