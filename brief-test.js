@@ -364,10 +364,8 @@ let briefHench = {
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
-				console.log( 'Field: ', field );
 				setTimeout(function() {
 					let checked = $(`input[name="${field}"]:checked`);
-					console.log( 'Checked: ', checked );
 					formSchema['serviceTypes'] = [];
 					briefHench['selectedSkills'] = [];
 
@@ -390,7 +388,7 @@ let briefHench = {
 				let isValid = validationRules[container]['inputs'][field].validate($(this).val());	
 
 				if (!isValid || isValid == null) {
-					console.log( 'Not valid: ', field );
+					console.warn( 'Not valid: ', field );
 					$(this).addClass('empty-field');
 					$('.error-message div').text(validationRules[container]['inputs'][field].errorLog);
 					$('.error-message').removeClass('hidden');
@@ -398,7 +396,6 @@ let briefHench = {
 
 					return false;
 				} else {
-					console.log( $(this).val(), formSchema[field] );
 					if (field !== 'estimatedMediaBudget') {
 						formSchema[field] = $(this).val();
 					}
@@ -418,7 +415,7 @@ let briefHench = {
 
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
 
-		console.log( formSchema );
+		console.log( 'Form Schema: ', formSchema );
 
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
