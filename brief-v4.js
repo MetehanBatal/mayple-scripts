@@ -14,9 +14,7 @@ let formSchema = {
 		industrySubCategory: ''
 	}],
 
-	locations: [
-		'US'
-	],
+	locations: [],
 
 	productBusinessModel: [],
 
@@ -42,7 +40,7 @@ let formSchema = {
 	
 	ages: [],
 
-	trafficSource: '',
+	trafficSource: 'v4_stepped',
 	lpTrafficSource: '',
 	partnerStackReferralKey: '',
 	requestedAnInstantCall: 'no'
@@ -135,11 +133,23 @@ const validationRules = {
 		}
 	},
 
-	industrySelection: {
+	// For welcome-v4 page only
+	// 
+	combinedForm: {
 		dependencies: [
 			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
 		],
 		inputs: {
+			skill: {
+				set: function() {
+					$('.country-selection').select2({ placeholder: "Select countries" });
+				},
+				validate: function(val) {
+					if (val.length < 1) {
+						return false; }
+					else { return true; }
+				}
+			},
 			industry: {
 				set: function() {
 					$('.business-type-selection').select2({ placeholder: "Try Entertainment, Clothing, etc." });
@@ -149,6 +159,18 @@ const validationRules = {
 						return false; }
 					else { return true; }
 				}
+			},
+			estimatedMediaBudget: {
+				set: function() {
+					console.log( 'Nothing to set' );
+				},
+				validate: function() {
+					const val = formSchema.estimatedMediaBudget;
+					if (typeof(val) !== 'number' || val.length < 2 || val < 1) {
+						return false;
+					} else { return true; }
+				},
+				errorLog: 'Your budget cannot be less than $0'
 			}
 		},
 		eventReporting: function() {
@@ -161,21 +183,7 @@ const validationRules = {
 			};
 
 			briefHench.websiteSDK.reportEvent('Wizard.Brief.Industry StepDone', industryTraits);
-		}
-	},
 
-	skillsSelection: {
-		dependencies: [],
-		inputs: {
-			skill: {
-				validate: function(val) {
-					if (val.length < 1) {
-						return false; }
-					else { return true; }
-				}
-			}
-		},
-		eventReporting: function() {
 			let skills = briefHench.selectedSkills;
 			const skillsSorted = skills ? skills.map((skill) => skill).sort() : null;
 			const skillTraits = {
