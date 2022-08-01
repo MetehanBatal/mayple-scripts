@@ -4,7 +4,6 @@ let formSchema = {
 	phoneNumber: '',
 	emailAddress: '',
 	howDidYouHearAboutMayple: '',
-	source: '',
 	
 	websiteAddress: '',
 	companyName: '',
@@ -115,14 +114,6 @@ const validationRules = {
 					} else { return true; }
 				},
 				errorLog: 'Your budget cannot be less than $0'
-			},
-			howDidYouHearAboutMayple: {
-				validate: function(val) {
-					if (val.length < 2) {
-						return false; }
-					else { return true; }
-				},
-				errorLog: 'Please fill the empty field'
 			}
 		},
 		eventReporting: function() {

@@ -4,7 +4,6 @@ let formSchema = {
 	phoneNumber: '',
 	emailAddress: '',
 	howDidYouHearAboutMayple: '',
-	source: '',
 	
 	websiteAddress: '',
 	companyName: '',
@@ -104,15 +103,6 @@ const validationRules = {
 						return false; }
 					else { return true; }
 				}
-			},
-			estimatedMediaBudget: {
-				validate: function() {
-					const val = formSchema.estimatedMediaBudget;
-					if (typeof(val) !== 'number' || val.length < 2 || val < 1) {
-						return false;
-					} else { return true; }
-				},
-				errorLog: 'Your budget cannot be less than $0'
 			},
 			howDidYouHearAboutMayple: {
 				validate: function(val) {
