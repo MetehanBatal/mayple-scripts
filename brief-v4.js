@@ -32,7 +32,10 @@ let formSchema = {
 	preferMarketerInTargetedLocations: false,
 	
 	requestsAssistanceForRequiredSkillsChoice: false,
-	serviceTypes: [],
+	serviceTypes: [
+		'FACEBOOK_ADS',
+		'GOOGLE_ADS'
+	],
 	state: undefined,
 	targetKPI: 'ROAS',
 	targetKPIValue: 0,
@@ -334,23 +337,23 @@ let briefHench = {
 		fields.each(function(item) {
 			if ($(this).attr('type') === 'checkbox') {
 				let field = $(this).attr('name');
-				setTimeout(function() {
-					let checked = $(`input[name="${field}"]:checked`);
-					formSchema['serviceTypes'] = [];
-					briefHench['selectedSkills'] = [];
+				// setTimeout(function() {
+				// 	let checked = $(`input[name="${field}"]:checked`);
+				// 	formSchema['serviceTypes'] = [];
+				// 	briefHench['selectedSkills'] = [];
 
-					checked.each(function(index, selectedCheckbox) {
-						let selectedSkill = $(selectedCheckbox).parent().attr('skill-type');
+				// 	checked.each(function(index, selectedCheckbox) {
+				// 		let selectedSkill = $(selectedCheckbox).parent().attr('skill-type');
 					
-						if(selectedSkill === 'PAID_ADVERTISING') {
-							formSchema['serviceTypes'].push('FACEBOOK_ADS');
-							formSchema['serviceTypes'].push('GOOGLE_ADS');
-						} else {
-							formSchema['serviceTypes'].push(selectedSkill);
-						}
-						briefHench.selectedSkills.push( $(selectedCheckbox).siblings('.checkbox-label').html() );
-					});
-				}, 200);
+				// 		if(selectedSkill === 'PAID_ADVERTISING') {
+				// 			formSchema['serviceTypes'].push('FACEBOOK_ADS');
+				// 			formSchema['serviceTypes'].push('GOOGLE_ADS');
+				// 		} else {
+				// 			formSchema['serviceTypes'].push(selectedSkill);
+				// 		}
+				// 		briefHench.selectedSkills.push( $(selectedCheckbox).siblings('.checkbox-label').html() );
+				// 	});
+				// }, 200);
 			} else {
 				$(this).removeClass('empty-field');
 
