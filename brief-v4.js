@@ -557,14 +557,19 @@ let briefHench = {
 		checkboxes.forEach(function(checkbox) {
 			checkbox.addEventListener('change', function(e) {
 				let selectedSkill = checkbox.parentNode.getAttribute('skill-type');
-					
-				if(selectedSkill === 'PAID_ADVERTISING') {
-					formSchema['serviceTypes'].push('FACEBOOK_ADS');
-					formSchema['serviceTypes'].push('GOOGLE_ADS');
+
+				if (formSchema['serviceTypes'].includes(selectedSkill)) {
+					formSchema['serviceTypes'] = formSchema['serviceTypes'].filter(item => item !== selectedSkill);
 				} else {
-					formSchema['serviceTypes'].push(selectedSkill);
+					if(selectedSkill === 'PAID_ADVERTISING') {
+						formSchema['serviceTypes'].push('FACEBOOK_ADS');
+						formSchema['serviceTypes'].push('GOOGLE_ADS');
+					} else {
+						formSchema['serviceTypes'].push(selectedSkill);
+					}
+
+					briefHench.selectedSkills.push( checkbox.parentNode.querySelector('.checkbox-label').innerHTML );
 				}
-				briefHench.selectedSkills.push( checkbox.parentNode.querySelector('.checkbox-label').innerHTML );
 			})
 		});
 	}
