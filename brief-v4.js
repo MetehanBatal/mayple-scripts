@@ -551,6 +551,23 @@ let briefHench = {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
 	},
+
+	listenSelectedSkills: function() {
+		let checkboxes = document.querySelectorAll('input[name="skills"]');
+		checkboxes.forEach(function(checkbox) {
+			checkbox.addEventListener('change', function(e) {
+				let selectedSkill = checkbox.parentNode.getAttribute('skill-type');
+					
+				if(selectedSkill === 'PAID_ADVERTISING') {
+					formSchema['serviceTypes'].push('FACEBOOK_ADS');
+					formSchema['serviceTypes'].push('GOOGLE_ADS');
+				} else {
+					formSchema['serviceTypes'].push(selectedSkill);
+				}
+				briefHench.selectedSkills.push( checkbox.parentNode.querySelector('.checkbox-label').innerHTML );
+			})
+		});
+	}
 }
 
 
@@ -560,6 +577,7 @@ $(document).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
 	briefHench.fillTrafficSource();
+	briefHench.listenSelectedSkills();
 	//briefHench.setServices();
 });
 
@@ -576,6 +594,8 @@ $('#marketingbudget').keyup(function(e) {
 
 	briefHench.restructureBudget();
 });
+
+
 
 $('#website').keyup(function(e) {
 	if (e.originalEvent.keyCode == 32) {
