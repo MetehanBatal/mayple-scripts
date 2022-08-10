@@ -213,7 +213,6 @@ let briefHench = {
 		$('.pagination-buttons').removeClass('hidden');
 
 		let currentContainer = $('.brief-stepped-form.active form').attr('data-name');
-		console.log( 'current container: ', currentContainer );
 
 		// Run validations for each of the fields inside the current container
 		// 
@@ -222,8 +221,6 @@ let briefHench = {
 			console.log( 'There is an issue' );
 			return;
 		}
-
-		console.log( 'You may pass to next step' );
 
 		// If the validation passes;
 		// reveal buttons
@@ -248,7 +245,6 @@ let briefHench = {
 		$('.brief-stepped-form').eq(currentStep).addClass('active');
 
 		let nextContainer = $('.brief-stepped-form.active form').attr('data-name');
-		console.log( 'Next container: ', nextContainer );
 		
 		// Get scripts/external libraries for the next step
 		// 
@@ -271,7 +267,6 @@ let briefHench = {
 					cache: true
 				}).done(function() {
 					console.log(dependency, " loaded!");
-					console.log( index, list.length );
 					if (index === list.length - 1) {
 						self.revealNextContainer();
 					}
@@ -280,7 +275,6 @@ let briefHench = {
 		
 			let inputs = validationRules[container]['inputs'];
 			for (input in inputs) {
-				console.log( 'Input: ', inputs[input] );
 				inputs[input].set();
 			}
 		} else {
@@ -395,8 +389,6 @@ let briefHench = {
 		const self = this;
 
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
-
-		console.log( 'Form Schema: ', formSchema );
 
 		self.websiteSDK.createProjectLead(formSchema);
 		self.websiteSDK.submitHubspotForm(formSchema);
@@ -532,7 +524,9 @@ let briefHench = {
 
 	setServices: function() {
 		let pagePath = window.location.pathname;
-		if (pagePath.startsWith('/lp/lp-test-for-new-brief')) {
+		// Since there is no option to select service on below pages
+		// let's manually populate them
+		if (pagePath.startsWith('/lp/facebook-agency')) {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
 	},
@@ -545,7 +539,7 @@ $(document).ready(function(e) {
 	briefHench.initIntlTel();
 	briefHench.checkBriefType();
 	briefHench.fillTrafficSource();
-	//briefHench.setServices();
+	briefHench.setServices();
 });
 
 
