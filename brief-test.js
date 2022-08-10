@@ -413,7 +413,7 @@ let briefHench = {
 		if (formSchema['frontendSalesQualificationScore'] > 3) {
 			// Implement long-duration meeting aka SQL form
 			// 
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${formSchema['firstname']}&lastname=${formSchema['lastname']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
 
 			briefHench.websiteSDK.reportEvent('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
 		} else if ( formSchema['frontendSalesQualificationScore'] < 0 ) {
@@ -423,7 +423,7 @@ let briefHench = {
 		} else {
 			// Implement short-duration meeting aka MQL form
 			// 
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${formSchema['firstname']}&lastname=${formSchema['lastname']}&email=${formSchema['emailAddress']}&phone=${formSchema['phoneNumber']}"></div>`;
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&phone=${formSchema['phoneNumber']}"></div>`;
 		}
 		
 		container.append(template);
