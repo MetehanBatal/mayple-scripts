@@ -565,6 +565,9 @@ $('#marketingbudget').keyup(function(e) {
 $('#website').keyup(function(e) {
 	if (e.originalEvent.keyCode == 32) {
 		$(this).val( $(this).val().slice(0, -1) ) }
+});
+
+$('#website').focusout(function(e) {
 	briefHench.fillCompanyName();
 });
 
