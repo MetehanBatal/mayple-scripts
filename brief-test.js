@@ -529,6 +529,12 @@ let briefHench = {
 		if (pagePath.startsWith('/lp/facebook-agency') || pagePath.startsWith('/lp/hire-ppc-experts')) {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
+		if (pagePath.startsWith('/lp/search-engine-marketing')) {
+			formSchema['serviceTypes'] = ['SEARCH_ENGINE_OPTIMIZATION'];
+		}
+		if (pagePath.startsWith('/lp/social-media')) {
+			formSchema['serviceTypes'] = ['SOCIAL_MEDIA_MANAGEMENT'];
+		}
 	},
 }
 
