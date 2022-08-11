@@ -526,7 +526,7 @@ let briefHench = {
 		let pagePath = window.location.pathname;
 		// Since there is no option to select service on below pages
 		// let's manually populate them
-		if (pagePath.startsWith('/lp/facebook-agency')) {
+		if (pagePath.startsWith('/lp/facebook-agency') || pagePath.startsWith('/lp/hire-ppc-experts')) {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
 	},
