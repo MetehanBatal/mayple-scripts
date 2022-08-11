@@ -489,14 +489,7 @@ let briefHench = {
 
 	fillCompanyName: function() {
 		let value = $('#website').val();
-		// If user didn't write down the protocal name...
-		if (value.length > 5 && !value.startsWith('http')) {
-			// add it programatically as the URL object is not validating the string without the https:// prefix
-			$('#website').val('https://' + value);
-		} else if (value.startsWith('http://')) {
-			// turn http to https
-			$('#website').val(value.replace('http://', 'https://'));
-		}
+
 		if (value.length > 5) {
 			let companyName = '';
 			// construct the value as a URL
@@ -605,6 +598,15 @@ $('#marketingbudget').keyup(function(e) {
 $('#website').keyup(function(e) {
 	if (e.originalEvent.keyCode == 32) {
 		$(this).val( $(this).val().slice(0, -1) ) }
+
+	// If user didn't write down the protocal name...
+	if ($(this).val().length > 5 && !$(this).val().startsWith('http')) {
+		// add it programatically as the URL object is not validating the string without the https:// prefix
+		$(this).val('https://' + $(this).val());
+	} else if ($(this).val().startsWith('http://')) {
+		// turn http to https
+		$(this).val($(this).val().replace('http://', 'https://'));
+	}
 });
 
 $('#website').focusout(function(e) {
