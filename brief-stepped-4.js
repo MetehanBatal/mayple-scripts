@@ -443,8 +443,10 @@ let briefHench = {
 		let company = $('#company').val();
 		let phone = $('#phone').val();
 
-		jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
-		jumbleberry("track", "Purchase", { transaction_id: `${email}`, order_value: 30 });
+		if (briefHench.ipCountry === 'US' || briefHench.ipCountry === 'IL' || briefHench.ipCountry === 'CA' || briefHench.ipCountry === 'AU' || briefHench.ipCountry === 'UK') {
+			jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
+			jumbleberry("track", "Purchase", { transaction_id: `${email}`, order_value: 30 });
+		}
 
 		let template = '';
 
