@@ -87,6 +87,8 @@ const validationRules = {
 			},
 			websiteAddress: {
 				validate: function(val) {
+					const self = this;
+
 					let url;
 
 					try {
@@ -94,6 +96,9 @@ const validationRules = {
 					} catch (_) {
 						return false;  
 					}
+
+					// if (url.includes(briefHench.bannedURLs)) {
+					// 	return false; }
 
 					return url.protocol === "http:" || url.protocol === "https:";
 				},
@@ -182,6 +187,16 @@ let briefHench = {
 	currentStep: 0,
 
 	selectedSkills: [],
+
+	bannedURLs: [
+		"idk",
+		"mayple",
+		"dontknow",
+		"website",
+		"unsure",
+		"nothing",
+		"tbd"
+	],
 
 	insertSDK: function() {
 		const self = this;
@@ -429,6 +444,9 @@ let briefHench = {
 		container.append(template);
 
 		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
+
+		jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
+		jumbleberry("track", "Purchase", { transaction_id: `${formSchema['emailAddress']}`, order_value: 30 });
 	},
 
 	validatePhone: function(val) {
