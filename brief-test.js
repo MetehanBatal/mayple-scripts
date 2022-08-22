@@ -465,17 +465,7 @@ let briefHench = {
 			initialCountry: "auto",
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
-				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) {
-					success(function() {
-						console.log( resp, resp.country );
-						if (resp && resp.country) {
-							briefHench.location = resp.country;
-						} else {
-							resp.country = 'us';
-							briefHench.location = resp.country;
-						}
-					});
-				});
+				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) { console.log( resp.country ); success((resp && resp.country) ? resp.country : "us"); });
 			},
 		});
 	},
