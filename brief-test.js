@@ -188,6 +188,8 @@ let briefHench = {
 
 	selectedSkills: [],
 
+	ipLocation: '',
+
 	bannedURLs: [
 		"idk",
 		"mayple",
@@ -445,8 +447,10 @@ let briefHench = {
 
 		$.getScript("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js").done(function(script, textStatus) {})
 
-		jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
-		jumbleberry("track", "Purchase", { transaction_id: `${formSchema['emailAddress']}`, order_value: 30 });
+		if (briefHench.ipLocation === 'US' || briefHench.ipLocation === 'IL' || briefHench.ipLocation === 'CA' || briefHench.ipLocation === 'AU' || briefHench.ipLocation === 'UK') {
+			jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
+			jumbleberry("track", "Purchase", { transaction_id: `${formSchema['emailAddress']}`, order_value: 30 });
+		}
 	},
 
 	validatePhone: function(val) {
@@ -465,7 +469,7 @@ let briefHench = {
 			initialCountry: "auto",
 			utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js",
 			geoIpLookup: function(success, failure) {
-				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) { console.log( resp.country ); success((resp && resp.country) ? resp.country : "us"); });
+				$.get("https://ipinfo.io?token=1fa95a0e3e5a98", function() {}, "jsonp").always(function(resp) { briefHench.ipLocation = resp.country; success((resp && resp.country) ? resp.country : "us"); });
 			},
 		});
 	},
