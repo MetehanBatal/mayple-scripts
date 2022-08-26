@@ -270,6 +270,8 @@ let briefHench = {
 		// Send reporting for the current/finished step
 		// 
 		validationRules[currentContainer].eventReporting();
+
+		self.checkBriefType();
 	},
 
 	setDependencies: function(container) {
