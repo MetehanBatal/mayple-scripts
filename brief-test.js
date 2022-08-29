@@ -437,6 +437,8 @@ let briefHench = {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/discovery-round-robin?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
 
 			briefHench.websiteSDK.reportEvent('Lead SalesQualified', { category: 'Lead', action: 'SalesQualified' });
+		} else if ( formSchema['frontendSalesQualificationScore'] === 1 || formSchema['frontendSalesQualificationScore'] === 2 ) {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
 		} else if ( formSchema['frontendSalesQualificationScore'] < 0 ) {
 			// Redirect users to app
 			// 
