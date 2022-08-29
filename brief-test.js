@@ -255,6 +255,8 @@ let briefHench = {
 		currentStep++;
 		self.currentStep = currentStep;
 
+		$('.pagination-buttons').attr('data-step', currentStep);
+
 		if (currentStep ===  $('.brief-stepped-form').length - 1) {
 			$('.button-text').html('SUBMIT'); }
 		
