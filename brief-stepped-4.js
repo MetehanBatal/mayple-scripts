@@ -457,6 +457,8 @@ let briefHench = {
 		} else if ( type === 'short' ) {
 			window.location.href = 'https://app.mayple.com/login?register=1';
 			// template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
+		} else if ( type === 'inBetween' ) {
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
 		} else {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}"></div>`;
 		}
@@ -682,6 +684,8 @@ let briefHench = {
 			self.showMeeting('long');
 		} else if ( self.formSchema['frontendSalesQualificationScore'] >= 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
 			self.showMeeting('mid');
+		} else if ( formSchema['frontendSalesQualificationScore'] === 1 || formSchema['frontendSalesQualificationScore'] === 2 ) {
+			self.showMeeting('inBetween');
 		} else {
 			self.showMeeting('short');
 		}
