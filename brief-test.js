@@ -255,7 +255,7 @@ let briefHench = {
 		currentStep++;
 		self.currentStep = currentStep;
 
-		$('.to-next-step').addClass('data-step-' + currentStep);
+		$('.pagination-buttons').attr('data-step', currentStep);
 
 		if (currentStep ===  $('.brief-stepped-form').length - 1) {
 			$('.button-text').html('SUBMIT'); }
@@ -409,6 +409,8 @@ let briefHench = {
 	submitForm: function() {
 		const self = this;
 
+		self.setServices();
+		
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
 
 		self.websiteSDK.createProjectLead(formSchema);
