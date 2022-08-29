@@ -410,7 +410,7 @@ let briefHench = {
 		const self = this;
 
 		self.setServices();
-		
+
 		formSchema['frontendSalesQualificationScore'] = self.websiteSDK.calcSalesQualificationLeadScore(formSchema);
 
 		self.websiteSDK.createProjectLead(formSchema);
@@ -549,7 +549,7 @@ let briefHench = {
 		let pagePath = window.location.pathname;
 		// Since there is no option to select service on below pages
 		// let's manually populate them
-		if (pagePath.startsWith('/lp/facebook-agency') || pagePath.startsWith('/lp/hire-ppc-experts')) {
+		if (pagePath.startsWith('/lp/facebook-ads') || pagePath.startsWith('/lp/ppc-agency')) {
 			formSchema['serviceTypes'] = ['FACEBOOK_ADS', 'GOOGLE_ADS'];
 		}
 		if (pagePath.startsWith('/lp/search-engine-marketing')) {
