@@ -682,9 +682,9 @@ let briefHench = {
 		const self = this;
 		if ( self.formSchema['frontendSalesQualificationScore'] > 3 ) {
 			self.showMeeting('long');
-		} else if ( self.formSchema['frontendSalesQualificationScore'] >= 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
+		} else if ( self.formSchema['frontendSalesQualificationScore'] > 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
 			self.showMeeting('mid');
-		} else if ( self.formSchema['frontendSalesQualificationScore'] === 1 || self.formSchema['frontendSalesQualificationScore'] === 2 ) {
+		} else if ( formSchema['frontendSalesQualificationScore'] === 0 || formSchema['frontendSalesQualificationScore'] === 1 || formSchema['frontendSalesQualificationScore'] === 2 ) {
 			self.showMeeting('inBetween');
 		} else {
 			self.showMeeting('short');
