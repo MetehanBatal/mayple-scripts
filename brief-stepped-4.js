@@ -684,7 +684,7 @@ let briefHench = {
 			self.showMeeting('long');
 		} else if ( self.formSchema['frontendSalesQualificationScore'] > 0 && 3 >= self.formSchema['frontendSalesQualificationScore'] ) {
 			self.showMeeting('mid');
-		} else if ( formSchema['frontendSalesQualificationScore'] === 0 || formSchema['frontendSalesQualificationScore'] === 1 || formSchema['frontendSalesQualificationScore'] === 2 ) {
+		} else if ( self.formSchema['frontendSalesQualificationScore'] === 0 || formSchema['frontendSalesQualificationScore'] === 1 || formSchema['frontendSalesQualificationScore'] === 2 ) {
 			self.showMeeting('inBetween');
 		} else {
 			self.showMeeting('short');
