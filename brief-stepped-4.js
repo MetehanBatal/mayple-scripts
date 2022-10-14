@@ -436,6 +436,7 @@ let briefHench = {
 		$('.brief-stepped-form-box').css({'paddingBottom': '12px', 'paddingTop': '140px'});
 
 		let container = $('#meeting-container');
+		const self = this;
 
 		let firstname = $('#firstname').val();
 		let lastname = $('#lastname').val();
@@ -458,7 +459,7 @@ let briefHench = {
 			window.location.href = 'https://app.mayple.com/login?register=1';
 			// template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}"></div>`;
 		} else if ( type === 'inBetween' ) {
-			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${formSchema['firstName']}&lastname=${formSchema['lastName']}&email=${formSchema['emailAddress']}&company=${formSchema['companyName']}"></div>`;
+			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/omerfarkash/15-minutes-round-robin-homepage-new-test?embed=true&firstname=${self.formSchema['firstName']}&lastname=${self.formSchema['lastName']}&email=${self.formSchema['emailAddress']}&company=${self.formSchema['companyName']}"></div>`;
 		} else {
 			template = `<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/amir-keren1/sales-team-round-robin?embed=true&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}"></div>`;
 		}
