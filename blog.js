@@ -1,4 +1,3 @@
-<script>
 function vaRegisterEvents(){
 va.registerTrackClickEvent('#top-navbar', 'Blogpost.Nav.Button', 'Clicked', '{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}');
 va.registerTrackClickEvent('#talk-tomm', 'Blogpost.BottomCTA.Button', 'Clicked', '{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}');
@@ -107,8 +106,7 @@ hubspot_create_forms(hubspotID);
 });}}
 function hubspot_create_forms(hubspotID){
 var url = "https://js.hsforms.net/forms/v2.js";$.getScript({url: url,dataType: "script",cache: true}).done(function( s, Status ) {hbspt.forms.create({region: "na1",portalId: "4292856",formId: hubspotID,target: "[template-form-box]"});})}
-</script>
-<script>
+
 $("[data-share='facebook']").on("click",function(){
 var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=https://mayple.com/blog/{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}", "pop", "width=600, height=400, scrollbars=no");
 return false;
@@ -137,9 +135,9 @@ document.querySelectorAll('.banner-code').forEach(function(banner, index) {
 $('p:contains("[Add Banner Here]")').eq(0).replaceWith('<div class="blog-banner-holder"></div>');
 $( banner.textContent ).appendTo($('.blog-banner-holder').eq(index));
 });
-</script>
-<script src="https://metehanbatal.github.io/mayple-scripts/tabs.js"></script>
-<script>
+
+
+
 if ({{wf {&quot;path&quot;:&quot;is-hire-page&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} || {{wf {&quot;path&quot;:&quot;is-hire-page&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} === 'true') {
 document.addEventListener('DOMContentLoaded', (event) => {
 jQuery.ajax({
@@ -254,4 +252,3 @@ $(this + ' .js-tabs__title').addClass('js-tabs__title-active');
 });
 }}
 tocbot.init({tocSelector: '[render-tocbot-here]',contentSelector: '[rich-text-block]',headingSelector: 'h2',orderedList: false,ignoreHiddenElements: true});
-</script>
