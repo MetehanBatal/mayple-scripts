@@ -88,12 +88,12 @@ document.querySelectorAll('.banner-code').forEach(function(banner, index) {
 
 if ($('p:contains("[Banner][")').length > 0) {
     let contentArray = $('p:contains("[Banner][")').eq(0).html().split(']');
-    let headline = array[1].substring(1);
-    let description = array[2].substring(1);
-    let ctaText = array[3].substring(1);
+    let headline = contentArray[1].substring(1);
+    let description = contentArray[2].substring(1);
+    let ctaText = contentArray[3].substring(1);
     let themeClass = 'new-red-gradient';
 
-    if (array[4] && array[4] === 'blue') {
+    if (contentArray[4] && contentArray[4] === 'blue') {
         themeClass = 'new-red-blue-gradient-copy';
     }
 
