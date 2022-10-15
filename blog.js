@@ -92,6 +92,7 @@ if ($('p:contains("[Banner][")').length > 0) {
     let description = contentArray[2].substring(1);
     let ctaText = contentArray[3].substring(1);
     let themeClass = 'new-red-gradient';
+    console.log(contentArray);
 
     if (contentArray[4] && contentArray[4] === 'blue') {
         themeClass = 'new-red-blue-gradient-copy';
@@ -103,7 +104,7 @@ if ($('p:contains("[Banner][")').length > 0) {
 	        <p class="paragraph-954915">${description}</p>
 	        <a href="https://www.mayple.com/welcome-v4/?utm_content=blog-banner-hire-an-ecommerce-marketer" target="_blank" class="w-inline-block">
 	            <div class="cta-button-blog get-it-now red-button">
-	                <h4 class="heading-174">${ctaText}</h4><img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/62c426f08db421f3e9b73ee9_white-arrow.svg" loading="lazy" alt="">
+	                <h1 class="heading-174">${ctaText}</h1><img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/62c426f08db421f3e9b73ee9_white-arrow.svg" loading="lazy" alt="">
 	            </div>
 	        </a>
 	    </div>
