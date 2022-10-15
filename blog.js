@@ -1,8 +1,4 @@
-function vaRegisterEvents() {
-    va.registerTrackClickEvent('#top-navbar', 'Blogpost.Nav.Button', 'Clicked', '{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}');
-    va.registerTrackClickEvent('#talk-tomm', 'Blogpost.BottomCTA.Button', 'Clicked', '{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}');
-    va.registerTrackClickEvent('#sticky-cta-b', 'Blogpost.Skicky.Button', 'Clicked', '{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}');
-}
+
 (function() {
     function logElementEvent(eventName, element) {}
     var callback_enter = function(element) {
@@ -34,7 +30,7 @@ function makeIds() { var content = document.querySelector('[rich-text-block]'); 
     Array.prototype.forEach.call(headings, function(heading) { var id = heading.textContent.trim().toLowerCase().split(' ').join('-').replace(/[!@#$%^&*():]/ig, '').replace(/\//ig, '-');
         headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0;
         heading.id = id }) } makeIds();
-window.addEventListener('DOMContentLoaded', (event) => {
+	window.addEventListener('DOMContentLoaded', (event) => {
     $('.agency-card-copy').click(function() { window.location.href = "https://mayple.com/welcome-v4" });
     let scoring = [{
             "score": "10",
@@ -73,37 +69,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     load_Remodal();
 });
 
-function load_Remodal() {
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.css">');
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">');
-    let hubspotID = "{{wf {&quot;path&quot;:&quot;hubspot-form-id&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}";
-    if (hubspotID.length > 0) {
-        jQuery.ajax({
-            url: "https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js",
-            dataType: "script",
-            cache: true
-        }).done(function() {
-            hubspot_create_forms(hubspotID);
-        });
-    }
-}
-
-function hubspot_create_forms(hubspotID) {
-    var url = "https://js.hsforms.net/forms/v2.js";
-    $.getScript({ url: url, dataType: "script", cache: true }).done(function(s, Status) { hbspt.forms.create({ region: "na1", portalId: "4292856", formId: hubspotID, target: "[template-form-box]" }); })
-}
-$("[data-share='facebook']").on("click", function() {
-    var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=https://mayple.com/blog/{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}", "pop", "width=600, height=400, scrollbars=no");
-    return false;
-});
-$("[data-share='linkedin']").on("click", function() {
-    var linkedin = window.open("https://www.linkedin.com/sharing/share-offsite/?mini=true&url=https://mayple.com/blog/{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}", "pop", "width=600, height=400, scrollbars=no");
-    return false;
-});
-$("[data-share='twitter']").on("click", function() {
-    var twitter = window.open("https://twitter.com/intent/tweet?text=Discover%20your%20aura%20at%20https://mayple.com/blog/{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}/colours%20pic.twitter.com/xTreZlYNJh%20@carolynalive", "pop", "width=600, height=400, scrollbars=no");
-    return false;
-});
 $("[data-share='copy_url']").on("click", function() {
     navigator.clipboard.writeText(window.location.href);
 });
