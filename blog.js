@@ -106,7 +106,7 @@ if ($('p:contains("[Banner][")').length > 0) {
 		    <div class="b-card-content text-only">
 			<h2 class="b-card-headline b-card-head-black text-only-head">${headline}</h2>
 			<p class="paragraph-954915">${description}</p>
-			<a href="https://www.mayple.com/welcome-v4/?utm_content=blog-banner-hire-an-ecommerce-marketer" target="_blank" class="w-inline-block">
+			<a href="${ctaLink}" target="_blank" class="w-inline-block">
 			    <div class="cta-button-blog get-it-now ${ctaClass}">
 				<h1 class="heading-174">${ctaText}</h1><img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/62c426f08db421f3e9b73ee9_white-arrow.svg" loading="lazy" alt="">
 			    </div>
