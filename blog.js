@@ -92,11 +92,12 @@ if ($('p:contains("[Banner][")').length > 0) {
 	    let headline = contentArray[1].substring(1);
 	    let description = contentArray[2].substring(1);
 	    let ctaText = contentArray[3].substring(1);
+	    let ctaLink = contentArray[4].substring(1);
 	    let themeClass = 'new-red-gradient';
 	    let ctaClass = 'red-button';
-	    console.log(contentArray[4].substring(1));
+	    console.log(contentArray[5].substring(1));
 
-	    if (contentArray[4] && contentArray[4].substring(1) === 'blue') {
+	    if (contentArray[5] && contentArray[5].substring(1) === 'blue') {
 		themeClass = 'new-red-blue-gradient-copy';
 		ctaClass = '';
 	    }
