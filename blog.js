@@ -132,7 +132,7 @@ if ($('p:contains("[Quote][")').length > 0) {
 	   				<img src="${authorImg}" loading="lazy" alt="${authorName} - Mayple Quote" class="author-image">
 		   			<div>
 						<p class="no-margin"><strong>${authorName}</strong></p>
-						<p class="font-sm">${authorTitle}</p>
+						<p class="font-sm no-margin">${authorTitle}</p>
 					</div>
 				</div>
 				<div class="quote-content">
