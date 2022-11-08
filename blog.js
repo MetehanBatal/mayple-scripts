@@ -117,3 +117,30 @@ if ($('p:contains("[Banner][")').length > 0) {
 	    $(this).html(template);    
     });
 }
+
+if ($('p:contains("[Quote][")').length > 0) {
+    $('p:contains("[Quote][")').each(function() {
+	    let contentArray = $(this).html().split(']');
+	    let authorImg = contentArray[1].substring(1);
+	    let authorName = contentArray[2].substring(1);
+	    let authorTitle = contentArray[3].substring(1);
+	    let quote = contentArray[4].substring(1);
+
+	    let template = `
+	    	<div class="quote-block">
+	   			<div class="quote-author-box">
+	   				<img src="${authorImg}" loading="lazy" alt="${authorName} - Mayple Quote" class="author-image">
+		   			<div>
+						<p class="no-margin"><strong>${authorName}</strong></p>
+						<p class="font-sm">${authorTitle}</p>
+					</div>
+				</div>
+				<div class="quote-content">
+					<img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/6369f61ee696f03ad3376371_quote-icon.svg" loading="lazy" alt="">
+					<p class="quote">${quote}</p>
+				</div>
+			</div>`
+
+	    $(this).html(template);    
+    });
+}
