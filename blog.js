@@ -104,11 +104,11 @@ if ($('p:contains("[Banner][")').length > 0) {
 
 	    let template = `<div class="b-card new-bcard flex-bcard red-grad-bg no-flex ${themeClass}">
 		    <div class="b-card-content text-only">
-			<h4 class="b-card-headline b-card-head-black text-only-head">${headline}</h4>
+			<h5 class="b-card-headline b-card-head-black text-only-head">${headline}</h5>
 			<p class="paragraph-954915">${description}</p>
 			<a href="${ctaLink}" target="_blank" class="w-inline-block">
 			    <div class="cta-button-blog get-it-now ${ctaClass}">
-				<h1 class="heading-174">${ctaText}</h1><img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/62c426f08db421f3e9b73ee9_white-arrow.svg" loading="lazy" alt="">
+				<h5 class="heading-174">${ctaText}</h5><img src="https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/62c426f08db421f3e9b73ee9_white-arrow.svg" loading="lazy" alt="">
 			    </div>
 			</a>
 		    </div>
