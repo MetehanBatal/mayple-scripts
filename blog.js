@@ -144,3 +144,29 @@ if ($('p:contains("[Quote][")').length > 0) {
 	    $(this).html(template);    
     });
 }
+
+if ($('p:contains("[Sticky Banner][")').length > 0) {
+    $('p:contains("[Sticky Banner][")').each(function() {
+	    let contentArray = $(this).html().split(']');
+	    let headline = contentArray[1].substring(1);
+	    let ctaText = contentArray[2].substring(1);
+	    let ctaLink = contentArray[3].substring(1);
+	    let themeClass = contentArray[4].substring(1);
+	    let imageLink = contentArray[5].substring(1);
+	    // [Sticky Banner][Top 250 Ad Creatives for Ecommerce Campaigns][Download Now][https://link.mayple.com/?start][black]
+	    let isHidden = 'hidden';
+	    if (imageLink.length > 1) {
+	    	isHidden = '';
+	    }
+
+	    let template = `<div class="blog-sticky-banner ${themeClass}">
+		    <h3 class="blog-sticky-banner-title">${headline}</h3>
+		    <img src="${imageLink}" loading="lazy" alt="Mayple Quote" class="stick-banner-image ${isHidden}">
+			<a href="${ctaLink}" class="blog-sticky-cta-button ${themeClass} w-button">${ctaText}</a>
+		</div>`
+
+	    $(this).html('');
+	    $('.blog-grid-layout').addClass('with-sticky-banner');
+	    $('.blog-grid-layout').append(template);
+    });
+}
