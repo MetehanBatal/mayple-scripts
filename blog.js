@@ -146,6 +146,7 @@ if ($('p:contains("[Quote][")').length > 0) {
 }
 
 if ($('p:contains("[Sticky Banner][")').length > 0) {
+	$('.blog-grid-layout').append('<div class="sticky-banners-holder"></div>');
     $('p:contains("[Sticky Banner][")').each(function() {
 	    let contentArray = $(this).html().split(']');
 	    let headline = contentArray[1].substring(1);
@@ -167,6 +168,6 @@ if ($('p:contains("[Sticky Banner][")').length > 0) {
 
 	    $(this).html('');
 	    $('.blog-grid-layout').addClass('with-sticky-banner');
-	    $('.blog-grid-layout').append(template);
+	    $('.sticky-banners-holder').append(template);
     });
 }
