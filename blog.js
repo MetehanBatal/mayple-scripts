@@ -174,6 +174,11 @@ if ($('p:contains("[Sticky Banner][")').length > 0) {
 
 let blogsHench = {
 	setTags: function() {
+		jQuery.ajax({
+            url: "https://unpkg.com/swiper@7.4.1/swiper-bundle.min.js",
+            dataType: "script",
+            cache: true
+        });
 		$('.tags-holder').each(function(index, element) {
 			let tags = $(this).html().split(',');
 			tags.forEach(function(tag) {
