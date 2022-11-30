@@ -176,7 +176,9 @@ let blogsHench = {
 	setTags: function() {
 		$('.tags-holder').each(function(index, element) {
 			let tags = $(this).html().split(',');
-			console.log(tags);
+			tags.forEach(function(tag) {
+				$(element).parent().append(`<div class="tag">${tag}</div>`);
+			});
 		});
 	}
 }
