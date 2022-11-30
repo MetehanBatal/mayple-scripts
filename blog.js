@@ -184,9 +184,6 @@ let blogsHench = {
 			tags.forEach(function(tag) {
 				$(element).parent().append(`<div class="tag">${tag}</div>`);
 			});
-			if (index === array.length - 1) {
-				$('.tags-holder').addClass('hidden');
-			}
 		});
 	}
 }
