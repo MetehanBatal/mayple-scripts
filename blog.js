@@ -171,3 +171,12 @@ if ($('p:contains("[Sticky Banner][")').length > 0) {
 	    $('.sticky-banners-holder').append(template);
     });
 }
+
+let blogsHench = {
+	setTags: function() {
+		$('.tags-holder').each(function(index, element) {
+			let tags = $(this).html().split(',');
+			console.log(tags);
+		});
+	}
+}
