@@ -179,11 +179,14 @@ let blogsHench = {
             dataType: "script",
             cache: true
         });
-		$('.tags-holder').each(function(index, element) {
+		$('.tags-holder').each(function(index, element, array) {
 			let tags = $(this).html().split(',');
 			tags.forEach(function(tag) {
 				$(element).parent().append(`<div class="tag">${tag}</div>`);
 			});
+			if (index === array.length - 1) {
+				$('.tags-holder').addClass('hidden');
+			}
 		});
 	}
 }
