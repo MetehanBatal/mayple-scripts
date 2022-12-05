@@ -172,6 +172,14 @@ if ($('p:contains("[Sticky Banner][")').length > 0) {
     });
 }
 
+$('.js-tabs__content').addClass('hidden');
+$('.js-tabs__content').eq(0).removeClass('hidden');
+$('.hire-list-item').click(function() {
+	let index = $(this).index();
+	$('.js-tabs__content').addClass('hidden');
+	$('.js-tabs__content').eq(index).removeClass('hidden');
+});
+
 let blogsHench = {
 	setTags: function() {
 		jQuery.ajax({
