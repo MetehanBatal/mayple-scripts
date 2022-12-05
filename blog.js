@@ -172,14 +172,6 @@ if ($('p:contains("[Sticky Banner][")').length > 0) {
     });
 }
 
-$('.js-tabs__content').addClass('hidden');
-$('.js-tabs__content').eq(0).removeClass('hidden');
-$('.hire-list-item').click(function() {
-	let index = $(this).index();
-	$('.js-tabs__content').addClass('hidden');
-	$('.js-tabs__content').eq(index).removeClass('hidden');
-});
-
 let blogsHench = {
 	setTags: function() {
 		jQuery.ajax({
@@ -192,6 +184,16 @@ let blogsHench = {
 			tags.forEach(function(tag) {
 				$(element).parent().append(`<div class="tag">${tag}</div>`);
 			});
+		});
+	},
+
+	initTabs: function() {
+		$('.js-tabs__content').addClass('hidden');
+		$('.js-tabs__content').eq(0).removeClass('hidden');
+		$('.hire-list-item').click(function() {
+			let index = $(this).index();
+			$('.js-tabs__content').addClass('hidden');
+			$('.js-tabs__content').eq(index).removeClass('hidden');
 		});
 	}
 }
