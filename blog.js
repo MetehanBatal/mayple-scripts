@@ -1,4 +1,4 @@
-const dynamicWordings = [
+const dynamicWordings = {
 	"Conversion Rate Optimization Marketer": "We are a global socially-led creative specialists with unrivaled conversion rate optimization expertise.",
 	"SEO Specialist": "We are a global socially-led creative specialists with unrivaled search engine optimization expertise.",
 	"Influencer Marketer": "We are a global socially-led creative specialists with unrivaled influencer marketing expertise.",
@@ -7,7 +7,7 @@ const dynamicWordings = [
 	"Growth Marketer": "We are a global socially-led creative specialists with unrivaled growth marketer expertise.",
 	"Social Media Manager": "We are a global specialists with unrivaled social media manager expertise.",
 	"Paid Ads Specialist": "We are a global specialists with unrivaled paid ads expertise."
-];
+};
 
 
 (function() {
