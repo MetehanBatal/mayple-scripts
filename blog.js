@@ -1,3 +1,14 @@
+const dynamicWordings = [
+	"Conversion Rate Optimization Marketer": "We are a global socially-led creative specialists with unrivaled conversion rate optimization expertise.",
+	"SEO Specialist": "We are a global socially-led creative specialists with unrivaled search engine optimization expertise.",
+	"Influencer Marketer": "We are a global socially-led creative specialists with unrivaled influencer marketing expertise.",
+	"Marketing Manager": "We are a global socially-led creative specialists with unrivaled marketing manager expertise.",
+	"Email Marketer": "We are a global socially-led creative specialists with unrivaled email marketer expertise.",
+	"Growth Marketer": "We are a global socially-led creative specialists with unrivaled growth marketer expertise.",
+	"Social Media Manager": "We are a global specialists with unrivaled social media manager expertise.",
+	"Paid Ads Specialist": "We are a global specialists with unrivaled paid ads expertise."
+];
+
 
 (function() {
     function logElementEvent(eventName, element) {}
@@ -195,5 +206,11 @@ let blogsHench = {
 			$('.js-tabs__content').addClass('hidden');
 			$('.js-tabs__content').eq(index).removeClass('hidden');
 		});
+	},
+
+	swapHirePageWording: function() {
+		let pageName = $('#hire-page-name').text();
+
+		$('.dynamic-wording').text(dynamicWordings[pageName]);
 	}
 }
