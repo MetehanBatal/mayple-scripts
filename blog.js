@@ -222,7 +222,7 @@ let blogsHench = {
 			if(tocContainer != undefined && tocContainer.length > 1) {
 				$(`div[rich-text-block="${tocContainer}"] h2`).each(function(index, heading) {
 					let headingContext = heading.textContent;
-					heading.id = headingContext.replaceAll(' ', '-').toLowerCase();
+					heading.id = headingContext.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
 					toc.find('.toc-list').append(`<li class="toc-list-item"><a href="#${heading.id}" class="toc-link node-name--H2 ">${headingContext}</a></li>`);
 				});
 			}
