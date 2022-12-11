@@ -232,10 +232,12 @@ let blogsHench = {
 
 $(document).ready(function() {
 	$('.scroller').click(function() {
+		let container = $(this).closest('.toc-render-here').data('article-container');
 		let scrollTo = $(this).data('scroll-to');
-		console.log(scrollTo);
+		let topPos = $(`div[rich-text-block="${container}"] ${scrollTo}`).offset().top;
+		
 		window.scroll({
-			top: $('#' + scrollTo).top(),
+			top: topPos,
 			behavior: 'smooth'
 		});
 	});
