@@ -223,9 +223,20 @@ let blogsHench = {
 				$(`div[rich-text-block="${tocContainer}"] h2`).each(function(index, heading) {
 					let headingContext = heading.textContent;
 					heading.id = headingContext.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
-					toc.find('.toc-list').append(`<li class="toc-list-item"><a href="#${heading.id}" class="toc-link node-name--H2 ">${headingContext}</a></li>`);
+					toc.find('.toc-list').append(`<li class="toc-list-item"><p data-scroll-to="${heading.id}" class="toc-link scroller node-name--H2 ">${headingContext}</p></li>`);
 				});
 			}
 		});
 	}
 }
+
+$(document).ready(function() {
+	$('.scroller').click(function() {
+		let scrollTo = $(this).data('scroll-to');
+		console.log(scrollTo);
+		window.scroll({
+			top: $('#' + scrollTo).top(),
+			behavior: 'smooth'
+		});
+	});
+});
