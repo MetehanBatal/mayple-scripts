@@ -234,13 +234,13 @@ $(document).ready(function() {
 	$('.scroller').click(function() {
 		let container = $(this).closest('.toc-render-here').data('article-container');
 		let scrollTo = $(this).data('scroll-to');
-		console.log(container, scrollTo);
+		console.log(container, scrollTo, $(`div[rich-text-block="${container}"]`).find(`h2#${scrollTo}`));
 
-		//let topPos = $(`div[rich-text-block="${container}"] ${scrollTo}`).offset().top;
+		let topPos = $(`div[rich-text-block="${container}"]`).find(`h2#${scrollTo}`).offset().top;
 		
-		// window.scroll({
-		// 	top: topPos,
-		// 	behavior: 'smooth'
-		// });
+		window.scroll({
+			top: topPos,
+			behavior: 'smooth'
+		});
 	});
 });
