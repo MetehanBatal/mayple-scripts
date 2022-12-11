@@ -212,5 +212,18 @@ let blogsHench = {
 		let pageName = $('#hire-page-name').text();
 
 		$('.dynamic-wording').text(dynamicWordings[pageName]);
+	},
+
+	initToC: function() {
+		$('.toc-render-here').each(function() {
+			let toc = $(this);
+			toc.append("<ul class='toc-list'></ul>");
+			let tocContainer = toc.data('article-container');
+			if(tocContainer != undefined && tocContainer.length > 1) {
+				$(`div[rich-text-block="${tocContainer}"] h2`).each(function(index, heading) {
+					toc.find('.toc-list').append(`<li class="toc-list-item"><a href="#${heading.id}" class="toc-link node-name--H2 ">${heading.textContent}</a></li>`);
+				});
+			}
+		});
 	}
 }
