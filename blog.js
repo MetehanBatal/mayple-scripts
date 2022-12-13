@@ -227,8 +227,6 @@ let blogsHench = {
 					$(heading).nextUntil('h2').filter('h3').each(function(j, i) {
 						i.id = i.textContent.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
 						console.log($(`[data-scroll-to="${i.id}"]`));
-						if ($(`[data-scroll-to="${i.id}"]`).length > 0) {
-							return; }
 						$(`[data-scroll-to="${heading.id}"]`).siblings('.h3-container').append(`<p data-scroll-to="${i.id}" class="toc-link scroller">${i.textContent}</p>`);
 					});
 				});
