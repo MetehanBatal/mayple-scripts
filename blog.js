@@ -230,19 +230,10 @@ let blogsHench = {
 				});
 			}
 		});
-	},
-
-	trimCaseStudyDescriptions: function() {
-		$('.brand-description').each(function() {
-			if($(this).text().length > 360) {
-				$(this).text($(this).text().substring(0, 360) + '...');
-			}
-		});
 	}
 }
 
 $(document).ready(function() {
-	blogsHench.trimCaseStudyDescriptions();
 	$('.scroller').click(function() {
 		let container = $(this).closest('.toc-render-here').data('article-container');
 		let scrollTo = $(this).data('scroll-to');
