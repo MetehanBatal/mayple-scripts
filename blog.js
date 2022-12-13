@@ -225,7 +225,10 @@ let blogsHench = {
 					heading.id = headingContext.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
 					toc.find('.toc-list').append(`<li class="toc-list-item"><p data-scroll-to="${heading.id}" class="toc-link scroller node-name--H2">${headingContext}</p><div class="h3-container"></div></li>`);
 					$(heading).nextUntil('h2').filter('h3').each(function(j, i) {
-						$(`[data-scroll-to="${heading.id}"]`).siblings('.h3-container').append(`<p class="toc-link scroller">${i.textContent}</p>`);
+						console.log($(`[data-scroll-to="${i.id}"]`));
+						if ($(`[data-scroll-to="${i.id}"]`).length > 0) {
+							return; }
+						$(`[data-scroll-to="${heading.id}"]`).siblings('.h3-container').append(`<p data-scroll-to="${i.id}" class="toc-link scroller">${i.textContent}</p>`);
 					});
 				});
 			}
@@ -233,11 +236,13 @@ let blogsHench = {
 	}
 }
 
-$(document).ready(function() {
+$(document).ready(function() {	
 	$('.scroller').click(function() {
 		let container = $(this).closest('.toc-render-here').data('article-container');
 		let scrollTo = $(this).data('scroll-to');
-		console.log(container, scrollTo, $(`div[rich-text-block="${container}"]`).find(`h2#${scrollTo}`));
+		$('.toc-list-item').removeClass('active');
+		$(this).parent().addClass('active');
+		console.log(container, scrollTo, $(`div[rich-text-block="${container}"]`).find(`#${scrollTo}`));
 
 		let topPos = $(`div[rich-text-block="${container}"]`).find(`#${scrollTo}`).offset().top;
 		
