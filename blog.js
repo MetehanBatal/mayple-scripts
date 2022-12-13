@@ -224,11 +224,7 @@ let blogsHench = {
 					let headingContext = heading.textContent;
 					heading.id = headingContext.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
 					toc.find('.toc-list').append(`<li class="toc-list-item"><p data-scroll-to="${heading.id}" class="toc-link scroller node-name--H2">${headingContext}</p><div class="h3-container"></div></li>`);
-					$(heading).nextUntil('h2').filter('h3').each(function(j, i) {
-						i.id = i.textContent.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
-						console.log($(`[data-scroll-to="${i.id}"]`));
-						$(`[data-scroll-to="${heading.id}"]`).siblings('.h3-container').append(`<p data-scroll-to="${i.id}" class="toc-link scroller">${i.textContent}</p>`);
-					});
+					
 				});
 			}
 		});
