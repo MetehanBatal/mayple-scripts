@@ -55,24 +55,19 @@ const validationRules = {
 		inputs: {
 			fullName: {
 				validate: function(val) {
-					return briefHench.isMinLength(val);
+					return true
 				},
 				errorLog: 'Please fill the name field'
 			},
 			lastName: {
 				validate: function(val) {
-					return briefHench.isMinLength(val);
+					return true
 				},
 				errorLog: 'Please fill the last name field'
 			},
 			emailAddress: {
 				validate: function(val) {
-					return briefHench.isMinLength(val) &&
-								 String(val)
-									 .toLowerCase()
-									 .match(
-										 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-									 );
+					return true
 				},
 				errorLog: 'Please fill the email address'
 			},
