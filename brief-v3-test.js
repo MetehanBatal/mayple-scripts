@@ -1,5 +1,3 @@
-import { isMinLength } from './common/validations';
-
 let formSchema = {
 	firstName: '',
 	lastName: '',
