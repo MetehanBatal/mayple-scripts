@@ -312,11 +312,11 @@ let briefHench = {
 	},
 
 	toggleMeeting: function() {
-		$('.brief-stepped-form').addClass('hidden');
-		$('.meeting-step').removeClass('hidden');
-		$('.pagination-buttons').addClass('hidden');
+		$('.form-section').addClass('hidden');
+		$('#meeting-container').removeClass('hidden');
+		$('.meeting-opener').addClass('hidden');
 
-		let container = $('#meeting-container');2
+		let container = $('#meeting-container');
 
 		let template = '';
 
