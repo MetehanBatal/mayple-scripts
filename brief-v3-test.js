@@ -353,7 +353,7 @@ let briefHench = {
 			jumbleberry("init", "KEWhitJ3HkFzJVXVBya6QsnMjgNhEPutkYqGmbvwm4RyH8vEoGD7vBo9PxR9Y_rbBhwOuAyhgJkHB0ASesVGLg~~");
 			jumbleberry("track", "Purchase", { transaction_id: `${formSchema['emailAddress']}`, order_value: 30 });
 		}
-	}
+	},
 
 	setDependencies: function(container) {
 		const self = this;
