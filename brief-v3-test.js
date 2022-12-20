@@ -57,19 +57,19 @@ const validationRules = {
 		inputs: {
 			fullName: {
 				validate: function(val) {
-					return isMinLength(val);
+					return briefHench.isMinLength(val);
 				},
 				errorLog: 'Please fill the name field'
 			},
 			lastName: {
 				validate: function(val) {
-					return isMinLength(val);
+					return briefHench.isMinLength(val);
 				},
 				errorLog: 'Please fill the last name field'
 			},
 			emailAddress: {
 				validate: function(val) {
-					return isMinLength(val) &&
+					return briefHench.isMinLength(val) &&
 								 String(val)
 									 .toLowerCase()
 									 .match(
@@ -209,6 +209,12 @@ let briefHench = {
 		"nothing",
 		"tbd"
 	],
+
+	isMinLength:function(val) {
+		if (val.length < 1) {
+			return false;
+		}
+	},
 
 	checkPagePath: function(query) {
 		let pagePath = window.location.pathname;
