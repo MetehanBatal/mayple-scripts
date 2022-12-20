@@ -316,6 +316,9 @@ let briefHench = {
 		$('#meeting-container').removeClass('hidden');
 		$('.meeting-opener').addClass('hidden');
 
+		$('.brief-title-block').addClass('hidden');
+		$(`.brief-title-block[step='4']`).removeClass('hidden');
+
 		let container = $('#meeting-container');
 
 		let template = '';
