@@ -223,7 +223,7 @@ let blogsHench = {
 				$(`div[rich-text-block="${tocContainer}"] h2`).each(function(index, heading) {
 					let headingContext = heading.textContent;
 					heading.id = headingContext.replaceAll(' ', '-').replaceAll('?', '').replaceAll('.', '').toLowerCase();
-					toc.find('.toc-list').append(`<li class="toc-list-item"><p data-scroll-to="${heading.id}" class="toc-link scroller node-name--H2">${headingContext}</p><div class="h3-container"></div></li>`);
+					toc.find('.toc-list').append(`<li class="toc-list-item"><a href="#${heading.id}" data-scroll-to="${heading.id}" class="toc-link scroller node-name--H2">${headingContext}</a><div class="h3-container"></div></li>`);
 					
 				});
 			}
@@ -232,7 +232,8 @@ let blogsHench = {
 }
 
 $(document).ready(function() {	
-	$('.scroller').click(function() {
+	$('.scroller').click(function(e) {
+		e.preventDefault();
 		let container = $(this).closest('.toc-render-here').data('article-container');
 		let scrollTo = $(this).data('scroll-to');
 		$('.toc-list-item').removeClass('active');
