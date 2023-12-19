@@ -108,7 +108,7 @@ let csHench = {
 
 	loadObserver: function() {
 		const observer = new IntersectionObserver(csHench.handleIntersection, observerOptions);
-		const target = document.querySelectorAll('#case-study-card-container .study-cases-collection-item')[document.querySelectorAll('#case-study-card-container .study-cases-collection-item').length - 50];
+		const target = document.querySelectorAll('#case-study-card-container .study-cases-collection-item')[document.querySelectorAll('#case-study-card-container .study-cases-collection-item').length - 20];
 		console.log("target: ", target);
 		observer.observe(target);
 	},
