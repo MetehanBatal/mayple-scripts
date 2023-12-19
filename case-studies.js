@@ -31,11 +31,12 @@ let csHench = {
 		let items = data.data.items;
 		const container = document.getElementById('case-study-card-container');
 
+		console.log(items.filter(item => item.fieldData['has-image'] === 'f').length, items.filter(item => item.fieldData['has-image'] === 't').length);
+
 		items.forEach(function(item) {
 			if (item.isDraft || item.isArchived) { return; }
 		
 			itemData = item.fieldData;
-			console.log('Appending: ', items.length);
 		
 			let hasMailchimp = itemData.ismailchimp ? 'hasMailchimp' : '';
 			let imageURL = hasMailchimp === 'hasMailchimp' ? itemData['marketer-image-url']['url'] : `https://static.cdn.mayple.com/website/img/success_stories/${itemData.slug}.jpg`;
@@ -120,7 +121,7 @@ let csHench = {
 			if (csHench.scrollDirection === 'down' && entry.isIntersecting) {
 				csHench.loadData();
 			} else {
-				console.log('do nothing: ', csHench.scrollDirection, entry.isIntersecting);
+				// console.log('do nothing: ', csHench.scrollDirection, entry.isIntersecting);
 			}
 
 			csHench.previousY = currentY;
