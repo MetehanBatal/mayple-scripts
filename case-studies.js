@@ -38,7 +38,7 @@ let csHench = {
 		
 			let hasMailchimp = itemData.ismailchimp ? 'hasMailchimp' : '';
 			let imageURL = hasMailchimp === 'hasMailchimp' ? itemData['marketer-image-url']['url'] : `https://static.cdn.mayple.com/website/img/success_stories/${itemData.slug}.jpg`;
-
+			console.log(itemData);
 			let hasTarget = itemData["target-kpi"] ? itemData["target-kpi"] : '';
 			let hasTargetted = itemData["targetted-kpi"] ? itemData["targetted-kpi"] : '';
 			let industries = itemData['skills-used'].split(",");
