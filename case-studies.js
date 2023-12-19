@@ -18,7 +18,7 @@ let csHench = {
 	previousY: 0,
 
 	loadData: function() {
-		console.log('Offset: ', offsetNumber);
+		console.log('Offset: ', csHench.offsetNumber);
 		fetch(`https://miracle.novus.studio/mayple/view?collectionId=6437e3124e5a5d375f887058&limit=100&offset=${csHench.offsetNumber}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
@@ -97,14 +97,14 @@ let csHench = {
 			}
 		});
 
-		offsetNumber = offsetNumber + 100;
+		csHench.offsetNumber = csHench.offsetNumber + 100;
 		
 		setTimeout(function() {
 			csHench.loadObserver();
 		}, 360);
 
 		if (csHench.filterCount < 1) {
-			document.getElementById('visible-count').innerHTML = offsetNumber;
+			document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
 		}
 	},
 
@@ -196,7 +196,7 @@ $(document).ready(function() {
 		$('#case-study-card-container .study-cases-collection-item').removeClass('hidden');
 		$("select[fs-cmsfilter-field='Service']").val('');
 		$("select[fs-cmsfilter-field='Industry']").val('');
-		document.getElementById('visible-count').innerHTML = offsetNumber;
+		document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
 	});
 });
 
