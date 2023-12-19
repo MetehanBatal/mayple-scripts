@@ -18,6 +18,8 @@ let csHench = {
 	previousY: 0,
 
 	loadData: function() {
+		if (csHench.offsetNumber > 3000) {
+			return; }
 		console.log('Offset: ', csHench.offsetNumber);
 		fetch(`https://miracle.novus.studio/mayple/view?collectionId=6437e3124e5a5d375f887058&limit=100&offset=${csHench.offsetNumber}`, requestOptions)
 			.then(response => response.json())
