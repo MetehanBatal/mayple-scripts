@@ -31,8 +31,6 @@ let csHench = {
 		let items = data.data.items;
 		const container = document.getElementById('case-study-card-container');
 
-		console.log(items.filter(item => item.fieldData['has-image'] === 'f').length, items.filter(item => item.fieldData['has-image'] === 't').length);
-
 		items.forEach(function(item) {
 			if (item.isDraft || item.isArchived) { return; }
 		
@@ -97,13 +95,18 @@ let csHench = {
 		});
 
 		csHench.offsetNumber = csHench.offsetNumber + 100;
-		
-		setTimeout(function() {
-			csHench.loadObserver();
-		}, 360);
 
-		if (csHench.filterCount < 1) {
-			document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
+		if (items.filter(item => item.fieldData['has-image'] === 'f').length < 40) {
+			console.warning('Re-called loadData due to insufficient result.');
+			csHench.loadData();
+		} else {
+			setTimeout(function() {
+				csHench.loadObserver();
+			}, 360);
+
+			if (csHench.filterCount < 1) {
+				document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
+			}
 		}
 	},
 
