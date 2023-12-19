@@ -104,7 +104,7 @@ let csHench = {
 		} else {
 			setTimeout(function() {
 				csHench.loadObserver();
-			}, 360);
+			}, 60);
 
 			if (csHench.filterCount < 1) {
 				document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
@@ -143,7 +143,12 @@ let csHench = {
 			return;
 		}
 
+		$('#case-study-card-container').addClass('hidden');
 		$('.w-layout-blockcontainer').addClass('hidden');
+
+		$('.loader-holder').removeClass('hidden');
+
+		csHench.loadData();
 
 		console.log('Selected service: ', selectedFilter);
 
@@ -162,7 +167,7 @@ let csHench = {
 				csHench.filterItems(selectedFilter, type);
 
 				csHench.filterCount = csHench.filterCount + 1;
-			}, 1600);
+			}, 300);
 		} else {
 			document.getElementById('visible-count').innerHTML = $('.study-cases-collection-item:not(".hidden")').length;
 		}
