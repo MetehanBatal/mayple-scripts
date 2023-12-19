@@ -48,8 +48,6 @@ let csHench = {
 			const industriesHTML = industriesDivs.join("");
 			
 			if (itemData['has-image'] === 'f' && itemData.results.length > 0) {
-				index = index + 1;
-
 				let cardTemplate =
 					`<div class="study-cases-collection-item dynamic-case-study-item ${hasMailchimp}">
 						<div class="casestudy-pagelist-card">
@@ -61,7 +59,7 @@ let csHench = {
 									</div>
 									
 									<div class="w-embed">
-										<img id="case-study-img--${index}" class="casestudy-pagelist-logo casestudy-pagelist-cover new" src="${imageURL}" data-name="${itemData.slug}">
+										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new" src="${imageURL}" data-name="${itemData.slug}">
 									</div>
 								</div>
 							</a>
