@@ -36,13 +36,13 @@ let csHench = {
 		
 			itemData = item.fieldData;
 			
-			if (itemData['has-image'] === 'f' && itemData.results.length > 0 && itemData['skills-used']) {
+			if (itemData['has-image'] === 'f' && itemData.results.length > 0) {
 				let hasMailchimp = itemData.ismailchimp ? 'hasMailchimp' : '';
 				let imageURL = hasMailchimp === 'hasMailchimp' ? itemData['marketer-image-url']['url'] : `https://static.cdn.mayple.com/website/img/success_stories/${itemData.slug}.jpg`;
 				console.log(itemData);
 				let hasTarget = itemData["target-kpi"] ? itemData["target-kpi"] : '';
 				let hasTargetted = itemData["targetted-kpi"] ? itemData["targetted-kpi"] : '';
-				let industries = itemData['skills-used'].split(",");
+				let industries = itemData['skills-used'] ? itemData['skills-used'].split(",") : '';
 				const uniqueIndustries = [...new Set(industries)];
 				const industriesDivs = uniqueIndustries.map(industry => `<div class="brand-area">${industry}</div>`);
 				const industriesHTML = industriesDivs.join("");
