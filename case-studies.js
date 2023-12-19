@@ -97,7 +97,7 @@ let csHench = {
 		csHench.offsetNumber = csHench.offsetNumber + 100;
 
 		if (items.filter(item => item.fieldData['has-image'] === 'f').length < 40) {
-			console.warning('Re-called loadData due to insufficient result.');
+			console.warn('Re-called loadData due to insufficient result.');
 			csHench.loadData();
 		} else {
 			setTimeout(function() {
