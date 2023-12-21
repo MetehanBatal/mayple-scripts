@@ -168,7 +168,7 @@ let csHench = {
 				csHench.filterCount = csHench.filterCount + 1;
 			}, 300);
 		} else {
-			document.getElementById('visible-count').innerHTML = $('.study-cases-collection-item:not(".hidden")').length;
+			document.getElementById('visible-count').innerHTML = $('#case-study-card-container .study-cases-collection-item:not(".hidden")').filter((index, el) => $(el).find(`input[name="find-${type}"]`).val().includes(selectedFilter)).length;
 		}
 	}
 };
