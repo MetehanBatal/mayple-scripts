@@ -148,7 +148,7 @@ let csHench = {
 		}
 
 		document.getElementById('visible-count').innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
-		
+
 		$('#case-study-card-container').addClass('hidden');
 		$('.w-layout-blockcontainer').addClass('hidden');
 
@@ -166,7 +166,7 @@ let csHench = {
 			}
 		});
 
-		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
+		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 19 && csHench.filterCount < 5) {
 			csHench.filterCount = csHench.filterCount + 1;
 			csHench.loadData('filtration');
 		} else {
