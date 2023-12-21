@@ -147,6 +147,8 @@ let csHench = {
 			return;
 		}
 
+		document.getElementById('visible-count').innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
+		
 		$('#case-study-card-container').addClass('hidden');
 		$('.w-layout-blockcontainer').addClass('hidden');
 
