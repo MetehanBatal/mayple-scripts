@@ -162,11 +162,11 @@ let csHench = {
 		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
 			csHench.loadData();
 			
-			setTimeout(function() {
-				csHench.filterItems(selectedFilter, type);
+			// setTimeout(function() {
+			// 	csHench.filterItems(selectedFilter, type);
 
-				csHench.filterCount = csHench.filterCount + 1;
-			}, 300);
+			// 	csHench.filterCount = csHench.filterCount + 1;
+			// }, 300);
 		} else {
 			document.getElementById('visible-count').innerHTML = $('#case-study-card-container .study-cases-collection-item:not(".hidden")').filter((index, el) => $(el).find(`input[name="find-${type}"]`).val().includes(selectedFilter)).length;
 		}
