@@ -165,6 +165,7 @@ let csHench = {
 		});
 
 		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
+			csHench.filterCount = csHench.filterCount + 1;
 			csHench.loadData('filtration');
 			
 			// setTimeout(function() {
