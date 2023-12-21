@@ -11,11 +11,14 @@ const requestOptions = {
 
 let csHench = {
 	offsetNumber: 0,
-	filterCount: 0,
 
+	filterCount: 0,
+	selectedFilter: '',
+	selectedFilterType: '',
+
+	previousY: 0,
 	lastScrollTop: 0,
 	scrollDirection: 'down',
-	previousY: 0,
 
 	loadData: function() {
 		if (csHench.offsetNumber > 3000) {
@@ -24,7 +27,7 @@ let csHench = {
 		fetch(`https://miracle.novus.studio/mayple/view?collectionId=6437e3124e5a5d375f887058&limit=100&offset=${csHench.offsetNumber}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
-				csHench.appendCards(result);
+				csHench.appendCards(result, from);
 			})
 			.catch(error => console.log('error', error));
 	},
@@ -107,6 +110,8 @@ let csHench = {
 
 			if (csHench.filterCount < 1) {
 				document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
+			} else {
+				csHench.filterItems();
 			}
 		}
 	},
@@ -132,8 +137,8 @@ let csHench = {
 		});
 	},
 
-	filterItems: function(selectedFilter, type) {
-		if (selectedFilter.length < 2) {
+	filterItems: function() {
+		if (csHench.selectedFilter.length < 2) {
 			// removed filter
 			//
 			$('.w-layout-blockcontainer').removeClass('hidden');
@@ -149,10 +154,10 @@ let csHench = {
 
 		// csHench.loadData();
 
-		console.log('Selected service: ', selectedFilter);
+		console.log('Selected service: ', csHench.selectedFilter);
 
 		$('#case-study-card-container .study-cases-collection-item:not(".hidden")').each(function(index, card) {
-			if (!$(this).find(`input[name="find-${type}"]`).val().includes(selectedFilter)) {
+			if (!$(this).find(`input[name="find-${csHench.selectedFilterType}"]`).val().includes(csHench.selectedFilter)) {
 				$(this).addClass('hidden');
 			} else {
 				$(this).removeClass('hidden');
@@ -160,15 +165,15 @@ let csHench = {
 		});
 
 		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
-			csHench.loadData();
+			csHench.loadData('filtration');
 			
 			// setTimeout(function() {
-			// 	csHench.filterItems(selectedFilter, type);
+			// 	csHench.filterItems(csHench.selectedFilter, type);
 
 			// 	csHench.filterCount = csHench.filterCount + 1;
 			// }, 300);
 		} else {
-			document.getElementById('visible-count').innerHTML = $('#case-study-card-container .study-cases-collection-item:not(".hidden")').filter((index, el) => $(el).find(`input[name="find-${type}"]`).val().includes(selectedFilter)).length;
+			document.getElementById('visible-count').innerHTML = $('#case-study-card-container .study-cases-collection-item:not(".hidden")').filter((index, el) => $(el).find(`input[name="find-${csHench.selectedFilterType}"]`).val().includes(selectedFilter)).length;
 		}
 	}
 };
@@ -191,11 +196,15 @@ $(document).ready(function() {
 	});
 
 	$("select[fs-cmsfilter-field='Service']").change(function() {
-		csHench.filterItems($(this).val(), 'service');
+		csHench.selectedFilter = $(this).val();
+		csHench.selectedFilterType = 'service';
+		csHench.filterItems();
 	});
 
 	$("select[fs-cmsfilter-field='Industry']").change(function() {
-		csHench.filterItems($(this).val(), 'industry');
+		csHench.selectedFilter = $(this).val();
+		csHench.selectedFilterType = 'industry';
+		csHench.filterItems();
 	});
 
 	$(".fn-case-reset-layout").click(function() {
