@@ -27,7 +27,7 @@ let csHench = {
 		fetch(`https://miracle.novus.studio/mayple/view?collectionId=6437e3124e5a5d375f887058&limit=100&offset=${csHench.offsetNumber}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
-				csHench.appendCards(result, from);
+				csHench.appendCards(result);
 			})
 			.catch(error => console.log('error', error));
 	},
