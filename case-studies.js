@@ -147,7 +147,7 @@ let csHench = {
 
 		$('.loader-holder').removeClass('hidden');
 
-		csHench.loadData();
+		// csHench.loadData();
 
 		console.log('Selected service: ', selectedFilter);
 
@@ -159,7 +159,7 @@ let csHench = {
 			}
 		});
 
-		if ($('.study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
+		if ($('#case-study-card-container .study-cases-collection-item:not(".hidden")').length < 20 && csHench.filterCount < 5) {
 			csHench.loadData();
 			
 			setTimeout(function() {
