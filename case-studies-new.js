@@ -17,8 +17,6 @@ let csHench = {
 	filterCount: 0,
 	selectedIndustry: '',
 	selectedService: '',
-	selectedFilter: '',
-	selectedFilterType: '',
 
 	previousY: 0,
 	lastScrollTop: 0,
@@ -139,15 +137,6 @@ let csHench = {
 	},
 
 	filterItems: function() {
-		if (csHench.selectedFilter.length < 2) {
-			// removed filter
-			//
-			$('#cs-main-content-holder').removeClass('hidden');
-			$('#cs-filter-results-holder').addClass('hidden');
-
-			return;
-		}
-
 		document.getElementById('visible-count').innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 
 		$('#cs-main-content-holder').addClass('hidden');
@@ -156,8 +145,6 @@ let csHench = {
 		$('.loader-holder').removeClass('hidden');
 
 		// csHench.loadData();
-
-		console.log('Selected service: ', csHench.selectedFilter);
 
 		csHench.loadData();
 
