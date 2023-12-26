@@ -55,7 +55,7 @@ let csHench = {
 				// let hasTarget = itemData["target-kpi"] ? itemData["target-kpi"] : '';
 				// let hasTargetted = itemData["targetted-kpi"] ? itemData["targetted-kpi"] : '';
 				const skillsDivs = item.skillsUsed.map(skillUsed => `<div class="brand-area">${skillUsed}</div>`);
-				const skillsHTML = skillsDivs.join("");
+				const skillsHTML = skillsDivs.join("");z
 
 				let cardTemplate =
 					`<div class="study-cases-collection-item dynamic-case-study-item ${item.isMailchimp ? 'hasMailchimp' : ''}">
@@ -99,6 +99,7 @@ let csHench = {
 		csHench.offsetNumber = csHench.offsetNumber + 100;
 
 		if (items.filter(item => item.hasImage === false).length < 40) {
+			console.log(items);
 			console.warn('Re-called loadData due to insufficient result.');
 			csHench.loadData();
 		} else {
