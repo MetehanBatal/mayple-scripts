@@ -51,7 +51,6 @@ let csHench = {
 			itemData = item.fieldData;
 			
 			if (item.results.length > 0) {
-				// let hasMailchimp = item.isMailchimp ? 'hasMailchimp' : '';
 				// let imageURL = hasMailchimp === 'hasMailchimp' ? itemData['marketer-image-url']['url'] : `https://static.cdn.mayple.com/website/img/success_stories/${itemData.slug}.jpg`;
 				// let hasTarget = itemData["target-kpi"] ? itemData["target-kpi"] : '';
 				// let hasTargetted = itemData["targetted-kpi"] ? itemData["targetted-kpi"] : '';
@@ -59,12 +58,12 @@ let csHench = {
 				const skillsHTML = skillsDivs.join("");
 
 				let cardTemplate =
-					`<div class="study-cases-collection-item dynamic-case-study-item ${hasMailchimp}">
+					`<div class="study-cases-collection-item dynamic-case-study-item ${item.isMailchimp ? 'hasMailchimp' : ''}">
 						<div class="casestudy-pagelist-card">
 							<a href="https://www.mayple.com/case-studies/${item.slug}" class="study-case-list-img new w-inline-block">
 								<div class="casestudy-pagelist-logo-wrapper new">
 									<div class="w-embed">
-										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new" src="${imageURL}" data-name="${item.slug}">
+										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new" src="${item.marketerImageURL}" data-name="${item.slug}">
 									</div>
 								</div>
 							</a>
