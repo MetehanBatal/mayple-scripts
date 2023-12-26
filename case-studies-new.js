@@ -27,8 +27,8 @@ let csHench = {
 			return; }
 		console.log('Offset: ', csHench.offsetNumber);
 		let filtrationParams = '';
-		if (selectedIndustry.length > 0 || selectedService.length > 0) {
-			filtrationParams = `industry=${selectedIndustry}&service=${selectedService}`;
+		if (csHench.selectedIndustry.length > 0 || csHench.selectedService.length > 0) {
+			filtrationParams = `industry=${csHench.selectedIndustry}&service=${csHench.selectedService}`;
 		}
 		
 		fetch(`${baseURL}?limit=100&offset=${filtrationParams.length > 0 ? 0 : csHench.offsetNumber}&${filtrationParams}`, requestOptions)
@@ -43,7 +43,7 @@ let csHench = {
 		let items = data.data;
 
 		let container = document.querySelector('#cs-main-content-holder .case-study-card-container');
-		if (selectedIndustry.length > 0 || selectedService.length > 0) {
+		if (csHench.selectedIndustry.length > 0 || csHench.selectedService.length > 0) {
 			container = document.querySelector('#cs-main-content-holdercs-filter-results-holder .case-study-card-container');
 		}
 
