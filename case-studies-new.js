@@ -137,6 +137,8 @@ let csHench = {
 	},
 
 	filterItems: function() {
+		document.querySelector('#cs-filter-results-holder .case-study-card-container').innerHTML = '';
+
 		document.getElementById('visible-count').innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 
 		$('#cs-main-content-holder').addClass('hidden');
