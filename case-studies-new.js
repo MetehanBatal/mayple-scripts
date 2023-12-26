@@ -188,7 +188,7 @@ $(document).ready(function() {
 	});
 
 	$("select[fs-cmsfilter-field='Industry']").change(function() {
-		csHench.selectedIndustry = $(this).val();
+		csHench.selectedIndustry = $(this).val().replace('&', '%26');
 		csHench.filterItems();
 	});
 
