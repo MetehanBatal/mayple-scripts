@@ -45,7 +45,7 @@ let csHench = {
 
 		let container = document.querySelector('#cs-main-content-holder .case-study-card-container');
 		if (csHench.selectedIndustry.length > 0 || csHench.selectedService.length > 0) {
-			container = document.querySelector('#cs-main-content-holdercs-filter-results-holder .case-study-card-container');
+			container = document.querySelector('#cs-filter-results-holder .case-study-card-container');
 		}
 
 		items.forEach(function(item) {
