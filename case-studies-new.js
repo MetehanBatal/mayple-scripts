@@ -97,7 +97,7 @@ let csHench = {
 			}
 		});
 
-		csHench.offsetNumber = csHench.offsetNumber + 100;
+		csHench.offsetNumber = csHench.filterCount < 1 ? csHench.offsetNumber + 100 : csHench.offsetNumber;
 
 		// if (items.filter(item => item.hasImage).length < 40) {
 		// 	console.warn('Re-called loadData due to insufficient result.');
@@ -107,11 +107,7 @@ let csHench = {
 				csHench.loadObserver();
 			}, 60);
 
-			if (csHench.filterCount < 1) {
-				document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
-			} else {
-				csHench.filterItems();
-			}
+			document.getElementById('visible-count').innerHTML = csHench.filterCount < 1 ? csHench.offsetNumber : document.querySelectorAll('#cs-filter-results-holder .study-cases-collection-item').length;
 		// }
 	},
 
@@ -149,6 +145,7 @@ let csHench = {
 		// csHench.loadData();
 
 		csHench.loadData();
+		csHench.filterCount = csHench.filterCount + 1;
 
 		// $('#case-study-card-container .study-cases-collection-item:not(".hidden")').each(function(index, card) {
 		// 	if (!$(this).find(`input[name="find-${csHench.selectedFilterType}"]`).val().includes(csHench.selectedFilter)) {
@@ -202,6 +199,9 @@ $(document).ready(function() {
 		
 		$("select[fs-cmsfilter-field='Service']").val('');
 		$("select[fs-cmsfilter-field='Industry']").val('');
+
+		csHench.selectedIndustry = '';
+		csHench.selectedService = '';
 		
 		document.getElementById('visible-count').innerHTML = csHench.offsetNumber;
 	});
