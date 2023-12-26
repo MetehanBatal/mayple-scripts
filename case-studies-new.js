@@ -30,10 +30,11 @@ let csHench = {
 		if (csHench.selectedIndustry.length > 0 || csHench.selectedService.length > 0) {
 			filtrationParams = `industry=${csHench.selectedIndustry}&service=${csHench.selectedService}`;
 		}
-		
+		console.log('URL: ', `${baseURL}?limit=100&offset=${filtrationParams.length > 0 ? 0 : csHench.offsetNumber}&${filtrationParams}`);
 		fetch(`${baseURL}?limit=100&offset=${filtrationParams.length > 0 ? 0 : csHench.offsetNumber}&${filtrationParams}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
+				console.log('Appending results');
 				csHench.appendCards(result);
 			})
 			.catch(error => console.log('error', error));
