@@ -99,10 +99,10 @@ let csHench = {
 
 		csHench.offsetNumber = csHench.offsetNumber + 100;
 
-		if (items.filter(item => item.hasImage).length < 40) {
-			console.warn('Re-called loadData due to insufficient result.');
-			csHench.loadData();
-		} else {
+		// if (items.filter(item => item.hasImage).length < 40) {
+		// 	console.warn('Re-called loadData due to insufficient result.');
+		// 	csHench.loadData();
+		// } else {
 			setTimeout(function() {
 				csHench.loadObserver();
 			}, 60);
@@ -112,7 +112,7 @@ let csHench = {
 			} else {
 				csHench.filterItems();
 			}
-		}
+		// }
 	},
 
 	loadObserver: function() {
