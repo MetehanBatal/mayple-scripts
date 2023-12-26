@@ -55,7 +55,7 @@ let csHench = {
 				// let hasTarget = itemData["target-kpi"] ? itemData["target-kpi"] : '';
 				// let hasTargetted = itemData["targetted-kpi"] ? itemData["targetted-kpi"] : '';
 				const skillsDivs = item.skillsUsed.map(skillUsed => `<div class="brand-area">${skillUsed}</div>`);
-				const skillsHTML = skillsDivs.join("");z
+				const skillsHTML = skillsDivs.join("");
 
 				let cardTemplate =
 					`<div class="study-cases-collection-item dynamic-case-study-item ${item.isMailchimp ? 'hasMailchimp' : ''}">
@@ -63,7 +63,7 @@ let csHench = {
 							<a href="https://www.mayple.com/case-studies/${item.slug}" class="study-case-list-img new w-inline-block">
 								<div class="casestudy-pagelist-logo-wrapper new">
 									<div class="w-embed">
-										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new" src="${item.marketerImageURL}" data-name="${item.slug}">
+										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new ${item.hasImage ? '' : 'case-studies-bg'}" src="${item.hasImage ? item.marketerImageURL: 'https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/6396fa7634667b3cb8f10d0a_case-studies-bg.webp'}" data-name="${item.slug}">
 									</div>
 								</div>
 							</a>
