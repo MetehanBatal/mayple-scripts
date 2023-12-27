@@ -64,7 +64,7 @@ let csHench = {
 							<a href="https://www.mayple.com/case-studies/${item.slug}" class="study-case-list-img new w-inline-block">
 								<div class="casestudy-pagelist-logo-wrapper new">
 									<div class="w-embed">
-										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new ${item.hasImage ? '' : 'case-studies-bg'}" src="${item.hasImage ? item.marketerImageURL: 'https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/6396fa7634667b3cb8f10d0a_case-studies-bg.webp'}" data-name="${item.slug}">
+										<img class="casestudy-pagelist-logo casestudy-pagelist-cover new ${item.hasImage ? '' : 'case-studies-bg'}" src="${item.hasImage || item.isMailchimp ? item.marketerImageURL : 'https://assets-global.website-files.com/5a68f082ae5eb70001efdda4/6396fa7634667b3cb8f10d0a_case-studies-bg.webp'}" data-name="${item.slug}">
 									</div>
 								</div>
 							</a>
