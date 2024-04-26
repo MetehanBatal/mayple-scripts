@@ -1580,3 +1580,10 @@ h3.mep-headline {
 		flex-direction: row;
 	}
 }
+
+/* CUSTOM OVERRIDE */
+
+.max-w-80rem {
+	max-width: 80rem !important;
+  	margin-inline: auto;
+}
