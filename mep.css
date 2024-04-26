@@ -124,6 +124,8 @@ main.mep {
 	font-size: 1.4rem;
 }
 
+
+
 h1.mep-offer-headline {
 	font-size: 5.6rem;
 	line-height: 7rem;
@@ -1017,6 +1019,8 @@ h3.mep-headline {
 
 	padding: 2.4rem;
 	background-color: rgba(255, 255, 255, .55);
+
+	font-weight: 300 !important;
 
 	border-radius: 1.6rem;
 }
