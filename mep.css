@@ -1,3 +1,70 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: transparent;
+	color: #333;
+	max-width: 100%;
+}
+
+button {
+	background: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+p {
+	font-size: 1.8rem;
+	line-height: 1.4;
+	font-weight: 300;
+}
+
+ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+summary {
+	list-style-type: none;
+}
+  
+summary::-webkit-details-marker {
+	display: none; /* Chrome */
+}
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}
+
+input {
+	font-size: 1.6rem;
+}
+
+input:focus-visible {
+	outline: 0;
+}
+
+
 .mobile-hidden {
 	display: none;
 }
