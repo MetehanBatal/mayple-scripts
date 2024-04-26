@@ -1567,6 +1567,15 @@ h3.mep-headline {
 	background:linear-gradient(to right, rgba(244,240,236), rgba(249,247,245));
 }
 
+
+.copyright {
+	color: #544845;
+	text-align: left;
+	font-weight: 500 !important;
+	font-size: 1.4rem !important;
+	line-height: 1.8rem;
+}
+
 @media screen and (min-width: 991px) {
 	.top-footer-links {
 		display: grid;
@@ -1578,6 +1587,10 @@ h3.mep-headline {
 
 	.bottom-footer {
 		flex-direction: row;
+	}
+
+	.copyright {
+		text-align: right;
 	}
 }
 
