@@ -1340,6 +1340,30 @@ h3.mep-headline {
 	color: #1300e7;
 }
 
+.high-touch-gradient-wrapper,.trusted-gradient-wrapper {
+	position: relative;
+}
+
+.high-touch-gradient-wrapper > img {
+	position: absolute;
+	top: 0;
+	z-index: 0;
+
+	opacity: 50%;
+	
+	filter: blur(10rem);
+}
+
+.trusted-gradient-wrapper > img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 0;
+	
+	filter: blur(10rem);
+	height: 100%;
+}
+
 
 @media screen and (min-width: 768px) {
 
