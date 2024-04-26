@@ -91,6 +91,7 @@ main.mep {
 
 .mep-section.sm {
 	padding-block: 4rem;
+	width: 100% !important;
 }
 
 .mep-section.xl {
