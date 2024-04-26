@@ -329,7 +329,7 @@ h3.mep-headline {
 	padding: 6.4rem 1.6rem;
 	margin-inline: auto;
 
-	background: url("/assets/images/mep/bg-rectangle.jpg");
+	background: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/662bb657da08df373233d504_bg-rectangle.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -902,7 +902,7 @@ h3.mep-headline {
 /*.high-touch-link*/
 
 .high-touch-link:hover .high-touch-grid-item {
-    background: url("/assets/images/mep/hover-bg.png");
+    background: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/662bb6886dab834414af3432_hover-bg.png");
     background-size: cover;
 
     transition: all .3s ease-in-out;
@@ -937,7 +937,7 @@ h3.mep-headline {
 
     content: "";
 
-    background-image: url("/assets/images/mep/hover-arrow-right.svg");
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/662bb6a0759cdd71774ec793_hover-arrow-right.svg");
     background-repeat: no-repeat;
     
     animation: slideIn 0.3s ease forwards;
@@ -1309,30 +1309,41 @@ h3.mep-headline {
 	height: 7.6rem;
 	min-width: 100%;
 
-	background-image: url(/assets/images/mep/resources/gradient-bg.svg);
+	background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/662bb6ca6dab834414af6740_gradient-bg.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
-@font-face {
-	font-family: 'Libre Baskerville';
-	src: url('/assets/fonts/libre-baskerville/Regular.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+.bottom-footer {
+	padding-block: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
 }
-@font-face {
-	font-family: 'Libre Baskerville';
-	src: url('/assets/fonts/libre-baskerville/Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Libre Baskerville';
-	src: url('/assets/fonts/libre-baskerville/Italic.woff2') format('woff2');
+
+.bottom-footer div {
+	font-size: 1.4rem;
+	color: rgba(0,0,0,.7);
+	line-height: 2rem;
 	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
+}
+
+.bottom-footer a {
+	font-size: inherit;
+	color: #1300e7;
+}
+.bottom-footer a:hover {
+	text-decoration: underline;
+	font-size: inherit;
+	color: #1300e7;
+}
+
+
+@media screen and (min-width: 768px) {
+
+	.bottom-footer {
+		flex-direction: row;
+	}
 }
