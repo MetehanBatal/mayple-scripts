@@ -1024,7 +1024,8 @@ h3.mep-headline {
 	padding: 2.4rem;
 	background-color: rgba(255, 255, 255, .55);
 
-	font-weight: 300 !important;
+	font-weight: 400 !important;
+	color: inherit !important;
 
 	border-radius: 1.6rem;
 }
