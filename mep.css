@@ -1600,3 +1600,7 @@ h3.mep-headline {
 	max-width: 80rem !important;
   	margin-inline: auto;
 }
+
+.padding-16rem {
+	padding-top: 16.4rem;
+}
