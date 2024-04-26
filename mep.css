@@ -592,7 +592,7 @@ input[type="number"] {
 
 		width: 100%;
 		
-		transform: translate(12rem, 2rem);
+		transform: translate(12rem, 8rem);
 		
 		padding: 11rem 0 11rem 11rem;
 		
@@ -1371,6 +1371,132 @@ h3.mep-headline {
 	
 	filter: blur(10rem);
 	height: 100%;
+}
+
+.mep-header {
+	min-height: auto;
+}
+
+.mep-nav {
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding:1.4rem 1.6rem;
+
+	max-width: 128rem;
+}
+
+.mep-nav-links {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+}
+
+.mep-link-item {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+
+	padding: .8rem 2.4rem;
+
+	border-radius: .8rem;
+	cursor: pointer;
+	transition: all .3s ease-in-out;
+}
+
+.mep-link-item:hover {
+	background-color: rgb(36, 24, 21,.05)
+}
+
+.mep-link-item p {
+	font-weight: 500;
+
+	color: #241815;
+}
+.mep-link-item img {
+	transition: all .3s ease-in-out;
+}
+
+.dropdown-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	min-width: 30rem;
+	min-height: fit-content;
+
+	padding: 1.6rem;
+
+	background-color: #FFFFFF;
+
+	transform: translate3d(0, 4rem, 0);
+
+	box-shadow: 0 1.6rem 2.4rem rgba(0, 0, 0, 0.12),
+				0 .2rem .6rem rgba(0, 0, 0, 0.08),
+				0 0rem .1rem rgba(0, 0, 0, 0.08);
+	
+	border-radius: 1.6rem;
+}
+
+.dropdown-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.3rem;
+
+	padding: 1.6rem;
+
+	border-radius: 1.6rem;
+
+	transition: all .3s ease-in-out;
+
+	cursor: pointer;
+}
+
+.dropdown-item:hover {
+	background-color: rgb(36, 24, 21,.05)
+}
+
+.mep-link-item.active img {
+	transform: rotate(180deg);
+}
+.mep-link-item.active {
+	background-color: rgb(36, 24, 21,.05)
+}
+
+.mep-dropdown-descriptions p:first-child {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 500;
+
+	color: #241815;
+}
+.mep-dropdown-descriptions p:last-child {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-weight: 300;
+
+	color: #241815;
+
+	opacity: .65;
+}
+
+.mep-nav-links {
+	display: none;
+}
+
+@media screen and (min-width: 479px) {
+	.mep-nav-links .dropdown-menu,
+	.mep-nav-links .mep-dropdown-descriptions {
+		flex-direction: column;
+	}
+
+	.mep-nav-links {
+		display: flex;
+	}
 }
 
 
