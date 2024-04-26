@@ -1055,6 +1055,9 @@ h3.mep-headline {
 .description-line p {
 	font-size: 1.6rem;
 }
+.description-line .font-sm {
+	font-size: 1.4rem;
+}
 
 h3.mep-headline {
 	margin-bottom: 2.4rem;
