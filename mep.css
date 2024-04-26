@@ -874,7 +874,6 @@ details[open] summary svg {
 
 h3.mep-headline {
 	max-width: 80rem;
-	margin: 0 auto .8rem !important
 }
 
 .high-touch-grid {
@@ -1041,6 +1040,8 @@ h3.mep-headline {
 	color: inherit !important;
 
 	border-radius: 1.6rem;
+
+	text-transform: inherit !important;
 }
 
 .description-line:not(:last-child) {
@@ -1049,6 +1050,10 @@ h3.mep-headline {
 
 .description-line p.font-bold {
 	min-width: 8rem;
+}
+
+.description-line p {
+	font-size: 1.6rem;
 }
 
 h3.mep-headline {
@@ -1387,7 +1392,21 @@ h3.mep-headline {
 }
 
 .mep-header {
-	min-height: auto;
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+    color: #232323c4;
+    z-index: 999;
+    transition: all .3s ease-in-out;
+    min-height: 8rem;
 }
 
 .mep-nav {
