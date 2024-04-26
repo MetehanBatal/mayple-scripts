@@ -1392,6 +1392,7 @@ h3.mep-headline {
 
 .mep-nav {
 	width: 100%;
+	max-width: 128rem;
 
 	display: flex;
 	align-items: center;
@@ -1399,7 +1400,7 @@ h3.mep-headline {
 
 	padding:1.4rem 1.6rem;
 
-	max-width: 128rem;
+	margin-inline: auto;
 }
 
 .mep-nav-links {
