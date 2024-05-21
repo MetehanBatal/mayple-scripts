@@ -1598,6 +1598,20 @@ h3.mep-headline {
 	}
 }
 
+.social-links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.6rem;
+    opacity: .8;
+    margin-block: 1.6rem;
+}
+
+.footer-description img {
+	max-width: 10.7rem;
+    margin-bottom: 1.6rem;
+}
+
 /* CUSTOM OVERRIDE */
 
 .max-w-80rem {
