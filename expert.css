@@ -1,0 +1,426 @@
+/* Mep Expert Hero */
+
+#mep-experts {
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664cefd415acb6c2e7a5125f_mep-experts-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    padding-bottom: 0;
+}
+
+.mep-expert-wrapper h1 {
+    font-weight: 300;
+}
+
+.mep-expert-wrapper p {
+    margin-block: 1.1rem 3.2rem;
+
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+
+    color: #241815;
+    opacity: .85;
+}
+
+.mep-expert-wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.mep-expert-contents {
+    width: 100%;
+    padding-bottom: 4rem;
+}
+
+.mep-expert-image {
+    width: 100%;
+    max-width: 40rem;
+
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin-top: auto;
+}
+
+.mep-expert-hero-metrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+
+    margin-top: 5.6rem;
+}
+.expert-hero-metric-item {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    padding: 1.6rem;
+
+    background-color: rgba(255, 255, 255, .35);
+
+    border-radius: 1.6rem;
+}
+
+.expert-hero-metric-item div:first-child {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+
+    font-family: "Libreville";
+}
+.expert-hero-metric-item div:last-child {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.expert-hero-metric-item .orange-text {
+    font-family: "Libreville";
+    font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+
+    .mep-expert-hero-metrics {
+        margin-top: 7.2rem;
+        flex-direction: row;
+    }
+
+    .mep-expert-wrapper h1 {
+        font-weight: 700;
+    }
+
+    .mep-expert-image {
+        display: flex;
+    }
+
+}
+
+
+/* Information Section */
+
+
+.mep-platform-information-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.2rem;
+
+    padding: 3.2rem 1.6rem;
+
+    background-color: rgba(255, 255, 255, .65);
+
+    border: .1rem solid #f4f0ec;
+
+    border-radius: 2.4rem;
+}
+
+.mep-platform-information-description h3 {
+    text-align: center;
+}
+
+.mep-platform-information-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.mep-platform-information-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.4rem;
+
+    margin-top: 4rem;
+}
+
+.mep-platform-information-item > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .8rem;
+}
+
+.information-list-title {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+
+    font-family: 'Libre Baskerville';
+    font-weight: 400;
+}
+
+.information-list-subtitle {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    color: rgba(36, 24, 21, .65);
+}
+
+.mep-platform-information-video-wrapper {
+    background-color: #F5F0ED;
+    border-radius: 3.2rem;
+
+    width: 100%;
+}
+
+.information-section-badge {
+    width: fit-content;
+    padding: .8rem 1.6rem;
+
+    background-color: #FFE9D2;
+    color: #B62416;
+
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+
+    border-radius: 3.2rem;
+
+    align-self: flex-start;
+
+    margin-bottom: 2.4rem;
+}
+
+.wistia_responsive_padding {
+    width: 100%;
+    height: 100%;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    min-height: 29rem !important;
+}
+
+@media screen and (min-width: 768px) {
+
+    .wistia_responsive_padding {
+        min-height: 54rem !important;
+    }
+
+    .mep-platform-information-wrapper {
+        flex-direction: row;
+        padding: 3.2rem;
+
+        gap: 6.4rem;
+    }
+
+    .mep-platform-information-description {
+        width: 50%;            
+    }
+
+    .mep-platform-information-description h3 {
+        text-align: left;
+    }
+
+    .mep-platform-information-video-wrapper {
+        background-color: #F5F0ED;
+        width: 50%;
+    }
+
+    .information-list-subtitle {
+        font-size: 2rem;
+        line-height: 2.6rem;
+
+        color: rgba(36, 24, 21, .65);
+    }
+
+}
+
+
+/* Brands With Gradient */
+
+
+.gradient-brands-outer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664ceff3b4f667b14f5cbe1e_brands-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    border-radius: 2.4rem;
+
+    padding: 4.8rem 3.2rem;
+}
+
+.gradient-brands-outer-wrapper p {
+    font-size: 2rem;
+    list-style: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: #FFFFFF;
+    opacity: .55;
+}
+
+.gradient-brands-wrapper {
+    width: 100%;
+    max-width: 96rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+
+    flex-wrap: wrap;
+    
+}
+
+
+/* Information Tab With Badge */
+
+
+.information-image-wrapper {
+    width: 100%;
+    max-height: 65rem;
+}
+
+.information-tab-wrapper {
+
+    background-color: rgba(255, 255, 255, .65);
+
+    border: .1rem solid #F4F0EC;
+
+    padding: 4rem 1.6rem;
+
+    border-radius: 1.6rem;
+}
+
+.informations-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+
+    margin-top: 2.4rem;
+}
+
+.information-tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .8rem;
+
+    padding-top: 2.4rem;
+
+    border-top: .2rem solid #E8E5E3;
+
+    transition: all .3s ease-in-out;
+
+    cursor: pointer;
+}
+
+.information-tab-title {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+
+    color: rgba(36, 24, 21, .55);
+    font-family: 'Libre Baskerville';
+
+    transition: all .3s ease-in-out;
+}
+
+.information-tab-subtitle {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    color: rgba(36, 24, 21, .35);
+    
+    transition: all .3s ease-in-out;
+}
+
+.information-tab-item.selected {
+    border-color: #FD5444;
+}
+
+.information-tab-item:hover .information-tab-title,.information-tab-item.selected .information-tab-title {
+    color: rgba(36, 24, 21, .85);
+}
+.information-tab-item:hover .information-tab-subtitle,.information-tab-item.selected .information-tab-subtitle {
+    color: rgba(36, 24, 21, .65);
+}
+
+.information-tab-wrapper img {
+    border-radius: 3.2rem;
+}
+
+.information-tab-header-subtitle {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    margin-block: .8rem 2.4rem;
+}
+
+.information-section-badge {
+    width: fit-content;
+    padding: .8rem 1.6rem;
+
+    margin-bottom: 1.6rem;
+
+    background-color: #FFE9D2;
+    color: #B62416;
+
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+
+    border-radius: 3.2rem;
+}
+
+.mobile-video-wrapper {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1.6rem;
+
+    overflow: hidden;
+}
+
+.mobile-video-wrapper iframe {
+    min-height: 45rem;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-video-wrapper {
+        display: none;
+    }
+    .informations-tabs  .wistia_responsive_padding {
+        display: none;
+    }
+
+    .information-tab-wrapper {
+        padding: 4.8rem 3.2rem;
+    }
+
+    .informations-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .wistia_responsive_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .information-tab-wrapper iframe {
+        width: 62rem;
+        height: 62rem;
+    }
+}
