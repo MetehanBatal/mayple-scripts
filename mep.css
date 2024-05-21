@@ -1645,3 +1645,10 @@ h3.mep-headline {
 .mep-header .mep-cta-button {
 	opacity: 1 !important;
 }
+
+.mep-header a {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 500;
+    color: #241815;
+}
