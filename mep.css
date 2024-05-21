@@ -1642,6 +1642,6 @@ h3.mep-headline {
 	padding-top: 16.4rem;
 }
 
-.mobile-video-wrapper.hidden {
-	display: none !important;
+.mep-header .mep-cta-button {
+	opacity: 1 !important;
 }
