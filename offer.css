@@ -1,3 +1,7 @@
+h3.mep-headline {
+	max-width: none !important;
+}
+
 /* Offer Hero */
 
 #offer-hero a {
