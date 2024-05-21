@@ -106,6 +106,10 @@ main.mep {
 	margin-inline: auto;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .fadeOut {
 	opacity: 0;
 

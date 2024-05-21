@@ -5,7 +5,7 @@
 }
 
 #offer-hero {
-    background-image: url("/assets/images/mep/offers/mep-offer-hero-bg.png");
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664cc8a229d88ac76be0fdbd_mep-offer-hero-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -158,7 +158,7 @@
     right: 0;
     bottom: 0;
 
-    background-image: url("/assets/images/mep/offers/how-it-works-bg.png");
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664cc8b48c519ad6f3179257_how-it-works-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -518,4 +518,34 @@ h3.mep-headline.text-center {
     .light-font {
         font-weight: 700;
     }
+}
+
+
+/* MEP OFFER GRADIENT */
+
+.trusted-gradient-wrapper,.how-it-works-gradient {
+    position: relative;
+}
+
+.how-it-works-gradient {
+    position: relative;
+    z-index: 1;
+}
+
+.trusted-gradient-wrapper > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    
+    filter: blur(10rem);
+    height: 100%;
+}
+.how-it-works-gradient > img {
+    position: absolute;
+
+    bottom: 0;
+    z-index: -1;
+    
+    filter: blur(15rem);
 }
