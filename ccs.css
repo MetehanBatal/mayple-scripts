@@ -1,7 +1,7 @@
 /* CCS HERO */
 
 section.ccs {
-        background-image: url("/assets/images/lp/ccs/ccs-hero.png");
+        background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664cecd43825ce46f5f8aa28_ccs-hero.png");
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -187,7 +187,7 @@ span.orange-text {
     top: 0;
     bottom: 0;
     right: 0;
-    background-image: url("/assets/images/lp/ccs/ccs-section-bg.png");
+    background-image: url("https://uploads-ssl.webflow.com/5a68f082ae5eb70001efdda4/664ced3d37a7025e3dc03342_ccs-section-bg.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
