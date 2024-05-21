@@ -1580,6 +1580,25 @@ h3.mep-headline {
 	line-height: 1.8rem;
 }
 
+.mep-header p {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 500;
+    color: #241815;
+}
+
+
+.mep-header .mep-dropdown-descriptions p:first-child {
+	margin-bottom: 0;
+}
+.mep-header .mep-dropdown-descriptions p:last-child {
+	font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 300;
+    color: #241815;
+    opacity: .65;
+}
+
 @media screen and (min-width: 991px) {
 	.top-footer-links {
 		display: grid;
