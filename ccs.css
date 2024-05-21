@@ -42,7 +42,7 @@ section.ccs {
 
 /* CCS Information  */
 
-#ccs h3.mep-headline {
+.ccs-section h3.mep-headline {
     font-size: 4.2rem;
     line-height: 5.6rem;
     text-align: center;
