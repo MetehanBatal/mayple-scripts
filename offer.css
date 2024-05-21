@@ -1,0 +1,521 @@
+/* Offer Hero */
+
+#offer-hero a {
+    text-decoration: underline;
+}
+
+#offer-hero {
+    background-image: url("/assets/images/mep/offers/mep-offer-hero-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.offer-hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4.8rem;
+}
+
+#offer-hero h1.mep-headline {
+    font-size: 6rem;
+    line-height: 8rem;
+    margin-block: 1.1rem;
+}
+#offer-hero .mep-cta-button {
+    margin-top: 4.8rem
+}
+
+.offer-hero-highlighted {
+    width: 100%;
+    max-width: 42.6rem;
+
+    padding: 2.4rem 2.4rem 1.6rem 2.4rem;
+
+    border-top: .1rem dashed #FD5444;
+    
+    background-color: rgba(255, 255, 255, .25);
+
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    color: rgba(36,24,21,.85);
+}
+
+.mep-offer-badge {
+    width: fit-content;
+
+    padding: .8rem 1.6rem;
+
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+
+    background-color: #FFEAB3;
+    color: #805C00;
+
+    border-radius: 3.2rem;
+}
+
+@media screen and (min-width: 768px) {
+
+    .offer-hero-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .offer-hero-highlighted {
+        font-size: 2rem;
+        line-height: 2.6rem;
+    }
+
+    h1.mep-headline {
+        text-transform: capitalize;
+    }
+
+}
+
+
+/* OFFER DESCRIPTION */
+
+.offer-description {
+    font-size: 2.8rem;
+    line-height: 3.6rem;
+    font-family: 'Libre Baskerville';
+    font-weight: 700;
+    
+    margin-bottom: 2.4rem;
+}
+
+.offer-information-description p:last-child {
+    font-size: 2rem;
+    line-height: 2.6rem;
+}
+.offer-information-description p {
+    color: #241815;
+}
+
+.offer-information-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer-information-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.2rem;
+
+    padding-block: 6.4rem;
+}
+
+.offer-information-description {
+    width: 100%;
+}
+
+.offer-information-image {
+    width: 100%;
+    border-radius: 1.6rem;
+    overflow: hidden;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+    .offer-information-item {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 6.4rem;
+    }
+
+}
+
+
+
+/* HOW IT WORKS */
+
+
+.bg-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(36, 24, 21, .53);
+    z-index: 2;
+}
+
+.bg-linear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url("/assets/images/mep/offers/how-it-works-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    z-index: 1;
+}
+.how-it-works-wrapper {
+    position: relative;
+
+    background: rgba(36, 24, 21, .53);
+
+    padding: 3.2rem;
+
+    margin-top: 4.8rem;
+
+    border-radius: 2.4rem;
+
+    overflow: hidden;
+}
+
+.how-it-works-contents {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    z-index: 3;
+}
+
+.how-it-works-item {
+    width: 100%;
+}
+
+.item-index {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    font-weight: 500;
+
+    background-color: #FD5444;
+    color: #FFFFFF;
+
+    border-radius: 50%;
+}
+
+.how-it-works-title {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    
+    color: #FFFFFF;
+
+    margin-block: 1.6rem;
+}
+.how-it-works-subtitle {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    color: #FFFFFF;
+    opacity: .65;
+}
+
+.how-it-works-sub {
+    margin-top: .8rem;
+
+    text-align: center;
+
+    color: #241815;
+    opacity: .85;        
+}
+
+@media screen and (min-width: 768px) {
+    .how-it-works-contents {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+/* Work With */
+
+
+.mep-container.how-it-works > p.text-center {
+    font-size: 2rem;
+    line-height: 2.6rem;
+
+    margin-top: .8rem;
+
+    color: #241815;
+    opacity: .85;
+}
+
+.work-with-wrapper {
+    position: relative;
+
+    padding: .1rem;
+
+    margin-top: 3.2rem;
+
+    background-color: rgba(255, 255, 255, .45);
+
+    border-radius: 2.4rem;
+}
+
+.work-with-contents {
+    padding: 2.4rem 2.4rem 2.4rem 2.4rem;
+}
+
+.work-with-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.work-with-content-inner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+}
+
+
+.work-with-description {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.6rem;
+
+    margin-top: 1.6rem;
+}
+
+.work-with-content-item {
+    padding: 2.4rem 1.6rem;
+
+    text-align: center;
+
+    background-color: #FFFFFF;
+
+    border-radius: 1.6rem;
+}
+
+.work-with-value {
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: #FD5444;
+
+    font-family: 'Libre Baskerville';
+}
+.work-with-type {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #34221E;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+    .work-with-content-inner-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .work-with-contents {
+        padding: 4rem 0rem 4rem 4rem;
+    }
+}
+
+/* Testimonial Slider */
+
+
+h3.mep-headline.text-center {
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+}
+
+.mep-paginaton-outer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin-top: 4rem;
+    
+}
+.mep-slider-outer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+}
+
+.mep-slider,.mep-video-slider {
+    display: flex;
+    
+    overflow: hidden;
+}
+
+
+.mep-testimonial-pagination {
+    width: 1.6rem;
+    height: 1.6rem;
+
+    background-color: rgba(255, 255, 255, .65);
+
+    border: .1rem solid #F4F0EC;
+
+    border-radius: 50%;
+
+    transition: all .3s ease-in-out;
+
+    cursor: pointer;
+}
+
+.mep-testimonial-pagination.active {
+    width: 3.6rem;
+
+    background-color: #FE8067;
+    
+    border-radius: 1.6rem;
+
+    border-color: #FD5444;
+}
+
+.mep-slider-item-content {        
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 29.8rem;
+
+    padding: 1.6rem 3.2rem 3.2rem 2.4rem;
+
+    background-color: rgba(255, 255, 255, .65);
+
+    border: .1rem solid #F4F0EC;
+    border-radius: 1.6rem;
+}
+
+.mep-slider .mep-slide {
+    width: 100%;
+    gap: 3.2rem;
+}
+
+.mep-slider-customer-description {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+
+    margin-top: 1.2rem;
+}
+
+
+.mep-slider-item-quote-text {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    color: #241815;
+
+    margin-top: 1.2rem;
+}
+
+.mep-slider-item-quote-customer {
+    display: inline;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+
+    color: #241815;
+}
+
+.mep-slider-item-quote-type {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    color: #241815;
+}
+
+.mep-slider-pagination-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .8rem;
+
+    margin-top: -2rem;
+    margin-left: 2.4rem;
+
+    order: -1
+}
+
+.wistia_responsive_padding {
+    width: 100%;
+    height: 100%;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 1.6rem;
+    overflow: hidden;
+}
+
+:global(#mep-testimonial .wistia_responsive_padding iframe) {
+    border-radius: 1.6rem !important;
+}
+
+@media screen and (min-width: 768px) {
+
+    .mep-paginaton-outer-wrapper {
+        margin-top: 0;
+    }
+
+    .mep-slider-outer-wrapper {
+        display: grid;            
+        grid-template-columns: 1fr 1fr;
+    }
+
+    h3.mep-headline.text-center {
+        font-weight: 700;
+    }
+
+    .mep-slider-pagination-wrapper {
+        order: 1;
+        padding-left: 2.4rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    .mep-slide {
+        padding: 2rem;
+    }
+}
+
+
+/* MEP OFFER CTA */
+
+
+.mep-section.xl {
+    background:linear-gradient(to right, rgba(244,240,236), rgba(249,247,245));
+}
+
+.expert-trusted-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+}
+
+.light-font {
+    font-weight: 400;
+}
+
+@media screen and (min-width: 481px) {
+    .light-font {
+        font-weight: 700;
+    }
+}
