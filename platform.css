@@ -1,0 +1,542 @@
+/* MEP PLATFORM */
+
+body {
+	background-color: #F9F7F5 !important;
+}
+
+.trusted-gradient-wrapper, .information-section-wrapper {
+	position: relative;
+}
+
+.trusted-gradient-wrapper > img,.information-section-wrapper > img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 0;
+	
+	filter: blur(10rem);
+	height: 100%;
+}
+
+.information-section-wrapper > img {
+	left: 0;
+	z-index: -1;
+}
+
+
+
+/* MEP PLATFORM HERO */
+
+.mep-platform-hero h1.mep-headline {
+	position: relative;
+	z-index: 2;
+
+	font-size: 6rem;
+	line-height: 8rem;
+	color: #FFFFFF;
+}
+.mep-platform-hero .mep-cta-button.lg {
+	position: relative;
+	z-index: 2;
+
+	margin-block: 3.2rem;
+}
+
+.mep-platform-hero {
+	position: relative;
+
+	padding-top: 9.6rem;
+
+	background-image: url("/assets/images/lp/mep-platform/mep-platform-hero.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	border-bottom-left-radius: 1.6rem;
+	border-bottom-right-radius: 1.6rem;
+
+	overflow: hidden;
+}
+
+.mep-platform-hero-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	background: rgba(36, 24, 21, .55);
+
+	z-index: 1;
+}
+
+.mep-platform-hero-contents {
+	position: relative;
+	z-index: 2;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.4rem;
+}
+
+.mep-platform-hero-content-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: .8rem;
+}
+
+.mep-platform-content-title {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+	color: #FFFFFF;
+}
+.mep-platform-content-subtitle {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: #FFFFFF;
+	opacity: .65;
+}
+
+.mep-platform-content-bg {
+	position: relative;
+
+	margin-top: 3.2rem;
+
+	z-index: 2;
+
+	box-shadow: 0 .4rem .4rem rgba(0,0,0,.25);
+}
+.mep-platform-content-bg img {
+
+	width: 100%;
+	height: 100%;
+
+	border-radius: .8rem;
+}
+
+.mep-platform-content-bg-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to top, rgba(35, 25, 36, 1) 0%, rgba(102,102,102,0) 100%);
+
+	z-index: 3;
+}
+
+@media screen and (min-width: 768px) {
+
+	.mep-platform-hero-contents {
+		position: relative;
+		z-index: 2;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 4rem;
+	}
+
+	.mep-platform-content-title {
+		font-size: 2rem;
+		line-height: 2.6rem;
+	}
+}
+
+
+/* INFORMATION SECTION */
+
+
+.mep-platform-information-wrapper {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 3.2rem;
+
+	padding: 3.2rem 1.6rem;
+
+	background-color: rgba(255, 255, 255, .65);
+
+	border: .1rem solid #f4f0ec;
+
+	border-radius: 2.4rem;
+}
+
+.mep-platform-information-description h3 {
+	text-align: center;
+}
+
+.mep-platform-information-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+}
+
+.mep-platform-information-list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 2.4rem;
+
+	margin-top: 4rem;
+}
+
+.mep-platform-information-item > div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: .8rem;
+}
+
+.information-list-title {
+	font-size: 2.4rem;
+	line-height: 3.2rem;
+
+	font-family: 'Libre Baskerville';
+	font-weight: 400;
+}
+
+.information-list-subtitle {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+
+	color: rgba(36, 24, 21, .65);
+}
+
+.mep-platform-information-video-wrapper {
+	background-color: #F5F0ED;
+	border-radius: 3.2rem;
+
+	width: 100%;
+}
+
+.information-section-badge {
+	width: fit-content;
+	padding: .8rem 1.6rem;
+
+	background-color: #FFE9D2;
+	color: #B62416;
+
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+
+	border-radius: 3.2rem;
+
+	align-self: flex-start;
+
+	margin-bottom: 2.4rem;
+}
+
+.wistia_responsive_padding {
+	width: 100%;
+	height: 100%;
+	min-width: 100% !important;
+	max-width: 100% !important;
+	border-radius: 1.6rem;
+	overflow: hidden;
+	min-height: 29rem !important;
+}
+
+@media screen and (min-width: 768px) {
+
+	.wistia_responsive_padding {
+		min-height: 54rem !important;
+	}
+
+	.mep-platform-information-wrapper {
+		flex-direction: row;
+		padding: 3.2rem;
+
+		gap: 6.4rem;
+	}
+
+	.mep-platform-information-description {
+		width: 50%;            
+	}
+
+	.mep-platform-information-description h3 {
+		text-align: left;
+	}
+
+	.mep-platform-information-video-wrapper {
+		background-color: #F5F0ED;
+		width: 50%;
+	}
+
+	.information-list-subtitle {
+		font-size: 2rem;
+		line-height: 2.6rem;
+
+		color: rgba(36, 24, 21, .65);
+	}
+
+}
+
+
+/* MEP Information TAB */
+
+
+.information-tab-wrapper {
+
+	background-color: rgba(255, 255, 255, .65);
+
+	border: .1rem solid #F4F0EC;
+
+	padding: 4rem 1.6rem;
+
+	border-radius: 1.6rem;
+}
+
+.informations-tabs {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3.2rem;
+
+	margin-top: 2.4rem;
+}
+
+.information-tab-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: .8rem;
+
+	padding-top: 2.4rem;
+
+	border-top: .2rem solid #E8E5E3;
+
+	transition: all .3s ease-in-out;
+
+	cursor: pointer;
+}
+
+.information-tab-title {
+	font-size: 2.4rem;
+	line-height: 3.2rem;
+
+	color: rgba(36, 24, 21, .55);
+	font-family: 'Libre Baskerville';
+
+	transition: all .3s ease-in-out;
+}
+
+.information-tab-subtitle {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+
+	color: rgba(36, 24, 21, .35);
+	
+	transition: all .3s ease-in-out;
+}
+
+.information-tab-item.selected {
+	border-color: #FD5444;
+}
+
+.information-tab-item:hover .information-tab-title,.information-tab-item.selected .information-tab-title {
+	color: rgba(36, 24, 21, .85);
+}
+.information-tab-item:hover .information-tab-subtitle,.information-tab-item.selected .information-tab-subtitle {
+	color: rgba(36, 24, 21, .65);
+}
+
+.information-tab-wrapper img {
+	border-radius: 3.2rem;
+}
+
+.information-tab-header-subtitle {
+	font-size: 2rem;
+	line-height: 2.6rem;
+	margin-block: .8rem 2.4rem;
+}
+
+.wistia_responsive_padding {
+	width: 100%;
+	height: 100%;
+	min-width: 100% !important;
+	max-width: 100% !important;
+	border-radius: 1.6rem;
+	overflow: hidden;
+	min-height: 31rem !important;
+}
+
+@media screen and (min-width: 768px) {
+	.informations-tabs  .wistia_responsive_padding {
+		display: none;
+	}
+
+	.information-tab-wrapper {
+		padding: 4.8rem 3.2rem;
+	}
+
+	.informations-tabs {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+
+h3.mep-headline.text-center {
+	margin-bottom: 1.2rem;
+	font-weight: 400;
+}
+
+.mep-paginaton-outer-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	margin-top: 4rem;
+	
+}
+.mep-slider-outer-wrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3.2rem;
+}
+
+.mep-slider,.mep-video-slider {
+	display: flex;
+	
+	overflow: hidden;
+}
+
+
+.mep-testimonial-pagination {
+	width: 1.6rem;
+	height: 1.6rem;
+
+	background-color: rgba(255, 255, 255, .65);
+
+	border: .1rem solid #F4F0EC;
+
+	border-radius: 50%;
+
+	transition: all .3s ease-in-out;
+
+	cursor: pointer;
+}
+
+.mep-testimonial-pagination.active {
+	width: 3.6rem;
+
+	background-color: #FE8067;
+	
+	border-radius: 1.6rem;
+
+	border-color: #FD5444;
+}
+
+.mep-slider-item-content {        
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+
+	min-height: 29.8rem;
+
+	padding: 1.6rem 3.2rem 3.2rem 2.4rem;
+
+	background-color: rgba(255, 255, 255, .65);
+
+	border: .1rem solid #F4F0EC;
+	border-radius: 1.6rem;
+}
+
+.mep-slider .mep-slide {
+	width: 100%;
+	gap: 3.2rem;
+}
+
+.mep-slider-customer-description {
+	display: flex;
+	align-items: center;
+	gap: .4rem;
+
+	margin-top: 1.2rem;
+}
+
+
+.mep-slider-item-quote-text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+	color: #241815;
+
+	margin-top: 1.2rem;
+}
+
+.mep-slider-item-quote-customer {
+	display: inline;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 700;
+
+	color: #241815;
+}
+
+.mep-slider-item-quote-type {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 300;
+	color: #241815;
+}
+
+.mep-slider-pagination-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: .8rem;
+
+	margin-top: -2rem;
+	margin-left: 2.4rem;
+
+	order: -1
+}
+
+.wistia_responsive_padding {
+	width: 100%;
+	height: 100%;
+	min-width: 100% !important;
+	max-width: 100% !important;
+	border-radius: 1.6rem;
+	overflow: hidden;
+}
+
+:global(#mep-testimonial .wistia_responsive_padding iframe) {
+	border-radius: 1.6rem !important;
+}
+
+@media screen and (min-width: 768px) {
+
+	.mep-paginaton-outer-wrapper {
+		margin-top: 0;
+	}
+
+	.mep-slider-outer-wrapper {
+		display: grid;            
+		grid-template-columns: 1fr 1fr;
+	}
+
+	h3.mep-headline.text-center {
+		font-weight: 700;
+	}
+
+	.mep-slider-pagination-wrapper {
+		order: 1;
+		padding-left: 2.4rem;
+		position: relative;
+		z-index: 10;
+	}
+
+	.mep-slide {
+		padding: 2rem;
+	}
+}
+

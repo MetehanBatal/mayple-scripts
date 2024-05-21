@@ -1641,3 +1641,7 @@ h3.mep-headline {
 .padding-16rem {
 	padding-top: 16.4rem;
 }
+
+.mobile-video-wrapper.hidden {
+	display: none !important;
+}
