@@ -1,0 +1,311 @@
+/* CCS HERO */
+
+section.ccs {
+        background-image: url("/assets/images/lp/ccs/ccs-hero.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .ccs-hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;       
+        
+        text-align: center;
+    }
+
+    section.ccs h1.mep-headline {
+        color: #241815;
+        font-weight: 300;
+    }
+
+
+    .ccs-subtitle {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        color: #241815;
+        opacity: .85;
+
+        margin-block: 1.1rem 3.2rem;
+    }
+
+    @media screen and (min-width: 481px) {
+
+        section.ccs h1.mep-headline {
+            color: #241815;
+            font-weight: 700;
+        }
+
+    }
+
+/* CCS Information  */
+
+#ccs h3.mep-headline {
+    font-size: 4.2rem;
+    line-height: 5.6rem;
+    text-align: center;
+}
+section.mep-section {
+    position: relative;    
+}
+
+.ccs-section-content-wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3;
+}
+
+.ccs-section-content-wrapper > img {
+    margin-bottom: .8rem;
+}
+
+.ccs-section-items-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2.4rem;
+}
+
+.ccs-section-content-wrapper  p {
+    color: #241815;
+
+    opacity: .65;
+}
+
+.ccs-section-item {
+    width: 100%;
+
+    padding: 3.2rem;
+
+    background-color: rgba(255, 255, 255, .65);
+
+    border: .1rem solid rgba(255, 255, 255, .85);
+    border-radius: 2.4rem;
+}
+
+.ccs-item-title {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-family: 'Libre Baskerville';
+    font-weight: 700;
+
+    opacity: 1 !important;
+
+    margin-bottom: 1.6rem;
+}
+
+.ccs-item-subtitle {
+    font-size: 2rem;
+    line-height: 2.6rem;
+}
+
+.ccs-subtitle {
+    margin-block: .8rem 3.2rem;
+
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+
+    text-align: center;
+}
+
+.ccs-bottom-information {
+    position: relative;
+
+    width: 100%;
+    max-width: 96rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.6rem;
+
+    margin: 4.8rem auto 0 auto;
+
+    text-align: center;
+
+    background-color: #FFF5EB;
+
+    border: .1rem solid #FEAB90;
+
+    border-radius: 2.4rem;   
+
+    z-index: 3;
+}
+
+.ccs-bottom-information .low-text {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    color: rgba(36, 24, 21, .65);
+}
+
+span.orange-text {
+    font-size: inherit;
+    line-height: inherit;
+    color: rgba(253, 84, 68, 1);
+}
+
+.ccs-bottom-title {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 600;
+    font-family: 'Libre Baskerville';
+
+    color: rgba(36, 24, 21, .65);
+}
+
+.ccs-section-items-wrapper.ccs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* DARK */
+
+.dark-bg-color {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(36, 24, 21, .53);
+    z-index: 2;   
+}
+
+.dark-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url("/assets/images/lp/ccs/ccs-section-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 1;
+
+    z-index: 1;
+}
+.mep-section.dark p, .mep-section.dark h3 {
+    color: #FFF !important;
+}
+
+.mep-section.dark .ccs-section-item {
+    color: #FFF !important;
+
+    background-color: rgba(255, 255, 255, .05);
+
+    border: .1rem solid rgba(255, 255, 255, .25);
+}
+
+.mep-section.dark .ccs-section-content-wrapper  p {
+    opacity: .75;
+}
+
+.mep-section.dark .ccs-bottom-information {
+    background-color: rgba(254, 128, 103, .11);
+
+    border-color: #FE8067;
+}
+
+.mep-section.dark .ccs-bottom-information .low-text {
+    opacity: .95;
+}
+
+.mep-section.dark .ccs-bottom-information .ccs-bottom-title {
+    color: rgba(255, 255, 255, .95) !important;
+}
+
+:global(.mep-section.dark .orange-text) {
+    color: #FE8067 !important;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .ccs-section-items-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .ccs-section-items-wrapper.ccs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+
+
+/* CCS TEstimonial */
+
+
+.ccs-testimonial-img-wrapper {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: .4rem solid #FFFFFF;
+
+    border-radius: 50%;
+
+    box-shadow: 
+    0 2rem 1rem rgba(0,0,0,.04),
+    0 .6rem .2rem rgba(0,0,0,.04),
+    0 .1rem 0rem rgba(0,0,0,.04);
+}
+
+.ccs-testimonial-item {
+    width: 100%;
+    max-width: 96rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+.ccs-testimonial-text {
+    margin-block: 4rem;
+
+    font-size: 3.2rem;
+    line-height: 4rem;
+    font-family: 'Libre Baskerville';
+    font-style: italic;
+
+    color: #241815;
+
+    opacity: .75;
+}
+
+.ccs-author-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+}
+
+.ccs-testimonial-author {
+    color: #241815;
+    font-weight: 700;
+}
+
+.ccs-testimonial-title {
+    color: #241815;
+}
