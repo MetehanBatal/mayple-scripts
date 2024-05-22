@@ -397,6 +397,11 @@
     width: 100%;
 }
 
+.mep-platform-information-wrapper .mep-platform-information-video-wrapper iframe {
+    height: 56rem !important;
+    width: 100% !important;
+}
+
 .information-tab-wrapper.hidden {
     display: none;
 }
