@@ -429,7 +429,7 @@
         height: 62rem;
     }
 
-    #mep-experts .mep-platform-information-video-wrapper iframe {
+    .mep-platform-information-wrapper .mep-platform-information-video-wrapper iframe {
         height: 56rem !important;
         width: 100% !important;
     }
