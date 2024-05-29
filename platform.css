@@ -213,6 +213,8 @@ body {
 	border-radius: 3.2rem;
 
 	width: 100%;
+
+	position: relative;
 }
 
 .information-section-badge {
