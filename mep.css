@@ -1653,3 +1653,11 @@ h3.mep-headline {
 	font-weight: 500;
     color: #241815;
 }
+
+.mep-ccs-idea-content-wrapper ul {
+	padding-left: 24px !important;
+}    
+
+.mep-ccs-idea-content-wrapper ul li {
+	list-style-type: disc !important;
+}
