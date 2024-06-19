@@ -220,9 +220,7 @@ h4.mep-headline {
 }
 
 @media screen and (min-width: 479px) {
-	.mep-ccs-section.no-pb {
-		padding-bottom: 90px !important;
-	}
+
 	.mep-container {
 		width: 100%;
 		max-width: 128rem;    
@@ -546,6 +544,13 @@ input[type="number"] {
 		align-items: flex-start;
 		justify-content: flex-start;
 		gap: 4.8rem;
+	}
+
+}
+@media screen and (max-width: 479px) {
+
+	.mep-ccs-section.no-pb {
+		padding-bottom: 90px !important;
 	}
 
 }
