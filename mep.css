@@ -220,6 +220,9 @@ h4.mep-headline {
 }
 
 @media screen and (min-width: 479px) {
+	.mep-ccs-section.no-pb {
+		padding-bottom: 90px;
+	}
 	.mep-container {
 		width: 100%;
 		max-width: 128rem;    
@@ -1661,3 +1664,4 @@ h3.mep-headline {
 .mep-ccs-idea-content-wrapper ul li {
 	list-style-type: disc !important;
 }
+
