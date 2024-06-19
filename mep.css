@@ -547,13 +547,6 @@ input[type="number"] {
 	}
 
 }
-@media screen and (max-width: 479px) {
-
-	.mep-ccs-section.no-pb {
-		padding-bottom: 90px !important;
-	}
-
-}
 
 @media screen and (min-width: 991px) {
 	.result-name {
