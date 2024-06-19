@@ -221,7 +221,7 @@ h4.mep-headline {
 
 @media screen and (min-width: 479px) {
 	.mep-ccs-section.no-pb {
-		padding-bottom: 90px;
+		padding-bottom: 90px !important;
 	}
 	.mep-container {
 		width: 100%;
