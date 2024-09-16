@@ -219,6 +219,12 @@ h4.mep-headline {
 	padding: 1.2rem 5.6rem;
 }
 
+.mep-section-calculator {
+	transform: translateY(3rem);
+    position: relative;
+    z-index: 10;
+}
+
 @media screen and (min-width: 479px) {
 
 	.mep-container {
